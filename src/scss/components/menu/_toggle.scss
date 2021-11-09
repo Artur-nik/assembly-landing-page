@@ -1,0 +1,72 @@
+.menu-toggle {
+	width: 1em;
+	height: 1em;
+	display: block;
+	//background-color: $bg-dark;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	cursor: pointer;
+	font-size: 40px;
+	color: currentColor;
+	//*
+	&__item {
+		display: block;
+		position: relative;
+		//background-color: currentColor;
+		height: 0.1em;
+		width: 1em;
+		border-radius: 0.1em;
+		transition: background 0s 0.3s;
+		//*
+		&:after,
+		&:before {
+			content: "";
+			position: absolute;
+			background-color: currentColor;
+			right: 0;
+			display: block;
+			height: 100%;
+			width: 100%;
+			border-radius: 0.1em;
+
+			transition: transform 0.3s  0s, 
+						bottom 0.3s 0.3s, 
+						width 0.3s 0.6s;
+		}
+		&:after {
+			bottom: 0.125em;
+		}
+		&:before {
+			bottom: -0.125em;
+			width: 65%;
+		}
+	}
+	//* Active
+	&._active {
+		& .menu-toggle__item {
+			background: none;
+			&:after,
+			&:before {
+				transition: transform 0.3s 0.6s, 
+							bottom 0.3s 0.3s, 
+							width 0.3s 0s;
+			}
+			&:after {
+				bottom: 0;
+				transform: rotate(45deg);
+			}
+			&:before {
+				width: 100%;
+				bottom: 0;
+				transform: rotate(-45deg);
+			}
+		}
+	}
+	//? модификаторы
+	&._left {
+		//* работает в flex контейнере
+		margin-left: auto;
+	}
+}

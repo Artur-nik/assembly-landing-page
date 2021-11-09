@@ -1,0 +1,24 @@
+.social {
+    display: flex;
+    flex-wrap: wrap;
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        width: 1em;
+        height: 1em;
+        margin-right: 0.25em;
+        font-size: size(64);
+        border-radius: 50%;
+        overflow: hidden;
+        background-color: #000;
+        color: #fff;
+        .icon {
+            font-size: 0.5em;
+        }
+        &:hover {
+            background-color: rgb(43, 43, 43);
+        }
+    }
+}

@@ -1,0 +1,89 @@
+/* 
+<div class="questions">
+    <div class="questions-item">
+        <div class="questions-item__header">
+            <div class="questions-item__title"></div>
+            <div class="questions-item__toggel _plus"></div>
+        </div>
+        <div class="questions-item__body"></div>
+    </div>
+</div>
+*/
+//*
+.questions {
+    display: flex;
+    flex-direction: column;
+    //
+    &-item {
+        margin-bottom: size(25);
+        //*
+        &__header {
+            //min-height: size(110);
+            background-color: rgb(241, 241, 241);
+            padding: size(20,50);
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            @include media(lg) {
+                padding: size(20) size(65);
+            }
+            &._active .questions-item__toggel{
+                //color: rgb(255, 117, 117);
+                &._plus {
+                    &:after {
+                        transform: rotate(-45deg);
+                    }
+                    &:before {
+                        transform: rotate(45deg);
+                    }
+                }
+                &._arrow .icon{
+                    transform: rotate(-90deg);
+                }
+            }
+        }
+        //*
+        &__title {
+            margin-right: size(25);
+        }
+        //*
+        &__toggel {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &._plus {
+                height: 1em;
+                width: 1em;
+                font-size: size(25);
+                position: relative;
+                color: #A6A673;
+                flex: 0 0 auto;
+                &:before,
+                &:after {
+                    content: '';
+                    position: absolute;
+                    height: 2px;
+                    width: 100%;
+                    background: currentColor;
+                    transition-duration: $td;
+                }
+                &:after {
+                    transform: rotate(90deg);
+                }
+            }
+            &._arrow .icon{
+                transform: rotate(90deg);
+            }
+        }
+        //* text
+        &__body {
+            display: none;
+            padding: size(20,50);
+            @include media(lg) {
+                padding: size(20) size(65);
+            }
+        }
+    }
+    
+}

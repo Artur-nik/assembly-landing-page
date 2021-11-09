@@ -1,0 +1,18 @@
+//*
+@function col($col, $_columns: $columns) {
+    $col:round($col); 
+    @if type-of($col) == number and unitless($col) and $col > 0 and $col <= $_columns {
+         @return #{100% / ($_columns / $col)};
+    }
+    @else {
+        @warn 'Max columns: #{$columns}';
+        @return null;
+    }
+
+}
+//*
+@mixin col($col, $bp: 'default', $_columns: $columns) {
+    @include media($bp) {
+        max-width: col($col, $_columns);
+    }
+}

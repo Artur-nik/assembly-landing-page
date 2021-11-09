@@ -1,0 +1,53 @@
+$form-message-bg:#000;
+
+.form-send {
+    position: relative;
+    z-index: 20;
+    &__message {
+        display: none;
+        position: absolute;
+        padding: 1em;
+        width: 100%;
+        left: 0;
+        bottom: calc(100% + #{size(20)});
+        //border-radius: size(12);
+
+        text-align: center;
+
+        box-shadow: 0px 4px size(40) rgba(28, 46, 64, 0.06);
+        background: $form-message-bg;
+        color: #fff;
+
+        &:before {
+            content: "";
+            position: absolute;
+            border: 8px solid transparent;
+            border-top: 8px solid $form-message-bg;
+            top: 100%;
+            left:calc(50% - 8px);
+        }
+    }
+
+    //
+    &__loading {
+        position: relative;
+        span {
+            height: 2em;
+            width: 2em;
+            border-radius: 50%;
+            border: 2px solid currentColor;
+            display: block;
+            margin: 0 auto;
+            border-bottom: 0;
+            border-right: 0;
+            animation: loading .5s infinite linear;
+        }
+    }
+    // тексты сообщения
+    &__success {
+        display: none;
+    }
+    &__error {
+        display: none;
+    }
+}

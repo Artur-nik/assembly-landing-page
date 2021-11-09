@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<script src="https://rawgit.com/jonathantneal/svg4everybody/master/dist/svg4everybody.js"></script>
+		<script>svg4everybody();</script>
+		<title>SVG &lt;symbol&gt; sprite preview | svg-sprite</title>
+		<style>@charset "UTF-8";body{padding:0;margin:0;color:#666;background:#fafafa;font-family:Arial,Helvetica,sans-serif;font-size:1em;line-height:1.4}header{display:block;padding:3em 3em 2em 3em;background-color:#fff}header p{margin:2em 0 0 0}section{border-top:1px solid #eee;padding:2em 3em 0 3em}section ul{margin:0;padding:0}section li{display:inline;display:inline-block;background-color:#fff;position:relative;margin:0 2em 2em 0;vertical-align:top;border:1px solid #ccc;padding:1em 1em 3em 1em;cursor:default}.icon-box{margin:0;width:144px;height:144px;position:relative;background:#ccc url("data:image/gif;base64,R0lGODlhDAAMAIAAAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjk4OTI0MUY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjk4OTI0MkY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCOTg5MjNGRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCOTg5MjQwRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAwADAAAAhaEH6mHmmzcgzJAUG/NVGrfOZ8YLlABADs=") top left repeat;border:1px solid #ccc;display:table-cell;vertical-align:middle;text-align:center}.icon{display:inline;display:inline-block}h1{margin-top:0}h2{margin:0;padding:0;font-size:1em;font-weight:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;left:1em;right:1em;bottom:1em}footer{display:block;margin:0;padding:0 3em 3em 3em}footer p{margin:0;font-size:.7em}footer a{color:#0f7595;margin-left:0}</style>
+		
+<!--
+	
+Sprite shape dimensions
+====================================================================================================
+You will need to set the sprite shape dimensions via CSS when you use them as inline SVG, otherwise
+they would become a huge 100% in size. You may use the following dimension classes for doing so.
+They might well be outsourced to an external stylesheet of course.
+
+-->
+
+<style type="text/css">
+	.svg-arrow-dims { width: 25px; height: 24px; }
+	.svg-check-dims { width: 24px; height: 24px; }
+	.svg-close-dims { width: 24px; height: 24px; }
+	.svg-file-dims { width: 957.6px; height: 957.6px; }
+	.svg-instagram-dims { width: 24px; height: 24px; }
+	.svg-long-arrow-dims { width: 22px; height: 22px; }
+	.svg-telegram-dims { width: 24px; height: 24px; }
+</style>
+<!--
+====================================================================================================
+-->
+
+	</head>
+	<body>
+	
+<!--
+	
+Inline <symbol> SVG sprite
+====================================================================================================
+This is an inlined version of the generated SVG sprite. The single images may be <use>d everywhere
+below within this document. Please see
+
+	https://github.com/jkphl/svg-sprite/blob/master/docs/configuration.md#defs--symbol-mode
+
+for further details on how to create this embeddable sprite variant.
+
+-->
+
+<svg width="0" height="0" style="position:absolute">
+		<symbol viewBox="0 0 25 24" id="arrow"><path d="M20.882 13.188L10.02 23.508a1.835 1.835 0 01-2.502 0 1.622 1.622 0 010-2.377L17.129 12 7.52 2.87a1.622 1.622 0 010-2.378 1.835 1.835 0 012.501 0l10.862 10.32c.345.328.518.758.518 1.188 0 .43-.173.86-.518 1.188z"/></symbol>
+		<symbol viewBox="0 0 24 24" id="check"><path d="M22.678 3.876a1.065 1.065 0 00-1.556 0L7.944 17.68l-5.066-5.306a1.065 1.065 0 00-1.556 0c-.43.45-.43 1.18 0 1.63l5.844 6.12c.43.45 1.126.45 1.555 0L22.678 5.505c.43-.45.43-1.18 0-1.63z"/></symbol>
+		<symbol viewBox="0 0 24 24" id="close"><path d="M14.034 12l9.044-9.044A1.437 1.437 0 1021.045.922L12 9.966 2.955.922A1.438 1.438 0 10.921 2.956L9.966 12 .921 21.045a1.437 1.437 0 102.034 2.033L12 14.034l9.045 9.044a1.434 1.434 0 002.033 0 1.437 1.437 0 000-2.034L14.034 12z"/></symbol>
+		<symbol viewBox="0 0 957.599 957.6" id="file"><path d="M817.9 108.4h-28v687.901c0 45.699-37.2 82.898-82.899 82.898H197.7v25.5c0 29.201 23.7 52.9 52.9 52.9h567.2c29.2 0 52.899-23.699 52.899-52.9V161.3c.001-29.2-23.599-52.9-52.799-52.9z"/><path d="M423.3 849.199h283.6c29.2 0 52.9-23.699 52.9-52.898V52.9c0-29.2-23.7-52.9-52.9-52.9H329v17.5c.199 1.8.3 3.7.3 5.6V168c0 41.1-33.4 74.5-74.5 74.5H109.9c-1.5 0-3.1-.1-4.6-.2H86.9v554.001c0 29.199 23.7 52.898 52.9 52.898h283.5zM434 669.4H249.1c-13.8 0-25-11.201-25-25 0-13.801 11.2-25 25-25h185c13.8 0 25 11.199 25 25 0 13.799-11.3 25-25.1 25zm185-127.599H249.1c-13.8 0-25-11.201-25-25 0-13.801 11.2-25 25-25H619c13.8 0 25 11.199 25 25 0 13.799-11.2 25-25 25zM249.1 356.3H619c13.8 0 25 11.2 25 25s-11.2 25-25 25H249.1c-13.8 0-25-11.2-25-25s11.2-25 25-25z"/><path d="M109.9 212.5h145.3c24.2-.2 43.8-19.8 44-44V23.1c0-13.4-11-22.3-22.399-22.3-5.5 0-11 2-15.6 6.6L94.1 174.5c-14 14-4.1 38 15.8 38z"/></symbol>
+		<symbol viewBox="0 0 24 24" id="instagram"><path d="M12 1c-2.987 0-3.362.013-4.535.066-1.171.054-1.97.24-2.67.512a5.392 5.392 0 00-1.949 1.268 5.392 5.392 0 00-1.269 1.949c-.271.7-.457 1.499-.51 2.67C1.012 8.638 1 9.013 1 12s.013 3.362.066 4.535c.054 1.171.24 1.97.511 2.67a5.392 5.392 0 001.27 1.949 5.392 5.392 0 001.948 1.268c.7.272 1.499.458 2.67.512C8.638 22.987 9.013 23 12 23s3.362-.013 4.535-.066c1.171-.054 1.97-.24 2.67-.512a5.392 5.392 0 001.949-1.268 5.392 5.392 0 001.268-1.949c.272-.7.458-1.499.512-2.67.053-1.173.066-1.548.066-4.535s-.013-3.362-.066-4.535c-.054-1.171-.24-1.97-.512-2.67a5.392 5.392 0 00-1.268-1.949 5.392 5.392 0 00-1.949-1.268c-.7-.272-1.499-.458-2.67-.512C15.362 1.013 14.987 1 12 1zm0 1.982c2.937 0 3.285.011 4.445.064 1.072.05 1.655.228 2.043.379.513.2.88.438 1.264.823.385.385.624.751.823 1.265.15.387.33.97.379 2.042.053 1.16.064 1.508.064 4.445 0 2.937-.011 3.285-.064 4.445-.049 1.072-.228 1.655-.379 2.043-.2.513-.438.88-.823 1.264a3.408 3.408 0 01-1.264.823c-.388.15-.97.33-2.043.379-1.16.053-1.508.064-4.445.064-2.937 0-3.285-.011-4.445-.064-1.072-.049-1.655-.228-2.042-.379a3.41 3.41 0 01-1.265-.823 3.408 3.408 0 01-.823-1.264c-.15-.388-.33-.97-.379-2.043-.053-1.16-.064-1.508-.064-4.445 0-2.937.011-3.285.064-4.445.049-1.072.228-1.655.379-2.042.2-.514.438-.88.823-1.265a3.409 3.409 0 011.265-.823c.387-.15.97-.33 2.042-.379 1.16-.053 1.508-.064 4.445-.064z"/><path d="M12 15.665a3.667 3.667 0 110-7.333 3.667 3.667 0 010 7.333zm0-9.315a5.649 5.649 0 100 11.297A5.649 5.649 0 0012 6.35zm7.192-.216a1.32 1.32 0 11-2.64 0 1.32 1.32 0 012.64 0z"/></symbol>
+		<symbol viewBox="0 0 22 22" id="long-arrow"><g clip-path="url(#fclip0)"><path d="M11.254 5.335a1.112 1.112 0 010-1.587 1.14 1.14 0 011.587 0l6.651 6.65c.206.206.333.492.333.809 0 .317-.127.603-.333.81l-6.65 6.65a1.112 1.112 0 01-1.588 0 1.112 1.112 0 010-1.587l4.762-4.746H-.889a1.116 1.116 0 01-1.11-1.126c0-.619.491-1.111 1.11-1.111h16.904l-4.76-4.762z"/></g><defs><clipPath id="fclip0"><path transform="rotate(-90 11 11)" d="M0 0h22v22H0z"/></clipPath></defs></symbol>
+		<symbol viewBox="0 0 24 24" id="telegram"><path d="M21.72 4.604L18.466 19.95c-.246 1.083-.886 1.352-1.796.842l-4.958-3.653-2.392 2.3c-.264.265-.486.487-.996.487l.356-5.05 9.189-8.303c.4-.356-.087-.554-.621-.197l-11.36 7.152-4.89-1.53c-1.064-.332-1.083-1.064.221-1.574l19.129-7.37c.886-.332 1.66.198 1.372 1.55z"/></symbol>
+</svg>
+
+<!--
+====================================================================================================
+-->
+		
+		<header>
+			<h1>SVG <code>&lt;symbol&gt;</code> sprite preview</h1>
+			<p>This preview features two methods of using the generated sprite in conjunction with inline SVG. Please have a look at the HTML source for further details and be aware of the following constraints:</p>
+			<ul>
+				<li>Your browser has to <a href="http://caniuse.com/#feat=svg-html5" target="_blank">support inline SVG</a> for these techniques to work.</li>
+				<li>The embedded sprite (A) slightly differs from the generated external one. Please <a href="https://github.com/jkphl/svg-sprite/blob/master/docs/configuration.md#defs--symbol-mode" target="_blank">see the documentation</a> for details on how to create such an embeddable sprite.</li>
+				<li>Internet Explorer up to version 11 doesn't support external sprites for use with inline SVG. For IE 9-11, you may polyfill this functionality with <a href="https://github.com/jonathantneal/svg4everybody" target="_blank">SVG for Everybody</a>.</li>
+			</ul>
+		</header>
+		<section>
+
+<!--
+	
+A) Inline SVG with embedded sprite
+====================================================================================================
+These SVG images make use of fragment identifiers (IDs) and are extracted out of the inline sprite
+embedded above. They may be styled via CSS.
+
+-->
+
+			<h3>A) Inline SVG with embedded sprite</h3>
+			<ul>
+
+				<li title="arrow">
+					<div class="icon-box">
+						
+						<!-- arrow -->
+						<svg class="svg-arrow-dims">
+							<use xlink:href="#arrow"></use>
+						</svg>
+						
+					</div>
+					<h2>arrow</h2>
+				</li>
+				<li title="check">
+					<div class="icon-box">
+						
+						<!-- check -->
+						<svg class="svg-check-dims">
+							<use xlink:href="#check"></use>
+						</svg>
+						
+					</div>
+					<h2>check</h2>
+				</li>
+				<li title="close">
+					<div class="icon-box">
+						
+						<!-- close -->
+						<svg class="svg-close-dims">
+							<use xlink:href="#close"></use>
+						</svg>
+						
+					</div>
+					<h2>close</h2>
+				</li>
+				<li title="file">
+					<div class="icon-box">
+						
+						<!-- file -->
+						<svg class="svg-file-dims">
+							<use xlink:href="#file"></use>
+						</svg>
+						
+					</div>
+					<h2>file</h2>
+				</li>
+				<li title="instagram">
+					<div class="icon-box">
+						
+						<!-- instagram -->
+						<svg class="svg-instagram-dims">
+							<use xlink:href="#instagram"></use>
+						</svg>
+						
+					</div>
+					<h2>instagram</h2>
+				</li>
+				<li title="long-arrow">
+					<div class="icon-box">
+						
+						<!-- long-arrow -->
+						<svg class="svg-long-arrow-dims">
+							<use xlink:href="#long-arrow"></use>
+						</svg>
+						
+					</div>
+					<h2>long-arrow</h2>
+				</li>
+				<li title="telegram">
+					<div class="icon-box">
+						
+						<!-- telegram -->
+						<svg class="svg-telegram-dims">
+							<use xlink:href="#telegram"></use>
+						</svg>
+						
+					</div>
+					<h2>telegram</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<section>
+
+<!--
+	
+B) Inline SVG with external sprite (IE 9-11 with polyfill only)
+====================================================================================================
+These SVG images make use of an URL + fragment identifiers (IDs) and refer to the regular external
+SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
+
+-->
+
+			<h3>B) Inline SVG with external sprite (IE 9-11 with polyfill only)</h3>
+			<ul>
+				
+				<li title="arrow">
+					<div class="icon-box">
+						
+						<!-- arrow -->
+						<svg class="svg-arrow-dims">
+							<use xlink:href="../sprite.svg#arrow"></use>
+						</svg>
+						
+					</div>
+					<h2>arrow</h2>
+				</li>
+				<li title="check">
+					<div class="icon-box">
+						
+						<!-- check -->
+						<svg class="svg-check-dims">
+							<use xlink:href="../sprite.svg#check"></use>
+						</svg>
+						
+					</div>
+					<h2>check</h2>
+				</li>
+				<li title="close">
+					<div class="icon-box">
+						
+						<!-- close -->
+						<svg class="svg-close-dims">
+							<use xlink:href="../sprite.svg#close"></use>
+						</svg>
+						
+					</div>
+					<h2>close</h2>
+				</li>
+				<li title="file">
+					<div class="icon-box">
+						
+						<!-- file -->
+						<svg class="svg-file-dims">
+							<use xlink:href="../sprite.svg#file"></use>
+						</svg>
+						
+					</div>
+					<h2>file</h2>
+				</li>
+				<li title="instagram">
+					<div class="icon-box">
+						
+						<!-- instagram -->
+						<svg class="svg-instagram-dims">
+							<use xlink:href="../sprite.svg#instagram"></use>
+						</svg>
+						
+					</div>
+					<h2>instagram</h2>
+				</li>
+				<li title="long-arrow">
+					<div class="icon-box">
+						
+						<!-- long-arrow -->
+						<svg class="svg-long-arrow-dims">
+							<use xlink:href="../sprite.svg#long-arrow"></use>
+						</svg>
+						
+					</div>
+					<h2>long-arrow</h2>
+				</li>
+				<li title="telegram">
+					<div class="icon-box">
+						
+						<!-- telegram -->
+						<svg class="svg-telegram-dims">
+							<use xlink:href="../sprite.svg#telegram"></use>
+						</svg>
+						
+					</div>
+					<h2>telegram</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<footer>
+			<p>Generated at Sat, 06 Nov 2021 19:10:28 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
+		</footer>
+	</body>
+</html>

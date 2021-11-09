@@ -1,0 +1,296 @@
+{
+	"swiper-lazy": {
+		"prefix": "swiper-lazy",
+		"scope": "html,php",
+		"body": [
+		  "<img class=\"swiper-lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\"/>",
+		  "<div class=\"swiper-lazy-preloader\"></div>"
+		],
+		"description": "swiper-lazy"
+	  },
+	"slider": {
+		"prefix": "slider",
+		"scope": "html,php",
+		"body": [
+		  "<div class=\"-slider swiper-container\">",
+		  "",
+		  "    <div class=\"swiper-wrapper\">",
+		  "        <div class=\"swiper-slide\">Slide 1</div>",
+		  "        <div class=\"swiper-slide\">Slide 2</div>",
+		  "        <div class=\"swiper-slide\">Slide 3</div>",
+		  "    </div>",
+		  "",
+		  "    <div class=\"swiper-pagination\"></div>",
+		  "",
+		  "    <button class=\"swiper-button-prev\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>",
+		  "    <button class=\"swiper-button-next\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>",
+		  "    ",
+		  "    <div class=\"swiper-scrollbar\"></div>",
+		  "</div>"
+		],
+		"description": "slider"
+	},
+	"title": {
+		"prefix": "title",
+		"scope": "html,php",
+		"body": [
+		  "<h2 class=\"${1}__title title title--size-lg\">${2}</h2>"
+		],
+		"description": "title"
+	},
+	"svg": {
+		"prefix": "icon",
+		"scope": "html,php",
+		"body": [
+			"<svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#$0\"></use></svg>"
+		],
+		"description": "icon"
+   },
+   "container": {
+		"prefix": "container",
+		"scope": "html,php",
+		"body": [
+			"<div class=\"container\">",
+			"  ",
+			"</div>"
+		],
+		"description": "container"
+ 	},
+ 	"container title name": {
+ 		"prefix": "container title-name",
+ 		"scope": "html,php",
+ 		"body": [
+ 		  "<div class=\"container\">",
+ 		  "    <h2 class=\"${0}__title title title--size-lg\"></h2>",
+ 		  "</div>"
+ 		],
+ 		"description": "container title name"
+ 	},
+ 	"container title": {
+ 		"prefix": "container title",
+ 		"scope": "html,php",
+ 		"body": [
+ 		  "<div class=\"container\">",
+ 		  "    <h2 class=\"title title--size-lg\"></h2>",
+ 		  "</div>"
+ 		],
+ 		"description": "container title"
+ 	},
+ 	"footer": {
+ 		"prefix": "footer",
+ 		"scope": "html,php",
+ 		"body": [
+ 			"<footer class=\"footer\">",
+ 			"    ",
+ 			"</footer>"
+ 		],
+ 		"description": "footer"
+	},
+	"header": {
+		"prefix": "header",
+		"scope": "html,php",
+		"body": [
+			"<header class=\"header\">",
+			"    ",
+			"</header>"
+		],
+		"description": "header"
+	},
+	"include": {
+		"prefix": "include",
+		"scope": "html,php",
+		"body": [
+			"@@include(\"_.html\",{})"
+		],
+		"description": "include"
+	},
+	"menu-toggle": {
+		"prefix": "menu-toggle",
+		"scope": "html,php",
+		"body": [
+			"<button class=\"menu-toggle\"><span class=\"menu-toggle__item\"></span></button>"
+		],
+		"description": "menu-toggle"
+	},
+	"img": {
+		"prefix": "img-lazyload",
+		"scope": "html,php",
+		"body": [
+			"<img class=\"lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>"
+		],
+		"description": "img lazyload"
+	},
+	"btn": {
+		"prefix": "btn",
+		"scope": "html,php",
+		"body": [
+			"<button class=\"btn btn--${1|default,outline,circle,link|}\"></button>"
+		],
+		"description": "button"
+	},
+	"btn video": {
+		"prefix": "btn video",
+		"scope": "html,php",
+		"body": [
+			"<button class=\"btn btn--${1|default,outline,circle,link|}\" data-modal-open=\"modal-video\" data-video-src=\"\"></button>"
+		],
+		"description": "button modal-open video"
+	},
+	"btn modal": {
+		"prefix": "btn modal",
+		"scope": "html,php",
+		"body": [
+			"<button class=\"btn btn--${1|default,outline,circle,link|}\" data-modal-open=\"${2|modal-form,modal-politic|}\"></button>"
+		],
+		"description": "button modal-open"
+	},
+	"form-field-required": {
+		"prefix": "form-field required",
+		"scope": "html,php",
+		"body": [
+		  "<label class=\"form-field\">",
+		  "    <input class=\"form-field__input\" type=\"${1|text,email,tel,number,password|}\" name=\"${2|name,email,phone|}\" required>",
+		  "    <span class=\"form-field__text\" data-valid=\"\" data-default=\"\"></span>",
+		  "    <svg class=\"form-field__error icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
+		  "    <svg class=\"form-field__check icon\"><use xlink:href=\"svg-sprite/sprite.svg#check\"></use></svg>",
+		  "</label>"
+		],
+		"description": ""
+	}
+	,
+	"form-field": {
+		"prefix": "form-field",
+		"scope": "html,php",
+		"body": [
+		  "<label class=\"form-field\">",
+		  "    <input class=\"form-field__input\" type=\"${1|text,email,tel,number,password|}\" name=\"${2|name,email,phone|}\">",
+		  "    <span class=\"form-field__text\"></span>",
+		  "</label>"
+		],
+		"description": ""
+	},
+	"questions": {
+		"prefix": "questions",
+		"scope": "html,php",
+		"body": [
+		  "<div class=\"questions\" ${1| ,data-questions=\"accordion\"|}>",
+		  "    <div class=\"questions-item\">",
+		  "        <div class=\"questions-item__header\">",
+		  "            <div class=\"questions-item__title\"></div>",
+		  "            <div class=\"questions-item__toggel _plus\"></div>",
+		  "        </div>",
+		  "        <div class=\"questions-item__body\"></div>",
+		  "    </div>",
+		  "    <div class=\"questions-item\">",
+		  "        <div class=\"questions-item__header\">",
+		  "            <div class=\"questions-item__title\"></div>",
+		  "            <div class=\"questions-item__toggel _arrow\">",
+		  "                <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg>",
+		  "            </div>",
+		  "        </div>",
+		  "        <div class=\"questions-item__body\"></div>",
+		  "    </div>",
+		  "</div>"
+		],
+		"description": "questions"
+	},
+	"image adaptive": {
+		"prefix": "img",
+		"scope": "html,php",
+		"body": [
+		  "<div class=\"adaptive-box\">",
+		  "    <div class=\"adaptive-box__wrapper\">",
+		  "        <img class=\"adaptive-box__item lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
+		  "    </div>",
+		  "    <span class=\"adaptive-box__loader loader\"></span>",
+		  "</div>"
+		],
+		"description": "Image"
+	},
+	"social": {
+		"prefix": "social",
+		"scope": "html,php",
+		"body": [
+		  "<div class=\"social\">",
+		  "    <a href=\"#\" class=\"social__item\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#\"></use></svg></a>",
+		  "</div>"
+		],
+		"description": "social"
+	  },
+	  "textarea required": {
+		"prefix": "textarea required",
+		"scope": "html,php",
+		"body": [
+		  "<label class=\"form-textarea\">",
+		  "    <textarea class=\"form-textarea__input\" name=\"\" required></textarea>",
+		  "    <span class=\"form-textarea__text\" data-valid=\"\" data-default=\"\">",
+		  "        Text required <span>*</span>",
+		  "    </span>",
+		  "</label>"
+		],
+		"description": "textarea required"
+	  },
+	  "textarea": {
+		"prefix": "textarea",
+		"scope": "html,php",
+		"body": [
+		  "<label class=\"form-textarea\">",
+		  "    <textarea class=\"form-textarea__input\" name=\"\"></textarea>",
+		  "    <span class=\"form-textarea__text\">",
+		  "        Text required",
+		  "    </span>",
+		  "</label>"
+		],
+		"description": "textarea"
+	},
+	"Image webp bp": {
+		"prefix": "img-webp-bp",
+		"scope": "html,php",
+		"body": [
+		  "<div class=\"adaptive-box\">",
+		  "    <div class=\"adaptive-box__wrapper\">",
+		  "        <picture>",
+		  "            <source srcset=\"images/\" type=\"image/webp\" media=\"(min-width: px)\">",
+		  "            <source srcset=\"images/\" media=\"(min-width: px)\">",
+		  "            <source srcset=\"images/\" type=\"image/webp\">",
+		  "            <img class=\"adaptive-box__item lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
+		  "        </picture>",
+		  "    </div>",
+		  "    <span class=\"adaptive-box__loader loader\"></span>",
+		  "</div>"
+		],
+		"description": "Image webp bp"
+	},
+	"Image webp": {
+		"prefix": "img-webp",
+		"scope": "html,php",
+		"body": [
+		  "<div class=\"adaptive-box\">",
+		  "    <div class=\"adaptive-box__wrapper\">",
+		  "        <picture>",
+		  "            <source srcset=\"images/.webp\" type=\"image/webp\">",
+		  "            <img class=\"adaptive-box__item lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
+		  "        </picture>",
+		  "    </div>",
+		  "    <span class=\"adaptive-box__loader loader\"></span>",
+		  "</div>"
+		],
+		"description": "Image webp"
+	},
+	"Image bp": {
+		"prefix": "img-bp",
+		"scope": "html,php",
+		"body": [
+		  "<div class=\"adaptive-box\">",
+		  "    <div class=\"adaptive-box__wrapper\">",
+		  "        <picture>",
+		  "            <source srcset=\"images/\" media=\"(min-width: px)\">",
+		  "            <img class=\"adaptive-box__item lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
+		  "        </picture>",
+		  "    </div>",
+		  "    <span class=\"adaptive-box__loader loader\"></span>",
+		  "</div>"
+		],
+		"description": "Image bp"
+	},
+}

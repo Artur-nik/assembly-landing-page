@@ -1,0 +1,11 @@
+//
+$container-max-width: (
+    'sm': 440px,    //* 480
+    'xs': 520px,    //* 640
+    'md': 720px,    //* 768
+    'lg': size(1200),    //* 1024
+    //'xl': size(1200)    //* 1280
+);
+$columns: 12;
+$gap: 30;
+

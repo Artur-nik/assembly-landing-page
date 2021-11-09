@@ -1,0 +1,9 @@
+@function height($width,$height) {
+    @if unitless($width) and unitless($height) {
+        @return (($height / $width) * 100%);
+    }
+    @else {
+        @warn 'only number';
+        @return null;
+    }
+}

@@ -1,0 +1,39 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box; 
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    transition-duration: $td;
+    &:hover {
+        //color: $color-primary;
+    }
+}
+//table {
+//    border-collapse:collapse;
+//    border-spacing:0
+//}
+ul {
+    list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5, 
+p,
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+iframe {
+    border: 0;
+}

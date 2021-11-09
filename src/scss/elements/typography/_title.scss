@@ -1,0 +1,29 @@
+.title {
+    --dp-block: block;
+    display: var(--dp-block);
+    font-weight: 700;
+    line-height: 1.15;
+    //color: #fff;
+    //font-family: $font;
+    //text-transform: uppercase;
+    word-wrap: break-word;
+    //? theme
+/* 
+    &--white {
+        color: #fff;
+    }
+*/
+    //* размеры
+    &--size {
+        &-lg {   
+            font-size: size(48, 50);
+            @include media(lg) {
+                font-size: size(48);
+            }
+        }
+    }
+    //* стиль
+}
+
+
+// font-feature-settings: 'pnum' on, 'lnum' on;

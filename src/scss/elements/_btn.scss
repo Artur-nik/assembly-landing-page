@@ -1,0 +1,68 @@
+$btn-bg: #000;
+$btn-bg-hover: #585858;
+$btn-color: #fff;
+$btn-color-outline: currentColor;
+
+.btn {
+    --dp-flex: flex;
+    display: var(--dp-flex);
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    //*
+    text-decoration: none;
+    //*
+    transition-duration: $td;
+    //*
+    line-height: 1;
+    cursor: pointer;
+
+    &--default {
+        background:  $btn-bg;   
+        color: $btn-color;
+        font-size: size-a(24);
+        font-weight: 500;
+        border-radius: 500px;
+        padding: size-a(16) size-a(32);
+        &:hover {
+            background: $btn-bg-hover;    
+        }
+    }
+    &--circle {
+        --btn-circle:#{size(200)};
+        border-radius: 50%;
+        height: var(--btn-circle);
+        width: var(--btn-circle);
+        background: $btn-bg;   
+        color: $btn-color;
+        &:hover {
+            background: $btn-bg-hover;    
+        }
+    }
+    &--outline {
+        border: 1px solid $btn-bg;   
+        border-radius: 500px;
+        padding: size-a(16) size-a(32);
+        color: $btn-color-outline;
+        &:hover {
+            background: $btn-bg;    
+            color: $btn-color;
+        }
+    }
+    &--link {
+        border-bottom: 1px solid currentColor;   
+        color: $btn-bg;
+        padding: 2px 0;
+        &:hover {
+            color: $btn-bg-hover;
+        }
+    }
+    .icon {
+        &._indent-right {
+            margin-right: size(20);
+        }
+        &._indent-left {
+            margin-left: size(20);
+        }
+    }
+}

@@ -1,0 +1,21 @@
+.icon {
+    width: 1em;
+    height: 1em;
+    --dp-block: block;
+    display: var(--dp-block);
+    flex: 0 0 auto;
+    fill: currentColor;
+    //stroke: currentColor;
+    //transition: fill $td, all $td;
+    transition: fill $td, stroke $td, all $td;
+    color: currentColor;
+    &--inline {
+        display: inline-block;
+    }
+    &._no-fill {
+        fill: currentColor;
+    }
+    &._stroke {
+        stroke: currentColor;
+    }
+}

@@ -1,0 +1,10 @@
+//* Функция возврата имен контрольных точек
+@function bp($deafult: false) {
+    @if $deafult {
+        @return 'default', $breakpoints;
+    }
+    @else {
+        @return $breakpoints;
+    }
+   
+}

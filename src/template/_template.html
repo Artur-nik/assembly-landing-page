@@ -1,0 +1,487 @@
+<style>
+    .header {
+        font-size: 32px;
+        padding:20px 0;
+        border-bottom: 1px solid currentColor;
+        margin-bottom: 50px;
+        color: #464646;
+    }
+    .box-t {
+        margin-bottom: 30px;
+    }
+    .item-t {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .flex {
+        display: flex;
+    }
+    .font-secondary  {
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .italic {
+        font-style: italic;
+    }
+    .title-tp {
+        display: block;
+        margin-bottom: 15px;
+    }
+    .template-pagination {
+        position: fixed; 
+        bottom: 10px;
+        margin: 0 auto;
+    }
+</style>
+
+<div class="template-slider swiper-container">
+
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="container">
+                <div class="header">
+                    Базовые элементы
+                </div>
+                <div class="box-t">
+                    <strong class="title-tp">social</strong>
+                    <div class="social">
+                        <a href="#" class="social__item"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#instagram"></use></svg></a>
+                        <a href="#" class="social__item"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#telegram"></use></svg></a>
+                    </div>
+                </div>
+                <div class="box-t">
+                    <strong class="title-tp">icon</strong>
+                    <div class="flex">
+                        <svg class="icon" style="margin-right: 20px; font-size: 36px;"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+                        <svg class="icon" style="margin-right: 20px; font-size: 36px;"><use xlink:href="svg-sprite/sprite.svg#check"></use></svg>
+                        <svg class="icon" style="margin-right: 20px; font-size: 36px;"><use xlink:href="svg-sprite/sprite.svg#arrow"></use></svg>
+                        <svg class="icon" style="margin-right: 20px; font-size: 36px;"><use xlink:href="svg-sprite/sprite.svg#long-arrow"></use></svg>
+                    </div>
+                </div>
+                <div class="box-t">
+                    <strong class="title-tp">loader</strong>
+                    <span class="loader" style="color: #000; font-size: 80px;"></span>
+                </div>
+                <div class="box-t">
+                    <strong class="title-tp">menu-toggle</strong>
+                    <button class="menu-toggle"><span class="menu-toggle__item"></span></button>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="container">
+                <div class="header">
+                    Типография
+                </div>
+                <div class="box-t">
+                    <h2 class="template__title title _size-lg">Заголовок h2</h2>
+                </div>
+                <div class="box-t">
+                    <strong class="subtitle">Подзаголовок strong</strong>
+                </div>
+                <div class="box-t">
+                    <strong class="item-t">Font primary:</strong>
+                    <p class="text">По своей сути <b>рыбатекст является</b> альтернативой традиционному lorem ipsum, который вызывает у некторых людей недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповторимый колорит советских времен. </p>
+                    <strong class="item-t">Font primary italic:</strong>
+                    <p class="text italic">По своей сути <b>рыбатекст является</b> альтернативой традиционному lorem ipsum, который вызывает у некторых людей недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповторимый колорит советских времен. </p>
+                    <strong class="item-t">Font secondary:</strong>
+                    <p class="text font-secondary"> По своей сути <b>рыбатекст является</b> альтернативой традиционному lorem ipsum, который вызывает у некторых людей недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповторимый колорит советских времен. </p>
+                    <strong class="item-t">Font secondary italic:</strong>
+                    <p class="text font-secondary italic"> По своей сути <b>рыбатекст является</b> альтернативой традиционному lorem ipsum, который вызывает у некторых людей недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповторимый колорит советских времен. </p>
+                </div>
+
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="container">
+                <div class="header">
+                    Кнопки
+                </div>
+                <strong class="box">btn--default</strong>
+                <br>
+                <div class="box-t">
+                    <button class="btn btn--default" style="max-width: 300px;">кнопка тест кнопка много много текста</button>
+                </div>
+                <div class="box-t">
+                    <button class="btn btn--default">кнопка тест кнопка</button>
+                </div>
+                <div class="box-t">
+                    <button class="btn btn--default">кнопка тест icon <svg class="icon _indent-left "><use xlink:href="svg-sprite/sprite.svg#close"></use></svg></button>
+                </div>
+                <div class="box-t">
+                    <button class="btn btn--default"> <svg class="icon _indent-right "><use xlink:href="svg-sprite/sprite.svg#close"></use></svg> кнопка тест icon</button>
+                </div>
+                <strong class="box">btn--outline</strong>
+                <br>
+                <div class="box-t">
+                    <button class="btn btn--outline">кнопка тест кнопка</button>
+                </div>
+                <div class="box-t">
+                    <button class="btn btn--outline">кнопка тест icon left <svg class="icon _indent-left "><use xlink:href="svg-sprite/sprite.svg#close"></use></svg></button>
+                </div>
+                <div class="box-t">
+                    <button class="btn btn--outline"> <svg class="icon _indent-right "><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>кнопка тест icon right</button>
+                </div>
+                <strong class="box">btn--circle</strong>
+                <br>
+                <div class="box-t">
+                    <button class="btn btn--circle">кнопка тест <br> кнопка</button>
+                </div>
+                <strong class="box">btn--link</strong>
+                <br>
+                <div class="box-t">
+                    <button class="btn btn--link">кнопка link</button>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="container">
+                <div class="header">
+                    Форма
+                </div>
+                <div class="box-t">
+                    <strong class="title-tp">Поля</strong>
+                    <label class="form-field">
+                        <input class="form-field__input" type="text" name="name">
+                        <span class="form-field__text">text</span>
+                    </label>
+                    <br>
+                    <label class="form-field">
+                        <input class="form-field__input" type="text" name="name" required>
+                        <span class="form-field__text" data-valid="Укажите text required" data-default="text required <span>*</span>">type: text required <span>*</span></span>
+                        <svg class="form-field__error icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+                        <svg class="form-field__check icon"><use xlink:href="svg-sprite/sprite.svg#check"></use></svg>
+                    </label>
+                    <br>
+                    <label class="form-field">
+                        <input class="form-field__input" type="email" name="email" required>
+                        <span class="form-field__text" data-valid="type: email required" data-default="type: email required <span>*</span>">type: email required <span>*</span></span>
+                        <svg class="form-field__error icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+                        <svg class="form-field__check icon"><use xlink:href="svg-sprite/sprite.svg#check"></use></svg>
+                    </label>
+                    <br>
+                    <label class="form-field">
+                        <input class="form-field__input form-phone" type="tel" name="phone" required>
+                        <span class="form-field__text" data-valid="type: tel required" data-default="type: tel required">type: tel required <span>*</span></span>
+                        <svg class="form-field__error icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+                        <svg class="form-field__check icon"><use xlink:href="svg-sprite/sprite.svg#check"></use></svg>
+                    </label>
+                    <br>
+                    <label class="form-field">
+                        <input class="form-field__input" type="number" name="name">
+                        <span class="form-field__text">number</span>
+                    </label>
+                    <br>
+                    <label class="form-field">
+                        <input class="form-field__input" type="number" name="name2" required>
+                        <span class="form-field__text" data-default="number <span>*</span>">number <span>*</span></span>
+                        <svg class="form-field__error icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+                        <svg class="form-field__check icon"><use xlink:href="svg-sprite/sprite.svg#check"></use></svg>
+                    </label>
+                </div>
+                <div class="box-t">
+                    <strong class="title-tp">Textarea</strong> 
+                    <label class="form-textarea">
+                        <textarea class="form-textarea__input" name=""></textarea>
+                        <span class="form-textarea__text">
+                            Text
+                        </span>
+                    </label>
+                </div>
+                <div class="box-t">
+                    <strong class="title-tp">Textarea</strong> 
+                    <label class="form-textarea">
+                        <textarea class="form-textarea__input" name="" required></textarea>
+                        <span class="form-textarea__text" data-valid="Text required " data-default="Text required <span>*</span>">
+                            Text required <span>*</span>
+                        </span>
+                    </label>
+                </div>
+                <div class="box-t">
+                    <strong class="title-tp">File</strong>
+                    
+                    <label class="form-file">
+                        <span class="form-file__controller">
+                            <input class="form-file__input" type="file" name="file">
+                            <span class="form-file__text">
+                                Загрузка
+                            </span>
+                            <span class="form-file__quantity">
+                                <span class="form-file__loader loader"></span>
+                                <svg class="form-file__icon icon"><use xlink:href="svg-sprite/sprite.svg#file"></use></svg>
+                                <span class="form-file__number"></span> 
+                            </span>
+                        </span>
+                    </label>
+                </div>
+                <div class="box-t">
+                    <strong class="title-tp">Files (multiple)</strong>
+                    <label class="form-file">
+                        <span class="form-file__controller">
+                            <input class="form-file__input" type="file" name="files[]" multiple>
+                            <span class="form-file__text">
+                                Загрузка файлов
+                            </span>
+                            <span class="form-file__quantity">
+                                <span class="form-file__loader loader"></span>
+                                <svg class="form-file__icon icon"><use xlink:href="svg-sprite/sprite.svg#file"></use></svg>
+                                <span class="form-file__number"></span> 
+                            </span>
+                        </span>
+                    </label>
+                </div>
+                <div class="box-t">
+                    <strong class="title-tp">Checkbox</strong>
+                    <span class="form-checkbox">
+                        <input class="form-checkbox__input" type="checkbox">
+                        <span class="form-checkbox__decor"></span>
+                    </span>
+                    <br>
+                    <span class="form-checkbox form-checkbox--icon">
+                        <input class="form-checkbox__input" type="checkbox">
+                        <svg class="icon"><use xlink:href="svg-sprite/sprite.svg#check"></use></svg>
+                    </span>
+                </div>
+                <div class="box-t">
+                    <strong class="title-tp">Radio</strong>
+                    <div class="form-radio-group">
+                        <label class="form-radio">
+                            <input class="form-radio__input" type="radio" name="text" id="">
+                            <span class="form-radio__controller">text</span>
+                        </label>
+                        <label class="form-radio">
+                            <input class="form-radio__input" type="radio" name="text" id="">
+                            <span class="form-radio__controller">text</span>
+                        </label>
+                        <label class="form-radio">
+                            <input class="form-radio__input" type="radio" name="text" id="">
+                            <span class="form-radio__controller">text</span>
+                        </label>
+                        <label class="form-radio">
+                            <input class="form-radio__input" type="radio" name="text" id="">
+                            <span class="form-radio__controller">text</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="container">
+                <div class="header">
+                    Слайдер
+                </div>
+                <div class="box-t">
+                    <strong class="title-tp">Button</strong>
+                    <div class="slider-1 swiper-container">
+                        <div class="swiper-wrapper" style="margin-bottom: 10px;">
+                            <div class="swiper-slide">Slide 1</div>
+                            <div class="swiper-slide">Slide 2</div>
+                            <div class="swiper-slide">Slide 3</div>
+                        </div>
+                        <div class="swiper-button-group">
+                            <div class="swiper-button-prev"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#arrow"></use></svg></div>
+                            <div class="swiper-button-next"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#arrow"></use></svg></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-t">
+                    <strong class="title-tp">Bullets</strong>
+                    <div class="slider-2 swiper-container">
+                        <div class="swiper-wrapper" style="margin-bottom: 10px;">
+                            <div class="swiper-slide">Slide 1</div>
+                            <div class="swiper-slide">Slide 2</div>
+                            <div class="swiper-slide">Slide 3</div>
+                            <div class="swiper-slide">Slide 4</div>
+                            <div class="swiper-slide">Slide 5</div>
+                            <div class="swiper-slide">Slide 6</div>
+                            <div class="swiper-slide">Slide 7</div>
+                            <div class="swiper-slide">Slide 8</div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="box-t">
+                    <strong class="title-tp">Bullets dynamic</strong>
+                    <div class="slider-2-1 swiper-container">
+                        <div class="swiper-wrapper" style="margin-bottom: 10px;">
+                            <div class="swiper-slide">Slide 1</div>
+                            <div class="swiper-slide">Slide 2</div>
+                            <div class="swiper-slide">Slide 3</div>
+                            <div class="swiper-slide">Slide 4</div>
+                            <div class="swiper-slide">Slide 5</div>
+                            <div class="swiper-slide">Slide 6</div>
+                            <div class="swiper-slide">Slide 7</div>
+                            <div class="swiper-slide">Slide 8</div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="box-t">
+                    <strong class="title-tp">fraction</strong>
+                    <div class="slider-3 swiper-container">
+                        <div class="swiper-wrapper" style="margin-bottom: 10px;">
+                            <div class="swiper-slide">Slide 1</div>
+                            <div class="swiper-slide">Slide 2</div>
+                            <div class="swiper-slide">Slide 3</div>
+                            <div class="swiper-slide">Slide 4</div>
+                            <div class="swiper-slide">Slide 5</div>
+                            <div class="swiper-slide">Slide 6</div>
+                            <div class="swiper-slide">Slide 7</div>
+                            <div class="swiper-slide">Slide 8</div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="box-t">
+                    <strong class="title-tp">progressbar</strong>
+                    <div class="slider-4 swiper-container">
+                        <div class="swiper-wrapper" style="margin-bottom: 10px;">
+                            <div class="swiper-slide">Slide 1</div>
+                            <div class="swiper-slide">Slide 2</div>
+                            <div class="swiper-slide">Slide 3</div>
+                            <div class="swiper-slide">Slide 4</div>
+                            <div class="swiper-slide">Slide 5</div>
+                            <div class="swiper-slide">Slide 6</div>
+                            <div class="swiper-slide">Slide 7</div>
+                            <div class="swiper-slide">Slide 8</div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="box-t">
+                    <strong class="title-tp">custom</strong>
+                    <div class="slider-5 swiper-container">
+                        <div class="swiper-wrapper" style="margin-bottom: 10px;">
+                            <div class="swiper-slide">Slide 1</div>
+                            <div class="swiper-slide">Slide 2</div>
+                            <div class="swiper-slide">Slide 3</div>
+                            <div class="swiper-slide">Slide 4</div>
+                            <div class="swiper-slide">Slide 5</div>
+                            <div class="swiper-slide">Slide 6</div>
+                            <div class="swiper-slide">Slide 7</div>
+                            <div class="swiper-slide">Slide 8</div>
+                        </div>
+                        <div class="swiper-pagination _custom"></div>
+                    </div>
+                </div>
+                <div class="box-t">
+                    <strong class="title-tp">controller progressbar</strong>
+                    <div class="slider-6 swiper-container">
+                        <div class="swiper-wrapper" style="margin-bottom: 10px;">
+                            <div class="swiper-slide">Slide 1</div>
+                            <div class="swiper-slide">Slide 2</div>
+                            <div class="swiper-slide">Slide 3</div>
+                            <div class="swiper-slide">Slide 4</div>
+                            <div class="swiper-slide">Slide 5</div>
+                            <div class="swiper-slide">Slide 6</div>
+                            <div class="swiper-slide">Slide 7</div>
+                            <div class="swiper-slide">Slide 8</div>
+                        </div>
+                        <div class="swiper-controller">
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-group">
+                                <div class="swiper-button-prev"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#arrow"></use></svg></div>
+                                <div class="swiper-button-next"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#arrow"></use></svg></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-t">
+                    <strong class="title-tp">controller fraction</strong>
+                    <div class="slider-7 swiper-container">
+                        <div class="swiper-wrapper" style="margin-bottom: 10px;">
+                            <div class="swiper-slide">Slide 1</div>
+                            <div class="swiper-slide">Slide 2</div>
+                            <div class="swiper-slide">Slide 3</div>
+                            <div class="swiper-slide">Slide 4</div>
+                            <div class="swiper-slide">Slide 5</div>
+                            <div class="swiper-slide">Slide 6</div>
+                            <div class="swiper-slide">Slide 7</div>
+                            <div class="swiper-slide">Slide 8</div>
+                        </div>
+                        <div class="swiper-controller">
+                            <div class="swiper-button-prev"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#arrow"></use></svg></div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-next"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#arrow"></use></svg></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="container">
+                <div class="header">
+                    Модульные окна
+                </div>
+                <div class="box-t">
+                    <button class="btn btn--default" data-modal-open="modal-form">modal-form</button>
+                </div>
+                <div class="box-t">
+                    <button class="btn btn--default" data-modal-open="modal-politic">modal-politic</button>
+                </div>
+                <div class="box-t">
+                    <button class="btn btn--default" data-modal-open="modal-video">modal-video</button>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="container">
+                <div class="header">
+                    Accordion
+                </div>
+                <div class="questions">
+                    <div class="questions-item">
+                        <div class="questions-item__header">
+                            <div class="questions-item__title">title</div>
+                            <div class="questions-item__toggel _plus"></div>
+                        </div>
+                        <div class="questions-item__body">text</div>
+                    </div>
+                    <div class="questions-item">
+                        <div class="questions-item__header">
+                            <div class="questions-item__title">title</div>
+                            <div class="questions-item__toggel _plus"></div>
+                        </div>
+                        <div class="questions-item__body">text</div>
+                    </div>
+                    <div class="questions-item">
+                        <div class="questions-item__header">
+                            <div class="questions-item__title">title</div>
+                            <div class="questions-item__toggel _arrow"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#arrow"></use></svg></div>
+                        </div>
+                        <div class="questions-item__body">text</div>
+                    </div>
+                </div>
+                <strong class="title-tp">Accordion</strong>
+                <div class="questions" data-questions="accordion">
+                    <div class="questions-item">
+                        <div class="questions-item__header">
+                            <div class="questions-item__title">title</div>
+                            <div class="questions-item__toggel _plus"></div>
+                        </div>
+                        <div class="questions-item__body">text</div>
+                    </div>
+                    <div class="questions-item">
+                        <div class="questions-item__header">
+                            <div class="questions-item__title">title</div>
+                            <div class="questions-item__toggel _plus"></div>
+                        </div>
+                        <div class="questions-item__body">text</div>
+                    </div>
+                    <div class="questions-item">
+                        <div class="questions-item__header">
+                            <div class="questions-item__title">title</div>
+                            <div class="questions-item__toggel _arrow"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#arrow"></use></svg></div>
+                        </div>
+                        <div class="questions-item__body">text</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="template-slider-btn swiper-button-prev _center-y _circle" style="position: fixed;"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#arrow"></use></svg></div>
+    <div class="template-slider-btn swiper-button-next _center-y _circle" style="position: fixed;"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#arrow"></use></svg></div>
+
+    <div class="template-pagination swiper-pagination"></div>
+    
+
+</div> 

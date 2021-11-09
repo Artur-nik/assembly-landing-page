@@ -1,0 +1,12 @@
+/*  src\scss\core\mixins\_font.scss
+*    Микс шрифта:
+*    @include font(
+*           1.name      -   имя шрифта
+*           2.url       -   имя файла
+*           3.weight    -   font-weight
+*           4.local     -   Вывод  local('#{$local}'),  default: null
+*           5.style     -   Вывод font-styleб,          default: 'normal'
+*           6.display   -   Вывод font-display:swap,    default: true
+*    );
+
+*/

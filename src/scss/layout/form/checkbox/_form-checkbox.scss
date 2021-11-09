@@ -1,0 +1,67 @@
+$checkbox-color:#000; 
+/*
+<span class="form-checkbox">
+    <input class="form-checkbox__input" type="checkbox">
+    <span class="form-checkbox__decor"></span>
+    <svg class="icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+</span>
+ */
+.form-checkbox {
+    position: relative;
+    display: inline-flex;
+    flex: 0 0 auto;
+    font-size: size(28);  
+    align-items: center;
+    justify-content: center;   
+    &__input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        z-index: 2;
+        cursor: pointer;
+        &:checked ~ .form-checkbox__decor {
+            border-color: #{$checkbox-color};
+            --checkbox-decor-bg:#{$checkbox-color};
+            --checkbox-decor-size: 0.714em;
+        }
+        &:checked ~ .icon {
+            opacity: 1;
+        }
+    }
+    //
+    &__decor  {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height:  1em;
+        width: 1em;     
+        border: 1px solid $checkbox-color;
+        --checkbox-decor-bg:  transparent;
+        --checkbox-decor-size: 0%;
+        &:before {
+            content: '';
+            position: absolute;
+            transition-duration: $td;
+            height: var(--checkbox-decor-size);
+            width: var(--checkbox-decor-size);   
+            background-color: var(--checkbox-decor-bg);
+        }
+    }
+    //
+    &--icon {
+        border: 1px solid $checkbox-color;
+        color: $checkbox-color;
+        height:  1em;
+        width: 1em;  
+        .icon {
+            position: absolute;
+            opacity: 0;
+            font-size: 0.6em;
+            margin-top: 0.05em;
+            transition-timing-function: linear;
+        }
+    }
+}

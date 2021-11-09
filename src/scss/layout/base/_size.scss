@@ -1,0 +1,4 @@
+html {
+    font-size: calc(var(--min-value-px) + (100 - var(--min-value)) * ((var(--width-max-window) - var(--width-min-window-px)) / (#{$layout-size} - var(--width-min-window))));
+    
+}

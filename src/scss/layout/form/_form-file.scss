@@ -1,0 +1,66 @@
+.form-file {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    &__controller {
+        display: flex;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #000;
+        color: #fff;
+        font-size: size(24);
+        min-width: size(320);
+        height: size(80);
+        padding: 0 size-a(45); 
+        transition-duration: $td;
+        &:hover {
+            transition-duration: $td;
+        }
+    }
+    &__input {
+        display: none;
+    }
+
+	&__quantity {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        max-width: 0px;
+        overflow: hidden;
+        transition-duration: 100ms;
+        &._active {
+            padding-left: 15px;
+            max-width: none;
+            .form-file__loader {
+                opacity: 0;
+                transition-delay: 375ms;
+            }
+            .form-file__number,
+            .form-file__icon {
+                opacity: 1;
+                transition-delay: 375ms;
+            }
+        }
+	}
+
+	&__loader {
+        position: absolute;
+        z-index: 2;
+        transition-duration: 150ms;
+	}
+
+	&__number {
+        margin-left: 6px;
+        opacity: 0;
+        transition-duration: 300ms;
+	}
+
+	&__icon {
+        opacity: 0;
+        transition-duration: 300ms;
+	}
+
+}

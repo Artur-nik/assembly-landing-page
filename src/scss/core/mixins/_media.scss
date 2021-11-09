@@ -1,0 +1,147 @@
+﻿//mod media(sm, lg, print){}
+//mod Первый аргумент - данные из перменной $media-breakpoints
+//mod Второй аргумент - данные из переменной $media-breakpoints или $modification
+//mod Третий аргумент - данные из переменной $media-type
+ 
+$media-type: (
+    'screen': 'screen',
+    'print': 'print',
+    'handheld': 'handheld',
+    'landscape': '(orientation: landscape)',
+    'portrait': '(orientation: portrait)',
+    'retina2x': '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)',
+    'retina3x': '(-webkit-min-device-pixel-ratio: 3), (min-resolution: 350dpi), (min-resolution: 3dppx)'
+);
+
+@mixin media($bp: null, $mod: min, $type: null) {
+    //? Значения модификатора (можно расширить)
+    $modification: (
+        min,
+        max,
+        only,
+        only-max
+    );
+
+    $media-bp-width: nth(map-get($media-breakpoints, $bp), 1);
+    $media-bp-keys: index(map-keys($media-breakpoints), $bp); 
+
+    $media-mod-width: nth(map-get($media-breakpoints, $mod), 1);
+    $media-mod-keys: index(map-keys($media-breakpoints), $mod);
+
+    $media-type-keys: index(map-keys($media-type), $type);   
+    $media-type-value: nth(map-get($media-type, $type), 1); 
+    
+    $media-type__result:null !default;
+    $media-width__result:null !default;
+    
+    //! Глобальные ошибки    
+    //? Если значение равно (no), то выводим ошибку: 
+    @if $bp == no and $mod == min and $type == null {
+        @warn "Breakpoints not found of: #{map-keys($media-breakpoints)}";
+    }  
+    //? если значение равно (no, no), то выводим ошибку:    
+    @if $bp == no and $mod == no and $type == null {
+        @warn "Error: invalid values";
+    } 
+   
+    //! Ошибки breakpoints
+    //? Если ключ $media-breakpoints отсутствует или не правильный, выводим ошибку:
+    @if $bp != no and not($media-bp-keys) and $bp != 'default' {
+        @warn"Breakpoints not found of: #{$media-breakpoints}";
+    } 
+
+    //! Ошибки modification
+    //? Проверка модификации на ошибки:
+    //? Если значение не(modification == no) и не(объединяем $modification и $media-breakpoints для проверки), выводи ошибку
+    @if not($mod == no) and not(index(join(map-keys($media-breakpoints),$modification), $mod)){
+        @warn "Modification: 
+           min         == min-width 
+           max         == max-width 
+           only        == min-width and max-width
+           only-max    == after min-width before max-width #{nth(map-values($media-breakpoints), length($media-breakpoints))}
+           or - #{map-keys($media-breakpoints)}";
+    }
+    //? Вывод ошибки где $media-breakpoints не может быть без модификатора
+    @if $media-bp-keys and $mod == no and ($type == null or $media-type-keys) {
+        @warn "Modification required (#{$modification}) or breakpoint (#{map-keys($media-breakpoints)}";
+    }
+    //* Работа с модификациями
+    @if index($modification, $mod) and ($bp != no and $media-bp-keys) {
+        @if $mod == only-max {
+            @if $media-bp-keys == length($media-breakpoints){
+                $mod: max;
+            } @else {
+                $media-width__result: "(min-width: #{$media-bp-width + 'px'}) and (max-width: #{nth(map-values($media-breakpoints), length($media-breakpoints)) + 'px'})";
+            }
+        }
+        @if $mod == only {
+            @if $media-bp-keys == length($media-breakpoints)  {
+                $mod: min;
+            } @else {
+                $media-width-only: nth(map-get($media-breakpoints, nth(nth($media-breakpoints, $media-bp-keys + 1), 1)), 1) - 1;
+                $media-width__result: "(min-width: #{$media-bp-width + 'px'}) and (max-width: #{$media-width-only + 'px'})";
+            }
+        }
+        @if $mod == min {
+            $media-width__result: "(min-width: #{$media-bp-width + 'px'})"; 
+        } 
+        @if  $mod == max {
+            $media-width__result: "(max-width: #{$media-bp-width - 1 + 'px'})";
+        } 
+    }  
+    //* Вывод только второго значения $media-breakpoints, где первое указанно no
+    @if $bp == no and $media-mod-keys {
+        $media-width__result: "(max-width: #{$media-mod-width - 1 + 'px'})";
+    } 
+    //* Работа со втором breakpoints
+    @if (map-has-key($media-breakpoints, $mod) and not($bp == no)) and $media-bp-keys{
+        //? Если первый $media-breakpoints больше второго $media-breakpoints, то выдаем ошибку:
+        @if $media-bp-keys > $media-mod-keys{
+            @warn "#{$bp} can't be more #{$mod} (#{map-keys($media-breakpoints)})";
+        }   
+        //? Если первый $media-breakpoints равен второму $media-breakpoints, то выдаем ошибку:
+        @if $media-bp-keys == null or $media-bp-keys == $media-mod-keys {
+            @warn "#{$bp} cannot be equal #{$mod} (#{map-keys($media-breakpoints)})";
+        } 
+        //? Задаем результат в переменную $media-width__result;
+        @else {
+            $media-width__result: "(min-width: #{$media-bp-width + 'px'}) and (max-width: #{$media-mod-width - 1 + 'px'})";
+        }
+    } 
+
+    //! Ошибки type
+    //? Выдаем ошибку если ключ $media-type не верный
+    @if ($media-type-keys or $type != null) == true {
+        @warn "$media-type value: #{map-keys($media-type)}";
+    }
+    //* Результаты $type    
+    @if ($media-type-keys or $type != null) == $media-type-keys{
+        $media-type__result: "#{$media-type-value} and ";
+    } 
+
+    //* Выводи результат если media-breakpoints == true и media-type == true
+    @if $media-type__result != null and $media-width__result != null {
+    //    @debug $media-type__result + $media-width__result;
+        @media #{$media-type__result + $media-width__result} {  
+            @content;
+        }  
+    }
+    //* Выводи результат если media-breakpoints == true и media-type == false
+    @if $media-type__result == null and $media-width__result != null {
+    //    @debug  $media-width__result;
+        @media #{$media-width__result} {  
+            @content;
+        }  
+    }
+    @if $bp == 'default' {
+        @content;
+    }
+    //? Выводим @media с значеним только $media-type:   
+    @if ($bp == no and $mod == no) and $media-type-keys{ 
+    //    @debug #{$media-type-value};
+        @media #{$media-type-value} {  
+            @content;
+        }  
+    }
+
+}

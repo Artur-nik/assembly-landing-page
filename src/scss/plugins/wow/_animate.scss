@@ -1,0 +1,58 @@
+@if (map-get($animation, fadeInRight)) {
+	.fadeInRight {
+		animation-name: fadeInRight;
+	}
+	}
+@if (map-get($animation, fadeInRightBottom)) {
+	.fadeInRightBottom {
+		animation-name: fadeInRightBottom;
+	}
+}
+	
+@if (map-get($animation, fadeInRightTop)) {
+	.fadeInRightTop {
+
+		  animation-name: fadeInRightTop;
+	}
+}	
+
+//? ============================================================================================
+
+@if (map-get($animation, fadeInLeft)) {
+	.fadeInLeft {
+		--fadeInLeft: -100%;
+	  	animation-name: fadeInLeft;
+	}
+}
+
+@if (map-get($animation, fadeInLeftTop)) {
+	.fadeInLeftTop {
+		animation-name: fadeInLeftTop;
+	}
+}
+@if (map-get($animation, fadeInLeftBottom)) {
+	.fadeInLeftBottom {
+		animation-name: fadeInLeftBottom;
+	}
+}
+
+//? ============================================================================================
+
+@if (map-get($animation, fadeInUp)) {
+  	.fadeInUp {
+  	 	animation-name: fadeInUp;
+  	}
+}
+
+@if (map-get($animation, fadeInDown)) {
+	.fadeInDown {
+	  	animation-name: fadeInDown;
+	}
+}
+
+//*
+@if (map-get($animation, fadeIn)) {
+	.fadeIn {
+	  	animation-name: fadeIn;
+	}
+}

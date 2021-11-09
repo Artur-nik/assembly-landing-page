@@ -1,0 +1,202 @@
+//! ------------------------------ LEFT ----------------------------------------------
+//? fadeInLeft 
+@if (map-get($animation, fadeInLeft)) {
+    @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translate3d(var(--animation-left), 0, 0);
+        }
+    
+        to {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+        }
+    }
+}
+
+//? fadeInLeftBottom
+@if (map-get($animation, fadeInLeftBottom)) {
+    @keyframes fadeInLeftBottom {
+        from {
+          opacity: 0;
+          transform: translate3d(var(--animation-left), var(--animation-bottom), 0);
+        }
+    
+        to {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+        }
+    }
+}
+
+//? fadeInLeftTop
+@if (map-get($animation, fadeInLeftTop)) {
+  @keyframes fadeInLeftTop {
+      from {
+        opacity: 0;
+        transform: translate3d(var(--animation-left), var(--animation-top), 0);
+      }
+  
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+  }
+}
+
+//! ------------------------------ LEFT END -------------------------------------------
+
+//? =====================================================================================================
+
+//! ------------------------------ RIGHT -----------------------------------------------
+
+//? fadeInRight 
+@if (map-get($animation, fadeInRight)) {
+  @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translate3d(var(--animation-right), 0, 0);
+      }
+  
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+  }
+}
+//? fadeInRightBottom
+@if (map-get($animation, fadeInRightBottom)) {
+  @keyframes fadeInRightBottom {
+      from {
+        opacity: 0;
+		transform: translate3d(var(--animation-right), var(--animation-bottom), 0);
+      }
+  
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+  }
+}
+//? fadeInRightTop
+@if (map-get($animation, fadeInRightTop)) {
+    @keyframes fadeInRightTop {
+        from {
+          opacity: 0;
+		  transform: translate3d(var(--animation-right), var(--animation-top), 0);
+        }
+    
+        to {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+        }
+    }
+}
+
+//! ------------------------------ RIGHT END -------------------------------------------
+
+//? fadeInUp  
+@if (map-get($animation, fadeInUp)) {
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translate3d(0, var(--animation-bottom), 0);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+}
+
+//? fadeInDow 
+@if (map-get($animation, fadeInDown)) {
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translate3d(0,var(--animation-top), 0);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+
+//? fadeIn
+@if (map-get($animation, fadeIn)) {
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+}
+  
+
+
+//? buzz-out
+@if (map-get($animation, buzz-out)) {
+    @keyframes buzz-out {
+        10% {
+            transform: translateX(3px) rotate(2deg);
+        }
+        20% {
+            transform: translateX(-3px) rotate(-2deg);
+        }
+        30% {
+            transform: translateX(3px) rotate(2deg);
+        }
+        40% {
+            transform: translateX(-3px) rotate(-2deg);
+        }
+        50% {
+            transform: translateX(2px) rotate(1deg);
+        }
+        60% {
+            transform: translateX(-2px) rotate(-1deg);
+        }
+        70% {
+            transform: translateX(2px) rotate(1deg);
+        }
+        80% {
+            transform: translateX(-2px) rotate(-1deg);
+        }
+        90% {
+            transform: translateX(1px) rotate(0);
+        }
+        100% {
+            transform: translateX(-1px) rotate(0);
+        }
+    }
+}
+
+//* orbit
+@if (map-get($animation, orbit)) {
+    @keyframes orbit {
+        0% { transform: rotate(0deg) translateX(10%) rotate(0deg); }
+        100%   {  transform: rotate(360deg) translateX(10%) rotate(-360deg); }
+    }
+}
+
+//? =================================================================================
+//*
+@keyframes loading {
+  100% {
+      transform: rotate(360deg);
+  }
+}
+//* В обратную сторону
+@keyframes loading-n {
+  100% {
+      transform: rotate(-720deg);
+  }
+}
+//*
+//? =================================================================================
+

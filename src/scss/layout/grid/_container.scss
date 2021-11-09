@@ -1,0 +1,41 @@
+%grid-container-customization {
+    --container-gap: var(--container-gap-fix);
+    --dp-block: block;
+    display: var(--dp-block);
+    width: 100%;
+    padding-left:  var(--container-gap);
+    padding-right: var(--container-gap);
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+%grid-container-value {
+    @each $bp, $value in $container-max-width {
+        @include media('default',$bp) {   
+            &-#{$bp} {
+                max-width: #{$value};
+            }
+        }
+    }  
+}
+.container {
+    @extend %grid-container-customization;
+    @each $bp, $value in $container-max-width {
+        @include media('default',$bp) {
+            @extend %grid-container-value-#{$bp};
+        }
+        @for $i from length(map-keys($container-max-width)) through index(map-keys($container-max-width), $bp){
+            @if $bp != 'sm'{
+                &-#{$bp} {
+                    @extend %grid-container-customization;
+                    @include media('default',nth(map-keys($container-max-width), $i)) {
+                        @extend %grid-container-value-#{nth(map-keys($container-max-width), $i)};
+                    }
+                }                
+            }
+        }
+    }
+    &-full {
+        @extend %grid-container-customization;
+    }
+}

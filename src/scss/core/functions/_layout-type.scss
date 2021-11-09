@@ -1,0 +1,11 @@
+@function layout-type($type: 'fixed') {
+    @if $layout-type == 'fixed' and $type == 'fixed'{
+        @return true;
+    }
+    @else if $layout-type == 'adaptive' and $type == 'adaptive'  {
+        @return true;
+    }
+    @else {
+        @return false;
+    }
+}

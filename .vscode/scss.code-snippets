@@ -1,0 +1,140 @@
+{
+	"media": {
+		"prefix": "media",
+		"scope": "scss,css",
+		"body": [
+			"@include media(${1|sm,xs,md,lg,xl,hg,hd|}, ${3|min,max,only|}) {",
+			"    $2",
+			"}"
+		],
+		"description": "@include media()"
+	},
+	"media md": {
+		"prefix": "media-md",
+		"scope": "scss,css",		
+		"body": [
+			"@include media(md}, ${3|min,max,only|}) {",
+			"    $2",
+			"}"
+		],
+		"description": "@include media()"
+	},
+	"media lg": {
+		"prefix": "media-lg",
+		"scope": "scss,css",		
+		"body": [
+			"@include media(lg, ${3|min,max|}) {",
+			"    $2",
+			"}"
+		],
+		"description": "@include media()"
+	},
+	"size": {
+		"prefix": "size",
+		"scope": "scss,css",
+		"body": [
+		   "size($0)",
+		],
+		"description": " size(100, 100, 'rem')"
+	},
+	"size-type": {
+		"prefix": "size type",
+		"scope": "scss,css",	
+		"body": [
+		   "size($1, $2, ${3|'em','number','rem','vw'|})",
+		],
+		"description": " size(100, 100, {'em','number','rem','vw'})"
+	},
+	"size-em": {
+		"prefix": "size-em",
+		"scope": "scss,css",
+		"body": [
+		   "size($0, $1, 'em')",
+		],
+		"description": " size(100, 100, 'em')"
+	},
+	"size-number": {
+		"prefix": "size-number",
+		"scope": "scss,css",
+		"body": [
+		   "size($0, $1, 'number')",
+		],
+		"description": " size(100, 100, 'number')"
+	},
+	"size-x": {
+		"prefix": "size-x",
+		"scope": "scss,css",
+		"body": [
+		   "size-x($0, '1-5')",
+		],
+		"description": " size(100, '1-5')"
+	},
+	"size-a": {
+		"prefix": "size-a",
+		"scope": "scss,css",
+		"body": [
+		    "size-a($0, '1-5')",
+		],
+		"description": " size(100, '1-5')"
+	},
+	//
+	"size-clamp": {
+		"prefix": "size-clamp",
+		"scope": "scss,css",
+		"body": [
+		   	"size-clamp($0,)",
+		],
+		"description": "size-clamp($max, $min,  $layout)"
+	},
+	//
+	"font-size-size()": {
+		"prefix": "font-size-size()",
+		"scope": "scss,css",
+		"body": [
+		   	"font-size: size($0);",
+		],
+		"description": "font-size size()"
+	},
+	"adaptive-box": {
+		"prefix": "adaptive-box",
+		"scope": "scss,css",
+		"body": [
+		  	"--adaptive-box: #{height($1,$2)};"
+		],
+		"description": "adaptive-box #{height(width, height)}"
+	},
+	"--btn-circle": {
+		"prefix": "btn-circle",
+		"scope": "scss,css",
+		"body": [
+		  	"--btn-circle:#{size()};"
+		],
+		"description": "--btn-circle"
+	},
+	"dp-block": {
+		"prefix": "dp-block",
+		"scope": "scss,css",
+		"body": [
+		  	"--dp-block: block;",
+		  	"display: var(--dp-block);"
+		],
+		"description": "dp-block"
+	},
+	"dp-flex": {
+		"prefix": "dp-flex",
+		"scope": "scss,css",
+		"body": [
+		  	"--dp-flex: flex;",
+		  	"display: var(--dp-flex);"
+		],
+		"description": "dp-flex"
+	},
+	"--grid-gap-y": {
+		"prefix": "gap-y",
+		"scope": "scss,css",
+		"body": [
+		  "--grid-gap-y: #{size()};"
+		],
+		"description": "--grid-gap-y"
+	},
+}

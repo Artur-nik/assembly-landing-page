@@ -1,0 +1,44 @@
+    // loading block
+.preloader-loading {
+        overflow: hidden;
+        height: 1em;
+        width: 1em;
+        font-size: size(120);       //* Размер
+        //margin-top: -#{size(20)};    
+        
+        @at-root {
+            %loading {
+                height: 1em;
+                width: 1em;
+                border-radius: 50%;
+                border: size(2) solid #fff;
+                animation: loading linear infinite;
+                border-right-color: transparent;
+                border-left-color: transparent;
+            }
+        }
+        span {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @extend %loading;
+            animation-duration: 2.5s;
+            &:after,
+            &:before{
+                content: '';
+                position: absolute;
+                display: block;
+                @extend %loading;
+            }
+            &:before {
+                animation: loading-n 3s linear infinite;
+                font-size: 0.7em;
+            }
+            &:after {
+                @extend %loading;
+                animation-duration: 3.5s;
+                font-size: 0.4em;
+            }
+        }
+    }

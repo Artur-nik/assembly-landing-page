@@ -1,0 +1,65 @@
+:root {
+
+    //* переменные для работы функций size и адаптивного макета _size.scss
+    --min-value:50;
+    --min-value-px:50px;
+
+    --width-max-window: 100vw;
+    --width-min-window: 320;
+    --width-min-window-px: 320px;
+
+    //* Анимации
+    --animation-left:-100%;
+    --animation-right:100%;
+    --animation-top:-100%;
+    --animation-bottom:100%;
+
+    --columns:12;    
+    --gap-x:20px;
+    --container-gap-fix: 15px;
+    //*
+    //* размер макета
+    //@media (min-width: #{$layout-size + 'px'}) {
+    //    --width-max-window: #{$layout-size + 'px'};
+    //}
+
+
+    //* Работа с шрифтами 
+    @each $name, $value in $font-size {
+        @each $max,$min in $value {
+            --font-size-#{$max}: #{size-clamp($max, $min)};
+        }
+    }
+
+    @each $name, $name-value in $size-adaptive {
+        @each $bp, $value in $name-value {
+            @if $bp == 'default' {
+                --size-a-#{$name}: #{$value};
+            }
+            @else {
+                @include media($bp) {
+                    --size-a-#{$name}: #{$value};
+                }
+            }
+        }
+    }
+    //* переменные для работы функции size-x()
+    @each $name, $value in $size {
+        --size-#{$name}: #{$value};
+        @include media(lg) {
+            --size-#{$name}: 1;
+        }
+    }
+
+    //* min-width 1024
+    @include media(lg) {
+
+        --width-min-window:  #{$layout-size / 2};
+        --width-min-window-px:  #{($layout-size / 2) + 'px'}; 
+        
+        --min-value:50;
+        --min-value-px:50px;   
+        --gap-x:#{size(30)};
+    }
+
+}

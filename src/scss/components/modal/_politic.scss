@@ -1,0 +1,15 @@
+//
+.modal-politic {
+    width: 100%;
+    max-width: 500px;
+    @include media(lg) {
+        max-width: size(600);
+    }
+    &__title {
+        text-align: center;
+        margin-bottom: size(20);
+    }
+
+    &__text {
+    }
+}

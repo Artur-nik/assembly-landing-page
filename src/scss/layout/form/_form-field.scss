@@ -1,0 +1,51 @@
+$form-field-color-required:red;
+.form-field {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: size-a(18);
+    transition-duration: $td;
+    border: 1px solid rgb(185, 185, 185);
+    &._required {
+        border: 1px solid $form-field-color-required;
+        & .form-field__text {
+            color: $form-field-color-required;
+        }
+    }
+    //* сам input
+    &__input {
+        width: 100%;
+        font-size: 1em;
+        padding: 0;
+        display: block;
+        transition-duration: $td;
+        padding: size-a(18) size-a(42) size-a(18) size-a(30); 
+        color: currentColor;
+        appearance: none;
+        position: relative;
+        z-index: 2;
+        &:-webkit-autofill {
+            -webkit-text-fill-color: currentColor;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+    }
+    &__text {
+        position: absolute;
+        z-index: 1;
+        padding-left: size-a(30);
+        display: block;
+        span {
+            color: $form-field-color-required;
+        }
+    }
+    //*
+    .icon  {
+        position: absolute;
+        z-index: 3;
+        right: size-a(12);
+        font-size: 1em;
+        display: none;
+        color: $form-field-color-required;
+    }
+}

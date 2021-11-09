@@ -1,0 +1,25 @@
+.form-textarea {
+    position: relative;
+    display: block;
+    border-radius: size(30);
+    border: 1px solid rgb(185, 185, 185);
+    padding: size(30);        
+    &._required {
+        border-color: red;
+    }
+    &__input {
+        resize:none;  
+        width: 100%;
+        transition-duration: $td;
+    }
+    &__text {
+        position: absolute;
+        left: size(30);
+        top: size(30);
+        z-index: 2;
+        pointer-events: none;
+        span {
+            color: red;
+        }
+    }
+}

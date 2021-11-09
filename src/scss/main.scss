@@ -1,0 +1,38 @@
+//?     Конфигурация проекта (переменные)
+@import 'config/index';
+//?     системные файлы
+@import 'core/index';
+
+//*     Шрифт
+@import 'layout/fonts/index';
+//* 
+@import 'layout/base/index';
+
+//*     Глобальные элементы
+@import 'elements/index';
+
+//*     Формы
+@import 'layout/form/index';
+
+//*     Сетка
+@import 'layout/grid/index';
+
+
+//*     component
+@import 'components/index';
+
+//* Плагины для js
+@import 'plugins/index';
+
+//*
+@import '4pt/4pt';
+
+//* Основные экраны
+
+@import 'section/base/header';
+@import 'section/base/home';
+
+//  @import 'section/';
+
+@import 'section/base/footer';
+

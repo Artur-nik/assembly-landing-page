@@ -1,0 +1,33 @@
+.preloader {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background:#000000;
+    //display: none;
+    //display: block !important;
+    overflow: hidden;
+    z-index: 9999;
+
+    &__wrapper {
+        overflow: hidden;
+        overflow-y: auto;
+        width: 100%;
+        height: 100%;
+        display: flex;
+    }
+    &__content {
+        margin: auto;
+        padding: size(40) 15px;
+    }
+    &__close {
+        position: absolute;
+        right: size(50);
+        top: size(30);
+        font-size: size(32);
+        color: #fff;
+        display: none;
+    }
+}  
+@import 'loading';

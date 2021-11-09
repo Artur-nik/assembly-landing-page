@@ -1,0 +1,41 @@
+.form-radio-group {
+    display: flex;
+    flex-wrap: wrap;
+}
+.form-radio {
+    margin: 0 size-a(20) size-a(20) 0;
+    display: block;
+    position: relative;
+    //color: #fff;
+	&__input {
+        opacity: 0;
+        font-size: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 2;
+        cursor: pointer;
+        &:hover ~ .form-radio__controller{
+            background-color: #000;
+            color: #fff;
+        }
+        &:checked {
+            cursor: auto;
+        }
+        &:checked ~ .form-radio__controller{
+            background-color: #000;
+            color: #fff;
+        }
+	}
+
+	&__controller {
+        position: relative;
+        z-index: 1;   
+        border: 1px solid currentColor;
+        transition-duration: $td;
+        padding: size-a(18) size-a(42); 
+        display: block;
+	}
+}
