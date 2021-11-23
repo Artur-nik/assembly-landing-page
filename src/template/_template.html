@@ -33,7 +33,7 @@
     }
 </style>
 
-<div class="template-slider swiper-container">
+<div class="template-slider swiper-container" style="padding-bottom: 100px;">
 
     <div class="swiper-wrapper">
         <div class="swiper-slide">
@@ -43,9 +43,13 @@
                 </div>
                 <div class="box-t">
                     <strong class="title-tp">social</strong>
-                    <div class="social">
-                        <a href="#" class="social__item"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#instagram"></use></svg></a>
-                        <a href="#" class="social__item"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#telegram"></use></svg></a>
+                    <div class="social-group" style="margin-bottom: 10px;">
+                        <a href="#" class="social"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#instagram"></use></svg></a>
+                        <a href="#" class="social"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#telegram"></use></svg></a>
+                    </div>
+                    <div class="social-group">
+                        <a href="#" class="social social--outline"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#instagram"></use></svg></a>
+                        <a href="#" class="social social--outline"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#telegram"></use></svg></a>
                     </div>
                 </div>
                 <div class="box-t">
@@ -63,7 +67,12 @@
                 </div>
                 <div class="box-t">
                     <strong class="title-tp">menu-toggle</strong>
-                    <button class="menu-toggle"><span class="menu-toggle__item"></span></button>
+                    <button class="menu-toggle" style="margin-right: 30px;"><span class="menu-toggle__icon"></span></button>
+
+                    <button class="menu-toggle">
+                        <span class="menu-toggle__icon"></span>
+                        <span class="menu-toggle__text">menu</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -241,7 +250,7 @@
                         <svg class="icon"><use xlink:href="svg-sprite/sprite.svg#check"></use></svg>
                     </span>
                 </div>
-                <div class="box-t">
+                <div class="box-t"  style="margin-bottom: 200px;">
                     <strong class="title-tp">Radio</strong>
                     <div class="form-radio-group">
                         <label class="form-radio">
@@ -262,6 +271,38 @@
                         </label>
                     </div>
                 </div>
+                <div class="grid">
+                    <div class="col-4">
+                        <div class="form-send">
+                            <div class="form-send__message" style="display: block;">
+                                <div class="form-send__loading"><span></span></div>
+                                <p class="form-send__success">Спасибо, ваша заявка принята. Менеджер свяжется с вами в ближайшее время</p>
+                                <p class="form-send__error">Что-то пошло не так. Заявка не отправлена.</p>
+                            </div>
+                            <button type="submit" class="form-send__btn btn btn--default">Перезвоните мне</button>    
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-send">
+                            <div class="form-send__message" style="display: block;">
+
+                                <p class="form-send__success" style="display: block;">Спасибо, ваша заявка принята. Менеджер свяжется с вами в ближайшее время</p>
+                                <p class="form-send__error">Что-то пошло не так. Заявка не отправлена.</p>
+                            </div>
+                            <button type="submit" class="form-send__btn btn btn--default">Перезвоните мне</button>    
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-send">
+                            <div class="form-send__message" style="display: block;">
+
+                                <p class="form-send__success">Спасибо, ваша заявка принята. Менеджер свяжется с вами в ближайшее время</p>
+                                <p class="form-send__error" style="display: block;">Что-то пошло не так. Заявка не отправлена.</p>
+                            </div>
+                            <button type="submit" class="form-send__btn btn btn--default">Перезвоните мне</button>    
+                        </div>
+                    </div>
+                </div> 
             </div>
         </div>
         <div class="swiper-slide">

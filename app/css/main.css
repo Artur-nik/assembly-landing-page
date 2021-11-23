@@ -8,8 +8,10 @@
   --animation-right: 100%;
   --animation-top: -100%;
   --animation-bottom: 100%;
+  --columns: 12;
   --gap-x: 20px;
-  --container-gap-fix: 15px;
+  --gap-y: 20px;
+  --container-gap: 15px;
   --size-a-1-5: 1.5;
   --size-a-1-25: 1.25;
   --size-a-0-75: 0.75;
@@ -21,12 +23,13 @@ html {
 }
 
 body {
+  --body-font-size: 0.24rem;
   line-height: 1.35;
   font-weight: 400;
-  font-size: calc(0.24rem * var(--size-a-1-5));
-  color: #000;
+  font-size: var(--body-font-size);
   font-family: "", sans-serif;
   margin: 0;
+  color: #000;
 }
 
 *,
@@ -179,6 +182,7 @@ br {
   -o-transition: fill 400ms, stroke 400ms, all 400ms;
   transition: fill 400ms, stroke 400ms, all 400ms;
   color: currentColor;
+  position: relative;
 }
 
 .icon--inline {
@@ -270,11 +274,6 @@ input::-moz-placeholder, textarea::-moz-placeholder {
 }
 
 input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-  opacity: 1;
-  color: currentColor;
-}
-
-input::-ms-input-placeholder, textarea::-ms-input-placeholder {
   opacity: 1;
   color: currentColor;
 }
@@ -626,6 +625,10 @@ textarea::placeholder {
   left: calc(50% - 8px);
 }
 
+.form-send .btn {
+  width: 100%;
+}
+
 .form-send__loading {
   position: relative;
 }
@@ -651,47 +654,19 @@ textarea::placeholder {
   display: none;
 }
 
-.section {
-  display: block;
-  max-width: 1920px;
-}
-
 .container,
 .container-xs,
 .container-md,
 .container-lg,
 .container-full {
-  --container-gap: var(--container-gap-fix);
+  --local-container-gap: var(--container-gap);
   --dp-block: block;
   display: var(--dp-block);
   width: 100%;
-  padding-left: var(--container-gap);
-  padding-right: var(--container-gap);
+  padding-left: var(--local-container-gap);
+  padding-right: var(--local-container-gap);
   margin-left: auto;
   margin-right: auto;
-  position: relative;
-}
-
-.container {
-  max-width: 440px;
-}
-
-.container,
-.container-xs {
-  max-width: 520px;
-}
-
-.container-xs,
-.container,
-.container-md {
-  max-width: 720px;
-}
-
-.container-xs,
-.container-md,
-.container,
-.container-lg {
-  max-width: 12rem;
 }
 
 @-webkit-keyframes loading {
@@ -803,31 +778,39 @@ textarea::placeholder {
   font-size: 0.4em;
 }
 
+.menu {
+  --dp-block: block;
+  display: var(--dp-block);
+}
+
 .menu-toggle {
-  width: 1em;
-  height: 1em;
-  display: block;
-  display: flex;
+  position: relative;
+  --dp-flex: flex;
+  display: var(--dp-flex);
   align-items: center;
-  justify-content: center;
   cursor: pointer;
   font-size: 40px;
   color: currentColor;
+  -webkit-transition-duration: 400ms;
+       -o-transition-duration: 400ms;
+          transition-duration: 400ms;
 }
 
-.menu-toggle__item {
+.menu-toggle__icon {
   display: block;
   position: relative;
-  height: 0.1em;
+  background-color: currentColor;
+  height: 0.08em;
   width: 1em;
-  border-radius: 0.1em;
-  -webkit-transition: background 0s 0.3s;
-  -o-transition: background 0s 0.3s;
-  transition: background 0s 0.3s;
+  border-radius: 20px;
+  -webkit-transition: background 0s 0.3s, width 0.3s 0.3s;
+  -o-transition: background 0s 0.3s, width 0.3s 0.3s;
+  transition: background 0s 0.3s, width 0.3s 0.3s;
+  margin: 0.46em 0  0.46em 0;
 }
 
-.menu-toggle__item:after,
-.menu-toggle__item:before {
+.menu-toggle__icon:after,
+.menu-toggle__icon:before {
   content: "";
   position: absolute;
   background-color: currentColor;
@@ -835,7 +818,7 @@ textarea::placeholder {
   display: block;
   height: 100%;
   width: 100%;
-  border-radius: 0.1em;
+  border-radius: 50px;
   -webkit-transition: bottom 0.3s 0.3s,  width 0.3s 0.6s,  -webkit-transform 0.3s  0s;
   transition: bottom 0.3s 0.3s,  width 0.3s 0.6s,  -webkit-transform 0.3s  0s;
   -o-transition: transform 0.3s  0s,  bottom 0.3s 0.3s,  width 0.3s 0.6s;
@@ -843,21 +826,28 @@ textarea::placeholder {
   transition: transform 0.3s  0s,  bottom 0.3s 0.3s,  width 0.3s 0.6s,  -webkit-transform 0.3s  0s;
 }
 
-.menu-toggle__item:after {
-  bottom: 0.125em;
+.menu-toggle__icon:after {
+  bottom: 0.25em;
 }
 
-.menu-toggle__item:before {
-  bottom: -0.125em;
-  width: 65%;
+.menu-toggle__icon:before {
+  bottom: -0.25em;
+  width: 0.7em;
 }
 
-.menu-toggle._active .menu-toggle__item {
+.menu-toggle__text {
+  font-size: 0.6em;
+  margin-left: 0.2rem;
+  line-height: 1;
+}
+
+.menu-toggle._active .menu-toggle__icon {
   background: none;
 }
 
-.menu-toggle._active .menu-toggle__item:after,
-.menu-toggle._active .menu-toggle__item:before {
+.menu-toggle._active .menu-toggle__icon:after,
+.menu-toggle._active .menu-toggle__icon:before {
+  bottom: 0;
   -webkit-transition: bottom 0.3s 0.3s,  width 0.3s 0s,  -webkit-transform 0.3s 0.6s;
   transition: bottom 0.3s 0.3s,  width 0.3s 0s,  -webkit-transform 0.3s 0.6s;
   -o-transition: transform 0.3s 0.6s,  bottom 0.3s 0.3s,  width 0.3s 0s;
@@ -865,23 +855,17 @@ textarea::placeholder {
   transition: transform 0.3s 0.6s,  bottom 0.3s 0.3s,  width 0.3s 0s,  -webkit-transform 0.3s 0.6s;
 }
 
-.menu-toggle._active .menu-toggle__item:after {
-  bottom: 0;
+.menu-toggle._active .menu-toggle__icon:after {
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 
-.menu-toggle._active .menu-toggle__item:before {
+.menu-toggle._active .menu-toggle__icon:before {
   width: 100%;
-  bottom: 0;
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
-}
-
-.menu-toggle._left {
-  margin-left: auto;
 }
 
 .menu-modal {
@@ -893,6 +877,7 @@ textarea::placeholder {
   z-index: 999;
   background: #fafafa;
   overflow: hidden;
+  display: none;
 }
 
 .menu-modal__wrapper {
@@ -1042,30 +1027,52 @@ textarea::placeholder {
 
 .social {
   display: flex;
-  flex-wrap: wrap;
-}
-
-.social__item {
-  display: flex;
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
   width: 1em;
   height: 1em;
   margin-right: 0.25em;
-  font-size: 0.64rem;
   border-radius: 50%;
   overflow: hidden;
   background-color: #000;
-  color: #fff;
+  position: relative;
+  -webkit-transition-duration: 400ms;
+       -o-transition-duration: 400ms;
+          transition-duration: 400ms;
+  font-size: 0.64rem;
 }
 
-.social__item .icon {
+.social .icon {
+  color: #fff;
   font-size: 0.5em;
 }
 
-.social__item:hover {
+.social:hover {
   background-color: #2b2b2b;
+}
+
+.social--outline {
+  background: none;
+  border: 1px solid #000;
+}
+
+.social--outline .icon {
+  color: #000;
+}
+
+.social--outline:hover {
+  background-color: #000;
+}
+
+.social--outline:hover .icon {
+  color: #fff;
+}
+
+.social-group {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
 }
 
 :root {
@@ -1663,8 +1670,8 @@ textarea::placeholder {
   padding: 0.4rem;
 }
 
-[class*=" m:aling-"],
-[class^="m:aling-"] {
+[class*=" m:align-"],
+[class^="m:align-"] {
   --align: initial;
   --justify: initial;
   align-items: var(--align);
@@ -1689,13 +1696,12 @@ textarea::placeholder {
 
 .grid {
   --grid-gap-x: var(--gap-x);
-  --grid-gap-y: 0;
+  --grid-gap-y: var(--gap-y);
   --grid-columns: var(--columns);
-  --grid-track-size: 1fr;
-  --col: var(--columns);
+  --col: var(--grid-columns);
   --dp-grid: grid;
   display: var(--dp-grid);
-  grid-template-columns: repeat(var(--grid-columns), var(--grid-track-size));
+  grid-template-columns: repeat(var(--grid-columns), calc(((100% + var(--grid-gap-x)) / (var(--grid-columns) / 1)) - var(--grid-gap-x)));
   grid-gap: var(--grid-gap-y) var(--grid-gap-x);
 }
 
@@ -1709,12 +1715,11 @@ textarea::placeholder {
   --row: 1;
   --col-start: auto;
   --row-start: auto;
-  grid-column: var(--col-start)/span var(--col);
-  grid-row: var(--row-start)/span var(--row);
+  grid-area: var(--col-start)/span var(--col)/var(--row-start)/span var(--row);
 }
 
-.grid[class*=" m:aling-"],
-.grid[class^="m:aling-"] {
+.grid[class*=" m:align-"],
+.grid[class^="m:align-"] {
   align-items: var(--align);
   justify-items: var(--justify);
 }
@@ -1765,6 +1770,54 @@ textarea::placeholder {
 
 .col-12 {
   --col: 12;
+}
+
+.row-1 {
+  --row: 1;
+}
+
+.row-2 {
+  --row: 2;
+}
+
+.row-3 {
+  --row: 3;
+}
+
+.row-4 {
+  --row: 4;
+}
+
+.row-5 {
+  --row: 5;
+}
+
+.row-6 {
+  --row: 6;
+}
+
+.row-7 {
+  --row: 7;
+}
+
+.row-8 {
+  --row: 8;
+}
+
+.row-9 {
+  --row: 9;
+}
+
+.row-10 {
+  --row: 10;
+}
+
+.row-11 {
+  --row: 11;
+}
+
+.row-12 {
+  --row: 12;
 }
 
 .order-0 {
@@ -1819,16 +1872,6 @@ textarea::placeholder {
   order: 12;
 }
 
-[class*=" g:columns-"],
-[class^="g:columns-"] {
-  --grid-gap-y: var(--gap-x);
-  --col: auto;
-}
-
-.g\:columns-1 {
-  --grid-columns: 1;
-}
-
 .g\:columns-2 {
   --grid-columns: 2;
 }
@@ -1855,6 +1898,22 @@ textarea::placeholder {
 
 .g\:columns-8 {
   --grid-columns: 8;
+}
+
+.g\:columns-9 {
+  --grid-columns: 9;
+}
+
+.g\:columns-10 {
+  --grid-columns: 10;
+}
+
+.g\:columns-11 {
+  --grid-columns: 11;
+}
+
+.g\:columns-12 {
+  --grid-columns: 12;
 }
 
 .g\:cs-1 {
@@ -1905,6 +1964,39 @@ textarea::placeholder {
   --col-start: auto;
 }
 
+.g\:col-auto {
+  --col: auto;
+}
+
+.g\:gap-0 {
+  --local-container-gap: 0px;
+  --grid-gap-x: 0px;
+  --grid-gap-y: 0px;
+  --gap-n: 0px;
+}
+
+.g\:gap-n {
+  --gap-n: calc(var(--local-container-gap) / -1);
+  margin-right: var(--gap-n);
+  margin-left: var(--gap-n);
+}
+
+.g\:gap-x {
+  --grid-gap-x: var(--gap-x);
+}
+
+.g\:gap-x-0 {
+  --grid-gap-x: 0px;
+}
+
+.g\:gap-y {
+  --grid-gap-y: var(--gap-y);
+}
+
+.g\:gap-y-0 {
+  --grid-gap-y: 0px;
+}
+
 .g\:rs-1 {
   --row-start: 1;
 }
@@ -1949,49 +2041,8 @@ textarea::placeholder {
   --row-start: 11;
 }
 
-.g\:rs-auto,
-.g\:start-auto {
+.g\:rs-auto {
   --row-start: auto;
-}
-
-.g\:start-auto {
-  --col-start: auto;
-}
-
-.g\:gap {
-  --container-gap: var(--container-gap-fix);
-  --grid-gap-x: var(--gap-x);
-  --grid-gap-y: var(--gap-x);
-  --gap-n: calc(var(--gap-x) / -2);
-}
-
-.g\:gap-n {
-  --gap-n: calc(var(--container-gap-fix) / -2);
-  margin-right: var(--gap-n);
-  margin-left: var(--gap-n);
-}
-
-.g\:gap-0 {
-  --container-gap: 0;
-  --grid-gap-x: 0;
-  --grid-gap-y: 0;
-  --gap-n: 0;
-}
-
-.g\:gap-x {
-  --grid-gap-x: var(--gap-x);
-}
-
-.g\:gap-x-0 {
-  --grid-gap-x: 0;
-}
-
-.g\:gap-y {
-  --grid-gap-y: var(--gap-x);
-}
-
-.g\:gap-y-0 {
-  --grid-gap-y: 0;
 }
 
 .g\:rows-fixed {
@@ -2007,8 +2058,8 @@ textarea::placeholder {
   flex-direction: row-reverse;
 }
 
-.box-reverse[class*=" m:aling-"],
-.box-reverse[class^="m:aling-"] {
+.box-reverse[class*=" m:align-"],
+.box-reverse[class^="m:align-"] {
   align-items: var(--align);
   justify-content: var(--justify-r-x);
 }
@@ -2017,8 +2068,8 @@ textarea::placeholder {
   flex-direction: column;
 }
 
-.box-y[class*=" m:aling-"],
-.box-y[class^="m:aling-"] {
+.box-y[class*=" m:align-"],
+.box-y[class^="m:align-"] {
   align-items: var(--justify);
   justify-content: var(--align);
 }
@@ -2027,8 +2078,8 @@ textarea::placeholder {
   flex-direction: column-reverse;
 }
 
-.box-y-reverse[class*=" m:aling-"],
-.box-y-reverse[class^="m:aling-"] {
+.box-y-reverse[class*=" m:align-"],
+.box-y-reverse[class^="m:align-"] {
   align-items: var(--justify);
   justify-content: var(--align-r-y);
 }
@@ -2135,8 +2186,8 @@ textarea::placeholder {
   flex-direction: row;
 }
 
-.m\:axis-x[class*=" m:aling-"],
-.m\:axis-x[class^="m:aling-"] {
+.m\:axis-x[class*=" m:align-"],
+.m\:axis-x[class^="m:align-"] {
   align-items: var(--align);
   justify-content: var(--justify);
 }
@@ -2145,8 +2196,8 @@ textarea::placeholder {
   flex-direction: row-reverse;
 }
 
-.m\:axis-x-r[class*=" m:aling-"],
-.m\:axis-x-r[class^="m:aling-"] {
+.m\:axis-x-r[class*=" m:align-"],
+.m\:axis-x-r[class^="m:align-"] {
   align-items: var(--align);
   justify-content: var(--justify-r-x);
 }
@@ -2155,8 +2206,8 @@ textarea::placeholder {
   flex-direction: column;
 }
 
-.m\:axis-y[class*=" m:aling-"],
-.m\:axis-y[class^="m:aling-"] {
+.m\:axis-y[class*=" m:align-"],
+.m\:axis-y[class^="m:align-"] {
   align-items: var(--justify);
   justify-content: var(--align);
 }
@@ -2165,8 +2216,8 @@ textarea::placeholder {
   flex-direction: column-reverse;
 }
 
-.m\:axis-y-r[class*=" m:aling-"],
-.m\:axis-y-r[class^="m:aling-"] {
+.m\:axis-y-r[class*=" m:align-"],
+.m\:axis-y-r[class^="m:align-"] {
   align-items: var(--justify);
   justify-content: var(--align-r-y);
 }
@@ -2176,7 +2227,7 @@ textarea::placeholder {
   margin-left: 0;
 }
 
-.m\:no-left,
+.m\:left-0,
 .m\:right {
   margin-right: 0;
 }
@@ -2185,7 +2236,7 @@ textarea::placeholder {
   margin-left: auto;
 }
 
-.m\:no-right {
+.m\:right-0 {
   margin-left: 0;
 }
 
@@ -2195,7 +2246,7 @@ textarea::placeholder {
 }
 
 .m\:bottom,
-.m\:no-top {
+.m\:top-0 {
   margin-bottom: 0;
 }
 
@@ -2203,7 +2254,7 @@ textarea::placeholder {
   margin-top: auto;
 }
 
-.m\:no-bottom {
+.m\:bottom-0 {
   margin-top: 0;
 }
 
@@ -2211,8 +2262,8 @@ textarea::placeholder {
   margin: auto;
 }
 
-.m\:no-center {
-  margin: initial;
+.m\:center-0 {
+  margin: 0;
 }
 
 .m\:center-x {
@@ -2220,7 +2271,7 @@ textarea::placeholder {
   margin-right: auto;
 }
 
-.m\:no-center-x {
+.m\:center-x-0 {
   margin-left: 0;
   margin-right: 0;
 }
@@ -2230,59 +2281,59 @@ textarea::placeholder {
   margin-bottom: auto;
 }
 
-.m\:no-center-y {
+.m\:center-y-0 {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.m\:aling-right {
+.m\:align-right {
   --justify: flex-end;
   --justify-r-x: flex-start;
 }
 
-.m\:aling-left {
+.m\:align-left {
   --justify: flex-start;
   --justify-r-x: flex-end;
 }
 
-.m\:aling-bottom {
+.m\:align-bottom {
   --align: flex-end;
   --align-r-y: flex-start;
 }
 
-.m\:aling-top {
+.m\:align-top {
   --align: flex-start;
   --align-r-y: flex-end;
 }
 
-.m\:aling-center {
+.m\:align-center {
   --align: center;
   --align-r-y: center;
 }
 
-.m\:aling-center,
-.m\:aling-center-x {
+.m\:align-center,
+.m\:align-center-x {
   --justify: center;
   --justify-r-x: center;
 }
 
-.m\:aling-center-y {
+.m\:align-center-y {
   --align: center;
   --align-r-y: center;
 }
 
-.m\:aling-stretch {
+.m\:align-stretch {
   --align: stretch;
   --align-r-y: stretch;
 }
 
-.m\:aling-stretch,
-.m\:aling-stretch-x {
+.m\:align-stretch,
+.m\:align-stretch-x {
   --justify: stretch;
   --justify-r-x: stretch;
 }
 
-.m\:aling-stretch-y {
+.m\:align-stretch-y {
   --align: stretch;
   --align-r-y: stretch;
 }
@@ -2292,6 +2343,10 @@ textarea::placeholder {
 }
 
 @media (min-width: 480px) {
+  .container {
+    max-width: 440px;
+  }
+
   .col-1\@sm {
     --col: 1;
   }
@@ -2338,6 +2393,54 @@ textarea::placeholder {
 
   .col-12\@sm {
     --col: 12;
+  }
+
+  .row-1\@sm {
+    --row: 1;
+  }
+
+  .row-2\@sm {
+    --row: 2;
+  }
+
+  .row-3\@sm {
+    --row: 3;
+  }
+
+  .row-4\@sm {
+    --row: 4;
+  }
+
+  .row-5\@sm {
+    --row: 5;
+  }
+
+  .row-6\@sm {
+    --row: 6;
+  }
+
+  .row-7\@sm {
+    --row: 7;
+  }
+
+  .row-8\@sm {
+    --row: 8;
+  }
+
+  .row-9\@sm {
+    --row: 9;
+  }
+
+  .row-10\@sm {
+    --row: 10;
+  }
+
+  .row-11\@sm {
+    --row: 11;
+  }
+
+  .row-12\@sm {
+    --row: 12;
   }
 
   .order-0\@sm {
@@ -2392,10 +2495,6 @@ textarea::placeholder {
     order: 12;
   }
 
-  .g\:columns-1\@sm {
-    --grid-columns: 1;
-  }
-
   .g\:columns-2\@sm {
     --grid-columns: 2;
   }
@@ -2422,6 +2521,22 @@ textarea::placeholder {
 
   .g\:columns-8\@sm {
     --grid-columns: 8;
+  }
+
+  .g\:columns-9\@sm {
+    --grid-columns: 9;
+  }
+
+  .g\:columns-10\@sm {
+    --grid-columns: 10;
+  }
+
+  .g\:columns-11\@sm {
+    --grid-columns: 11;
+  }
+
+  .g\:columns-12\@sm {
+    --grid-columns: 12;
   }
 
   .g\:cs-1\@sm {
@@ -2472,6 +2587,59 @@ textarea::placeholder {
     --col-start: auto;
   }
 
+  .g\:start-auto\@sm {
+    --col-start: auto;
+    --row-start: auto;
+  }
+
+  .g\:col-auto\@sm {
+    --col: auto;
+  }
+
+  .g\:col-auto-none\@sm {
+    --col: var(--grid-columns);
+  }
+
+  .g\:gap\@sm {
+    --local-container-gap: var(--container-gap);
+    --grid-gap-x: calc((var(--gap-x) * var(--size-valye)) * var(--size));
+    --grid-gap-y: var(--gap-y);
+    --gap-n: calc(var(--container-gap) / -1);
+  }
+
+  .g\:gap-0\@sm {
+    --local-container-gap: 0px;
+    --grid-gap-x: 0px;
+    --grid-gap-y: 0px;
+    --gap-n: 0px;
+  }
+
+  .g\:gap-n\@sm {
+    --gap-n: calc(var(--local-container-gap) / -1);
+    margin-right: var(--gap-n);
+    margin-left: var(--gap-n);
+  }
+
+  .g\:gap-n-0\@sm {
+    --gap-n: 0px;
+  }
+
+  .g\:gap-x\@sm {
+    --grid-gap-x: var(--gap-x);
+  }
+
+  .g\:gap-x-0\@sm {
+    --grid-gap-x: 0px;
+  }
+
+  .g\:gap-y\@sm {
+    --grid-gap-y: var(--gap-y);
+  }
+
+  .g\:gap-y-0\@sm {
+    --grid-gap-y: 0px;
+  }
+
   .g\:rs-1\@sm {
     --row-start: 1;
   }
@@ -2520,53 +2688,12 @@ textarea::placeholder {
     --row-start: auto;
   }
 
-  .g\:start-auto\@sm {
-    --col-start: auto;
-    --row-start: auto;
-  }
-
-  .g\:gap\@sm {
-    --container-gap: var(--container-gap-fix);
-    --grid-gap-x: var(--gap-x);
-    --grid-gap-y: var(--gap-x);
-    --gap-n: calc(var(--gap-x) / -2);
-  }
-
-  .g\:gap-n\@sm {
-    --gap-n: calc(var(--container-gap-fix) / -2);
-    margin-right: var(--gap-n);
-    margin-left: var(--gap-n);
-  }
-
-  .g\:gap-0\@sm {
-    --container-gap: 0;
-    --grid-gap-x: 0;
-    --grid-gap-y: 0;
-    --gap-n: 0;
-  }
-
-  .g\:gap-x\@sm {
-    --grid-gap-x: var(--gap-x);
-  }
-
-  .g\:gap-x-0\@sm {
-    --grid-gap-x: 0;
-  }
-
-  .g\:gap-y\@sm {
-    --grid-gap-y: var(--gap-x);
-  }
-
-  .g\:gap-y-0\@sm {
-    --grid-gap-y: 0;
+  .g\:rows-auto\@sm {
+    grid-auto-rows: auto;
   }
 
   .g\:rows-fixed\@sm {
     grid-auto-rows: 1fr;
-  }
-
-  .g\:rows-auto\@sm {
-    grid-auto-rows: auto;
   }
 
   .t\:left\@sm {
@@ -2613,8 +2740,8 @@ textarea::placeholder {
     flex-direction: row;
   }
 
-  .m\:axis-x\@sm[class*=" m:aling-"],
-  .m\:axis-x\@sm[class^="m:aling-"] {
+  .m\:axis-x\@sm[class*=" m:align-"],
+  .m\:axis-x\@sm[class^="m:align-"] {
     align-items: var(--align);
     justify-content: var(--justify);
   }
@@ -2623,8 +2750,8 @@ textarea::placeholder {
     flex-direction: row-reverse;
   }
 
-  .m\:axis-x-r\@sm[class*=" m:aling-"],
-  .m\:axis-x-r\@sm[class^="m:aling-"] {
+  .m\:axis-x-r\@sm[class*=" m:align-"],
+  .m\:axis-x-r\@sm[class^="m:align-"] {
     align-items: var(--align);
     justify-content: var(--justify-r-x);
   }
@@ -2633,8 +2760,8 @@ textarea::placeholder {
     flex-direction: column;
   }
 
-  .m\:axis-y\@sm[class*=" m:aling-"],
-  .m\:axis-y\@sm[class^="m:aling-"] {
+  .m\:axis-y\@sm[class*=" m:align-"],
+  .m\:axis-y\@sm[class^="m:align-"] {
     align-items: var(--justify);
     justify-content: var(--align);
   }
@@ -2643,8 +2770,8 @@ textarea::placeholder {
     flex-direction: column-reverse;
   }
 
-  .m\:axis-y-r\@sm[class*=" m:aling-"],
-  .m\:axis-y-r\@sm[class^="m:aling-"] {
+  .m\:axis-y-r\@sm[class*=" m:align-"],
+  .m\:axis-y-r\@sm[class^="m:align-"] {
     align-items: var(--justify);
     justify-content: var(--align-r-y);
   }
@@ -2654,7 +2781,7 @@ textarea::placeholder {
     margin-left: 0;
   }
 
-  .m\:no-left\@sm,
+  .m\:left-0\@sm,
   .m\:right\@sm {
     margin-right: 0;
   }
@@ -2663,7 +2790,7 @@ textarea::placeholder {
     margin-left: auto;
   }
 
-  .m\:no-right\@sm {
+  .m\:right-0\@sm {
     margin-left: 0;
   }
 
@@ -2673,7 +2800,7 @@ textarea::placeholder {
   }
 
   .m\:bottom\@sm,
-  .m\:no-top\@sm {
+  .m\:top-0\@sm {
     margin-bottom: 0;
   }
 
@@ -2681,7 +2808,7 @@ textarea::placeholder {
     margin-top: auto;
   }
 
-  .m\:no-bottom\@sm {
+  .m\:bottom-0\@sm {
     margin-top: 0;
   }
 
@@ -2689,8 +2816,8 @@ textarea::placeholder {
     margin: auto;
   }
 
-  .m\:no-center\@sm {
-    margin: initial;
+  .m\:center-0\@sm {
+    margin: 0;
   }
 
   .m\:center-x\@sm {
@@ -2698,7 +2825,7 @@ textarea::placeholder {
     margin-right: auto;
   }
 
-  .m\:no-center-x\@sm {
+  .m\:center-x-0\@sm {
     margin-left: 0;
     margin-right: 0;
   }
@@ -2708,61 +2835,68 @@ textarea::placeholder {
     margin-bottom: auto;
   }
 
-  .m\:no-center-y\@sm {
+  .m\:center-y-0\@sm {
     margin-top: 0;
     margin-bottom: 0;
   }
 
-  .m\:aling-right\@sm {
+  .m\:align-right\@sm {
     --justify: flex-end;
     --justify-r-x: flex-start;
   }
 
-  .m\:aling-left\@sm {
+  .m\:align-left\@sm {
     --justify: flex-start;
     --justify-r-x: flex-end;
   }
 
-  .m\:aling-bottom\@sm {
+  .m\:align-bottom\@sm {
     --align: flex-end;
     --align-r-y: flex-start;
   }
 
-  .m\:aling-top\@sm {
+  .m\:align-top\@sm {
     --align: flex-start;
     --align-r-y: flex-end;
   }
 
-  .m\:aling-center\@sm {
+  .m\:align-center\@sm {
     --align: center;
     --align-r-y: center;
   }
 
-  .m\:aling-center-x\@sm,
-  .m\:aling-center\@sm {
+  .m\:align-center-x\@sm,
+  .m\:align-center\@sm {
     --justify: center;
     --justify-r-x: center;
   }
 
-  .m\:aling-center-y\@sm {
+  .m\:align-center-y\@sm {
     --align: center;
     --align-r-y: center;
   }
 
-  .m\:aling-stretch\@sm {
+  .m\:align-stretch\@sm {
     --align: stretch;
     --align-r-y: stretch;
   }
 
-  .m\:aling-stretch-x\@sm,
-  .m\:aling-stretch\@sm {
+  .m\:align-stretch-x\@sm,
+  .m\:align-stretch\@sm {
     --justify: stretch;
     --justify-r-x: stretch;
   }
 
-  .m\:aling-stretch-y\@sm {
+  .m\:align-stretch-y\@sm {
     --align: stretch;
     --align-r-y: stretch;
+  }
+}
+
+@media (min-width: 640px) {
+  .container,
+  .container-xs {
+    max-width: 520px;
   }
 }
 
@@ -2773,6 +2907,12 @@ textarea::placeholder {
 
   :root {
     --size-a-0-75: 0.65;
+  }
+
+  .container-xs,
+  .container,
+  .container-md {
+    max-width: 720px;
   }
 
   .col-1\@md {
@@ -2821,6 +2961,54 @@ textarea::placeholder {
 
   .col-12\@md {
     --col: 12;
+  }
+
+  .row-1\@md {
+    --row: 1;
+  }
+
+  .row-2\@md {
+    --row: 2;
+  }
+
+  .row-3\@md {
+    --row: 3;
+  }
+
+  .row-4\@md {
+    --row: 4;
+  }
+
+  .row-5\@md {
+    --row: 5;
+  }
+
+  .row-6\@md {
+    --row: 6;
+  }
+
+  .row-7\@md {
+    --row: 7;
+  }
+
+  .row-8\@md {
+    --row: 8;
+  }
+
+  .row-9\@md {
+    --row: 9;
+  }
+
+  .row-10\@md {
+    --row: 10;
+  }
+
+  .row-11\@md {
+    --row: 11;
+  }
+
+  .row-12\@md {
+    --row: 12;
   }
 
   .order-0\@md {
@@ -2875,10 +3063,6 @@ textarea::placeholder {
     order: 12;
   }
 
-  .g\:columns-1\@md {
-    --grid-columns: 1;
-  }
-
   .g\:columns-2\@md {
     --grid-columns: 2;
   }
@@ -2905,6 +3089,22 @@ textarea::placeholder {
 
   .g\:columns-8\@md {
     --grid-columns: 8;
+  }
+
+  .g\:columns-9\@md {
+    --grid-columns: 9;
+  }
+
+  .g\:columns-10\@md {
+    --grid-columns: 10;
+  }
+
+  .g\:columns-11\@md {
+    --grid-columns: 11;
+  }
+
+  .g\:columns-12\@md {
+    --grid-columns: 12;
   }
 
   .g\:cs-1\@md {
@@ -2955,6 +3155,59 @@ textarea::placeholder {
     --col-start: auto;
   }
 
+  .g\:start-auto\@md {
+    --col-start: auto;
+    --row-start: auto;
+  }
+
+  .g\:col-auto\@md {
+    --col: auto;
+  }
+
+  .g\:col-auto-none\@md {
+    --col: var(--grid-columns);
+  }
+
+  .g\:gap\@md {
+    --local-container-gap: var(--container-gap);
+    --grid-gap-x: calc((var(--gap-x) * var(--size-valye)) * var(--size));
+    --grid-gap-y: var(--gap-y);
+    --gap-n: calc(var(--container-gap) / -1);
+  }
+
+  .g\:gap-0\@md {
+    --local-container-gap: 0px;
+    --grid-gap-x: 0px;
+    --grid-gap-y: 0px;
+    --gap-n: 0px;
+  }
+
+  .g\:gap-n\@md {
+    --gap-n: calc(var(--local-container-gap) / -1);
+    margin-right: var(--gap-n);
+    margin-left: var(--gap-n);
+  }
+
+  .g\:gap-n-0\@md {
+    --gap-n: 0px;
+  }
+
+  .g\:gap-x\@md {
+    --grid-gap-x: var(--gap-x);
+  }
+
+  .g\:gap-x-0\@md {
+    --grid-gap-x: 0px;
+  }
+
+  .g\:gap-y\@md {
+    --grid-gap-y: var(--gap-y);
+  }
+
+  .g\:gap-y-0\@md {
+    --grid-gap-y: 0px;
+  }
+
   .g\:rs-1\@md {
     --row-start: 1;
   }
@@ -3003,53 +3256,12 @@ textarea::placeholder {
     --row-start: auto;
   }
 
-  .g\:start-auto\@md {
-    --col-start: auto;
-    --row-start: auto;
-  }
-
-  .g\:gap\@md {
-    --container-gap: var(--container-gap-fix);
-    --grid-gap-x: var(--gap-x);
-    --grid-gap-y: var(--gap-x);
-    --gap-n: calc(var(--gap-x) / -2);
-  }
-
-  .g\:gap-n\@md {
-    --gap-n: calc(var(--container-gap-fix) / -2);
-    margin-right: var(--gap-n);
-    margin-left: var(--gap-n);
-  }
-
-  .g\:gap-0\@md {
-    --container-gap: 0;
-    --grid-gap-x: 0;
-    --grid-gap-y: 0;
-    --gap-n: 0;
-  }
-
-  .g\:gap-x\@md {
-    --grid-gap-x: var(--gap-x);
-  }
-
-  .g\:gap-x-0\@md {
-    --grid-gap-x: 0;
-  }
-
-  .g\:gap-y\@md {
-    --grid-gap-y: var(--gap-x);
-  }
-
-  .g\:gap-y-0\@md {
-    --grid-gap-y: 0;
+  .g\:rows-auto\@md {
+    grid-auto-rows: auto;
   }
 
   .g\:rows-fixed\@md {
     grid-auto-rows: 1fr;
-  }
-
-  .g\:rows-auto\@md {
-    grid-auto-rows: auto;
   }
 
   .t\:left\@md {
@@ -3096,8 +3308,8 @@ textarea::placeholder {
     flex-direction: row;
   }
 
-  .m\:axis-x\@md[class*=" m:aling-"],
-  .m\:axis-x\@md[class^="m:aling-"] {
+  .m\:axis-x\@md[class*=" m:align-"],
+  .m\:axis-x\@md[class^="m:align-"] {
     align-items: var(--align);
     justify-content: var(--justify);
   }
@@ -3106,8 +3318,8 @@ textarea::placeholder {
     flex-direction: row-reverse;
   }
 
-  .m\:axis-x-r\@md[class*=" m:aling-"],
-  .m\:axis-x-r\@md[class^="m:aling-"] {
+  .m\:axis-x-r\@md[class*=" m:align-"],
+  .m\:axis-x-r\@md[class^="m:align-"] {
     align-items: var(--align);
     justify-content: var(--justify-r-x);
   }
@@ -3116,8 +3328,8 @@ textarea::placeholder {
     flex-direction: column;
   }
 
-  .m\:axis-y\@md[class*=" m:aling-"],
-  .m\:axis-y\@md[class^="m:aling-"] {
+  .m\:axis-y\@md[class*=" m:align-"],
+  .m\:axis-y\@md[class^="m:align-"] {
     align-items: var(--justify);
     justify-content: var(--align);
   }
@@ -3126,8 +3338,8 @@ textarea::placeholder {
     flex-direction: column-reverse;
   }
 
-  .m\:axis-y-r\@md[class*=" m:aling-"],
-  .m\:axis-y-r\@md[class^="m:aling-"] {
+  .m\:axis-y-r\@md[class*=" m:align-"],
+  .m\:axis-y-r\@md[class^="m:align-"] {
     align-items: var(--justify);
     justify-content: var(--align-r-y);
   }
@@ -3137,7 +3349,7 @@ textarea::placeholder {
     margin-left: 0;
   }
 
-  .m\:no-left\@md,
+  .m\:left-0\@md,
   .m\:right\@md {
     margin-right: 0;
   }
@@ -3146,7 +3358,7 @@ textarea::placeholder {
     margin-left: auto;
   }
 
-  .m\:no-right\@md {
+  .m\:right-0\@md {
     margin-left: 0;
   }
 
@@ -3156,7 +3368,7 @@ textarea::placeholder {
   }
 
   .m\:bottom\@md,
-  .m\:no-top\@md {
+  .m\:top-0\@md {
     margin-bottom: 0;
   }
 
@@ -3164,7 +3376,7 @@ textarea::placeholder {
     margin-top: auto;
   }
 
-  .m\:no-bottom\@md {
+  .m\:bottom-0\@md {
     margin-top: 0;
   }
 
@@ -3172,8 +3384,8 @@ textarea::placeholder {
     margin: auto;
   }
 
-  .m\:no-center\@md {
-    margin: initial;
+  .m\:center-0\@md {
+    margin: 0;
   }
 
   .m\:center-x\@md {
@@ -3181,7 +3393,7 @@ textarea::placeholder {
     margin-right: auto;
   }
 
-  .m\:no-center-x\@md {
+  .m\:center-x-0\@md {
     margin-left: 0;
     margin-right: 0;
   }
@@ -3191,59 +3403,59 @@ textarea::placeholder {
     margin-bottom: auto;
   }
 
-  .m\:no-center-y\@md {
+  .m\:center-y-0\@md {
     margin-top: 0;
     margin-bottom: 0;
   }
 
-  .m\:aling-right\@md {
+  .m\:align-right\@md {
     --justify: flex-end;
     --justify-r-x: flex-start;
   }
 
-  .m\:aling-left\@md {
+  .m\:align-left\@md {
     --justify: flex-start;
     --justify-r-x: flex-end;
   }
 
-  .m\:aling-bottom\@md {
+  .m\:align-bottom\@md {
     --align: flex-end;
     --align-r-y: flex-start;
   }
 
-  .m\:aling-top\@md {
+  .m\:align-top\@md {
     --align: flex-start;
     --align-r-y: flex-end;
   }
 
-  .m\:aling-center\@md {
+  .m\:align-center\@md {
     --align: center;
     --align-r-y: center;
   }
 
-  .m\:aling-center-x\@md,
-  .m\:aling-center\@md {
+  .m\:align-center-x\@md,
+  .m\:align-center\@md {
     --justify: center;
     --justify-r-x: center;
   }
 
-  .m\:aling-center-y\@md {
+  .m\:align-center-y\@md {
     --align: center;
     --align-r-y: center;
   }
 
-  .m\:aling-stretch\@md {
+  .m\:align-stretch\@md {
     --align: stretch;
     --align-r-y: stretch;
   }
 
-  .m\:aling-stretch-x\@md,
-  .m\:aling-stretch\@md {
+  .m\:align-stretch-x\@md,
+  .m\:align-stretch\@md {
     --justify: stretch;
     --justify-r-x: stretch;
   }
 
-  .m\:aling-stretch-y\@md {
+  .m\:align-stretch-y\@md {
     --align: stretch;
     --align-r-y: stretch;
   }
@@ -3263,11 +3475,20 @@ textarea::placeholder {
     --width-min-window-px: 960px;
     --min-value: 50;
     --min-value-px: 50px;
-    --gap-x: size(30);
+    --gap-x: 0.3rem;
+    --gap-y: 0.3rem;
+    --container-gap: 0.15rem;
   }
 
   .title--size-lg {
     font-size: 0.48rem;
+  }
+
+  .container-xs,
+  .container-md,
+  .container,
+  .container-lg {
+    max-width: 12rem;
   }
 
   .modal__box {
@@ -3338,6 +3559,54 @@ textarea::placeholder {
     --col: 12;
   }
 
+  .row-1\@lg {
+    --row: 1;
+  }
+
+  .row-2\@lg {
+    --row: 2;
+  }
+
+  .row-3\@lg {
+    --row: 3;
+  }
+
+  .row-4\@lg {
+    --row: 4;
+  }
+
+  .row-5\@lg {
+    --row: 5;
+  }
+
+  .row-6\@lg {
+    --row: 6;
+  }
+
+  .row-7\@lg {
+    --row: 7;
+  }
+
+  .row-8\@lg {
+    --row: 8;
+  }
+
+  .row-9\@lg {
+    --row: 9;
+  }
+
+  .row-10\@lg {
+    --row: 10;
+  }
+
+  .row-11\@lg {
+    --row: 11;
+  }
+
+  .row-12\@lg {
+    --row: 12;
+  }
+
   .order-0\@lg {
     order: 0;
   }
@@ -3390,10 +3659,6 @@ textarea::placeholder {
     order: 12;
   }
 
-  .g\:columns-1\@lg {
-    --grid-columns: 1;
-  }
-
   .g\:columns-2\@lg {
     --grid-columns: 2;
   }
@@ -3420,6 +3685,22 @@ textarea::placeholder {
 
   .g\:columns-8\@lg {
     --grid-columns: 8;
+  }
+
+  .g\:columns-9\@lg {
+    --grid-columns: 9;
+  }
+
+  .g\:columns-10\@lg {
+    --grid-columns: 10;
+  }
+
+  .g\:columns-11\@lg {
+    --grid-columns: 11;
+  }
+
+  .g\:columns-12\@lg {
+    --grid-columns: 12;
   }
 
   .g\:cs-1\@lg {
@@ -3470,6 +3751,59 @@ textarea::placeholder {
     --col-start: auto;
   }
 
+  .g\:start-auto\@lg {
+    --col-start: auto;
+    --row-start: auto;
+  }
+
+  .g\:col-auto\@lg {
+    --col: auto;
+  }
+
+  .g\:col-auto-none\@lg {
+    --col: var(--grid-columns);
+  }
+
+  .g\:gap\@lg {
+    --local-container-gap: var(--container-gap);
+    --grid-gap-x: calc((var(--gap-x) * var(--size-valye)) * var(--size));
+    --grid-gap-y: var(--gap-y);
+    --gap-n: calc(var(--container-gap) / -1);
+  }
+
+  .g\:gap-0\@lg {
+    --local-container-gap: 0px;
+    --grid-gap-x: 0px;
+    --grid-gap-y: 0px;
+    --gap-n: 0px;
+  }
+
+  .g\:gap-n\@lg {
+    --gap-n: calc(var(--local-container-gap) / -1);
+    margin-right: var(--gap-n);
+    margin-left: var(--gap-n);
+  }
+
+  .g\:gap-n-0\@lg {
+    --gap-n: 0px;
+  }
+
+  .g\:gap-x\@lg {
+    --grid-gap-x: var(--gap-x);
+  }
+
+  .g\:gap-x-0\@lg {
+    --grid-gap-x: 0px;
+  }
+
+  .g\:gap-y\@lg {
+    --grid-gap-y: var(--gap-y);
+  }
+
+  .g\:gap-y-0\@lg {
+    --grid-gap-y: 0px;
+  }
+
   .g\:rs-1\@lg {
     --row-start: 1;
   }
@@ -3518,53 +3852,12 @@ textarea::placeholder {
     --row-start: auto;
   }
 
-  .g\:start-auto\@lg {
-    --col-start: auto;
-    --row-start: auto;
-  }
-
-  .g\:gap\@lg {
-    --container-gap: var(--container-gap-fix);
-    --grid-gap-x: var(--gap-x);
-    --grid-gap-y: var(--gap-x);
-    --gap-n: calc(var(--gap-x) / -2);
-  }
-
-  .g\:gap-n\@lg {
-    --gap-n: calc(var(--container-gap-fix) / -2);
-    margin-right: var(--gap-n);
-    margin-left: var(--gap-n);
-  }
-
-  .g\:gap-0\@lg {
-    --container-gap: 0;
-    --grid-gap-x: 0;
-    --grid-gap-y: 0;
-    --gap-n: 0;
-  }
-
-  .g\:gap-x\@lg {
-    --grid-gap-x: var(--gap-x);
-  }
-
-  .g\:gap-x-0\@lg {
-    --grid-gap-x: 0;
-  }
-
-  .g\:gap-y\@lg {
-    --grid-gap-y: var(--gap-x);
-  }
-
-  .g\:gap-y-0\@lg {
-    --grid-gap-y: 0;
+  .g\:rows-auto\@lg {
+    grid-auto-rows: auto;
   }
 
   .g\:rows-fixed\@lg {
     grid-auto-rows: 1fr;
-  }
-
-  .g\:rows-auto\@lg {
-    grid-auto-rows: auto;
   }
 
   .t\:left\@lg {
@@ -3611,8 +3904,8 @@ textarea::placeholder {
     flex-direction: row;
   }
 
-  .m\:axis-x\@lg[class*=" m:aling-"],
-  .m\:axis-x\@lg[class^="m:aling-"] {
+  .m\:axis-x\@lg[class*=" m:align-"],
+  .m\:axis-x\@lg[class^="m:align-"] {
     align-items: var(--align);
     justify-content: var(--justify);
   }
@@ -3621,8 +3914,8 @@ textarea::placeholder {
     flex-direction: row-reverse;
   }
 
-  .m\:axis-x-r\@lg[class*=" m:aling-"],
-  .m\:axis-x-r\@lg[class^="m:aling-"] {
+  .m\:axis-x-r\@lg[class*=" m:align-"],
+  .m\:axis-x-r\@lg[class^="m:align-"] {
     align-items: var(--align);
     justify-content: var(--justify-r-x);
   }
@@ -3631,8 +3924,8 @@ textarea::placeholder {
     flex-direction: column;
   }
 
-  .m\:axis-y\@lg[class*=" m:aling-"],
-  .m\:axis-y\@lg[class^="m:aling-"] {
+  .m\:axis-y\@lg[class*=" m:align-"],
+  .m\:axis-y\@lg[class^="m:align-"] {
     align-items: var(--justify);
     justify-content: var(--align);
   }
@@ -3641,8 +3934,8 @@ textarea::placeholder {
     flex-direction: column-reverse;
   }
 
-  .m\:axis-y-r\@lg[class*=" m:aling-"],
-  .m\:axis-y-r\@lg[class^="m:aling-"] {
+  .m\:axis-y-r\@lg[class*=" m:align-"],
+  .m\:axis-y-r\@lg[class^="m:align-"] {
     align-items: var(--justify);
     justify-content: var(--align-r-y);
   }
@@ -3652,7 +3945,7 @@ textarea::placeholder {
     margin-left: 0;
   }
 
-  .m\:no-left\@lg,
+  .m\:left-0\@lg,
   .m\:right\@lg {
     margin-right: 0;
   }
@@ -3661,7 +3954,7 @@ textarea::placeholder {
     margin-left: auto;
   }
 
-  .m\:no-right\@lg {
+  .m\:right-0\@lg {
     margin-left: 0;
   }
 
@@ -3671,7 +3964,7 @@ textarea::placeholder {
   }
 
   .m\:bottom\@lg,
-  .m\:no-top\@lg {
+  .m\:top-0\@lg {
     margin-bottom: 0;
   }
 
@@ -3679,7 +3972,7 @@ textarea::placeholder {
     margin-top: auto;
   }
 
-  .m\:no-bottom\@lg {
+  .m\:bottom-0\@lg {
     margin-top: 0;
   }
 
@@ -3687,8 +3980,8 @@ textarea::placeholder {
     margin: auto;
   }
 
-  .m\:no-center\@lg {
-    margin: initial;
+  .m\:center-0\@lg {
+    margin: 0;
   }
 
   .m\:center-x\@lg {
@@ -3696,7 +3989,7 @@ textarea::placeholder {
     margin-right: auto;
   }
 
-  .m\:no-center-x\@lg {
+  .m\:center-x-0\@lg {
     margin-left: 0;
     margin-right: 0;
   }
@@ -3706,59 +3999,59 @@ textarea::placeholder {
     margin-bottom: auto;
   }
 
-  .m\:no-center-y\@lg {
+  .m\:center-y-0\@lg {
     margin-top: 0;
     margin-bottom: 0;
   }
 
-  .m\:aling-right\@lg {
+  .m\:align-right\@lg {
     --justify: flex-end;
     --justify-r-x: flex-start;
   }
 
-  .m\:aling-left\@lg {
+  .m\:align-left\@lg {
     --justify: flex-start;
     --justify-r-x: flex-end;
   }
 
-  .m\:aling-bottom\@lg {
+  .m\:align-bottom\@lg {
     --align: flex-end;
     --align-r-y: flex-start;
   }
 
-  .m\:aling-top\@lg {
+  .m\:align-top\@lg {
     --align: flex-start;
     --align-r-y: flex-end;
   }
 
-  .m\:aling-center\@lg {
+  .m\:align-center\@lg {
     --align: center;
     --align-r-y: center;
   }
 
-  .m\:aling-center-x\@lg,
-  .m\:aling-center\@lg {
+  .m\:align-center-x\@lg,
+  .m\:align-center\@lg {
     --justify: center;
     --justify-r-x: center;
   }
 
-  .m\:aling-center-y\@lg {
+  .m\:align-center-y\@lg {
     --align: center;
     --align-r-y: center;
   }
 
-  .m\:aling-stretch\@lg {
+  .m\:align-stretch\@lg {
     --align: stretch;
     --align-r-y: stretch;
   }
 
-  .m\:aling-stretch-x\@lg,
-  .m\:aling-stretch\@lg {
+  .m\:align-stretch-x\@lg,
+  .m\:align-stretch\@lg {
     --justify: stretch;
     --justify-r-x: stretch;
   }
 
-  .m\:aling-stretch-y\@lg {
+  .m\:align-stretch-y\@lg {
     --align: stretch;
     --align-r-y: stretch;
   }
@@ -3825,6 +4118,54 @@ textarea::placeholder {
     --col: 12;
   }
 
+  .row-1\@xl {
+    --row: 1;
+  }
+
+  .row-2\@xl {
+    --row: 2;
+  }
+
+  .row-3\@xl {
+    --row: 3;
+  }
+
+  .row-4\@xl {
+    --row: 4;
+  }
+
+  .row-5\@xl {
+    --row: 5;
+  }
+
+  .row-6\@xl {
+    --row: 6;
+  }
+
+  .row-7\@xl {
+    --row: 7;
+  }
+
+  .row-8\@xl {
+    --row: 8;
+  }
+
+  .row-9\@xl {
+    --row: 9;
+  }
+
+  .row-10\@xl {
+    --row: 10;
+  }
+
+  .row-11\@xl {
+    --row: 11;
+  }
+
+  .row-12\@xl {
+    --row: 12;
+  }
+
   .order-0\@xl {
     order: 0;
   }
@@ -3877,10 +4218,6 @@ textarea::placeholder {
     order: 12;
   }
 
-  .g\:columns-1\@xl {
-    --grid-columns: 1;
-  }
-
   .g\:columns-2\@xl {
     --grid-columns: 2;
   }
@@ -3907,6 +4244,22 @@ textarea::placeholder {
 
   .g\:columns-8\@xl {
     --grid-columns: 8;
+  }
+
+  .g\:columns-9\@xl {
+    --grid-columns: 9;
+  }
+
+  .g\:columns-10\@xl {
+    --grid-columns: 10;
+  }
+
+  .g\:columns-11\@xl {
+    --grid-columns: 11;
+  }
+
+  .g\:columns-12\@xl {
+    --grid-columns: 12;
   }
 
   .g\:cs-1\@xl {
@@ -3957,6 +4310,59 @@ textarea::placeholder {
     --col-start: auto;
   }
 
+  .g\:start-auto\@xl {
+    --col-start: auto;
+    --row-start: auto;
+  }
+
+  .g\:col-auto\@xl {
+    --col: auto;
+  }
+
+  .g\:col-auto-none\@xl {
+    --col: var(--grid-columns);
+  }
+
+  .g\:gap\@xl {
+    --local-container-gap: var(--container-gap);
+    --grid-gap-x: calc((var(--gap-x) * var(--size-valye)) * var(--size));
+    --grid-gap-y: var(--gap-y);
+    --gap-n: calc(var(--container-gap) / -1);
+  }
+
+  .g\:gap-0\@xl {
+    --local-container-gap: 0px;
+    --grid-gap-x: 0px;
+    --grid-gap-y: 0px;
+    --gap-n: 0px;
+  }
+
+  .g\:gap-n\@xl {
+    --gap-n: calc(var(--local-container-gap) / -1);
+    margin-right: var(--gap-n);
+    margin-left: var(--gap-n);
+  }
+
+  .g\:gap-n-0\@xl {
+    --gap-n: 0px;
+  }
+
+  .g\:gap-x\@xl {
+    --grid-gap-x: var(--gap-x);
+  }
+
+  .g\:gap-x-0\@xl {
+    --grid-gap-x: 0px;
+  }
+
+  .g\:gap-y\@xl {
+    --grid-gap-y: var(--gap-y);
+  }
+
+  .g\:gap-y-0\@xl {
+    --grid-gap-y: 0px;
+  }
+
   .g\:rs-1\@xl {
     --row-start: 1;
   }
@@ -4005,53 +4411,12 @@ textarea::placeholder {
     --row-start: auto;
   }
 
-  .g\:start-auto\@xl {
-    --col-start: auto;
-    --row-start: auto;
-  }
-
-  .g\:gap\@xl {
-    --container-gap: var(--container-gap-fix);
-    --grid-gap-x: var(--gap-x);
-    --grid-gap-y: var(--gap-x);
-    --gap-n: calc(var(--gap-x) / -2);
-  }
-
-  .g\:gap-n\@xl {
-    --gap-n: calc(var(--container-gap-fix) / -2);
-    margin-right: var(--gap-n);
-    margin-left: var(--gap-n);
-  }
-
-  .g\:gap-0\@xl {
-    --container-gap: 0;
-    --grid-gap-x: 0;
-    --grid-gap-y: 0;
-    --gap-n: 0;
-  }
-
-  .g\:gap-x\@xl {
-    --grid-gap-x: var(--gap-x);
-  }
-
-  .g\:gap-x-0\@xl {
-    --grid-gap-x: 0;
-  }
-
-  .g\:gap-y\@xl {
-    --grid-gap-y: var(--gap-x);
-  }
-
-  .g\:gap-y-0\@xl {
-    --grid-gap-y: 0;
+  .g\:rows-auto\@xl {
+    grid-auto-rows: auto;
   }
 
   .g\:rows-fixed\@xl {
     grid-auto-rows: 1fr;
-  }
-
-  .g\:rows-auto\@xl {
-    grid-auto-rows: auto;
   }
 
   .t\:left\@xl {
@@ -4098,8 +4463,8 @@ textarea::placeholder {
     flex-direction: row;
   }
 
-  .m\:axis-x\@xl[class*=" m:aling-"],
-  .m\:axis-x\@xl[class^="m:aling-"] {
+  .m\:axis-x\@xl[class*=" m:align-"],
+  .m\:axis-x\@xl[class^="m:align-"] {
     align-items: var(--align);
     justify-content: var(--justify);
   }
@@ -4108,8 +4473,8 @@ textarea::placeholder {
     flex-direction: row-reverse;
   }
 
-  .m\:axis-x-r\@xl[class*=" m:aling-"],
-  .m\:axis-x-r\@xl[class^="m:aling-"] {
+  .m\:axis-x-r\@xl[class*=" m:align-"],
+  .m\:axis-x-r\@xl[class^="m:align-"] {
     align-items: var(--align);
     justify-content: var(--justify-r-x);
   }
@@ -4118,8 +4483,8 @@ textarea::placeholder {
     flex-direction: column;
   }
 
-  .m\:axis-y\@xl[class*=" m:aling-"],
-  .m\:axis-y\@xl[class^="m:aling-"] {
+  .m\:axis-y\@xl[class*=" m:align-"],
+  .m\:axis-y\@xl[class^="m:align-"] {
     align-items: var(--justify);
     justify-content: var(--align);
   }
@@ -4128,8 +4493,8 @@ textarea::placeholder {
     flex-direction: column-reverse;
   }
 
-  .m\:axis-y-r\@xl[class*=" m:aling-"],
-  .m\:axis-y-r\@xl[class^="m:aling-"] {
+  .m\:axis-y-r\@xl[class*=" m:align-"],
+  .m\:axis-y-r\@xl[class^="m:align-"] {
     align-items: var(--justify);
     justify-content: var(--align-r-y);
   }
@@ -4139,7 +4504,7 @@ textarea::placeholder {
     margin-left: 0;
   }
 
-  .m\:no-left\@xl,
+  .m\:left-0\@xl,
   .m\:right\@xl {
     margin-right: 0;
   }
@@ -4148,7 +4513,7 @@ textarea::placeholder {
     margin-left: auto;
   }
 
-  .m\:no-right\@xl {
+  .m\:right-0\@xl {
     margin-left: 0;
   }
 
@@ -4158,7 +4523,7 @@ textarea::placeholder {
   }
 
   .m\:bottom\@xl,
-  .m\:no-top\@xl {
+  .m\:top-0\@xl {
     margin-bottom: 0;
   }
 
@@ -4166,7 +4531,7 @@ textarea::placeholder {
     margin-top: auto;
   }
 
-  .m\:no-bottom\@xl {
+  .m\:bottom-0\@xl {
     margin-top: 0;
   }
 
@@ -4174,8 +4539,8 @@ textarea::placeholder {
     margin: auto;
   }
 
-  .m\:no-center\@xl {
-    margin: initial;
+  .m\:center-0\@xl {
+    margin: 0;
   }
 
   .m\:center-x\@xl {
@@ -4183,7 +4548,7 @@ textarea::placeholder {
     margin-right: auto;
   }
 
-  .m\:no-center-x\@xl {
+  .m\:center-x-0\@xl {
     margin-left: 0;
     margin-right: 0;
   }
@@ -4193,59 +4558,59 @@ textarea::placeholder {
     margin-bottom: auto;
   }
 
-  .m\:no-center-y\@xl {
+  .m\:center-y-0\@xl {
     margin-top: 0;
     margin-bottom: 0;
   }
 
-  .m\:aling-right\@xl {
+  .m\:align-right\@xl {
     --justify: flex-end;
     --justify-r-x: flex-start;
   }
 
-  .m\:aling-left\@xl {
+  .m\:align-left\@xl {
     --justify: flex-start;
     --justify-r-x: flex-end;
   }
 
-  .m\:aling-bottom\@xl {
+  .m\:align-bottom\@xl {
     --align: flex-end;
     --align-r-y: flex-start;
   }
 
-  .m\:aling-top\@xl {
+  .m\:align-top\@xl {
     --align: flex-start;
     --align-r-y: flex-end;
   }
 
-  .m\:aling-center\@xl {
+  .m\:align-center\@xl {
     --align: center;
     --align-r-y: center;
   }
 
-  .m\:aling-center-x\@xl,
-  .m\:aling-center\@xl {
+  .m\:align-center-x\@xl,
+  .m\:align-center\@xl {
     --justify: center;
     --justify-r-x: center;
   }
 
-  .m\:aling-center-y\@xl {
+  .m\:align-center-y\@xl {
     --align: center;
     --align-r-y: center;
   }
 
-  .m\:aling-stretch\@xl {
+  .m\:align-stretch\@xl {
     --align: stretch;
     --align-r-y: stretch;
   }
 
-  .m\:aling-stretch-x\@xl,
-  .m\:aling-stretch\@xl {
+  .m\:align-stretch-x\@xl,
+  .m\:align-stretch\@xl {
     --justify: stretch;
     --justify-r-x: stretch;
   }
 
-  .m\:aling-stretch-y\@xl {
+  .m\:align-stretch-y\@xl {
     --align: stretch;
     --align-r-y: stretch;
   }

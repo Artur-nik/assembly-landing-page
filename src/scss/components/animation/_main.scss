@@ -179,8 +179,8 @@
 //* orbit
 @if (map-get($animation, orbit)) {
     @keyframes orbit {
-        0% { transform: rotate(0deg) translateX(10%) rotate(0deg); }
-        100%   {  transform: rotate(360deg) translateX(10%) rotate(-360deg); }
+        0% { transform: rotate(0deg) translateX(10%); }
+        100%   {  transform: rotate(360deg) translateX(10%); }
     }
 }
 

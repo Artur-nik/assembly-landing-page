@@ -110,15 +110,14 @@ let path = {
 const _Browserslist = [
     '>0.5%',
     'last 4 versions',
-    'edge >= 15',
+    'edge >= 79',
     'not ie > 11', 
     'not ie_mob > 0',  
     'ff >= 52',
     'chrome >= 61',
     'opera >= 60',
-    'safari >= 12',
-    'ios >= 12',
-    'android > 4.4.4',     
+    'safari >= 12.1',
+    'ios >= 12.2',
 ]
 
 // Определяем логику работы Browsersync

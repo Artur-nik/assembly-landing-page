@@ -2,6 +2,9 @@
 
 document.addEventListener("DOMContentLoaded", function() {
 
+    @@include("utility/variables.js",{})
+    @@include("utility/slider.js",{})
+
     @@include("form/control.js",{})
     @@include("form/field.js",{})
     @@include("form/file.js",{})
@@ -10,11 +13,11 @@ document.addEventListener("DOMContentLoaded", function() {
     @@include("form/ajax.js",{})
 
     @@include("plugins/lazy.js",{})
-    @@include("menu.js",{})
-    @@include("modal.js",{})
-    @@include("slider.js",{})
-    @@include("scroll.js",{})
+    @@include("plugins/menu.js",{})
+    @@include("plugins/modal.js",{})
+    @@include("plugins/scroll.js",{})
     @@include("plugins/questions.js",{})
+    
     @@include("template.js",{})
     
     @@include("preloader.js",{})

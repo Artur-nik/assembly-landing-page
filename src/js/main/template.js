@@ -4,7 +4,7 @@ const templateSlider = new Swiper('.template-slider', {
     //autoHeight:true,
     spaceBetween: 25,
     watchOverflow: true,
-    initialSlide:5,
+    initialSlide:0,
     simulateTouch: false,
     nested: true,
     navigation: {

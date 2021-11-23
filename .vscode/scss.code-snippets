@@ -13,8 +13,8 @@
 		"prefix": "media-md",
 		"scope": "scss,css",		
 		"body": [
-			"@include media(md}, ${3|min,max,only|}) {",
-			"    $2",
+			"@include media(md) {",
+			"    $0",
 			"}"
 		],
 		"description": "@include media()"
@@ -23,8 +23,8 @@
 		"prefix": "media-lg",
 		"scope": "scss,css",		
 		"body": [
-			"@include media(lg, ${3|min,max|}) {",
-			"    $2",
+			"@include media(lg) {",
+			"    $0",
 			"}"
 		],
 		"description": "@include media()"

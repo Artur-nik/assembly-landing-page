@@ -1,5 +1,5 @@
 {
-	"swiper-lazy": {
+	"slider-lazy": {
 		"prefix": "swiper-lazy",
 		"scope": "html,php",
 		"body": [
@@ -7,7 +7,18 @@
 		  "<div class=\"swiper-lazy-preloader\"></div>"
 		],
 		"description": "swiper-lazy"
-	  },
+	},
+	"slider-btn-group": {
+		"prefix": "slider-btn-grou",
+		"scope": "html,php",
+		"body": [
+		  "<div class=\"swiper-button-group\">",
+		  "    <button class=\"swiper-button-prev\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>",
+		  "    <button class=\"swiper-button-next\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>",
+		  "</div>",
+		],
+		"description": "slider"
+	},	
 	"slider": {
 		"prefix": "slider",
 		"scope": "html,php",
@@ -61,7 +72,7 @@
  		"scope": "html,php",
  		"body": [
  		  "<div class=\"container\">",
- 		  "    <h2 class=\"${0}__title title title--size-lg\"></h2>",
+ 		  "    <h2 class=\"__title title title--size-lg\">${0}</h2>",
  		  "</div>"
  		],
  		"description": "container title name"
@@ -108,7 +119,18 @@
 		"prefix": "menu-toggle",
 		"scope": "html,php",
 		"body": [
-			"<button class=\"menu-toggle\"><span class=\"menu-toggle__item\"></span></button>"
+			"<button class=\"menu-toggle\"><span class=\"menu-toggle__icon\"></span></button>"
+		],
+		"description": "menu-toggle"
+	},
+	"menu-toggle-text": {
+		"prefix": "menu-toggle-text",
+		"scope": "html,php",
+		"body": [
+			"<button class=\"menu-toggle\">",
+			"    <span class=\"menu-toggle__icon\"></span>",
+			"    <span class=\"menu-toggle__text\"></span>",
+			"</button>"
 		],
 		"description": "menu-toggle"
 	},
@@ -211,13 +233,13 @@
 		"prefix": "social",
 		"scope": "html,php",
 		"body": [
-		  "<div class=\"social\">",
-		  "    <a href=\"#\" class=\"social__item\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#\"></use></svg></a>",
+		  "<div class=\"social-group\">",
+		  "    <a href=\"#\" class=\"social\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#\"></use></svg></a>",
 		  "</div>"
 		],
 		"description": "social"
 	  },
-	  "textarea required": {
+	"textarea required": {
 		"prefix": "textarea required",
 		"scope": "html,php",
 		"body": [
@@ -230,7 +252,7 @@
 		],
 		"description": "textarea required"
 	  },
-	  "textarea": {
+	"textarea": {
 		"prefix": "textarea",
 		"scope": "html,php",
 		"body": [

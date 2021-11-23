@@ -9,6 +9,7 @@
     //transition: fill $td, all $td;
     transition: fill $td, stroke $td, all $td;
     color: currentColor;
+    position: relative;
     &--inline {
         display: inline-block;
     }

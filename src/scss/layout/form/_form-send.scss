@@ -27,7 +27,9 @@ $form-message-bg:#000;
             left:calc(50% - 8px);
         }
     }
-
+    .btn {
+        width: 100%;
+    }
     //
     &__loading {
         position: relative;

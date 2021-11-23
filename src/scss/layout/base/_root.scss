@@ -14,9 +14,11 @@
     --animation-top:-100%;
     --animation-bottom:100%;
 
-    --columns:12;    
+    --columns:12;  
+
     --gap-x:20px;
-    --container-gap-fix: 15px;
+    --gap-y:20px;
+    --container-gap: 15px;
     //*
     //* размер макета
     //@media (min-width: #{$layout-size + 'px'}) {
@@ -25,11 +27,11 @@
 
 
     //* Работа с шрифтами 
-    @each $name, $value in $font-size {
-        @each $max,$min in $value {
-            --font-size-#{$max}: #{size-clamp($max, $min)};
-        }
-    }
+    //@each $name, $value in $font-size {
+    //    @each $max,$min in $value {
+    //        --font-size-#{$max}: #{size-clamp($max, $min)};
+    //    }
+    //}
 
     @each $name, $name-value in $size-adaptive {
         @each $bp, $value in $name-value {
@@ -58,8 +60,11 @@
         --width-min-window-px:  #{($layout-size / 2) + 'px'}; 
         
         --min-value:50;
-        --min-value-px:50px;   
+        --min-value-px:50px;  
+
         --gap-x:#{size(30)};
+        --gap-y:#{size(30)};
+        --container-gap:#{size(15)};
     }
 
 }

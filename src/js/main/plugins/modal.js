@@ -1,10 +1,14 @@
 
 //* Открытие окна
+
 $('[data-modal-open]').on('click', function(){
     const modal = $(this).data('modal-open');
     $('#' + modal).fadeIn(500);
     setTimeout(function tick() {
-        $('body').css('overflow', 'hidden')
+        $('body').css('overflow', 'hidden');
+        if ($('body').css('padding-right') == '0px') {
+            $('.scroll-offset').css('padding-right',  window.innerWidth - bodyWidth + 'px');
+        }
     },500);
     if (modal == 'modal-video') {
         let modalVideoSrc;
@@ -32,6 +36,7 @@ $(".modal__close").click(function(){
     },150);
     if (checkModalOpen($(this).parents('.modal'))) {
         $('body').css('overflow', '');
+        $('.scroll-offset').css('padding-right', 0 + 'px');
     }
     setTimeout(function tick() {
         if (modalClose.parents('.modal')[0].id == 'modal-video') {
@@ -43,15 +48,14 @@ $(".modal__close").click(function(){
 //* Закрытие по клику в не области элемента
 $('.modal').mouseup(function (e){ 
     const modal = $(this); 
-    const modalBox = $(this).find('.modal__box'); 
-    if (modal.data('modal-target') != false) {
-        if (!modalBox.is(e.target) && modalBox.has(e.target).length === 0) { 
-            setTimeout(function tick() {
-                modal.fadeOut(500); 
-            },150);
-            if (checkModalOpen(modal)) {
-                $('body').css('overflow', '');
-            }
+    const modalBox = $(this).find('.modal-target'); 
+    if ((modal.data('modal-target') != false) && !modalBox.is(e.target) && modalBox.has(e.target).length === 0) { 
+        setTimeout(function tick() {
+            modal.fadeOut(500); 
+        },150);
+        if (checkModalOpen(modal)) {
+            $('body').css('overflow', '');
+            $('.scroll-offset').css('padding-right', 0 + 'px');
         }
     }
 });

@@ -1,4 +1,6 @@
 .menu {
+    --dp-block: block;
+    display: var(--dp-block);
     &__list {
 
         &-item {
