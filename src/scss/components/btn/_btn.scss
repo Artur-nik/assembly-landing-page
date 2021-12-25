@@ -1,6 +1,7 @@
 $btn-bg: #000;
 $btn-bg-hover: #585858;
 $btn-color: #fff;
+$btn-color-hover: #fff;
 $btn-color-outline: currentColor;
 
 .btn {
@@ -16,18 +17,33 @@ $btn-color-outline: currentColor;
     //*
     line-height: 1;
     cursor: pointer;
-
-    &--default {
-        background:  $btn-bg;   
-        color: $btn-color;
-        font-size: size-a(24);
+    //!----------
+    //* theme
+    &--primary {
         font-weight: 500;
         border-radius: 500px;
-        padding: size-a(16) size-a(32);
-        &:hover {
+        background:  $btn-bg;   
+        color: $btn-color;
+        .icon {
+            color: $btn-color;
+        }
+        @media (pointer: fine) {
+            &:hover {
+                background: $btn-bg-hover;    
+            }
+        }
+        &:active {
             background: $btn-bg-hover;    
         }
     }
+    //*
+    &--size {
+        &-md {
+            font-size: size-x(24);
+            padding: size-x(16) size-x(32);
+        }
+    }
+    //*
     &--circle {
         --btn-circle:#{size(200)};
         border-radius: 50%;
@@ -35,20 +51,41 @@ $btn-color-outline: currentColor;
         width: var(--btn-circle);
         background: $btn-bg;   
         color: $btn-color;
-        &:hover {
+        @media (pointer: fine) {
+            &:hover {
+                background: $btn-bg-hover;    
+            }
+        }
+        &:active {
             background: $btn-bg-hover;    
         }
     }
+    //*
     &--outline {
         border: 1px solid $btn-bg;   
         border-radius: 500px;
-        padding: size-a(16) size-a(32);
         color: $btn-color-outline;
-        &:hover {
-            background: $btn-bg;    
+        .icon {
+            color: $btn-color-outline;
+        }   
+        @media (pointer: fine) {
+            &:hover {
+                color: $btn-color;
+                background: $btn-bg; 
+                .icon {
+                    color: $btn-color;
+                }   
+            }
+        }
+        &:active {
             color: $btn-color;
+            background: $btn-bg;   
+            .icon {
+                color: $btn-color;
+            } 
         }
     }
+    //*
     &--link {
         border-bottom: 1px solid currentColor;   
         color: $btn-bg;
@@ -57,6 +94,7 @@ $btn-color-outline: currentColor;
             color: $btn-bg-hover;
         }
     }
+    //*
     .icon {
         &._indent-right {
             margin-right: size(20);

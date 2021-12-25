@@ -40,14 +40,10 @@ $('.js-form').submit(function(){
 // 
             formName.find(':input[name]').each(function( index, element ) {
                 if (element.required) {
-                    $(element).next().html($(element).next().data('default'));
+                    $(this).parent('.form-field').removeClass('_required');
                 }
             });
-            $('.form-field__text').fadeIn(250);
             $('.form-textarea').removeClass('_required');
-            $('.form-field').removeClass('_required');
-            $('.form-field__check').hide(0);
-            $('.form-field__error').hide(0);
 
             setTimeout(function () {
               formName.find(".form-send__message").fadeOut();

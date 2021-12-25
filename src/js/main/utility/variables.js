@@ -1,5 +1,5 @@
-let bodyWidth = document.querySelector('body').clientWidth;
+let bodyWidth = document.documentElement.getBoundingClientRect().width;
 
 window.addEventListener('resize', function(){
-    bodyWidth = document.querySelector('body').clientWidth;
+    bodyWidth = document.documentElement.getBoundingClientRect().width;
 });

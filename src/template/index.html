@@ -6,18 +6,19 @@
     <title>Test</title>
     @@include("base/_favicon.html",{})
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <meta name="format-detection" content="telephone=no">
 </head>
 <body>
 
     <!-- @@include("base/_preloader.html",{}) -->
 
-    @@include("base/_menu.html",{})
+    @@include("menu/_menu-modal.html",{})
 
     <!-- @@include("base/_header.html",{}) -->
     <!-- @@include("base/_home.html",{}) -->
     
-    @@include("_template.html",{})
-
+    @@include("section/_index.html",{})
+    
     <!-- @@include("base/_footer.html",{}) -->
 
     @@include("modal/_modal-form.html",{})
@@ -25,6 +26,9 @@
     @@include("modal/_modal-video.html",{})
 
     <script src="js/libraries/libraries.js"></script>
+    <!-- ! Удалить -->
+    @@include("_template.html",{})
+    <!-- ! Удалить -->
     <script src="js/main/main.js"></script>
     
 </body>

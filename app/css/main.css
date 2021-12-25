@@ -12,9 +12,6 @@
   --gap-x: 20px;
   --gap-y: 20px;
   --container-gap: 15px;
-  --size-a-1-5: 1.5;
-  --size-a-1-25: 1.25;
-  --size-a-0-75: 0.75;
   --size-1-5: 1.5;
 }
 
@@ -71,104 +68,9 @@ iframe {
   border: 0;
 }
 
-.title {
-  --dp-block: block;
-  display: var(--dp-block);
-  font-weight: 700;
-  line-height: 1.15;
-  word-wrap: break-word;
-  /* 
-    &--white {
-        color: #fff;
-    }
-*/
-}
-
-.title--size-lg {
-  font-size: 0.96rem;
-}
-
-.subtitle {
-  display: block;
-}
-
-.text:not(:last-child) {
-  margin-bottom: 0.3rem;
-}
-
 br {
   --dp-inline: inline;
   display: var(--dp-inline);
-}
-
-.btn {
-  --dp-flex: flex;
-  display: var(--dp-flex);
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  -webkit-transition-duration: 400ms;
-       -o-transition-duration: 400ms;
-          transition-duration: 400ms;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.btn--default {
-  background: #000;
-  color: #fff;
-  font-size: calc(0.24rem * var(--size-a-1-5));
-  font-weight: 500;
-  border-radius: 500px;
-  padding: calc(0.16rem * var(--size-a-1-5)) calc(0.32rem * var(--size-a-1-5));
-}
-
-.btn--default:hover {
-  background: #585858;
-}
-
-.btn--circle {
-  --btn-circle: 2rem;
-  border-radius: 50%;
-  height: var(--btn-circle);
-  width: var(--btn-circle);
-  background: #000;
-  color: #fff;
-}
-
-.btn--circle:hover {
-  background: #585858;
-}
-
-.btn--outline {
-  border: 1px solid #000;
-  border-radius: 500px;
-  padding: calc(0.16rem * var(--size-a-1-5)) calc(0.32rem * var(--size-a-1-5));
-  color: currentColor;
-}
-
-.btn--outline:hover {
-  background: #000;
-  color: #fff;
-}
-
-.btn--link {
-  border-bottom: 1px solid currentColor;
-  color: #000;
-  padding: 2px 0;
-}
-
-.btn--link:hover {
-  color: #585858;
-}
-
-.btn .icon._indent-right {
-  margin-right: 0.2rem;
-}
-
-.btn .icon._indent-left {
-  margin-left: 0.2rem;
 }
 
 .icon {
@@ -178,22 +80,17 @@ br {
   display: var(--dp-block);
   flex: 0 0 auto;
   fill: currentColor;
-  -webkit-transition: fill 400ms, stroke 400ms, all 400ms;
-  -o-transition: fill 400ms, stroke 400ms, all 400ms;
-  transition: fill 400ms, stroke 400ms, all 400ms;
-  color: currentColor;
+  -webkit-transition: all 400ms 0s;
+  -o-transition: all 400ms 0s;
+  transition: all 400ms 0s;
   position: relative;
 }
 
-.icon--inline {
-  display: inline-block;
+.icon--no-fill {
+  fill: none;
 }
 
-.icon._no-fill {
-  fill: currentColor;
-}
-
-.icon._stroke {
+.icon--stroke {
   stroke: currentColor;
 }
 
@@ -226,6 +123,14 @@ br {
   border-top-color: transparent;
   -webkit-animation: loading 1.5s linear infinite;
           animation: loading 1.5s linear infinite;
+}
+
+.link {
+  color: currentColor;
+}
+
+.link:active {
+  color: #5f2f2f;
 }
 
 button,
@@ -290,66 +195,125 @@ textarea::placeholder {
 }
 
 .form-field {
-  width: 100%;
+  --dp-block: block;
+  display: var(--dp-block);
   position: relative;
-  display: flex;
-  align-items: center;
-  font-size: calc(0.18rem * var(--size-a-1-5));
-  -webkit-transition-duration: 400ms;
-       -o-transition-duration: 400ms;
-          transition-duration: 400ms;
-  border: 1px solid #b9b9b9;
+  width: 100%;
+  font-size: 0.18rem;
+  border: 1px solid #000;
 }
 
-.form-field._required {
-  border: 1px solid red;
-}
-
-.form-field._required .form-field__text {
-  color: red;
+.form-field:active {
+  color: #000;
 }
 
 .form-field__input {
-  width: 100%;
-  font-size: 1em;
-  padding: 0;
-  display: block;
-  -webkit-transition-duration: 400ms;
-       -o-transition-duration: 400ms;
-          transition-duration: 400ms;
-  padding: calc(0.18rem * var(--size-a-1-5)) calc(0.42rem * var(--size-a-1-5)) calc(0.18rem * var(--size-a-1-5)) calc(0.3rem * var(--size-a-1-5));
   color: currentColor;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  position: relative;
-  z-index: 2;
+  width: 100%;
+  display: block;
+}
+
+.form-field__input::-webkit-input-placeholder {
+  opacity: 0;
+}
+
+.form-field__input::-moz-placeholder {
+  opacity: 0;
+}
+
+.form-field__input:-ms-input-placeholder {
+  opacity: 0;
+}
+
+.form-field__input::placeholder {
+  opacity: 0;
+}
+
+.form-field__input:not(:-moz-placeholder-shown) ~ .form-field__text {
+  opacity: 0;
+}
+
+.form-field__input:not(:-ms-input-placeholder) ~ .form-field__text {
+  opacity: 0;
+}
+
+.form-field__input:focus ~ .form-field__text,
+.form-field__input:not(:placeholder-shown) ~ .form-field__text {
+  opacity: 0;
 }
 
 .form-field__input:-webkit-autofill {
   -webkit-text-fill-color: currentColor;
-  -webkit-transition: background-color 5000s ease-in-out 0s;
-  transition: background-color 5000s ease-in-out 0s;
+  -webkit-transition: background-color 500000s ease-in-out 0s;
+  transition: background-color 500000s ease-in-out 0s;
+}
+
+.form-field__email,
+.form-field__number,
+.form-field__input,
+.form-field__required,
+.form-field__text {
+  font-size: 1em;
+  -webkit-transition-duration: 400ms;
+       -o-transition-duration: 400ms;
+          transition-duration: 400ms;
+  padding: 0.25rem 0.4rem;
+}
+
+.form-field__email,
+.form-field__number,
+.form-field__required,
+.form-field__text {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  pointer-events: none;
 }
 
 .form-field__text {
-  position: absolute;
-  z-index: 1;
-  padding-left: calc(0.3rem * var(--size-a-1-5));
-  display: block;
+  color: currentColor;
 }
 
 .form-field__text span {
   color: red;
 }
 
-.form-field .icon {
-  position: absolute;
-  z-index: 3;
-  right: calc(0.12rem * var(--size-a-1-5));
-  font-size: 1em;
-  display: none;
+.form-field__email,
+.form-field__number,
+.form-field__required {
   color: red;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+}
+
+.form-field._required:not(._number) > * {
+  opacity: 0;
+}
+
+.form-field._required:not(._number) .form-field__required {
+  opacity: 1;
+}
+
+.form-field._email > * {
+  opacity: 0;
+}
+
+.form-field._email .form-field__email {
+  opacity: 1;
+}
+
+.form-field._number > * {
+  opacity: 0;
+}
+
+.form-field._number .form-field__number {
+  opacity: 1;
 }
 
 .form-file {
@@ -369,7 +333,7 @@ textarea::placeholder {
   font-size: 0.24rem;
   min-width: 3.2rem;
   height: 0.8rem;
-  padding: 0 calc(0.45rem * var(--size-a-1-5));
+  padding: 0 calc(0.45rem * var(--size-1-5));
   -webkit-transition-duration: 400ms;
        -o-transition-duration: 400ms;
           transition-duration: 400ms;
@@ -478,7 +442,7 @@ textarea::placeholder {
 }
 
 .form-radio {
-  margin: 0 calc(0.2rem * var(--size-a-1-5)) calc(0.2rem * var(--size-a-1-5)) 0;
+  margin: 0 calc(0.2rem * var(--size-1-5)) calc(0.2rem * var(--size-1-5)) 0;
   display: block;
   position: relative;
 }
@@ -516,7 +480,7 @@ textarea::placeholder {
   -webkit-transition-duration: 400ms;
        -o-transition-duration: 400ms;
           transition-duration: 400ms;
-  padding: calc(0.18rem * var(--size-a-1-5)) calc(0.42rem * var(--size-a-1-5));
+  padding: calc(0.18rem * var(--size-1-5)) calc(0.42rem * var(--size-1-5));
   display: block;
 }
 
@@ -550,8 +514,7 @@ textarea::placeholder {
 
 .form-checkbox__input:checked ~ .form-checkbox__decor {
   border-color: #000;
-  --checkbox-decor-bg: #000;
-  --checkbox-decor-size: 0.714em;
+  --checkbox-decor-size: 1;
 }
 
 .form-checkbox__input:checked ~ .icon {
@@ -559,25 +522,26 @@ textarea::placeholder {
 }
 
 .form-checkbox__decor {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
   height: 1em;
   width: 1em;
   border: 1px solid #000;
-  --checkbox-decor-bg: transparent;
-  --checkbox-decor-size: 0%;
+  --checkbox-decor-size: 0;
 }
 
 .form-checkbox__decor:before {
   content: '';
   position: absolute;
+  top: 50%;
+  left: 50%;
   -webkit-transition-duration: 400ms;
        -o-transition-duration: 400ms;
           transition-duration: 400ms;
-  height: var(--checkbox-decor-size);
-  width: var(--checkbox-decor-size);
-  background-color: var(--checkbox-decor-bg);
+  height: 0.714em;
+  width: 0.714em;
+  -webkit-transform: translate3d(-50%, -50%, 0) scale(var(--checkbox-decor-size));
+          transform: translate3d(-50%, -50%, 0) scale(var(--checkbox-decor-size));
+  background-color: #000;
 }
 
 .form-checkbox--icon {
@@ -778,9 +742,118 @@ textarea::placeholder {
   font-size: 0.4em;
 }
 
+.title {
+  --dp-block: block;
+  display: var(--dp-block);
+  font-weight: 700;
+  line-height: 1.15;
+  word-wrap: break-word;
+}
+
+.title--size-lg {
+  font-size: 0.96rem;
+}
+
+.subtitle {
+  display: block;
+}
+
+.btn {
+  --dp-flex: flex;
+  display: var(--dp-flex);
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  -webkit-transition-duration: 400ms;
+       -o-transition-duration: 400ms;
+          transition-duration: 400ms;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.btn--primary {
+  font-weight: 500;
+  border-radius: 500px;
+  background: #000;
+  color: #fff;
+}
+
+.btn--primary .icon {
+  color: #fff;
+}
+
+.btn--primary:active {
+  background: #585858;
+}
+
+.btn--size-md {
+  font-size: calc(0.24rem * var(--size-1-5));
+  padding: calc(0.16rem * var(--size-1-5)) calc(0.32rem * var(--size-1-5));
+}
+
+.btn--circle {
+  --btn-circle: 2rem;
+  border-radius: 50%;
+  height: var(--btn-circle);
+  width: var(--btn-circle);
+  background: #000;
+  color: #fff;
+}
+
+.btn--circle:active {
+  background: #585858;
+}
+
+.btn--outline {
+  border: 1px solid #000;
+  border-radius: 500px;
+  color: currentColor;
+}
+
+.btn--outline .icon {
+  color: currentColor;
+}
+
+.btn--outline:active {
+  color: #fff;
+  background: #000;
+}
+
+.btn--outline:active .icon {
+  color: #fff;
+}
+
+.btn--link {
+  border-bottom: 1px solid currentColor;
+  color: #000;
+  padding: 2px 0;
+}
+
+.btn--link:hover {
+  color: #585858;
+}
+
+.btn .icon._indent-right {
+  margin-right: 0.2rem;
+}
+
+.btn .icon._indent-left {
+  margin-left: 0.2rem;
+}
+
 .menu {
   --dp-block: block;
   display: var(--dp-block);
+}
+
+.menu__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menu__list-item {
+  margin-right: 0.4rem;
 }
 
 .menu-toggle {
@@ -885,7 +958,7 @@ textarea::placeholder {
   flex-direction: column;
   height: 100%;
   width: 100%;
-  padding: calc(0.15rem * var(--size-a-1-25));
+  padding: 0.3rem;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -1026,21 +1099,19 @@ textarea::placeholder {
 }
 
 .social {
-  display: flex;
+  --dp-flex: flex;
+  display: var(--dp-flex);
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
   width: 1em;
   height: 1em;
-  margin-right: 0.25em;
-  border-radius: 50%;
   overflow: hidden;
   background-color: #000;
   position: relative;
   -webkit-transition-duration: 400ms;
        -o-transition-duration: 400ms;
           transition-duration: 400ms;
-  font-size: 0.64rem;
 }
 
 .social .icon {
@@ -1050,6 +1121,14 @@ textarea::placeholder {
 
 .social:hover {
   background-color: #2b2b2b;
+}
+
+.social--size {
+  font-size: 0.64rem;
+}
+
+.social--circle {
+  border-radius: 50%;
 }
 
 .social--outline {
@@ -1070,9 +1149,14 @@ textarea::placeholder {
 }
 
 .social-group {
-  display: flex;
+  --dp-flex: flex;
+  display: var(--dp-flex);
   flex-wrap: wrap;
   position: relative;
+}
+
+.social-group > * {
+  margin-right: 0.25rem;
 }
 
 :root {
@@ -1698,7 +1782,6 @@ textarea::placeholder {
   --grid-gap-x: var(--gap-x);
   --grid-gap-y: var(--gap-y);
   --grid-columns: var(--columns);
-  --col: var(--grid-columns);
   --dp-grid: grid;
   display: var(--dp-grid);
   grid-template-columns: repeat(var(--grid-columns), calc(((100% + var(--grid-gap-x)) / (var(--grid-columns) / 1)) - var(--grid-gap-x)));
@@ -1712,10 +1795,11 @@ textarea::placeholder {
 }
 
 .grid > * {
+  --col: var(--grid-columns);
   --row: 1;
   --col-start: auto;
   --row-start: auto;
-  grid-area: var(--col-start)/span var(--col)/var(--row-start)/span var(--row);
+  grid-area: var(--row-start)/var(--col-start)/span var(--row)/span var(--col);
 }
 
 .grid[class*=" m:align-"],
@@ -2157,6 +2241,14 @@ textarea::placeholder {
   font-style: normal;
 }
 
+.t\:uppercase {
+  text-transform: uppercase;
+}
+
+.t\:transform-none {
+  text-transform: none;
+}
+
 .m\:inline {
   --dp-flex: inline-flex;
   --dp-grid: inline-grid;
@@ -2173,9 +2265,7 @@ textarea::placeholder {
 
 .m\:hide,
 .m\:show\@lg,
-.m\:show\@md,
-.m\:show\@sm,
-.m\:show\@xl {
+.m\:show\@md {
   --dp-flex: none;
   --dp-grid: none;
   --dp-block: none;
@@ -2338,6 +2428,62 @@ textarea::placeholder {
   --align-r-y: stretch;
 }
 
+.m\:relative {
+  position: relative;
+}
+
+.m\:static {
+  position: static;
+}
+
+.m\:rotate-0 {
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+.m\:rotate-45 {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.m\:rotate-90 {
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.m\:rotate-135 {
+  -webkit-transform: rotate(135deg);
+      -ms-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+
+.m\:rotate-180 {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.m\:rotate-225 {
+  -webkit-transform: rotate(225deg);
+      -ms-transform: rotate(225deg);
+          transform: rotate(225deg);
+}
+
+.m\:rotate-270 {
+  -webkit-transform: rotate(270deg);
+      -ms-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+.m\:rotate-315 {
+  -webkit-transform: rotate(315deg);
+      -ms-transform: rotate(315deg);
+          transform: rotate(315deg);
+}
+
 .home {
   top: 0;
 }
@@ -2345,551 +2491,6 @@ textarea::placeholder {
 @media (min-width: 480px) {
   .container {
     max-width: 440px;
-  }
-
-  .col-1\@sm {
-    --col: 1;
-  }
-
-  .col-2\@sm {
-    --col: 2;
-  }
-
-  .col-3\@sm {
-    --col: 3;
-  }
-
-  .col-4\@sm {
-    --col: 4;
-  }
-
-  .col-5\@sm {
-    --col: 5;
-  }
-
-  .col-6\@sm {
-    --col: 6;
-  }
-
-  .col-7\@sm {
-    --col: 7;
-  }
-
-  .col-8\@sm {
-    --col: 8;
-  }
-
-  .col-9\@sm {
-    --col: 9;
-  }
-
-  .col-10\@sm {
-    --col: 10;
-  }
-
-  .col-11\@sm {
-    --col: 11;
-  }
-
-  .col-12\@sm {
-    --col: 12;
-  }
-
-  .row-1\@sm {
-    --row: 1;
-  }
-
-  .row-2\@sm {
-    --row: 2;
-  }
-
-  .row-3\@sm {
-    --row: 3;
-  }
-
-  .row-4\@sm {
-    --row: 4;
-  }
-
-  .row-5\@sm {
-    --row: 5;
-  }
-
-  .row-6\@sm {
-    --row: 6;
-  }
-
-  .row-7\@sm {
-    --row: 7;
-  }
-
-  .row-8\@sm {
-    --row: 8;
-  }
-
-  .row-9\@sm {
-    --row: 9;
-  }
-
-  .row-10\@sm {
-    --row: 10;
-  }
-
-  .row-11\@sm {
-    --row: 11;
-  }
-
-  .row-12\@sm {
-    --row: 12;
-  }
-
-  .order-0\@sm {
-    order: 0;
-  }
-
-  .order-1\@sm {
-    order: 1;
-  }
-
-  .order-2\@sm {
-    order: 2;
-  }
-
-  .order-3\@sm {
-    order: 3;
-  }
-
-  .order-4\@sm {
-    order: 4;
-  }
-
-  .order-5\@sm {
-    order: 5;
-  }
-
-  .order-6\@sm {
-    order: 6;
-  }
-
-  .order-7\@sm {
-    order: 7;
-  }
-
-  .order-8\@sm {
-    order: 8;
-  }
-
-  .order-9\@sm {
-    order: 9;
-  }
-
-  .order-10\@sm {
-    order: 10;
-  }
-
-  .order-11\@sm {
-    order: 11;
-  }
-
-  .order-12\@sm {
-    order: 12;
-  }
-
-  .g\:columns-2\@sm {
-    --grid-columns: 2;
-  }
-
-  .g\:columns-3\@sm {
-    --grid-columns: 3;
-  }
-
-  .g\:columns-4\@sm {
-    --grid-columns: 4;
-  }
-
-  .g\:columns-5\@sm {
-    --grid-columns: 5;
-  }
-
-  .g\:columns-6\@sm {
-    --grid-columns: 6;
-  }
-
-  .g\:columns-7\@sm {
-    --grid-columns: 7;
-  }
-
-  .g\:columns-8\@sm {
-    --grid-columns: 8;
-  }
-
-  .g\:columns-9\@sm {
-    --grid-columns: 9;
-  }
-
-  .g\:columns-10\@sm {
-    --grid-columns: 10;
-  }
-
-  .g\:columns-11\@sm {
-    --grid-columns: 11;
-  }
-
-  .g\:columns-12\@sm {
-    --grid-columns: 12;
-  }
-
-  .g\:cs-1\@sm {
-    --col-start: 1;
-  }
-
-  .g\:cs-2\@sm {
-    --col-start: 2;
-  }
-
-  .g\:cs-3\@sm {
-    --col-start: 3;
-  }
-
-  .g\:cs-4\@sm {
-    --col-start: 4;
-  }
-
-  .g\:cs-5\@sm {
-    --col-start: 5;
-  }
-
-  .g\:cs-6\@sm {
-    --col-start: 6;
-  }
-
-  .g\:cs-7\@sm {
-    --col-start: 7;
-  }
-
-  .g\:cs-8\@sm {
-    --col-start: 8;
-  }
-
-  .g\:cs-9\@sm {
-    --col-start: 9;
-  }
-
-  .g\:cs-10\@sm {
-    --col-start: 10;
-  }
-
-  .g\:cs-11\@sm {
-    --col-start: 11;
-  }
-
-  .g\:cs-auto\@sm {
-    --col-start: auto;
-  }
-
-  .g\:start-auto\@sm {
-    --col-start: auto;
-    --row-start: auto;
-  }
-
-  .g\:col-auto\@sm {
-    --col: auto;
-  }
-
-  .g\:col-auto-none\@sm {
-    --col: var(--grid-columns);
-  }
-
-  .g\:gap\@sm {
-    --local-container-gap: var(--container-gap);
-    --grid-gap-x: calc((var(--gap-x) * var(--size-valye)) * var(--size));
-    --grid-gap-y: var(--gap-y);
-    --gap-n: calc(var(--container-gap) / -1);
-  }
-
-  .g\:gap-0\@sm {
-    --local-container-gap: 0px;
-    --grid-gap-x: 0px;
-    --grid-gap-y: 0px;
-    --gap-n: 0px;
-  }
-
-  .g\:gap-n\@sm {
-    --gap-n: calc(var(--local-container-gap) / -1);
-    margin-right: var(--gap-n);
-    margin-left: var(--gap-n);
-  }
-
-  .g\:gap-n-0\@sm {
-    --gap-n: 0px;
-  }
-
-  .g\:gap-x\@sm {
-    --grid-gap-x: var(--gap-x);
-  }
-
-  .g\:gap-x-0\@sm {
-    --grid-gap-x: 0px;
-  }
-
-  .g\:gap-y\@sm {
-    --grid-gap-y: var(--gap-y);
-  }
-
-  .g\:gap-y-0\@sm {
-    --grid-gap-y: 0px;
-  }
-
-  .g\:rs-1\@sm {
-    --row-start: 1;
-  }
-
-  .g\:rs-2\@sm {
-    --row-start: 2;
-  }
-
-  .g\:rs-3\@sm {
-    --row-start: 3;
-  }
-
-  .g\:rs-4\@sm {
-    --row-start: 4;
-  }
-
-  .g\:rs-5\@sm {
-    --row-start: 5;
-  }
-
-  .g\:rs-6\@sm {
-    --row-start: 6;
-  }
-
-  .g\:rs-7\@sm {
-    --row-start: 7;
-  }
-
-  .g\:rs-8\@sm {
-    --row-start: 8;
-  }
-
-  .g\:rs-9\@sm {
-    --row-start: 9;
-  }
-
-  .g\:rs-10\@sm {
-    --row-start: 10;
-  }
-
-  .g\:rs-11\@sm {
-    --row-start: 11;
-  }
-
-  .g\:rs-auto\@sm {
-    --row-start: auto;
-  }
-
-  .g\:rows-auto\@sm {
-    grid-auto-rows: auto;
-  }
-
-  .g\:rows-fixed\@sm {
-    grid-auto-rows: 1fr;
-  }
-
-  .t\:left\@sm {
-    text-align: left;
-  }
-
-  .t\:right\@sm {
-    text-align: right;
-  }
-
-  .t\:center\@sm {
-    text-align: center;
-  }
-
-  .m\:inline\@sm {
-    --dp-flex: inline-flex;
-    --dp-grid: inline-grid;
-    --dp-block: inline-block;
-    --dp-inline: inline;
-  }
-
-  .m\:block\@sm {
-    --dp-flex: flex;
-    --dp-grid: grid;
-    --dp-block: block;
-    --dp-inline: block;
-  }
-
-  .m\:hide\@sm {
-    --dp-flex: none;
-    --dp-grid: none;
-    --dp-block: none;
-    --dp-inline: none;
-  }
-
-  .m\:show\@sm {
-    --dp-flex: flex;
-    --dp-grid: grid;
-    --dp-block: block;
-    --dp-inline: inline;
-  }
-
-  .m\:axis-x\@sm {
-    flex-direction: row;
-  }
-
-  .m\:axis-x\@sm[class*=" m:align-"],
-  .m\:axis-x\@sm[class^="m:align-"] {
-    align-items: var(--align);
-    justify-content: var(--justify);
-  }
-
-  .m\:axis-x-r\@sm {
-    flex-direction: row-reverse;
-  }
-
-  .m\:axis-x-r\@sm[class*=" m:align-"],
-  .m\:axis-x-r\@sm[class^="m:align-"] {
-    align-items: var(--align);
-    justify-content: var(--justify-r-x);
-  }
-
-  .m\:axis-y\@sm {
-    flex-direction: column;
-  }
-
-  .m\:axis-y\@sm[class*=" m:align-"],
-  .m\:axis-y\@sm[class^="m:align-"] {
-    align-items: var(--justify);
-    justify-content: var(--align);
-  }
-
-  .m\:axis-y-r\@sm {
-    flex-direction: column-reverse;
-  }
-
-  .m\:axis-y-r\@sm[class*=" m:align-"],
-  .m\:axis-y-r\@sm[class^="m:align-"] {
-    align-items: var(--justify);
-    justify-content: var(--align-r-y);
-  }
-
-  .m\:left\@sm {
-    margin-right: auto;
-    margin-left: 0;
-  }
-
-  .m\:left-0\@sm,
-  .m\:right\@sm {
-    margin-right: 0;
-  }
-
-  .m\:right\@sm {
-    margin-left: auto;
-  }
-
-  .m\:right-0\@sm {
-    margin-left: 0;
-  }
-
-  .m\:top\@sm {
-    margin-bottom: auto;
-    margin-top: 0;
-  }
-
-  .m\:bottom\@sm,
-  .m\:top-0\@sm {
-    margin-bottom: 0;
-  }
-
-  .m\:bottom\@sm {
-    margin-top: auto;
-  }
-
-  .m\:bottom-0\@sm {
-    margin-top: 0;
-  }
-
-  .m\:center\@sm {
-    margin: auto;
-  }
-
-  .m\:center-0\@sm {
-    margin: 0;
-  }
-
-  .m\:center-x\@sm {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .m\:center-x-0\@sm {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .m\:center-y\@sm {
-    margin-top: auto;
-    margin-bottom: auto;
-  }
-
-  .m\:center-y-0\@sm {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .m\:align-right\@sm {
-    --justify: flex-end;
-    --justify-r-x: flex-start;
-  }
-
-  .m\:align-left\@sm {
-    --justify: flex-start;
-    --justify-r-x: flex-end;
-  }
-
-  .m\:align-bottom\@sm {
-    --align: flex-end;
-    --align-r-y: flex-start;
-  }
-
-  .m\:align-top\@sm {
-    --align: flex-start;
-    --align-r-y: flex-end;
-  }
-
-  .m\:align-center\@sm {
-    --align: center;
-    --align-r-y: center;
-  }
-
-  .m\:align-center-x\@sm,
-  .m\:align-center\@sm {
-    --justify: center;
-    --justify-r-x: center;
-  }
-
-  .m\:align-center-y\@sm {
-    --align: center;
-    --align-r-y: center;
-  }
-
-  .m\:align-stretch\@sm {
-    --align: stretch;
-    --align-r-y: stretch;
-  }
-
-  .m\:align-stretch-x\@sm,
-  .m\:align-stretch\@sm {
-    --justify: stretch;
-    --justify-r-x: stretch;
-  }
-
-  .m\:align-stretch-y\@sm {
-    --align: stretch;
-    --align-r-y: stretch;
   }
 }
 
@@ -2901,14 +2502,6 @@ textarea::placeholder {
 }
 
 @media (min-width: 768px) {
-  :root {
-    --size-a-1-5: 1.25;
-  }
-
-  :root {
-    --size-a-0-75: 0.65;
-  }
-
   .container-xs,
   .container,
   .container-md {
@@ -3459,13 +3052,17 @@ textarea::placeholder {
     --align: stretch;
     --align-r-y: stretch;
   }
+
+  .m\:relative\@md {
+    position: relative;
+  }
+
+  .m\:static\@md {
+    position: static;
+  }
 }
 
 @media (min-width: 1024px) {
-  :root {
-    --size-a-0-75: 0.5;
-  }
-
   :root {
     --size-1-5: 1;
   }
@@ -3480,15 +3077,15 @@ textarea::placeholder {
     --container-gap: 0.15rem;
   }
 
-  .title--size-lg {
-    font-size: 0.48rem;
-  }
-
   .container-xs,
   .container-md,
   .container,
   .container-lg {
     max-width: 12rem;
+  }
+
+  .title--size-lg {
+    font-size: 0.48rem;
   }
 
   .modal__box {
@@ -4055,563 +3652,43 @@ textarea::placeholder {
     --align: stretch;
     --align-r-y: stretch;
   }
+
+  .m\:relative\@lg {
+    position: relative;
+  }
+
+  .m\:static\@lg {
+    position: static;
+  }
 }
 
-@media (min-width: 1280px) {
-  :root {
-    --size-a-1-5: 1;
+@media (pointer: fine) {
+  .link:hover {
+    color: #444444;
   }
 
-  :root {
-    --size-a-1-25: 1;
+  .form-field:hover {
+    color: #000;
   }
 
-  :root {
-    --size-a-0-75: 1;
+  .form-field:active {
+    color: #000;
   }
 
-  .col-1\@xl {
-    --col: 1;
+  .btn--primary:hover {
+    background: #585858;
   }
 
-  .col-2\@xl {
-    --col: 2;
+  .btn--circle:hover {
+    background: #585858;
   }
 
-  .col-3\@xl {
-    --col: 3;
+  .btn--outline:hover {
+    color: #fff;
+    background: #000;
   }
 
-  .col-4\@xl {
-    --col: 4;
-  }
-
-  .col-5\@xl {
-    --col: 5;
-  }
-
-  .col-6\@xl {
-    --col: 6;
-  }
-
-  .col-7\@xl {
-    --col: 7;
-  }
-
-  .col-8\@xl {
-    --col: 8;
-  }
-
-  .col-9\@xl {
-    --col: 9;
-  }
-
-  .col-10\@xl {
-    --col: 10;
-  }
-
-  .col-11\@xl {
-    --col: 11;
-  }
-
-  .col-12\@xl {
-    --col: 12;
-  }
-
-  .row-1\@xl {
-    --row: 1;
-  }
-
-  .row-2\@xl {
-    --row: 2;
-  }
-
-  .row-3\@xl {
-    --row: 3;
-  }
-
-  .row-4\@xl {
-    --row: 4;
-  }
-
-  .row-5\@xl {
-    --row: 5;
-  }
-
-  .row-6\@xl {
-    --row: 6;
-  }
-
-  .row-7\@xl {
-    --row: 7;
-  }
-
-  .row-8\@xl {
-    --row: 8;
-  }
-
-  .row-9\@xl {
-    --row: 9;
-  }
-
-  .row-10\@xl {
-    --row: 10;
-  }
-
-  .row-11\@xl {
-    --row: 11;
-  }
-
-  .row-12\@xl {
-    --row: 12;
-  }
-
-  .order-0\@xl {
-    order: 0;
-  }
-
-  .order-1\@xl {
-    order: 1;
-  }
-
-  .order-2\@xl {
-    order: 2;
-  }
-
-  .order-3\@xl {
-    order: 3;
-  }
-
-  .order-4\@xl {
-    order: 4;
-  }
-
-  .order-5\@xl {
-    order: 5;
-  }
-
-  .order-6\@xl {
-    order: 6;
-  }
-
-  .order-7\@xl {
-    order: 7;
-  }
-
-  .order-8\@xl {
-    order: 8;
-  }
-
-  .order-9\@xl {
-    order: 9;
-  }
-
-  .order-10\@xl {
-    order: 10;
-  }
-
-  .order-11\@xl {
-    order: 11;
-  }
-
-  .order-12\@xl {
-    order: 12;
-  }
-
-  .g\:columns-2\@xl {
-    --grid-columns: 2;
-  }
-
-  .g\:columns-3\@xl {
-    --grid-columns: 3;
-  }
-
-  .g\:columns-4\@xl {
-    --grid-columns: 4;
-  }
-
-  .g\:columns-5\@xl {
-    --grid-columns: 5;
-  }
-
-  .g\:columns-6\@xl {
-    --grid-columns: 6;
-  }
-
-  .g\:columns-7\@xl {
-    --grid-columns: 7;
-  }
-
-  .g\:columns-8\@xl {
-    --grid-columns: 8;
-  }
-
-  .g\:columns-9\@xl {
-    --grid-columns: 9;
-  }
-
-  .g\:columns-10\@xl {
-    --grid-columns: 10;
-  }
-
-  .g\:columns-11\@xl {
-    --grid-columns: 11;
-  }
-
-  .g\:columns-12\@xl {
-    --grid-columns: 12;
-  }
-
-  .g\:cs-1\@xl {
-    --col-start: 1;
-  }
-
-  .g\:cs-2\@xl {
-    --col-start: 2;
-  }
-
-  .g\:cs-3\@xl {
-    --col-start: 3;
-  }
-
-  .g\:cs-4\@xl {
-    --col-start: 4;
-  }
-
-  .g\:cs-5\@xl {
-    --col-start: 5;
-  }
-
-  .g\:cs-6\@xl {
-    --col-start: 6;
-  }
-
-  .g\:cs-7\@xl {
-    --col-start: 7;
-  }
-
-  .g\:cs-8\@xl {
-    --col-start: 8;
-  }
-
-  .g\:cs-9\@xl {
-    --col-start: 9;
-  }
-
-  .g\:cs-10\@xl {
-    --col-start: 10;
-  }
-
-  .g\:cs-11\@xl {
-    --col-start: 11;
-  }
-
-  .g\:cs-auto\@xl {
-    --col-start: auto;
-  }
-
-  .g\:start-auto\@xl {
-    --col-start: auto;
-    --row-start: auto;
-  }
-
-  .g\:col-auto\@xl {
-    --col: auto;
-  }
-
-  .g\:col-auto-none\@xl {
-    --col: var(--grid-columns);
-  }
-
-  .g\:gap\@xl {
-    --local-container-gap: var(--container-gap);
-    --grid-gap-x: calc((var(--gap-x) * var(--size-valye)) * var(--size));
-    --grid-gap-y: var(--gap-y);
-    --gap-n: calc(var(--container-gap) / -1);
-  }
-
-  .g\:gap-0\@xl {
-    --local-container-gap: 0px;
-    --grid-gap-x: 0px;
-    --grid-gap-y: 0px;
-    --gap-n: 0px;
-  }
-
-  .g\:gap-n\@xl {
-    --gap-n: calc(var(--local-container-gap) / -1);
-    margin-right: var(--gap-n);
-    margin-left: var(--gap-n);
-  }
-
-  .g\:gap-n-0\@xl {
-    --gap-n: 0px;
-  }
-
-  .g\:gap-x\@xl {
-    --grid-gap-x: var(--gap-x);
-  }
-
-  .g\:gap-x-0\@xl {
-    --grid-gap-x: 0px;
-  }
-
-  .g\:gap-y\@xl {
-    --grid-gap-y: var(--gap-y);
-  }
-
-  .g\:gap-y-0\@xl {
-    --grid-gap-y: 0px;
-  }
-
-  .g\:rs-1\@xl {
-    --row-start: 1;
-  }
-
-  .g\:rs-2\@xl {
-    --row-start: 2;
-  }
-
-  .g\:rs-3\@xl {
-    --row-start: 3;
-  }
-
-  .g\:rs-4\@xl {
-    --row-start: 4;
-  }
-
-  .g\:rs-5\@xl {
-    --row-start: 5;
-  }
-
-  .g\:rs-6\@xl {
-    --row-start: 6;
-  }
-
-  .g\:rs-7\@xl {
-    --row-start: 7;
-  }
-
-  .g\:rs-8\@xl {
-    --row-start: 8;
-  }
-
-  .g\:rs-9\@xl {
-    --row-start: 9;
-  }
-
-  .g\:rs-10\@xl {
-    --row-start: 10;
-  }
-
-  .g\:rs-11\@xl {
-    --row-start: 11;
-  }
-
-  .g\:rs-auto\@xl {
-    --row-start: auto;
-  }
-
-  .g\:rows-auto\@xl {
-    grid-auto-rows: auto;
-  }
-
-  .g\:rows-fixed\@xl {
-    grid-auto-rows: 1fr;
-  }
-
-  .t\:left\@xl {
-    text-align: left;
-  }
-
-  .t\:right\@xl {
-    text-align: right;
-  }
-
-  .t\:center\@xl {
-    text-align: center;
-  }
-
-  .m\:inline\@xl {
-    --dp-flex: inline-flex;
-    --dp-grid: inline-grid;
-    --dp-block: inline-block;
-    --dp-inline: inline;
-  }
-
-  .m\:block\@xl {
-    --dp-flex: flex;
-    --dp-grid: grid;
-    --dp-block: block;
-    --dp-inline: block;
-  }
-
-  .m\:hide\@xl {
-    --dp-flex: none;
-    --dp-grid: none;
-    --dp-block: none;
-    --dp-inline: none;
-  }
-
-  .m\:show\@xl {
-    --dp-flex: flex;
-    --dp-grid: grid;
-    --dp-block: block;
-    --dp-inline: inline;
-  }
-
-  .m\:axis-x\@xl {
-    flex-direction: row;
-  }
-
-  .m\:axis-x\@xl[class*=" m:align-"],
-  .m\:axis-x\@xl[class^="m:align-"] {
-    align-items: var(--align);
-    justify-content: var(--justify);
-  }
-
-  .m\:axis-x-r\@xl {
-    flex-direction: row-reverse;
-  }
-
-  .m\:axis-x-r\@xl[class*=" m:align-"],
-  .m\:axis-x-r\@xl[class^="m:align-"] {
-    align-items: var(--align);
-    justify-content: var(--justify-r-x);
-  }
-
-  .m\:axis-y\@xl {
-    flex-direction: column;
-  }
-
-  .m\:axis-y\@xl[class*=" m:align-"],
-  .m\:axis-y\@xl[class^="m:align-"] {
-    align-items: var(--justify);
-    justify-content: var(--align);
-  }
-
-  .m\:axis-y-r\@xl {
-    flex-direction: column-reverse;
-  }
-
-  .m\:axis-y-r\@xl[class*=" m:align-"],
-  .m\:axis-y-r\@xl[class^="m:align-"] {
-    align-items: var(--justify);
-    justify-content: var(--align-r-y);
-  }
-
-  .m\:left\@xl {
-    margin-right: auto;
-    margin-left: 0;
-  }
-
-  .m\:left-0\@xl,
-  .m\:right\@xl {
-    margin-right: 0;
-  }
-
-  .m\:right\@xl {
-    margin-left: auto;
-  }
-
-  .m\:right-0\@xl {
-    margin-left: 0;
-  }
-
-  .m\:top\@xl {
-    margin-bottom: auto;
-    margin-top: 0;
-  }
-
-  .m\:bottom\@xl,
-  .m\:top-0\@xl {
-    margin-bottom: 0;
-  }
-
-  .m\:bottom\@xl {
-    margin-top: auto;
-  }
-
-  .m\:bottom-0\@xl {
-    margin-top: 0;
-  }
-
-  .m\:center\@xl {
-    margin: auto;
-  }
-
-  .m\:center-0\@xl {
-    margin: 0;
-  }
-
-  .m\:center-x\@xl {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .m\:center-x-0\@xl {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .m\:center-y\@xl {
-    margin-top: auto;
-    margin-bottom: auto;
-  }
-
-  .m\:center-y-0\@xl {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .m\:align-right\@xl {
-    --justify: flex-end;
-    --justify-r-x: flex-start;
-  }
-
-  .m\:align-left\@xl {
-    --justify: flex-start;
-    --justify-r-x: flex-end;
-  }
-
-  .m\:align-bottom\@xl {
-    --align: flex-end;
-    --align-r-y: flex-start;
-  }
-
-  .m\:align-top\@xl {
-    --align: flex-start;
-    --align-r-y: flex-end;
-  }
-
-  .m\:align-center\@xl {
-    --align: center;
-    --align-r-y: center;
-  }
-
-  .m\:align-center-x\@xl,
-  .m\:align-center\@xl {
-    --justify: center;
-    --justify-r-x: center;
-  }
-
-  .m\:align-center-y\@xl {
-    --align: center;
-    --align-r-y: center;
-  }
-
-  .m\:align-stretch\@xl {
-    --align: stretch;
-    --align-r-y: stretch;
-  }
-
-  .m\:align-stretch-x\@xl,
-  .m\:align-stretch\@xl {
-    --justify: stretch;
-    --justify-r-x: stretch;
-  }
-
-  .m\:align-stretch-y\@xl {
-    --align: stretch;
-    --align-r-y: stretch;
+  .btn--outline:hover .icon {
+    color: #fff;
   }
 }

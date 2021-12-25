@@ -3,7 +3,7 @@
     flex-wrap: wrap;
 }
 .form-radio {
-    margin: 0 size-a(20) size-a(20) 0;
+    margin: 0 size-x(20) size-x(20) 0;
     display: block;
     position: relative;
     //color: #fff;
@@ -35,7 +35,7 @@
         z-index: 1;   
         border: 1px solid currentColor;
         transition-duration: $td;
-        padding: size-a(18) size-a(42); 
+        padding: size-x(18) size-x(42); 
         display: block;
 	}
 }

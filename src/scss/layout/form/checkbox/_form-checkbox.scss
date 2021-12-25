@@ -23,9 +23,8 @@ $checkbox-color:#000;
         z-index: 2;
         cursor: pointer;
         &:checked ~ .form-checkbox__decor {
-            border-color: #{$checkbox-color};
-            --checkbox-decor-bg:#{$checkbox-color};
-            --checkbox-decor-size: 0.714em;
+            border-color: $checkbox-color;
+            --checkbox-decor-size:1;
         }
         &:checked ~ .icon {
             opacity: 1;
@@ -33,21 +32,21 @@ $checkbox-color:#000;
     }
     //
     &__decor  {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height:  1em;
+        position: relative;
+        height: 1em;
         width: 1em;     
         border: 1px solid $checkbox-color;
-        --checkbox-decor-bg:  transparent;
-        --checkbox-decor-size: 0%;
+        --checkbox-decor-size: 0;
         &:before {
             content: '';
             position: absolute;
+            top: 50%;
+            left: 50%;
             transition-duration: $td;
-            height: var(--checkbox-decor-size);
-            width: var(--checkbox-decor-size);   
-            background-color: var(--checkbox-decor-bg);
+            height:  0.714em;
+            width:  0.714em;
+            transform: translate3d(-50%, -50%, 0) scale(var(--checkbox-decor-size));
+            background-color: $checkbox-color;
         }
     }
     //

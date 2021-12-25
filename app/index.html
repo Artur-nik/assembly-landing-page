@@ -6,6 +6,7 @@
     <title>Test</title>
     <link rel="shortcut icon" href="favicon/favicon.svg" />
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <meta name="format-detection" content="telephone=no">
 </head>
 <body>
 
@@ -30,6 +31,88 @@
     
     
     
+    
+    
+    
+
+    <div id="modal-form" class="modal">
+    <div class="modal__wrapper">
+        <div class="modal__header">
+            <button class="modal__close">
+                <svg class="icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+            </button>
+        </div>
+        <div class="modal__container">
+            <div class="modal__box modal-target">
+                <form id="form-modal" class="form js-form">
+
+                    <label class="form-field">
+                        <input class="form-field__input" type="text" name="name" required>
+                        <span class="form-field__text" data-valid="" data-default=""></span>
+                        <svg class="form-field__error icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+                        <svg class="form-field__check icon"><use xlink:href="svg-sprite/sprite.svg#check"></use></svg>
+                    </label>
+                    <label class="form-field">
+                        <input class="form-field__input" type="email" name="email" required>
+                        <span class="form-field__text" data-valid="" data-default=""></span>
+                        <svg class="form-field__error icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+                        <svg class="form-field__check icon"><use xlink:href="svg-sprite/sprite.svg#check"></use></svg>
+                    </label>
+                    <label class="form-field">
+                        <input class="form-field__input form-phone" type="tel" name="phone" required>
+                        <span class="form-field__text" data-valid="" data-default=""></span>
+                        <svg class="form-field__error icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+                        <svg class="form-field__check icon"><use xlink:href="svg-sprite/sprite.svg#check"></use></svg>
+                    </label>
+                    <div class="form-send">
+                        <div class="form-send__message">
+                            <div class="form-send__loading"><span></span></div>
+                            <p class="form-send__success">Спасибо, ваша заявка принята. Менеджер свяжется с вами в ближайшее время</p>
+                            <p class="form-send__error">Что-то пошло не так. Заявка не отправлена.</p>
+                        </div>
+                        <button type="submit" class="form-send__btn btn btn--primary btn--size-md">Перезвоните мне</button>    
+                    </div>
+                
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="modal-politic" class="modal _index">
+    <div class="modal__wrapper">
+        <div class="modal__header">
+            <button class="modal__close">
+                <svg class="icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+            </button>
+        </div>
+        <div class="modal__container">
+            <div class="modal__box modal-target">
+                <div class="modal-politic">
+                    <h2 class="modal-politic__title title">Политика конфиденциальности</h2>
+                    <p class="modal-politic__text">Согласие дано Оператору для совершения следующих действий с моими персональными данными с использованием средств автоматизации и/или без использования таких средств: сбор, систематизация, накопление, хранение, уточнение (обновление, изменение), использование, обезличивание, передача третьим лицам для указанных ниже целей, а также осуществление любых иных действий, предусмотренных действующим законодательством РФ, как неавтоматизированными, так и автоматизированными способами.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="modal-video" class="modal" data-modal-target="false">
+    <div class="modal__wrapper">
+        <div class="modal__header">
+            <button class="modal__close">
+                <svg class="icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+            </button>
+        </div>
+        <div class="modal__container">
+            <div class="modal__box modal-video">
+                <div class="modal-video__box" data-video-src="https://www.youtube.com/embed/FxuI8UQeI3c"></div> 
+                <span class="modal-video__loader loader"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="js/libraries/libraries.js"></script>
+    <!-- ! Удалить -->
     <style>
     .header {
         font-size: 32px;
@@ -76,12 +159,18 @@
                 <div class="box-t">
                     <strong class="title-tp">social</strong>
                     <div class="social-group" style="margin-bottom: 10px;">
-                        <a href="#" class="social"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#instagram"></use></svg></a>
-                        <a href="#" class="social"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#telegram"></use></svg></a>
+                        <a href="#" class="social social--size"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#instagram"></use></svg></a>
+                        <a href="#" class="social social--size"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#telegram"></use></svg></a>
+                        <a href="#" class="social social--circle social--size"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#instagram"></use></svg></a>
+                        <a href="#" class="social social--circle social--size"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#telegram"></use></svg></a>
+                        
                     </div>
                     <div class="social-group">
-                        <a href="#" class="social social--outline"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#instagram"></use></svg></a>
-                        <a href="#" class="social social--outline"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#telegram"></use></svg></a>
+                        <a href="#" class="social social--outline social--size"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#instagram"></use></svg></a>
+                        <a href="#" class="social social--outline social--size"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#telegram"></use></svg></a>
+                        <a href="#" class="social social--outline social--circle social--size"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#instagram"></use></svg></a>
+                        <a href="#" class="social social--outline social--circle social--size"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#instagram"></use></svg></a>
+                        
                     </div>
                 </div>
                 <div class="box-t">
@@ -105,6 +194,17 @@
                         <span class="menu-toggle__icon"></span>
                         <span class="menu-toggle__text">menu</span>
                     </button>
+                </div>
+                <div class="box-t">
+                    <strong class="title-tp">menu</strong>
+                    <nav class="name__menu menu">
+                        <ul class="menu__list">
+                            <li class="menu__list-item"><a href="#" class="menu__link link">test</a></li>
+                            <li class="menu__list-item"><a href="#" class="menu__link link">test test</a></li>
+                            <li class="menu__list-item"><a href="#" class="menu__link link">teserert</a></li>
+                            <li class="menu__list-item"><a href="#" class="menu__link link">test</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -137,35 +237,35 @@
                 <div class="header">
                     Кнопки
                 </div>
-                <strong class="box">btn--default</strong>
+                <strong class="box">btn--primary</strong>
                 <br>
                 <div class="box-t">
-                    <button class="btn btn--default" style="max-width: 300px;">кнопка тест кнопка много много текста</button>
+                    <button class="btn btn--primary btn--size-md" style="max-width: 300px;">кнопка тест кнопка много много текста</button>
                 </div>
                 <div class="box-t">
-                    <button class="btn btn--default">кнопка тест кнопка</button>
+                    <button class="btn btn--primary btn--size-md">кнопка тест кнопка</button>
                 </div>
                 <div class="box-t">
-                    <button class="btn btn--default">кнопка тест icon <svg class="icon _indent-left "><use xlink:href="svg-sprite/sprite.svg#close"></use></svg></button>
+                    <button class="btn btn--primary btn--size-md">кнопка тест icon <svg class="icon _indent-left "><use xlink:href="svg-sprite/sprite.svg#close"></use></svg></button>
                 </div>
                 <div class="box-t">
-                    <button class="btn btn--default"> <svg class="icon _indent-right "><use xlink:href="svg-sprite/sprite.svg#close"></use></svg> кнопка тест icon</button>
+                    <button class="btn btn--primary btn--size-md"> <svg class="icon _indent-right "><use xlink:href="svg-sprite/sprite.svg#close"></use></svg> кнопка тест icon</button>
                 </div>
                 <strong class="box">btn--outline</strong>
                 <br>
                 <div class="box-t">
-                    <button class="btn btn--outline">кнопка тест кнопка</button>
+                    <button class="btn btn--outline btn--size-md ">кнопка тест кнопка</button>
                 </div>
                 <div class="box-t">
-                    <button class="btn btn--outline">кнопка тест icon left <svg class="icon _indent-left "><use xlink:href="svg-sprite/sprite.svg#close"></use></svg></button>
+                    <button class="btn btn--outline btn--size-md ">кнопка тест icon left <svg class="icon _indent-left "><use xlink:href="svg-sprite/sprite.svg#close"></use></svg></button>
                 </div>
                 <div class="box-t">
-                    <button class="btn btn--outline"> <svg class="icon _indent-right "><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>кнопка тест icon right</button>
+                    <button class="btn btn--outline btn--size-md "> <svg class="icon _indent-right "><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>кнопка тест icon right</button>
                 </div>
                 <strong class="box">btn--circle</strong>
                 <br>
                 <div class="box-t">
-                    <button class="btn btn--circle">кнопка тест <br> кнопка</button>
+                    <button class="btn btn--circle btn--size-lg">кнопка тест <br> кнопка</button>
                 </div>
                 <strong class="box">btn--link</strong>
                 <br>
@@ -175,49 +275,87 @@
             </div>
         </div>
         <div class="swiper-slide">
-            <div class="container">
+            <form class="container">
                 <div class="header">
                     Форма
                 </div>
                 <div class="box-t">
                     <strong class="title-tp">Поля</strong>
                     <label class="form-field">
-                        <input class="form-field__input" type="text" name="name">
+                        <input class="form-field__input" placeholder="text" type="text" name="name">
                         <span class="form-field__text">text</span>
                     </label>
                     <br>
                     <label class="form-field">
-                        <input class="form-field__input" type="text" name="name" required>
-                        <span class="form-field__text" data-valid="Укажите text required" data-default="text required <span>*</span>">type: text required <span>*</span></span>
-                        <svg class="form-field__error icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
-                        <svg class="form-field__check icon"><use xlink:href="svg-sprite/sprite.svg#check"></use></svg>
+                        <input class="form-field__input" placeholder="text" type="text" name="name" required>
+                        <span class="form-field__text">type: text required <span>*</span></span>
+                        <span class="form-field__required">
+                            Укажите текст
+                            <svg class="icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+                        </span>
+                    </label>
+                    <br>
+                    
+                    <label class="form-field">
+                        <input class="form-field__input" placeholder="email" type="email" name="email">
+                        <span class="form-field__text">type: email</span>
+                        <span class="form-field__email">Пожалуйста, введите адрес электронной почты.</span>
                     </label>
                     <br>
                     <label class="form-field">
-                        <input class="form-field__input" type="email" name="email" required>
-                        <span class="form-field__text" data-valid="type: email required" data-default="type: email required <span>*</span>">type: email required <span>*</span></span>
-                        <svg class="form-field__error icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
-                        <svg class="form-field__check icon"><use xlink:href="svg-sprite/sprite.svg#check"></use></svg>
+                        <input class="form-field__input" placeholder="email" type="email" name="email" required>
+                        <span class="form-field__text">type: email required <span>*</span></span>
+                        <span class="form-field__email">Пожалуйста, введите адрес электронной почты.</span>
+                        <span class="form-field__required">
+                            Укажите E-mail
+                            <svg class="icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+                        </span>
                     </label>
                     <br>
                     <label class="form-field">
-                        <input class="form-field__input form-phone" type="tel" name="phone" required>
-                        <span class="form-field__text" data-valid="type: tel required" data-default="type: tel required">type: tel required <span>*</span></span>
-                        <svg class="form-field__error icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
-                        <svg class="form-field__check icon"><use xlink:href="svg-sprite/sprite.svg#check"></use></svg>
+                        <input class="form-field__input form-phone" placeholder="phone" type="tel" name="phone">
+                        <span class="form-field__text">type: tel</span>
                     </label>
                     <br>
                     <label class="form-field">
-                        <input class="form-field__input" type="number" name="name">
+                        <input class="form-field__input form-phone" placeholder="phone" type="tel" name="phone" required>
+                        <span class="form-field__text">type: tel required <span>*</span></span>
+                        <span class="form-field__required">
+                            Укажите телефон
+                            <svg class="icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+                        </span>
+                    </label>
+                    <br>
+                    <label class="form-field">
+                        <input class="form-field__input" placeholder="number" type="number" name="name">
                         <span class="form-field__text">number</span>
+                        <span class="form-field__number">Пожалуйста, введите число.</span>
                     </label>
                     <br>
                     <label class="form-field">
-                        <input class="form-field__input" type="number" name="name2" required>
-                        <span class="form-field__text" data-default="number <span>*</span>">number <span>*</span></span>
-                        <svg class="form-field__error icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
-                        <svg class="form-field__check icon"><use xlink:href="svg-sprite/sprite.svg#check"></use></svg>
+                        <input class="form-field__input" placeholder="number" type="number" name="name2" required>
+                        <span class="form-field__text">number <span>*</span></span>
+                        <span class="form-field__number">Пожалуйста, введите число.</span>
+                        <span class="form-field__required">
+                            Укажите число
+                            <svg class="icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+                        </span>
                     </label>
+                    <br>
+                    <label class="form-field">
+                        <input class="form-field__input" placeholder="password" type="password" name="name2">
+                        <span class="form-field__text">password</span>
+                    </label>
+                    <br>
+                    <label class="form-field">
+                        <input class="form-field__input" placeholder="password" type="password" name="name2" required>
+                        <span class="form-field__text">password <span>*</span></span>
+                        <span class="form-field__required">
+                            Укажите пароль
+                            <svg class="icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+                        </span>
+                    </label>
+                    <br>
                 </div>
                 <div class="box-t">
                     <strong class="title-tp">Textarea</strong> 
@@ -311,7 +449,7 @@
                                 <p class="form-send__success">Спасибо, ваша заявка принята. Менеджер свяжется с вами в ближайшее время</p>
                                 <p class="form-send__error">Что-то пошло не так. Заявка не отправлена.</p>
                             </div>
-                            <button type="submit" class="form-send__btn btn btn--default">Перезвоните мне</button>    
+                            <button type="submit" class="form-send__btn btn btn--primary btn--size-md">Перезвоните мне</button>    
                         </div>
                     </div>
                     <div class="col-4">
@@ -321,7 +459,7 @@
                                 <p class="form-send__success" style="display: block;">Спасибо, ваша заявка принята. Менеджер свяжется с вами в ближайшее время</p>
                                 <p class="form-send__error">Что-то пошло не так. Заявка не отправлена.</p>
                             </div>
-                            <button type="submit" class="form-send__btn btn btn--default">Перезвоните мне</button>    
+                            <button type="submit" class="form-send__btn btn btn--primary btn--size-md">Перезвоните мне</button>    
                         </div>
                     </div>
                     <div class="col-4">
@@ -331,11 +469,11 @@
                                 <p class="form-send__success">Спасибо, ваша заявка принята. Менеджер свяжется с вами в ближайшее время</p>
                                 <p class="form-send__error" style="display: block;">Что-то пошло не так. Заявка не отправлена.</p>
                             </div>
-                            <button type="submit" class="form-send__btn btn btn--default">Перезвоните мне</button>    
+                            <button type="submit" class="form-send__btn btn btn--primary btn--size-md">Перезвоните мне</button>    
                         </div>
                     </div>
                 </div> 
-            </div>
+            </form>
         </div>
         <div class="swiper-slide">
             <div class="container">
@@ -486,13 +624,13 @@
                     Модульные окна
                 </div>
                 <div class="box-t">
-                    <button class="btn btn--default" data-modal-open="modal-form">modal-form</button>
+                    <button class="btn btn--primary btn--size-md" data-modal-open="modal-form">modal-form</button>
                 </div>
                 <div class="box-t">
-                    <button class="btn btn--default" data-modal-open="modal-politic">modal-politic</button>
+                    <button class="btn btn--primary btn--size-md" data-modal-open="modal-politic">modal-politic</button>
                 </div>
                 <div class="box-t">
-                    <button class="btn btn--default" data-modal-open="modal-video">modal-video</button>
+                    <button class="btn btn--primary btn--size-md" data-modal-open="modal-video">modal-video</button>
                 </div>
             </div>
         </div>
@@ -556,88 +694,165 @@
 
     <div class="template-pagination swiper-pagination"></div>
     
-
+    
 </div> 
 
+
+<script>
     
+    const templateSlider = new Swiper('.template-slider', {
+        slidesPerView: 1,
+        //autoHeight:true,
+        spaceBetween: 25,
+        watchOverflow: true,
+        initialSlide:0,
+        simulateTouch: false,
+        nested: true,
+        navigation: {
+            nextEl: '.template-slider-btn.swiper-button-next',
+            prevEl: '.template-slider-btn.swiper-button-prev',
+        },
+        pagination: {
+            el: '.template-pagination',
+            type: 'bullets',
+            clickable: true,
+        },
+    });
+    
+    
+    
+    const Slider1 = new Swiper('.slider-1', {
+        slidesPerView: 1,
+        spaceBetween: 25,
+        watchOverflow: true,
+        //simulateTouch: false,
+        initialSlide:1,
+        //*
+        autoHeight:true,
+        //*
+        navigation: {
+            nextEl: '.slider-1 .swiper-button-next',
+            prevEl: '.slider-1 .swiper-button-prev',
+        },
+    });
+    
+    const Slider2 = new Swiper('.slider-2', {
+        slidesPerView: 1,
+        spaceBetween: 25,
+        watchOverflow: true,
+       // simulateTouch: false,
+        //*
+        autoHeight:true,
+        //*
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+            clickable: true,
+        },
+    });
+    
+    const Slider21 = new Swiper('.slider-2-1', {
+        slidesPerView: 1,
+        spaceBetween: 25,
+        watchOverflow: true,
+       // simulateTouch: false,
+        //*
+        autoHeight:true,
+        //*
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+            dynamicBullets: true,
+            clickable: true,
+        },
+    });
+    
+    
+    const Slider3 = new Swiper('.slider-3', {
+        slidesPerView: 1,
+        spaceBetween: 25,
+        watchOverflow: true,
+        //simulateTouch: false,
+        //*
+        autoHeight:true,
+        //*
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'fraction',
+        },
+    });
+    
+    const Slider4 = new Swiper('.slider-4', {
+        slidesPerView: 1,
+        spaceBetween: 25,
+        watchOverflow: true,
+        //simulateTouch: false,
+        //*
+        autoHeight:true,
+        //*
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'progressbar',
+        },
+    });
+    
+    const Slider5 = new Swiper('.slider-5', {
+        slidesPerView: 1,
+        spaceBetween: 25,
+        watchOverflow: true,
+        //simulateTouch: false,
+        //*
+        autoHeight:true,
+        //*
+        pagination: {
+            el: '.swiper-pagination',
+            //type: 'custom',
+            clickable: true,
+            renderBullet: function (index, className) {
+                return '<span class="' + className + '">' + (index + 1) + "</span>";
+            },
+        },
+    });
+    
+    const Slider6 = new Swiper('.slider-6', {
+        slidesPerView: 1,
+        spaceBetween: 25,
+        watchOverflow: true,
+        //simulateTouch: false,
+        //*
+        autoHeight:true,
+        //*
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'progressbar',
+        },
+        navigation: {
+            nextEl: '.slider-6 .swiper-button-next',
+            prevEl: '.slider-6 .swiper-button-prev',
+        },
+    });
+    
+    
+    const Slider7 = new Swiper('.slider-7', {
+        slidesPerView: 1,
+        spaceBetween: 25,
+        watchOverflow: true,
+        //simulateTouch: false,
+        //*
+        autoHeight:true,
+        //*
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'fraction',
+        },
+        navigation: {
+            nextEl: '.slider-7 .swiper-button-next',
+            prevEl: '.slider-7 .swiper-button-prev',
+        },
+    });
 
-    <div id="modal-form" class="modal">
-    <div class="modal__wrapper">
-        <div class="modal__header">
-            <button class="modal__close">
-                <svg class="icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
-            </button>
-        </div>
-        <div class="modal__container">
-            <div class="modal__box modal-target">
-                <form id="form-modal" class="form js-form">
-
-    <label class="form-field">
-        <input class="form-field__input" type="text" name="name" required>
-        <span class="form-field__text" data-valid="" data-default=""></span>
-        <svg class="form-field__error icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
-        <svg class="form-field__check icon"><use xlink:href="svg-sprite/sprite.svg#check"></use></svg>
-    </label>
-    <label class="form-field">
-        <input class="form-field__input" type="email" name="email" required>
-        <span class="form-field__text" data-valid="" data-default=""></span>
-        <svg class="form-field__error icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
-        <svg class="form-field__check icon"><use xlink:href="svg-sprite/sprite.svg#check"></use></svg>
-    </label>
-    <label class="form-field">
-        <input class="form-field__input form-phone" type="tel" name="phone" required>
-        <span class="form-field__text" data-valid="" data-default=""></span>
-        <svg class="form-field__error icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
-        <svg class="form-field__check icon"><use xlink:href="svg-sprite/sprite.svg#check"></use></svg>
-    </label>
-    <div class="form-send">
-        <div class="form-send__message">
-            <div class="form-send__loading"><span></span></div>
-            <p class="form-send__success">Спасибо, ваша заявка принята. Менеджер свяжется с вами в ближайшее время</p>
-            <p class="form-send__error">Что-то пошло не так. Заявка не отправлена.</p>
-        </div>
-        <button type="submit" class="form-send__btn btn btn--default">Перезвоните мне</button>    
-    </div>
-
-</form>
-            </div>
-        </div>
-    </div>
-</div>
-    <div id="modal-politic" class="modal _index">
-    <div class="modal__wrapper">
-        <div class="modal__header">
-            <button class="modal__close">
-                <svg class="icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
-            </button>
-        </div>
-        <div class="modal__container">
-            <div class="modal__box modal-target">
-                <div class="modal-politic">
-                    <h2 class="modal-politic__title title">Политика конфиденциальности</h2>
-                    <p class="modal-politic__text">Согласие дано Оператору для совершения следующих действий с моими персональными данными с использованием средств автоматизации и/или без использования таких средств: сбор, систематизация, накопление, хранение, уточнение (обновление, изменение), использование, обезличивание, передача третьим лицам для указанных ниже целей, а также осуществление любых иных действий, предусмотренных действующим законодательством РФ, как неавтоматизированными, так и автоматизированными способами.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-    <div id="modal-video" class="modal" data-modal-target="false">
-    <div class="modal__wrapper">
-        <div class="modal__header">
-            <button class="modal__close">
-                <svg class="icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
-            </button>
-        </div>
-        <div class="modal__container">
-            <div class="modal__box modal-video">
-                <div class="modal-video__box" data-video-src="https://www.youtube.com/embed/FxuI8UQeI3c"></div> 
-                <span class="modal-video__loader loader"></span>
-            </div>
-        </div>
-    </div>
-</div>
-
-    <script src="js/libraries/libraries.js"></script>
+</script>
+    <!-- ! Удалить -->
     <script src="js/main/main.js"></script>
     
 </body>

@@ -5,18 +5,12 @@
     display: var(--dp-block);
     flex: 0 0 auto;
     fill: currentColor;
-    //stroke: currentColor;
-    //transition: fill $td, all $td;
-    transition: fill $td, stroke $td, all $td;
-    color: currentColor;
+    transition: all $td 0s;
     position: relative;
-    &--inline {
-        display: inline-block;
+    &--no-fill {
+        fill: none;
     }
-    &._no-fill {
-        fill: currentColor;
-    }
-    &._stroke {
+    &--stroke {
         stroke: currentColor;
     }
 }

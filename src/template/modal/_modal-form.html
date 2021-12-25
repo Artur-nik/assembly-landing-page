@@ -7,9 +7,36 @@
         </div>
         <div class="modal__container">
             <div class="modal__box modal-target">
-                @@include("../custom/_form.html",{
-                    'id-form': 'form-modal'
-                })
+                <form id="form-modal" class="form js-form">
+
+                    <label class="form-field">
+                        <input class="form-field__input" type="text" name="name" required>
+                        <span class="form-field__text" data-valid="" data-default=""></span>
+                        <svg class="form-field__error icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+                        <svg class="form-field__check icon"><use xlink:href="svg-sprite/sprite.svg#check"></use></svg>
+                    </label>
+                    <label class="form-field">
+                        <input class="form-field__input" type="email" name="email" required>
+                        <span class="form-field__text" data-valid="" data-default=""></span>
+                        <svg class="form-field__error icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+                        <svg class="form-field__check icon"><use xlink:href="svg-sprite/sprite.svg#check"></use></svg>
+                    </label>
+                    <label class="form-field">
+                        <input class="form-field__input form-phone" type="tel" name="phone" required>
+                        <span class="form-field__text" data-valid="" data-default=""></span>
+                        <svg class="form-field__error icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+                        <svg class="form-field__check icon"><use xlink:href="svg-sprite/sprite.svg#check"></use></svg>
+                    </label>
+                    <div class="form-send">
+                        <div class="form-send__message">
+                            <div class="form-send__loading"><span></span></div>
+                            <p class="form-send__success">Спасибо, ваша заявка принята. Менеджер свяжется с вами в ближайшее время</p>
+                            <p class="form-send__error">Что-то пошло не так. Заявка не отправлена.</p>
+                        </div>
+                        <button type="submit" class="form-send__btn btn btn--primary btn--size-md">Перезвоните мне</button>    
+                    </div>
+                
+                </form>
             </div>
         </div>
     </div>

@@ -1,51 +1,101 @@
-$form-field-color-required:red;
 .form-field {
-    width: 100%;
+    --dp-block: block;
+    display: var(--dp-block);
     position: relative;
-    display: flex;
-    align-items: center;
-    font-size: size-a(18);
-    transition-duration: $td;
-    border: 1px solid rgb(185, 185, 185);
-    &._required {
-        border: 1px solid $form-field-color-required;
-        & .form-field__text {
-            color: $form-field-color-required;
+    width: 100%;
+    font-size: size(18);
+    border: 1px solid $color-primary;
+    @media (pointer: fine) {
+        &:hover {
+            color: #000;
+        }
+        &:active {
+            color: #000;
         }
     }
-    //* сам input
+    &:active {
+        color: #000;
+    }
+    //*
     &__input {
-        width: 100%;
-        font-size: 1em;
-        padding: 0;
-        display: block;
-        transition-duration: $td;
-        padding: size-a(18) size-a(42) size-a(18) size-a(30); 
         color: currentColor;
-        appearance: none;
-        position: relative;
-        z-index: 2;
+        width: 100%;
+        display: block;
+        &::placeholder {
+            opacity: 0;
+        }
+        &:focus,
+        &:not(:placeholder-shown) {
+            & ~ .form-field__text {
+                opacity: 0;
+            }
+        }
         &:-webkit-autofill {
             -webkit-text-fill-color: currentColor;
-            transition: background-color 5000s ease-in-out 0s;
-        }
-    }
-    &__text {
-        position: absolute;
-        z-index: 1;
-        padding-left: size-a(30);
-        display: block;
-        span {
-            color: $form-field-color-required;
+            transition: background-color 500000s ease-in-out 0s;
         }
     }
     //*
-    .icon  {
-        position: absolute;
-        z-index: 3;
-        right: size-a(12);
+    &__email,
+    &__number,
+    &__input,
+    &__required,
+    &__text {
         font-size: 1em;
-        display: none;
-        color: $form-field-color-required;
+        transition-duration: $td;
+        padding: size(25) size(40);
+    }
+    //*
+    &__email,
+    &__number,
+    &__required,
+    &__text {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+    }
+    &__text {
+        color: currentColor;
+        span {
+            color: red;
+        }
+    }
+    &__email,
+    &__number,
+    &__required {
+        color: red;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        opacity: 0;
+    }
+    //* Mod invalid (class js)
+    // text/tel/password
+    &._required:not(._number) {
+        &>* {
+            opacity: 0;
+        }
+        .form-field__required {
+            opacity: 1;
+        }
+    }
+    &._email {
+        &>* {
+            opacity: 0;
+        }
+        .form-field__email {
+            opacity: 1;
+        }
+    }
+    &._number {
+        &>* {
+            opacity: 0;
+        }
+        .form-field__number {
+            opacity: 1;
+        }
     }
 }

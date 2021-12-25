@@ -137,4 +137,12 @@
 		],
 		"description": "--grid-gap-y"
 	},
+	"--grid-gap-x": {
+		"prefix": "gap-x",
+		"scope": "scss,css",
+		"body": [
+		  "--grid-gap-x: #{size()};"
+		],
+		"description": "--grid-gap-x"
+	},
 }

@@ -14,12 +14,16 @@
     --animation-top:-100%;
     --animation-bottom:100%;
 
+    //* grid
     --columns:12;  
 
     --gap-x:20px;
     --gap-y:20px;
     --container-gap: 15px;
-    //*
+
+    //* end grid
+
+
     //* размер макета
     //@media (min-width: #{$layout-size + 'px'}) {
     //    --width-max-window: #{$layout-size + 'px'};
@@ -33,6 +37,7 @@
     //    }
     //}
 
+    //* переменные для работы функции size-a()
     @each $name, $name-value in $size-adaptive {
         @each $bp, $value in $name-value {
             @if $bp == 'default' {
@@ -45,6 +50,7 @@
             }
         }
     }
+
     //* переменные для работы функции size-x()
     @each $name, $value in $size {
         --size-#{$name}: #{$value};
@@ -53,15 +59,15 @@
         }
     }
 
-    //* min-width 1024
+    //* bp lg = min-width 1024
     @include media(lg) {
-
+        //* layout
         --width-min-window:  #{$layout-size / 2};
         --width-min-window-px:  #{($layout-size / 2) + 'px'}; 
-        
         --min-value:50;
         --min-value-px:50px;  
 
+        //* grid
         --gap-x:#{size(30)};
         --gap-y:#{size(30)};
         --container-gap:#{size(15)};
