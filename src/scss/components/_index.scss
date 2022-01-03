@@ -1,16 +1,19 @@
 //
 @import 'animation/main';
 
+@import 'adaptive-box/adaptive-box';
+
 @import 'preloader/preloader';
-
-@import 'typography/index';
-
-@import 'btn/btn';
 
 @import 'menu/index';
 
 @import 'modal/modal';
 
-@import 'adaptive-box/adaptive-box';
+@import 'menu-modal/index';
 
-@import 'social/social';
+//@import 'cursor/cursor';
+
+// *faq
+@import 'questions/questions';
+
+@import 'video/video'; 

@@ -1,0 +1,105 @@
+//* Размеры иконки
+$menu-toggle-width: 40;
+$menu-toggle-height: 40;
+//* Толщина линий
+$menu-toggle-icon-line-height:4;
+//* Ширина
+$menu-toggle-icon-top-width: 40;
+$menu-toggle-icon-center-width: 32;
+$menu-toggle-icon-bottom-width: 24;
+//* Направление линий
+$menu-toggle-icon-direction: 'right';
+//*
+$menu-toggle-icon-indent: 6;
+
+.menu-toggle {
+	//background-color: $bg-dark;
+	position: relative;
+	--dp-flex: flex;
+	display: var(--dp-flex);
+	align-items: center;
+	cursor: pointer;
+	font-size: #{$menu-toggle-width + 'px'};
+	color: currentColor;
+	transition-duration: $td;
+	//*
+	&__icon {
+		display: block;
+		position: relative;
+		background-color: currentColor;
+		height: size($menu-toggle-icon-line-height, $menu-toggle-width , 'em');
+		width: size($menu-toggle-icon-center-width, $menu-toggle-width, 'em');
+		border-radius: 20px;
+		transition: background 0s 0.3s, width 0.3s 0.3s;
+		@if ($menu-toggle-icon-direction == left) {	
+			margin: size($menu-toggle-height / 2 - $menu-toggle-icon-line-height / 2, $menu-toggle-width, 'em')
+				size($menu-toggle-width - $menu-toggle-icon-center-width, $menu-toggle-width, 'em')
+				size($menu-toggle-height / 2 - $menu-toggle-icon-line-height / 2, $menu-toggle-width, 'em')
+				0
+			;
+		}
+		@else if ($menu-toggle-icon-direction == right) {
+			margin: size($menu-toggle-height / 2 - $menu-toggle-icon-line-height / 2, $menu-toggle-width, 'em')
+				0
+				size($menu-toggle-height / 2 - $menu-toggle-icon-line-height / 2, $menu-toggle-width, 'em')
+				size($menu-toggle-width - $menu-toggle-icon-center-width, $menu-toggle-width, 'em')
+			;
+		}
+		//*
+		&:after,
+		&:before {
+			content: "";
+			position: absolute;
+			background-color: currentColor;
+			@if ($menu-toggle-icon-direction == left) {	
+				left: 0;
+			}
+			@else if ($menu-toggle-icon-direction == right) {
+				right: 0;
+			}
+			display: block;
+			height: 100%;
+			width: 100%;
+			border-radius: 50px;
+
+			transition: transform 0.3s  0s, 
+						bottom 0.3s 0.3s, 
+						width 0.3s 0.6s;
+		}
+		//* top
+		&:after {
+			bottom:size($menu-toggle-icon-indent + $menu-toggle-icon-line-height, $menu-toggle-width, 'em');
+			width: size( $menu-toggle-icon-top-width, $menu-toggle-width, 'em');
+		}
+		//* bottom
+		&:before {
+			bottom:size(-($menu-toggle-icon-indent + $menu-toggle-icon-line-height), $menu-toggle-width, 'em');
+			width: size( $menu-toggle-icon-bottom-width, $menu-toggle-width, 'em');
+		}
+	}
+	&__text {
+		font-size: size(24);
+		margin-left: size(20);
+		line-height: 1;
+	}
+	//* Active
+	&._active {
+		& .menu-toggle__icon {
+			background: none;
+			&:after,
+			&:before {
+				bottom: 0;
+				transition: transform 0.3s 0.6s, 
+							bottom 0.3s 0.3s, 
+							width 0.3s 0s;
+			}
+			&:after {
+				transform: rotate(45deg);
+			}
+			&:before {
+				width: 1em;
+				transform: rotate(-45deg);
+			}
+		}
+	}
+}

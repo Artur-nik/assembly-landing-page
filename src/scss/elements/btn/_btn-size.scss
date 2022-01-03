@@ -1,0 +1,6 @@
+.btn--size {
+    &-md {
+        font-size: size-x(24);
+        padding: size-x(16) size-x(32);
+    }
+}

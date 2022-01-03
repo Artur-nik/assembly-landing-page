@@ -1,0 +1,24 @@
+.btn--outline {
+    border: 1px solid $btn-bg;   
+    border-radius: 500px;
+    color: $btn-color-outline;
+    .icon {
+        color: $btn-color-outline;
+    }   
+    @media (pointer: fine) {
+        &:hover {
+            color: $btn-color;
+            background: $btn-bg; 
+            .icon {
+                color: $btn-color;
+            }   
+        }
+    }
+    &:active {
+        color: $btn-color;
+        background: $btn-bg;   
+        .icon {
+            color: $btn-color;
+        } 
+    }
+}

@@ -13,4 +13,8 @@
     &--stroke {
         stroke: currentColor;
     }
+    &--only-stroke {
+        fill: none;
+        stroke: currentColor;
+    }
 }

@@ -1,0 +1,17 @@
+//*
+.btn--circle {
+    --btn-circle:#{size(200)};
+    border-radius: 50%;
+    height: var(--btn-circle);
+    width: var(--btn-circle);
+    background: $btn-bg;   
+    color: $btn-color;
+    @media (pointer: fine) {
+        &:hover {
+            background: $btn-bg-hover;    
+        }
+    }
+    &:active {
+        background: $btn-bg-hover;    
+    }
+}

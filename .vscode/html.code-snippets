@@ -1,26 +1,6 @@
 {
-	"slider-lazy": {
-		"prefix": "swiper-lazy",
-		"scope": "html,php",
-		"body": [
-		  "<img class=\"swiper-lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\"/>",
-		  "<div class=\"swiper-lazy-preloader\"></div>"
-		],
-		"description": "swiper-lazy"
-	},
-	"slider-btn-group": {
-		"prefix": "slider-btn-grou",
-		"scope": "html,php",
-		"body": [
-		  "<div class=\"swiper-button-group\">",
-		  "    <button class=\"swiper-button-prev\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>",
-		  "    <button class=\"swiper-button-next\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>",
-		  "</div>",
-		],
-		"description": "slider"
-	},	
-	"slider": {
-		"prefix": "slider",
+	"swiper": {
+		"prefix": "swiper",
 		"scope": "html,php",
 		"body": [
 		  "<div class=\"-slider swiper-container\">",
@@ -40,186 +20,260 @@
 		  "</div>"
 		],
 		"description": "slider"
-	},
-	"title": {
-		"prefix": "title",
-		"scope": "html,php",
-		"body": [
-		  "<h2 class=\"${1}__title title title--size-lg\">${2}</h2>"
-		],
-		"description": "title"
-	},
-	"svg": {
-		"prefix": "icon",
-		"scope": "html,php",
-		"body": [
-			"<svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#$0\"></use></svg>"
-		],
-		"description": "icon"
-   },
-   "container": {
-		"prefix": "container",
-		"scope": "html,php",
-		"body": [
-			"<div class=\"container\">",
-			"  ",
-			"</div>"
-		],
-		"description": "container"
- 	},
- 	"container title name": {
- 		"prefix": "container title-name",
- 		"scope": "html,php",
- 		"body": [
- 		  "<div class=\"container\">",
- 		  "    <h2 class=\"__title title title--size-lg\">${0}</h2>",
- 		  "</div>"
- 		],
- 		"description": "container title name"
- 	},
- 	"container title": {
- 		"prefix": "container title",
- 		"scope": "html,php",
- 		"body": [
- 		  "<div class=\"container\">",
- 		  "    <h2 class=\"title title--size-lg\"></h2>",
- 		  "</div>"
- 		],
- 		"description": "container title"
- 	},
- 	"footer": {
- 		"prefix": "footer",
- 		"scope": "html,php",
- 		"body": [
- 			"<footer class=\"footer\">",
- 			"    ",
- 			"</footer>"
- 		],
- 		"description": "footer"
-	},
-	"header": {
-		"prefix": "header",
-		"scope": "html,php",
-		"body": [
-			"<header class=\"header\">",
-			"    ",
-			"</header>"
-		],
-		"description": "header"
-	},
-	"include": {
-		"prefix": "include",
-		"scope": "html,php",
-		"body": [
-			"@@include(\"_.html\",{})"
-		],
-		"description": "include"
-	},
-	"menu-toggle": {
-		"prefix": "menu-toggle",
-		"scope": "html,php",
-		"body": [
-			"<button class=\"menu-toggle\"><span class=\"menu-toggle__icon\"></span></button>"
-		],
-		"description": "menu-toggle"
-	},
-	"menu-toggle-text": {
-		"prefix": "menu-toggle-text",
-		"scope": "html,php",
-		"body": [
-			"<button class=\"menu-toggle\">",
-			"    <span class=\"menu-toggle__icon\"></span>",
-			"    <span class=\"menu-toggle__text\"></span>",
-			"</button>"
-		],
-		"description": "menu-toggle"
-	},
-	"img": {
-		"prefix": "img-lazyload",
-		"scope": "html,php",
-		"body": [
-			"<img class=\"lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>"
-		],
-		"description": "img lazyload"
-	},
-	"btn": {
-		"prefix": "btn",
-		"scope": "html,php",
-		"body": [
-			"<button class=\"btn btn--${1|default, secondary|} ${2| ,btn--outline,btn--circle,btn--link|} btn--size-md\">",
-			"    ",
-			"</button>"
-		],
-		"description": "button"
-	},
-	"btn video": {
-		"prefix": "btn video",
-		"scope": "html,php",
-		"body": [
-			"<button class=\"btn btn--${1|primary, secondary|} ${2| ,btn--outline,btn--circle,btn--link|} btn--size-md\" data-modal-open=\"modal-video\" data-video-src=\"\">",
-			"    ",
-			"</button>"
-		],
-		"description": "button modal-open video"
-	},
-	"btn modal": {
-		"prefix": "btn modal",
-		"scope": "html,php",
-		"body": [
-			"<button class=\"btn btn--${1|primary,secondary|} ${2| ,btn--outline,btn--circle,btn--link|} btn--size-md\" data-modal-open=\"${3|modal-form,modal-politic|}\">",
-			"    ",
-			"</button>"
-		],
-		"description": "button modal-open"
-	},
-	"questions": {
-		"prefix": "questions",
-		"scope": "html,php",
-		"body": [
-		  "<div class=\"questions\" ${1| ,data-questions=\"accordion\"|}>",
-		  "    <div class=\"questions-item\">",
-		  "        <div class=\"questions-item__header\">",
-		  "            <div class=\"questions-item__title\"></div>",
-		  "            <div class=\"questions-item__toggel _plus\"></div>",
-		  "        </div>",
-		  "        <div class=\"questions-item__body\"></div>",
-		  "    </div>",
-		  "    <div class=\"questions-item\">",
-		  "        <div class=\"questions-item__header\">",
-		  "            <div class=\"questions-item__title\"></div>",
-		  "            <div class=\"questions-item__toggel _arrow\">",
-		  "                <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg>",
-		  "            </div>",
-		  "        </div>",
-		  "        <div class=\"questions-item__body\"></div>",
-		  "    </div>",
-		  "</div>"
-		],
-		"description": "questions"
-	},
-	"image adaptive": {
-		"prefix": "img",
-		"scope": "html,php",
-		"body": [
-		  "<div class=\"adaptive-box\">",
-		  "    <div class=\"adaptive-box__wrapper\">",
-		  "        <img class=\"adaptive-box__item lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
-		  "    </div>",
-		  "    <span class=\"adaptive-box__loader loader\"></span>",
-		  "</div>"
-		],
-		"description": "Image"
-	},
-	"social": {
-		"prefix": "social",
-		"scope": "html,php",
-		"body": [
-		  "<div class=\"social-group\">",
-		  "    <a href=\"#\" class=\"social social--size\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#\"></use></svg></a>",
-		  "</div>"
-		],
-		"description": "social"
 	  },
+  	"swiper-lazy": {
+    "prefix": "swiper-lazy",
+    "scope": "html,php",
+    "body": [
+      "<img class=\"swiper-lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\"/>",
+      "<div class=\"swiper-lazy-preloader\"></div>"
+    ],
+    "description": "swiper-lazy"
+  	},
+  	"swiper-btn-group": {
+  	  "prefix": "swiper-btn-grou",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<div class=\"swiper-button-group\">",
+  	    "    <button class=\"swiper-button-prev\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>",
+  	    "    <button class=\"swiper-button-next\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>",
+  	    "</div>"
+  	  ],
+  	  "description": "slider"
+  	},
+  	//*
+  	"title": {
+  	  "prefix": "title",
+  	  "scope": "html,php",
+  	  "body": ["<h2 class=\"${1}__title title title--size-lg\">${2}</h2>"],
+  	  "description": "title"
+  	},
+  	//*
+  	"svg": {
+  	  "prefix": "icon",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#$0\"></use></svg>"
+  	  ],
+  	  "description": "icon"
+  	},
+  	//*
+  	"container": {
+  	  "prefix": "container",
+  	  "scope": "html,php",
+  	  "body": ["<div class=\"container\">", "  ", "</div>"],
+  	  "description": "container"
+  	},
+  	"container title name": {
+  	  "prefix": "container title-name",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<div class=\"container\">",
+  	    "    <h2 class=\"__title title title--size-lg\">${0}</h2>",
+  	    "</div>"
+  	  ],
+  	  "description": "container title name"
+  	},
+  	"container title": {
+  	  "prefix": "container title",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<div class=\"container\">",
+  	    "    <h2 class=\"title title--size-lg\"></h2>",
+  	    "</div>"
+  	  ],
+  	  "description": "container title"
+  	},
+	//*
+  	"footer": {
+  	  "prefix": "footer",
+  	  "scope": "html,php",
+  	  "body": ["<footer class=\"footer\">", "    ", "</footer>"],
+  	  "description": "footer"
+  	},
+  	"header": {
+  	  "prefix": "header",
+  	  "scope": "html,php",
+  	  "body": ["<header class=\"header\">", "    ", "</header>"],
+  	  "description": "header"
+  	},
+
+  	"include": {
+  	  "prefix": "include",
+  	  "scope": "html,php",
+  	  "body": ["@@include(\"_.html\",{})"],
+  	  "description": "include"
+  	},
+	//*
+  	"menu-toggle": {
+  	  "prefix": "menu-toggle",
+  	  "scope": "html,php",
+  	  "body": [
+		"<button id=\"menu-modal-open\" class=\"menu-toggle\"><span class=\"menu-toggle__icon\"></span></button>"
+  	  ],
+  	  "description": "menu-toggle"
+  	},
+  	"menu-toggle-text": {
+  	  "prefix": "menu-toggle-text",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<button class=\"menu-toggle\">",
+  	    "    <span class=\"menu-toggle__icon\"></span>",
+  	    "    <span class=\"menu-toggle__text\"></span>",
+  	    "</button>"
+  	  ],
+  	  "description": "menu-toggle"
+  	},
+	  //*
+  	"btn": {
+  	  "prefix": "btn",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<button class=\"btn btn--${1|default, secondary|} ${2| ,btn--outline,btn--circle,btn--link|} btn--size-md\">",
+  	    "    ",
+  	    "</button>"
+  	  ],
+  	  "description": "button"
+  	},
+  	"btn video": {
+  	  "prefix": "btn video",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<button class=\"btn btn--${1|primary, secondary|} ${2| ,btn--outline,btn--circle,btn--link|} btn--size-md\" data-modal-open=\"modal-video\" data-video-src=\"\">",
+  	    "    ",
+  	    "</button>"
+  	  ],
+  	  "description": "button modal-open video"
+  	},
+  	"btn modal": {
+  	  "prefix": "btn modal",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<button class=\"btn btn--${1|primary,secondary|} ${2| ,btn--outline,btn--circle,btn--link|} btn--size-md\" data-modal-open=\"${3|modal-form,modal-politic|}\">",
+  	    "    ",
+  	    "</button>"
+  	  ],
+  	  "description": "button modal-open"
+  	},
+	  //*
+  	"questions": {
+  	  "prefix": "questions",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<div class=\"questions\" ${1| ,data-questions=\"accordion\"|}>",
+  	    "    <div class=\"questions-item\">",
+  	    "        <div class=\"questions-item__header\">",
+  	    "            <div class=\"questions-item__title\"></div>",
+  	    "            <div class=\"questions-item__toggel _arrow\">",
+  	    "                <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg>",
+  	    "            </div>",
+  	    "        </div>",
+  	    "        <div class=\"questions-item__body\"></div>",
+  	    "    </div>",
+  	    "</div>"
+  	  ],
+  	  "description": "questions"
+  	},
+  	"questions plus": {
+  	  "prefix": "questions plus",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<div class=\"questions\" ${1| ,data-questions=\"accordion\"|}>",
+  	    "    <div class=\"questions-item\">",
+  	    "        <div class=\"questions-item__header\">",
+  	    "            <div class=\"questions-item__title\"></div>",
+  	    "            <div class=\"questions-item__toggel _plus\"></div>",
+  	    "        </div>",
+  	    "        <div class=\"questions-item__body\"></div>",
+  	    "    </div>",
+  	    "</div>"
+  	  ],
+  	  "description": "questions plus"
+  	},
+	//*
+	"img": {
+  	  "prefix": "img-lazyload",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<img class=\"lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>"
+  	  ],
+  	  "description": "img lazyload"
+  	},
+  	"image adaptive": {
+  	  "prefix": "img",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<div class=\"adaptive-box\">",
+  	    "    <div class=\"adaptive-box__wrapper\">",
+  	    "        <img class=\"adaptive-box__item lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
+  	    "    </div>",
+  	    "    <span class=\"adaptive-box__loader loader\"></span>",
+  	    "</div>"
+  	  ],
+  	  "description": "Image"
+  	},
+	//*
+  	"social": {
+  	  "prefix": "social",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<div class=\"social-group\">",
+  	    "    <a href=\"#\" class=\"social social--size\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#\"></use></svg></a>",
+  	    "</div>"
+  	  ],
+  	  "description": "social"
+  	},
+  	"Image webp bp": {
+  	  "prefix": "img-webp-bp",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<div class=\"adaptive-box\">",
+  	    "    <div class=\"adaptive-box__wrapper\">",
+  	    "        <picture>",
+  	    "            <source srcset=\"images/\" type=\"image/webp\" media=\"(min-width: px)\">",
+  	    "            <source srcset=\"images/\" media=\"(min-width: px)\">",
+  	    "            <source srcset=\"images/\" type=\"image/webp\">",
+  	    "            <img class=\"adaptive-box__item lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
+  	    "        </picture>",
+  	    "    </div>",
+  	    "    <span class=\"adaptive-box__loader loader\"></span>",
+  	    "</div>"
+  	  ],
+  	  "description": "Image webp bp"
+  	},
+  	"Image webp": {
+  	  "prefix": "img-webp",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<div class=\"adaptive-box\">",
+  	    "    <div class=\"adaptive-box__wrapper\">",
+  	    "        <picture>",
+  	    "            <source srcset=\"images/.webp\" type=\"image/webp\">",
+  	    "            <img class=\"adaptive-box__item lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
+  	    "        </picture>",
+  	    "    </div>",
+  	    "    <span class=\"adaptive-box__loader loader\"></span>",
+  	    "</div>"
+  	  ],
+  	  "description": "Image webp"
+  	},
+  	"Image bp": {
+  	  "prefix": "img-bp",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<div class=\"adaptive-box\">",
+  	    "    <div class=\"adaptive-box__wrapper\">",
+  	    "        <picture>",
+  	    "            <source srcset=\"images/\" media=\"(min-width: px)\">",
+  	    "            <img class=\"adaptive-box__item lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
+  	    "        </picture>",
+  	    "    </div>",
+  	    "    <span class=\"adaptive-box__loader loader\"></span>",
+  	    "</div>"
+  	  ],
+  	  "description": "Image bp"
+  	},
+	//* form
 	"textarea required": {
 		"prefix": "textarea required",
 		"scope": "html,php",
@@ -232,7 +286,7 @@
 		  "</label>"
 		],
 		"description": "textarea required"
-	  },
+	},
 	"textarea": {
 		"prefix": "textarea",
 		"scope": "html,php",
@@ -246,198 +300,177 @@
 		],
 		"description": "textarea"
 	},
-	"Image webp bp": {
-		"prefix": "img-webp-bp",
-		"scope": "html,php",
+	
+  	"form-field-text": {
+  	  "prefix": "form-field-text",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<label class=\"form-field\">",
+  	    "    <input class=\"form-field__input\" placeholder=\"text\" type=\"text\" name=\"name\">",
+  	    "    <span class=\"form-field__text\">text</span>",
+  	    "</label>"
+  	  ],
+  	  "description": "form-field-text"
+  	},
+  	"form-field-email": {
+  	  "prefix": "form-field-email",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<label class=\"form-field\">",
+  	    "    <input class=\"form-field__input\" placeholder=\"email\" type=\"email\" name=\"email\">",
+  	    "    <span class=\"form-field__text\">type: email</span>",
+  	    "    <span class=\"form-field__email\">Пожалуйста, введите адрес электронной почты.</span>",
+  	    "</label>"
+  	  ],
+  	  "description": "form-field-email"
+  	},
+  	"form-field-phone": {
+  	  "prefix": "form-field-phone",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<label class=\"form-field\">",
+  	    "    <input class=\"form-field__input form-phone\" placeholder=\"phone\" type=\"tel\" name=\"phone\">",
+  	    "    <span class=\"form-field__text\">type: tel</span>",
+  	    "</label>"
+  	  ],
+  	  "description": "form-field-phone"
+  	},
+  	"form-field-number": {
+  	  "prefix": "form-field-number",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<label class=\"form-field\">",
+  	    "    <input class=\"form-field__input\" placeholder=\"number\" type=\"number\" name=\"name\">",
+  	    "    <span class=\"form-field__text\">number</span>",
+  	    "    <span class=\"form-field__number\">Пожалуйста, введите число.</span>",
+  	    "</label>"
+  	  ],
+  	  "description": "form-field-number"
+  	},
+  	"form-field-password": {
+  	  "prefix": "form-field-password",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<label class=\"form-field\">",
+  	    "    <input class=\"form-field__input\" placeholder=\"password\" type=\"password\" name=\"name2\">",
+  	    "    <span class=\"form-field__text\">password</span>",
+  	    "</label>"
+  	  ],
+  	  "description": "form-field-password"
+  	},
+  	"form-field-text-required": {
+  	  "prefix": "form-field-text-required",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<label class=\"form-field\">",
+  	    "    <input class=\"form-field__input\" placeholder=\"text\" type=\"text\" name=\"name\" required>",
+  	    "    <span class=\"form-field__text\">type: text required <span>*</span></span>",
+  	    "    <span class=\"form-field__required\">",
+  	    "        Укажите текст",
+  	    "        <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
+  	    "    </span>",
+  	    "</label>"
+  	  ],
+  	  "description": "form-field-text-required"
+  	},
+  	"form-field-email-required": {
+  	  "prefix": "form-field-email-required",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<label class=\"form-field\">",
+  	    "    <input class=\"form-field__input\" placeholder=\"email\" type=\"email\" name=\"email\" required>",
+  	    "    <span class=\"form-field__text\">type: email required <span>*</span></span>",
+  	    "    <span class=\"form-field__email\">Пожалуйста, введите адрес электронной почты.</span>",
+  	    "    <span class=\"form-field__required\">",
+  	    "        Укажите E-mail",
+  	    "        <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
+  	    "    </span>",
+  	    "</label>"
+  	  ],
+  	  "description": "form-field-email-required"
+  	},
+  	"form-field-phone-required": {
+  	  "prefix": "form-field-phone-required",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<label class=\"form-field\">",
+  	    "    <input class=\"form-field__input form-phone\" placeholder=\"phone\" type=\"tel\" name=\"phone\" required>",
+  	    "    <span class=\"form-field__text\">type: tel required <span>*</span></span>",
+  	    "    <span class=\"form-field__required\">",
+  	    "        Укажите телефон",
+  	    "        <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
+  	    "    </span>",
+  	    "</label>"
+  	  ],
+  	  "description": "form-field-phone-required"
+  	},
+  	"form-field-number-required": {
+  	  "prefix": "form-field-number-required",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<label class=\"form-field\">",
+  	    "    <input class=\"form-field__input\" placeholder=\"number\" type=\"number\" name=\"name2\" required>",
+  	    "    <span class=\"form-field__text\">number <span>*</span></span>",
+  	    "    <span class=\"form-field__number\">Пожалуйста, введите число.</span>",
+  	    "    <span class=\"form-field__required\">",
+  	    "        Укажите число",
+  	    "        <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
+  	    "    </span>",
+  	    "</label>"
+  	  ],
+  	  "description": "form-field-number-required"
+  	},
+  	"form-field-password-required": {
+  	  "prefix": "form-field-password-required",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<label class=\"form-field\">",
+  	    "    <input class=\"form-field__input\" placeholder=\"password\" type=\"password\" name=\"name2\" required>",
+  	    "    <span class=\"form-field__text\">password <span>*</span></span>",
+  	    "    <span class=\"form-field__required\">",
+  	    "        Укажите пароль",
+  	    "        <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
+  	    "    </span>",
+  	    "</label>"
+  	  ],
+  	  "description": "form-field-password-required"
+  	},
+	  //*
+  	"checkbox decor": {
+  	  "prefix": "checkbox",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<span class=\"form-checkbox\">",
+  	    "    <input class=\"form-checkbox__input\" type=\"checkbox\">",
+  	    "    <span class=\"form-checkbox__decor\"></span>",
+  	    "</span>"
+  	  ],
+  	  "description": "checkbox decor"
+  	},
+  	"checkbox icon": {
+  	  "prefix": "checkbox icon",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<span class=\"form-checkbox form-checkbox--icon\">",
+  	    "    <input class=\"form-checkbox__input\" type=\"checkbox\">",
+  	    "    <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
+  	    "</span>"
+  	  ],
+  	  "description": "checkbox icon"
+  	},
+	//* 
+	"video": {
+		"prefix": "video",
 		"body": [
-		  "<div class=\"adaptive-box\">",
-		  "    <div class=\"adaptive-box__wrapper\">",
-		  "        <picture>",
-		  "            <source srcset=\"images/\" type=\"image/webp\" media=\"(min-width: px)\">",
-		  "            <source srcset=\"images/\" media=\"(min-width: px)\">",
-		  "            <source srcset=\"images/\" type=\"image/webp\">",
-		  "            <img class=\"adaptive-box__item lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
-		  "        </picture>",
-		  "    </div>",
-		  "    <span class=\"adaptive-box__loader loader\"></span>",
-		  "</div>"
+		"<div class=\"video adaptive-box\">",
+		"    <div class=\"adaptive-box__wrapper\">",
+		"        <img class=\"video__preview lazy\" data-src=\"\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
+		"        <div class=\"video__frame\"></div>",
+		"    </div>",
+		"    <button class=\"video__btn btn\" data-video-src=\"\"></button>",
+		"    <span class=\"video__loader loader loader--center loader--size-lg\"></span>",
+		"</div>"
 		],
-		"description": "Image webp bp"
-	},
-	"Image webp": {
-		"prefix": "img-webp",
-		"scope": "html,php",
-		"body": [
-		  "<div class=\"adaptive-box\">",
-		  "    <div class=\"adaptive-box__wrapper\">",
-		  "        <picture>",
-		  "            <source srcset=\"images/.webp\" type=\"image/webp\">",
-		  "            <img class=\"adaptive-box__item lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
-		  "        </picture>",
-		  "    </div>",
-		  "    <span class=\"adaptive-box__loader loader\"></span>",
-		  "</div>"
-		],
-		"description": "Image webp"
-	},
-	"Image bp": {
-		"prefix": "img-bp",
-		"scope": "html,php",
-		"body": [
-		  "<div class=\"adaptive-box\">",
-		  "    <div class=\"adaptive-box__wrapper\">",
-		  "        <picture>",
-		  "            <source srcset=\"images/\" media=\"(min-width: px)\">",
-		  "            <img class=\"adaptive-box__item lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
-		  "        </picture>",
-		  "    </div>",
-		  "    <span class=\"adaptive-box__loader loader\"></span>",
-		  "</div>"
-		],
-		"description": "Image bp"
-	},
-	"form-field-text": {
-		"prefix": "form-field-text",
-		"body": [
-		  "<label class=\"form-field\">",
-		  "    <input class=\"form-field__input\" placeholder=\"text\" type=\"text\" name=\"name\">",
-		  "    <span class=\"form-field__text\">text</span>",
-		  "</label>"
-		],
-		"description": "form-field-text"
-	},
-	"form-field-email": {
-		"prefix": "form-field-email",
-		"body": [
-		  "<label class=\"form-field\">",
-		  "    <input class=\"form-field__input\" placeholder=\"email\" type=\"email\" name=\"email\">",
-		  "    <span class=\"form-field__text\">type: email</span>",
-		  "    <span class=\"form-field__email\">Пожалуйста, введите адрес электронной почты.</span>",
-		  "</label>"
-		],
-		"description": "form-field-email"
-	},
-	"form-field-phone": {
-		"prefix": "form-field-phone",
-		"body": [
-		  "<label class=\"form-field\">",
-		  "    <input class=\"form-field__input form-phone\" placeholder=\"phone\" type=\"tel\" name=\"phone\">",
-		  "    <span class=\"form-field__text\">type: tel</span>",
-		  "</label>"
-		],
-		"description": "form-field-phone"
-	},
-	"form-field-number": {
-		"prefix": "form-field-number",
-		"body": [
-		  "<label class=\"form-field\">",
-		  "    <input class=\"form-field__input\" placeholder=\"number\" type=\"number\" name=\"name\">",
-		  "    <span class=\"form-field__text\">number</span>",
-		  "    <span class=\"form-field__number\">Пожалуйста, введите число.</span>",
-		  "</label>"
-		],
-		"description": "form-field-number"
-	},
-	"form-field-password": {
-		"prefix": "form-field-password",
-		"body": [
-		  "<label class=\"form-field\">",
-		  "    <input class=\"form-field__input\" placeholder=\"password\" type=\"password\" name=\"name2\">",
-		  "    <span class=\"form-field__text\">password</span>",
-		  "</label>"
-		],
-		"description": "form-field-password"
-	},
-	"form-field-text-required": {
-		"prefix": "form-field-text-required",
-		"body": [
-		  "<label class=\"form-field\">",
-		  "    <input class=\"form-field__input\" placeholder=\"text\" type=\"text\" name=\"name\" required>",
-		  "    <span class=\"form-field__text\">type: text required <span>*</span></span>",
-		  "    <span class=\"form-field__required\">",
-		  "        Укажите текст",
-		  "        <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
-		  "    </span>",
-		  "</label>"
-		],
-		"description": "form-field-text-required"
-	},
-	"form-field-email-required": {
-		"prefix": "form-field-email-required",
-		"body": [
-		  "<label class=\"form-field\">",
-		  "    <input class=\"form-field__input\" placeholder=\"email\" type=\"email\" name=\"email\" required>",
-		  "    <span class=\"form-field__text\">type: email required <span>*</span></span>",
-		  "    <span class=\"form-field__email\">Пожалуйста, введите адрес электронной почты.</span>",
-		  "    <span class=\"form-field__required\">",
-		  "        Укажите E-mail",
-		  "        <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
-		  "    </span>",
-		  "</label>"
-		],
-		"description": "form-field-email-required"
-	},
-	"form-field-phone-required": {
-		"prefix": "form-field-phone-required",
-		"body": [
-		  "<label class=\"form-field\">",
-		  "    <input class=\"form-field__input form-phone\" placeholder=\"phone\" type=\"tel\" name=\"phone\" required>",
-		  "    <span class=\"form-field__text\">type: tel required <span>*</span></span>",
-		  "    <span class=\"form-field__required\">",
-		  "        Укажите телефон",
-		  "        <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
-		  "    </span>",
-		  "</label>"
-		],
-		"description": "form-field-phone-required"
-	},
-	"form-field-number-required": {
-		"prefix": "form-field-number-required",
-		"body": [
-		  "<label class=\"form-field\">",
-		  "    <input class=\"form-field__input\" placeholder=\"number\" type=\"number\" name=\"name2\" required>",
-		  "    <span class=\"form-field__text\">number <span>*</span></span>",
-		  "    <span class=\"form-field__number\">Пожалуйста, введите число.</span>",
-		  "    <span class=\"form-field__required\">",
-		  "        Укажите число",
-		  "        <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
-		  "    </span>",
-		  "</label>"
-		],
-		"description": "form-field-number-required"
-	},
-	"form-field-password-required": {
-		"prefix": "form-field-password-required",
-		"body": [
-		  "<label class=\"form-field\">",
-		  "    <input class=\"form-field__input\" placeholder=\"password\" type=\"password\" name=\"name2\" required>",
-		  "    <span class=\"form-field__text\">password <span>*</span></span>",
-		  "    <span class=\"form-field__required\">",
-		  "        Укажите пароль",
-		  "        <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
-		  "    </span>",
-		  "</label>"
-		],
-		"description": "form-field-password-required"
-	},
-	"checkbox decor": {
-		"prefix": "checkbox",
-		"body": [
-		  "<span class=\"form-checkbox\">",
-		  "    <input class=\"form-checkbox__input\" type=\"checkbox\">",
-		  "    <span class=\"form-checkbox__decor\"></span>",
-		  "</span>"
-		],
-		"description": "checkbox decor"
-	},
-	"checkbox icon": {
-		"prefix": "checkbox icon",
-		"body": [
-		  "<span class=\"form-checkbox form-checkbox--icon\">",
-		  "    <input class=\"form-checkbox__input\" type=\"checkbox\">",
-		  "    <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
-		  "</span>"
-		],
-		"description": "checkbox icon"
+		"description": "video box"
 	}
 }

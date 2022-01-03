@@ -1,7 +1,7 @@
 // menu 
 $(".menu-toggle").on('click', function(){
     //$(".menu-modal").toggleClass('_active'); // добавляем класс
-    $(".menu-modal").fadeToggle(); // или закрываем, открываем
+    //$(".menu-modal").fadeToggle(); // или закрываем, открываем
     $(this).toggleClass('_active');
 });
 

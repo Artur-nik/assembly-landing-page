@@ -2,10 +2,10 @@
     color: currentColor;
     @media (pointer: fine) {
         &:hover {
-            color: $color-primary-hover;
+            color: #000;
         }
     }
     &:active {
-        color: $color-primary-active;
+        color: #000;
     }
 }

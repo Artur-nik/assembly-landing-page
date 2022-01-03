@@ -15,10 +15,22 @@
 
     //* размеры
     &--size {
+        &-sm {   
+            font-size: size(48, 50);
+            @include media(lg) {
+                font-size: size(36);
+            }
+        }
+        &-md {   
+            font-size: size(48, 50);
+            @include media(lg) {
+                font-size: size(56);
+            }
+        }
         &-lg {   
             font-size: size(48, 50);
             @include media(lg) {
-                font-size: size(48);
+                font-size: size(72);
             }
         }
     }

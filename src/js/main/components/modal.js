@@ -11,26 +11,23 @@ $('[data-modal-open]').on('click', function(){
         }
     },500);
     if (modal == 'modal-video') {
-        let modalVideoSrc;
-        if ($(this).data('video-src')) {
-            modalVideoSrc = $(this).data('video-src');
+        let modalVideoSrc = $(this).data('video-src') || $('#' + modal).find('.video__frame').data('video-src');
+
+        if (!$('#' + modal).find('iframe.video__frame').length) { 
+            initVideo($('#' + modal).find('.video__frame').attr('id'), modalVideoSrc);
         }
         else {
-            modalVideoSrc = $('#' + modal).find('.modal-video__box').data('video-src');
-        }
-        if (!$('#' + modal).find('.modal-video__frame').length) { 
-            console.log($('#' + modal).find('.modal-video__frame').length);
-            $('#' + modal).find('.modal-video__box').html(' <iframe class="modal-video__frame" src="' + modalVideoSrc + '" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
-        }
-        else {
-            $('#' + modal).find('.modal-video__frame').attr('src', modalVideoSrc)
+            player[$('#' + modal).find('.video__frame').attr('id')].loadVideoById({videoId: modalVideoSrc})
         }
     }
 }); 
+
+
 //
 //* Закрытие по кнопке
 $(".modal__close").click(function(){
     const modalClose =  $(this);
+
     setTimeout(function tick() {
         modalClose.parents('.modal').fadeOut(500);
     },150);
@@ -38,11 +35,9 @@ $(".modal__close").click(function(){
         $('body').css('overflow', '');
         $('.scroll-offset').css('padding-right', 0 + 'px');
     }
-    setTimeout(function tick() {
-        if (modalClose.parents('.modal')[0].id == 'modal-video') {
-            modalClose.parents('.modal').find('.modal-video__frame').attr('src', '')
-        }    
-    },650);
+    if (modalClose.parents('.modal')[0].id == 'modal-video') {
+        player[modalClose.parents('.modal').find('.video__frame').attr('id')].pauseVideo();
+    }    
 }); 
 
 //* Закрытие по клику в не области элемента
@@ -57,6 +52,9 @@ $('.modal').mouseup(function (e){
             $('body').css('overflow', '');
             $('.scroll-offset').css('padding-right', 0 + 'px');
         }
+        if (modalClose.parents('.modal')[0].id == 'modal-video') {
+            player[modalClose.parents('.modal').find('.video__frame').attr('id')].pauseVideo();
+        }  
     }
 });
 

@@ -23,4 +23,21 @@
         border-top-color: transparent;
         animation: loading 1.5s linear infinite;
     }
+    &--center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+    }
+    &--size {
+        &-sm {
+            font-size: size(40);
+        }   
+        &-md {
+            font-size: size(60);
+        }   
+        &-lg {
+            font-size: size(80);
+        }      
+    }
 }

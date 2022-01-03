@@ -16,9 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
     @@include("plugins/lazy.js",{})
     @@include("plugins/scroll.js",{})
 
-    @@include("components/menu.js",{})
-    @@include("components/modal.js",{})
-    @@include("components/questions.js",{})
+    @@include("components/index.js",{})
 
     @@include("section/index.js",{})
     

@@ -56,11 +56,16 @@ let path = {
                             "./src/js/libraries/jquery.min.js",
                             "./src/js/libraries/lazyload.min.js",
                             "./src/js/libraries/swiper.min.js",
-                            //"./src/js/libraries/jquery.maskedinput.min.js",
+                            "./src/js/libraries/jquery.maskedinput.min.js",
                             //"./src/js/libraries/anime.min.js",
-                            //"./src/js/libraries/wow.js",
+                            //"./src/js/libraries/fancybox.umd.js",
+                            //"./src/js/libraries/gsap.min.js",
                             //"./src/js/libraries/jquery.event.move.js",
-                            //"./src/js/libraries/jquery.twentytwenty.js"
+                            //"./src/js/libraries/jquery.nice-select.min.js",
+                            //"./src/js/libraries/jquery.twentytwenty.js",
+                            //"./src/js/libraries/ScrollTrigger.min.js",
+                            //"./src/js/libraries/simplebar.min.js",
+                            "./src/js/libraries/wow.js"
                         ],
         js_dist:           "./src/js/dist/*js",
 

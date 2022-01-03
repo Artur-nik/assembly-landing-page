@@ -1,0 +1,17 @@
+.btn--primary {
+    font-weight: 500;
+    border-radius: 500px;
+    background:  $btn-bg;   
+    color: $btn-color;
+    .icon {
+        color: $btn-color;
+    }
+    @media (pointer: fine) {
+        &:hover {
+            background: $btn-bg-hover;    
+        }
+    }
+    &:active {
+        background: $btn-bg-hover;    
+    }
+}

@@ -1,0 +1,35 @@
+.video { 
+    --adaptive-box: #{height(560,315)};
+    &._active {
+        .video__frame {
+            z-index: 4;
+        }
+    }
+    &__preview {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 2;
+    }
+    &__loader {
+        z-index: 1;
+    }
+    &__btn {
+        z-index: 3;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+    }
+    &__frame {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+}
