@@ -3,13 +3,16 @@
 
 $('[data-modal-open]').on('click', function(){
     const modal = $(this).data('modal-open');
+    //*
     $('#' + modal).fadeIn(500);
+    //*
     setTimeout(function tick() {
         $('body').css('overflow', 'hidden');
         if ($('body').css('padding-right') == '0px') {
             $('.scroll-offset').css('padding-right',  window.innerWidth - bodyWidth + 'px');
         }
     },500);
+    //*
     if (modal == 'modal-video') {
         let modalVideoSrc = $(this).data('video-src') || $('#' + modal).find('.video__frame').data('video-src');
 
@@ -19,6 +22,15 @@ $('[data-modal-open]').on('click', function(){
         else {
             player[$('#' + modal).find('.video__frame').attr('id')].loadVideoById({videoId: modalVideoSrc})
         }
+    }
+    //*
+    if ($(this).data('modal-title')) {
+        $('.modal-form__title').text($(this).data('modal-title'));
+        $('.modal .form-input-title').val('Pop-Up: ' + $(this).data('modal-title'));
+    }
+    else {
+        $('.modal-form__title').text($('.modal-form__title').data('modal-title'));
+        $('.modal .form-input-title').val('Pop-Up: ' + $('.modal-form__title').data('modal-title'));
     }
 }); 
 
@@ -34,7 +46,7 @@ $(".modal__close").click(function(){
     if (checkModalOpen($(this).parents('.modal'))) {
         $('body').css('overflow', '');
         $('.scroll-offset').css('padding-right', 0 + 'px');
-    }
+    };
     if (modalClose.parents('.modal')[0].id == 'modal-video') {
         player[modalClose.parents('.modal').find('.video__frame').attr('id')].pauseVideo();
     }    
@@ -52,8 +64,8 @@ $('.modal').mouseup(function (e){
             $('body').css('overflow', '');
             $('.scroll-offset').css('padding-right', 0 + 'px');
         }
-        if (modalClose.parents('.modal')[0].id == 'modal-video') {
-            player[modalClose.parents('.modal').find('.video__frame').attr('id')].pauseVideo();
+        if (modal[0].id == 'modal-video') {
+            player[modal.find('.video__frame').attr('id')].pauseVideo();
         }  
     }
 });

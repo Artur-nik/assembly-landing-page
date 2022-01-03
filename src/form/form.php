@@ -18,6 +18,11 @@ $mail->Subject = 'Заявка с сайта';
 
 $body = '<h1>Заявка с сайта </h1>';
 
+
+if (trim(!empty($_POST['form-title']))) {
+    $body .= '<p><b>Форма:</b> ' . $_POST['form-title'] . '</p>';
+}
+
 if (trim(!empty($_POST['name']))) {
     $body .= '<p><b>Имя:</b> ' . $_POST['name'] . '</p>';
 }

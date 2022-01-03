@@ -37,7 +37,6 @@ $('.form-field__input').focusout(function(){
 			$(this).parent('.form-field').addClass('_email');	
 		}
 	}
-console.log(this);
 	if (this.type === 'number'){
 		if (this.validity.badInput) {
 			$(this).parent('.form-field').addClass('_number');	
