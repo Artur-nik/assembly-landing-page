@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
-    <link rel="shortcut icon" href="favicon/favicon.svg" />
+    <link rel="icon" type="image/png" href="favicon/favicon.png" />
+<link rel="icon" href="favicon/favicon.svg" />
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <meta name="format-detection" content="telephone=no">
 </head>
@@ -35,6 +36,19 @@
       
     </div>
 </section>
+
+<form id="" class="form js-form">
+    <input class="form-input-title" type="hidden" name="form-title" value="">
+
+    <div class="form-send">
+        <div class="form-send__message">
+            <div class="form-send__loading"><span></span></div>
+            <p class="form-send__success">Спасибо, ваша заявка принята. Менеджер свяжется с вами в ближайшее время</p>
+            <p class="form-send__error">Что-то пошло не так. Заявка не отправлена.</p>
+        </div>
+        <button type="submit" class="form-send__btn btn btn--primary btn--size-md">Перезвоните мне</button>    
+    </div>
+</form>
     
 
     <div id="modal-form" class="modal">
@@ -47,7 +61,7 @@
         <div class="modal__container">
             <div class="modal__box modal-target">
                 <form id="form-modal" class="form js-form">
-
+                    <input class="form-input-title" type="hidden" name="form-title" value="">
                     <label class="form-field">
                         <input class="form-field__input" type="text" name="name" required>
                         <span class="form-field__text" data-valid="" data-default=""></span>
@@ -938,3 +952,4 @@
     
 </body>
 </html>
+

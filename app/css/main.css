@@ -860,16 +860,6 @@ textarea::placeholder {
   top: 0;
 }
 
-.adaptive-box__loader {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate3d(-50%, -50%, 0);
-          transform: translate3d(-50%, -50%, 0);
-  z-index: 1;
-  font-size: 0.8rem;
-}
-
 .preloader {
   position: fixed;
   width: 100vw;
@@ -1292,10 +1282,6 @@ textarea::placeholder {
   -o-object-fit: cover;
      object-fit: cover;
   z-index: 2;
-}
-
-.video__loader {
-  z-index: 1;
 }
 
 .video__btn {

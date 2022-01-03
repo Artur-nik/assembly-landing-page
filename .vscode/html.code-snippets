@@ -49,13 +49,13 @@
   	  "description": "title"
   	},
   	//*
-  	"svg": {
-  	  "prefix": "icon",
-  	  "scope": "html,php",
-  	  "body": [
-  	    "<svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#$0\"></use></svg>"
-  	  ],
-  	  "description": "icon"
+  	"icon": {
+  	  	"prefix": "icon",
+  	  	"scope": "html,php",
+  	  	"body": [
+  	  	  "<svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#$0\"></use></svg>"
+  	  	],
+  	  	"description": "icon"
   	},
   	//*
   	"container": {
@@ -63,16 +63,6 @@
   	  "scope": "html,php",
   	  "body": ["<div class=\"container\">", "  ", "</div>"],
   	  "description": "container"
-  	},
-  	"container title name": {
-  	  "prefix": "container title-name",
-  	  "scope": "html,php",
-  	  "body": [
-  	    "<div class=\"container\">",
-  	    "    <h2 class=\"__title title title--size-lg\">${0}</h2>",
-  	    "</div>"
-  	  ],
-  	  "description": "container title name"
   	},
   	"container title": {
   	  "prefix": "container title",
@@ -83,6 +73,16 @@
   	    "</div>"
   	  ],
   	  "description": "container title"
+  	},
+	"container title name": {
+  	  	"prefix": "container title-name",
+  	  	"scope": "html,php",
+  	  	"body": [
+  	  	  "<div class=\"container\">",
+  	  	  "    <h2 class=\"__title title title--size-lg\">${0}</h2>",
+  	  	  "</div>"
+  	  	],
+  	  	"description": "container title name"
   	},
 	//*
   	"footer": {
@@ -124,7 +124,7 @@
   	  ],
   	  "description": "menu-toggle"
   	},
-	  //*
+	//*
   	"btn": {
   	  "prefix": "btn",
   	  "scope": "html,php",
@@ -192,12 +192,12 @@
   	},
 	//*
 	"img": {
-  	  "prefix": "img-lazyload",
-  	  "scope": "html,php",
-  	  "body": [
-  	    "<img class=\"lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>"
-  	  ],
-  	  "description": "img lazyload"
+  	  	"prefix": "img-lazyload",
+  	  	"scope": "html,php",
+  	  	"body": [
+  	  	  	"<img class=\"lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>"
+  	  	],
+  	  	"description": "img lazyload"
   	},
   	"image adaptive": {
   	  "prefix": "img",
@@ -207,7 +207,7 @@
   	    "    <div class=\"adaptive-box__wrapper\">",
   	    "        <img class=\"adaptive-box__item lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
   	    "    </div>",
-  	    "    <span class=\"adaptive-box__loader loader\"></span>",
+  	    "    <span class=\"loader loader--center loader--size-lg\"></span>",
   	    "</div>"
   	  ],
   	  "description": "Image"
@@ -236,7 +236,7 @@
   	    "            <img class=\"adaptive-box__item lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
   	    "        </picture>",
   	    "    </div>",
-  	    "    <span class=\"adaptive-box__loader loader\"></span>",
+  	    "    <span class=\"loader loader--center loader--size-lg\"></span>",
   	    "</div>"
   	  ],
   	  "description": "Image webp bp"
@@ -252,7 +252,7 @@
   	    "            <img class=\"adaptive-box__item lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
   	    "        </picture>",
   	    "    </div>",
-  	    "    <span class=\"adaptive-box__loader loader\"></span>",
+  	    "    <span class=\"loader loader--center loader--size-lg\"></span>",
   	    "</div>"
   	  ],
   	  "description": "Image webp"
@@ -268,195 +268,10 @@
   	    "            <img class=\"adaptive-box__item lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
   	    "        </picture>",
   	    "    </div>",
-  	    "    <span class=\"adaptive-box__loader loader\"></span>",
+  	    "    <span class=\"loader loader--center loader--size-lg\"></span>",
   	    "</div>"
   	  ],
   	  "description": "Image bp"
-  	},
-	//* form
-	"textarea required": {
-		"prefix": "textarea required",
-		"scope": "html,php",
-		"body": [
-		  "<label class=\"form-textarea\">",
-		  "    <textarea class=\"form-textarea__input\" name=\"\" required></textarea>",
-		  "    <span class=\"form-textarea__text\" data-valid=\"\" data-default=\"\">",
-		  "        Text required <span>*</span>",
-		  "    </span>",
-		  "</label>"
-		],
-		"description": "textarea required"
-	},
-	"textarea": {
-		"prefix": "textarea",
-		"scope": "html,php",
-		"body": [
-		  "<label class=\"form-textarea\">",
-		  "    <textarea class=\"form-textarea__input\" name=\"\"></textarea>",
-		  "    <span class=\"form-textarea__text\">",
-		  "        Text required",
-		  "    </span>",
-		  "</label>"
-		],
-		"description": "textarea"
-	},
-	
-  	"form-field-text": {
-  	  "prefix": "form-field-text",
-  	  "scope": "html,php",
-  	  "body": [
-  	    "<label class=\"form-field\">",
-  	    "    <input class=\"form-field__input\" placeholder=\"text\" type=\"text\" name=\"name\">",
-  	    "    <span class=\"form-field__text\">text</span>",
-  	    "</label>"
-  	  ],
-  	  "description": "form-field-text"
-  	},
-  	"form-field-email": {
-  	  "prefix": "form-field-email",
-  	  "scope": "html,php",
-  	  "body": [
-  	    "<label class=\"form-field\">",
-  	    "    <input class=\"form-field__input\" placeholder=\"email\" type=\"email\" name=\"email\">",
-  	    "    <span class=\"form-field__text\">type: email</span>",
-  	    "    <span class=\"form-field__email\">Пожалуйста, введите адрес электронной почты.</span>",
-  	    "</label>"
-  	  ],
-  	  "description": "form-field-email"
-  	},
-  	"form-field-phone": {
-  	  "prefix": "form-field-phone",
-  	  "scope": "html,php",
-  	  "body": [
-  	    "<label class=\"form-field\">",
-  	    "    <input class=\"form-field__input form-phone\" placeholder=\"phone\" type=\"tel\" name=\"phone\">",
-  	    "    <span class=\"form-field__text\">type: tel</span>",
-  	    "</label>"
-  	  ],
-  	  "description": "form-field-phone"
-  	},
-  	"form-field-number": {
-  	  "prefix": "form-field-number",
-  	  "scope": "html,php",
-  	  "body": [
-  	    "<label class=\"form-field\">",
-  	    "    <input class=\"form-field__input\" placeholder=\"number\" type=\"number\" name=\"name\">",
-  	    "    <span class=\"form-field__text\">number</span>",
-  	    "    <span class=\"form-field__number\">Пожалуйста, введите число.</span>",
-  	    "</label>"
-  	  ],
-  	  "description": "form-field-number"
-  	},
-  	"form-field-password": {
-  	  "prefix": "form-field-password",
-  	  "scope": "html,php",
-  	  "body": [
-  	    "<label class=\"form-field\">",
-  	    "    <input class=\"form-field__input\" placeholder=\"password\" type=\"password\" name=\"name2\">",
-  	    "    <span class=\"form-field__text\">password</span>",
-  	    "</label>"
-  	  ],
-  	  "description": "form-field-password"
-  	},
-  	"form-field-text-required": {
-  	  "prefix": "form-field-text-required",
-  	  "scope": "html,php",
-  	  "body": [
-  	    "<label class=\"form-field\">",
-  	    "    <input class=\"form-field__input\" placeholder=\"text\" type=\"text\" name=\"name\" required>",
-  	    "    <span class=\"form-field__text\">type: text required <span>*</span></span>",
-  	    "    <span class=\"form-field__required\">",
-  	    "        Укажите текст",
-  	    "        <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
-  	    "    </span>",
-  	    "</label>"
-  	  ],
-  	  "description": "form-field-text-required"
-  	},
-  	"form-field-email-required": {
-  	  "prefix": "form-field-email-required",
-  	  "scope": "html,php",
-  	  "body": [
-  	    "<label class=\"form-field\">",
-  	    "    <input class=\"form-field__input\" placeholder=\"email\" type=\"email\" name=\"email\" required>",
-  	    "    <span class=\"form-field__text\">type: email required <span>*</span></span>",
-  	    "    <span class=\"form-field__email\">Пожалуйста, введите адрес электронной почты.</span>",
-  	    "    <span class=\"form-field__required\">",
-  	    "        Укажите E-mail",
-  	    "        <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
-  	    "    </span>",
-  	    "</label>"
-  	  ],
-  	  "description": "form-field-email-required"
-  	},
-  	"form-field-phone-required": {
-  	  "prefix": "form-field-phone-required",
-  	  "scope": "html,php",
-  	  "body": [
-  	    "<label class=\"form-field\">",
-  	    "    <input class=\"form-field__input form-phone\" placeholder=\"phone\" type=\"tel\" name=\"phone\" required>",
-  	    "    <span class=\"form-field__text\">type: tel required <span>*</span></span>",
-  	    "    <span class=\"form-field__required\">",
-  	    "        Укажите телефон",
-  	    "        <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
-  	    "    </span>",
-  	    "</label>"
-  	  ],
-  	  "description": "form-field-phone-required"
-  	},
-  	"form-field-number-required": {
-  	  "prefix": "form-field-number-required",
-  	  "scope": "html,php",
-  	  "body": [
-  	    "<label class=\"form-field\">",
-  	    "    <input class=\"form-field__input\" placeholder=\"number\" type=\"number\" name=\"name2\" required>",
-  	    "    <span class=\"form-field__text\">number <span>*</span></span>",
-  	    "    <span class=\"form-field__number\">Пожалуйста, введите число.</span>",
-  	    "    <span class=\"form-field__required\">",
-  	    "        Укажите число",
-  	    "        <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
-  	    "    </span>",
-  	    "</label>"
-  	  ],
-  	  "description": "form-field-number-required"
-  	},
-  	"form-field-password-required": {
-  	  "prefix": "form-field-password-required",
-  	  "scope": "html,php",
-  	  "body": [
-  	    "<label class=\"form-field\">",
-  	    "    <input class=\"form-field__input\" placeholder=\"password\" type=\"password\" name=\"name2\" required>",
-  	    "    <span class=\"form-field__text\">password <span>*</span></span>",
-  	    "    <span class=\"form-field__required\">",
-  	    "        Укажите пароль",
-  	    "        <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
-  	    "    </span>",
-  	    "</label>"
-  	  ],
-  	  "description": "form-field-password-required"
-  	},
-	  //*
-  	"checkbox decor": {
-  	  "prefix": "checkbox",
-  	  "scope": "html,php",
-  	  "body": [
-  	    "<span class=\"form-checkbox\">",
-  	    "    <input class=\"form-checkbox__input\" type=\"checkbox\">",
-  	    "    <span class=\"form-checkbox__decor\"></span>",
-  	    "</span>"
-  	  ],
-  	  "description": "checkbox decor"
-  	},
-  	"checkbox icon": {
-  	  "prefix": "checkbox icon",
-  	  "scope": "html,php",
-  	  "body": [
-  	    "<span class=\"form-checkbox form-checkbox--icon\">",
-  	    "    <input class=\"form-checkbox__input\" type=\"checkbox\">",
-  	    "    <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
-  	    "</span>"
-  	  ],
-  	  "description": "checkbox icon"
   	},
 	//* 
 	"video": {
@@ -468,7 +283,7 @@
 		"        <div class=\"video__frame\"></div>",
 		"    </div>",
 		"    <button class=\"video__btn btn\" data-video-src=\"\"></button>",
-		"    <span class=\"video__loader loader loader--center loader--size-lg\"></span>",
+		"    <span class=\"loader loader--center loader--size-lg\"></span>",
 		"</div>"
 		],
 		"description": "video box"

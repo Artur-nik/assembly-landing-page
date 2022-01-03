@@ -16,12 +16,4 @@
         left: 0;
         top: 0;
     }
-    &__loader {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate3d(-50%, -50%, 0);
-        z-index: 1;
-        font-size: size(80);
-    }
 }
