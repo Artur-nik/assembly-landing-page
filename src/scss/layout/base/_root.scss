@@ -23,6 +23,9 @@
 
     //* end grid
 
+    //* base font-size
+    --body-font-size: #{size(16, 50)};
+    //* end 
 
     //* размер макета
     //@media (min-width: #{$layout-size + 'px'}) {
@@ -71,6 +74,9 @@
         --gap-x:#{size(30)};
         --gap-y:#{size(30)};
         --container-gap:#{size(15)};
+        
+        //* base font-size
+        --body-font-size: #{size(16, 50)};
     }
 
 }

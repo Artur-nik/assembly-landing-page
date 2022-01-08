@@ -1,7 +1,7 @@
 .btn--outline {
     border: 1px solid $btn-bg;   
-    border-radius: 500px;
     color: $btn-color-outline;
+    background-color: transparent;
     .icon {
         color: $btn-color-outline;
     }   

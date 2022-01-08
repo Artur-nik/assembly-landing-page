@@ -14,9 +14,6 @@
 //*     Глобальные элементы
 @import 'elements/index';
 
-//*     Формы
-@import 'layout/form/index';
-
 //*     Сетка
 @import 'layout/grid/index';
 
@@ -38,7 +35,6 @@
 //* Основные экраны
 
 @import 'section/base/header';
-@import 'section/base/home';
 
 @import 'section/index';
 
