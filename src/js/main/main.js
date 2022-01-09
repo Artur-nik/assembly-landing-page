@@ -2,8 +2,8 @@
 
 document.addEventListener("DOMContentLoaded", function() {
 
-    @@include("utility/variables.js",{})
-    @@include("utility/slider.js",{})
+    @@include("utility/index.js",{})
+
 
     @@include("form/config.js",{})
     @@include("form/control.js",{})

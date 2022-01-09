@@ -1,10 +1,11 @@
+//*
 let player = [];
-
+//*
 let tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 let firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
+//*
 function initVideo(id, src) {
     player[id] = new YT.Player(id, {
         height: '100%',
@@ -19,7 +20,7 @@ function initVideo(id, src) {
         event.target.playVideo();
     }
 }
-
+//*
 function videoOpen(selector) {
     $(selector).click(function(){
         $(this).parent('.video').addClass('_active');
@@ -31,7 +32,7 @@ function videoOpen(selector) {
 };
 //*
 videoOpen('.video__btn');
-
+//*
 function pauseVideos(list) {
     list.forEach(element => {
         if ($(element).find('iframe').length && player[$(element).find('iframe').attr('id')].getPlayerState() == 1) {
