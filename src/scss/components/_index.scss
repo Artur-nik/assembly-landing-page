@@ -1,8 +1,4 @@
-//
-@import 'animation/main';
-
-@import 'adaptive-box/adaptive-box';
-
+//*
 @import 'preloader/preloader';
 
 @import 'form/index';
@@ -15,9 +11,11 @@
 
 //@import 'cursor/cursor';
 
-
-
 // *faq
 @import 'questions/questions';
 
 @import 'video/video'; 
+
+@import 'quiz/index'; 
+
+@import 'slider/index'; 

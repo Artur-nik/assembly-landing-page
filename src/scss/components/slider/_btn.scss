@@ -1,0 +1,32 @@
+.slider-button { 
+    height: 1em;
+    width: 1em;
+    font-size: size(60);
+    border-radius: 50%;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    .icon {
+        font-size: size(24);
+    }
+    &-prev {
+        .icon {
+            transform: rotate(180deg);
+            margin-right: 1px;
+        }
+    }
+    &-next {}
+    &--center {
+        position: absolute;
+        transform: translateY(-50%);
+        top: 50%;
+        &.slider-button-prev {
+            right: calc(100% + #{size(20)});
+        }
+        &.slider-button-next {
+            left: calc(100% + #{size(20)});
+        }
+    }
+}

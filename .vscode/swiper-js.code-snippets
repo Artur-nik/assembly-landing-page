@@ -1,0 +1,55 @@
+{
+    "swiper pagination format": {
+        "prefix": "swiper-pagination-format",
+        "scope": "js,ts",
+        "body": [
+          "pagination: {",
+          "    el: '.swiper-pagination',",
+          "    type: 'fraction',",
+          "    formatFractionCurrent: addZero,",
+          "    formatFractionTotal: addZero,",
+          "},"
+        ],
+        "description": "swiper pagination format"
+    },
+    "swiper pagination progressbar": {
+        "prefix": "swiper-pagination-progressbar",
+        "scope": "js,ts",
+        "body": [
+          "pagination: {",
+          "    el: '.swiper-pagination',",
+          "    type: 'progressbar',",
+          "},"
+        ],
+        "description": "swiper pagination progressbar"
+    },
+	"swiper-pagination-custom": {
+        "prefix": "swiper-pagination-custom",
+        "scope": "js,ts",
+        "body": [
+          "pagination: {",
+          "    el: '.swiper-pagination',",
+          "    type: 'fraction',",
+          "    formatFractionCurrent: addZero,",
+          "    formatFractionTotal: addZero,",
+          "    renderFraction: function(currentClass, totalClass) {",
+          "        return '<span class=\"swiper-pagination-current\">' + currentClass + '</span>' +",
+          "            '<span class=\"swiper-pagination-line\"></span>' +",
+          "            '<span class=\"swiper-pagination-total\">' + totalClass + '</span>'",
+          "    }",
+          "},"
+        ],
+        "description": "swiper-pagination-custom"
+    },
+    "swiper scrollbar": {
+        "prefix": "swiper-scrollbar",
+        "scope": "js,ts",
+        "body": [
+          "scrollbar: {",
+          "    el: '.swiper-scrollbar',",
+          "    draggable: true,",
+          "}"
+        ],
+        "description": "swiper scrollbar"
+      }
+}

@@ -1,46 +1,4 @@
 {
-	"swiper": {
-		"prefix": "swiper",
-		"scope": "html,php",
-		"body": [
-		  "<div class=\"-slider swiper-container\">",
-		  "",
-		  "    <div class=\"swiper-wrapper\">",
-		  "        <div class=\"swiper-slide\">Slide 1</div>",
-		  "        <div class=\"swiper-slide\">Slide 2</div>",
-		  "        <div class=\"swiper-slide\">Slide 3</div>",
-		  "    </div>",
-		  "",
-		  "    <div class=\"swiper-pagination\"></div>",
-		  "",
-		  "    <button class=\"swiper-button-prev\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>",
-		  "    <button class=\"swiper-button-next\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>",
-		  "    ",
-		  "    <div class=\"swiper-scrollbar\"></div>",
-		  "</div>"
-		],
-		"description": "slider"
-	  },
-  	"swiper-lazy": {
-    "prefix": "swiper-lazy",
-    "scope": "html,php",
-    "body": [
-      "<img class=\"swiper-lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\"/>",
-      "<div class=\"swiper-lazy-preloader\"></div>"
-    ],
-    "description": "swiper-lazy"
-  	},
-  	"swiper-btn-group": {
-  	  "prefix": "swiper-btn-grou",
-  	  "scope": "html,php",
-  	  "body": [
-  	    "<div class=\"swiper-button-group\">",
-  	    "    <button class=\"swiper-button-prev\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>",
-  	    "    <button class=\"swiper-button-next\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>",
-  	    "</div>"
-  	  ],
-  	  "description": "slider"
-  	},
   	//*
   	"title": {
   	  "prefix": "title",
@@ -124,37 +82,6 @@
   	  ],
   	  "description": "menu-toggle"
   	},
-	//*
-  	"btn": {
-  	  "prefix": "btn",
-  	  "scope": "html,php",
-  	  "body": [
-  	    "<button class=\"btn btn--${1|default, secondary|} ${2| ,btn--outline,btn--circle,btn--link|} btn--size-md\">",
-  	    "    ",
-  	    "</button>"
-  	  ],
-  	  "description": "button"
-  	},
-  	"btn video": {
-  	  "prefix": "btn video",
-  	  "scope": "html,php",
-  	  "body": [
-  	    "<button class=\"btn btn--${1|primary, secondary|} ${2| ,btn--outline,btn--circle,btn--link|} btn--size-md\" data-modal-open=\"modal-video\" data-video-src=\"\">",
-  	    "    ",
-  	    "</button>"
-  	  ],
-  	  "description": "button modal-open video"
-  	},
-  	"btn modal": {
-  	  "prefix": "btn modal",
-  	  "scope": "html,php",
-  	  "body": [
-  	    "<button class=\"btn btn--${1|primary,secondary|} ${2| ,btn--outline,btn--circle,btn--link|} btn--size-md\" data-modal-open=\"${3|modal-form,modal-politic|}\">",
-  	    "    ",
-  	    "</button>"
-  	  ],
-  	  "description": "button modal-open"
-  	},
 	  //*
   	"questions": {
   	  "prefix": "questions",
@@ -191,28 +118,6 @@
   	  "description": "questions plus"
   	},
 	//*
-	"img": {
-  	  	"prefix": "img-lazyload",
-  	  	"scope": "html,php",
-  	  	"body": [
-  	  	  	"<img class=\"lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>"
-  	  	],
-  	  	"description": "img lazyload"
-  	},
-  	"image adaptive": {
-  	  "prefix": "img",
-  	  "scope": "html,php",
-  	  "body": [
-  	    "<div class=\"adaptive-box\">",
-  	    "    <div class=\"adaptive-box__wrapper\">",
-  	    "        <img class=\"adaptive-box__item lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
-  	    "    </div>",
-  	    "    <span class=\"loader loader--center loader--size-lg\"></span>",
-  	    "</div>"
-  	  ],
-  	  "description": "Image"
-  	},
-	//*
   	"social": {
   	  "prefix": "social",
   	  "scope": "html,php",
@@ -222,56 +127,6 @@
   	    "</div>"
   	  ],
   	  "description": "social"
-  	},
-  	"Image webp bp": {
-  	  "prefix": "img-webp-bp",
-  	  "scope": "html,php",
-  	  "body": [
-  	    "<div class=\"adaptive-box\">",
-  	    "    <div class=\"adaptive-box__wrapper\">",
-  	    "        <picture>",
-  	    "            <source srcset=\"images/\" type=\"image/webp\" media=\"(min-width: px)\">",
-  	    "            <source srcset=\"images/\" media=\"(min-width: px)\">",
-  	    "            <source srcset=\"images/\" type=\"image/webp\">",
-  	    "            <img class=\"adaptive-box__item lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
-  	    "        </picture>",
-  	    "    </div>",
-  	    "    <span class=\"loader loader--center loader--size-lg\"></span>",
-  	    "</div>"
-  	  ],
-  	  "description": "Image webp bp"
-  	},
-  	"Image webp": {
-  	  "prefix": "img-webp",
-  	  "scope": "html,php",
-  	  "body": [
-  	    "<div class=\"adaptive-box\">",
-  	    "    <div class=\"adaptive-box__wrapper\">",
-  	    "        <picture>",
-  	    "            <source srcset=\"images/.webp\" type=\"image/webp\">",
-  	    "            <img class=\"adaptive-box__item lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
-  	    "        </picture>",
-  	    "    </div>",
-  	    "    <span class=\"loader loader--center loader--size-lg\"></span>",
-  	    "</div>"
-  	  ],
-  	  "description": "Image webp"
-  	},
-  	"Image bp": {
-  	  "prefix": "img-bp",
-  	  "scope": "html,php",
-  	  "body": [
-  	    "<div class=\"adaptive-box\">",
-  	    "    <div class=\"adaptive-box__wrapper\">",
-  	    "        <picture>",
-  	    "            <source srcset=\"images/\" media=\"(min-width: px)\">",
-  	    "            <img class=\"adaptive-box__item lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
-  	    "        </picture>",
-  	    "    </div>",
-  	    "    <span class=\"loader loader--center loader--size-lg\"></span>",
-  	    "</div>"
-  	  ],
-  	  "description": "Image bp"
   	},
 	//* 
 	"video": {

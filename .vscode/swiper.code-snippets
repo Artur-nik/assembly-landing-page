@@ -1,0 +1,84 @@
+{
+	"swiper": {
+		"prefix": "swiper",
+		"scope": "html,php",
+		"body": [
+		  "<div class=\"-swiper swiper-container\">",
+		  "",
+		  "    <div class=\"swiper-wrapper\">",
+		  "        <div class=\"swiper-slide\">Slide 1</div>",
+		  "        <div class=\"swiper-slide\">Slide 2</div>",
+		  "        <div class=\"swiper-slide\">Slide 3</div>",
+		  "    </div>",
+		  "",
+		  "    <div class=\"swiper-pagination\"></div>",
+		  "",
+		  "    <button class=\"swiper-button-prev\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>",
+		  "    <button class=\"swiper-button-next\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>",
+		  "    ",
+		  "    <div class=\"swiper-scrollbar\"></div>",
+		  "</div>"
+		],
+		"description": "swiper"
+	  },
+  	"swiper-lazy": {
+    	"prefix": "swiper-lazy",
+    	"scope": "html,php",
+    	"body": [
+    	  "<img class=\"swiper-lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\"/>",
+    	  "<div class=\"swiper-lazy-preloader\"></div>"
+    	],
+    	"description": "swiper-lazy"
+  	},
+  	"swiper-btn-group": {
+  	  	"prefix": "swiper-btn-group",
+  	  	"scope": "html,php",
+  	  	"body": [
+  	  	  "<div class=\"swiper-button-group\">",
+  	  	  "    <button class=\"swiper-button-prev\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>",
+  	  	  "    <button class=\"swiper-button-next\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>",
+  	  	  "</div>"
+  	  	],
+  	  	"description": "swiper btn group"
+  	},
+	"swiper pagination": {
+		"prefix": "swiper-pagination",
+		"scope": "html,php",
+		"body": [
+		  "<div class=\"swiper-pagination\"></div>"
+		],
+		"description": "swiper pagination"
+	},
+	"swiper scrollbar": {
+		"prefix": "swiper-scrollbar",
+		"scope": "html,php",
+		"body": [
+		  "<div class=\"swiper-scrollbar\"></div>"
+		],
+		"description": "swiper scrollbar"
+	},
+	"slider controller lvl-1": {
+		"prefix": "slider-controller-lvl-1",
+		"scope": "html,php",
+		"body": [
+		  "<div class=\"swiper-controller\">",
+		  "    <div class=\"swiper-pagination\"></div>",
+		  "    <button class=\"swiper-button-prev\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>",
+		  "    <button class=\"swiper-button-next\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>",
+		  "</div>"
+		],
+		"description": "slider controller lvl-1"
+	},
+	"slider controller lvl 2": {
+		"prefix": "slider-controller-lvl-2",
+		"scope": "html,php",
+		"body": [
+		  "<div class=\"swiper-controller\">",
+		  "    <button class=\"swiper-button-prev\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>",
+		  "    <div class=\"swiper-pagination\"></div>",
+		  "    <button class=\"swiper-button-next\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>",
+		  "</div>"
+		],
+		"description": "slider controller lvl 2"
+	}
+}

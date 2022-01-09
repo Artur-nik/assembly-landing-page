@@ -1,4 +1,4 @@
-set path=
+set path=slider
 
 set scss= scss/components/%path%
 set js= js/main/components/%path%

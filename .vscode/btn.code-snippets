@@ -1,0 +1,33 @@
+{
+	//*
+  	"btn": {
+  	  "prefix": "btn",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<button class=\"btn btn--${1|default, secondary|} ${2| ,btn--outline,btn--circle,btn--link|} btn--size-md\">",
+  	    "    ",
+  	    "</button>"
+  	  ],
+  	  "description": "button"
+  	},
+  	"btn video": {
+  	  "prefix": "btn video",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<button class=\"btn btn--${1|primary, secondary|} ${2| ,btn--outline,btn--circle,btn--link|} btn--size-md\" data-modal-open=\"modal-video\" data-video-src=\"\">",
+  	    "    ",
+  	    "</button>"
+  	  ],
+  	  "description": "button modal-open video"
+  	},
+  	"btn modal": {
+  	  "prefix": "btn modal",
+  	  "scope": "html,php",
+  	  "body": [
+  	    "<button class=\"btn btn--${1|primary,secondary|} ${2| ,btn--outline,btn--circle,btn--link|} btn--size-md\" data-modal-open=\"${3|modal-form,modal-politic|}\">",
+  	    "    ",
+  	    "</button>"
+  	  ],
+  	  "description": "button modal-open"
+  	},
+}

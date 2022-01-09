@@ -1,0 +1,85 @@
+{
+	//*
+	"img": {
+  	  	"prefix": "img",
+  	  	"scope": "html,php",
+  	  	"body": [
+  	  	  	"<img src=\"images/\" alt=\"\"/>"
+  	  	],
+  	  	"description": "img lazyload"
+  	},
+	//*
+	"img-lazyload": {
+  	  	"prefix": "img-lazyload",
+  	  	"scope": "html,php",
+  	  	"body": [
+  	  	  	"<img class=\"lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>"
+  	  	],
+  	  	"description": "img lazyload"
+  	},
+  	"image adaptive": {
+  	  	"prefix": "img-adaptive",
+  	  	"scope": "html,php",
+  	  	"body": [
+  	  	  "<div class=\"adaptive-box\">",
+  	  	  "    <div class=\"adaptive-box__wrapper\">",
+  	  	  "        <img class=\"adaptive-box__item lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
+  	  	  "    </div>",
+  	  	  "    <span class=\"loader loader--center loader--size-lg\"></span>",
+  	  	  "</div>"
+  	  	],
+  	  	"description": "Image"
+  	},
+	"Image bp": {
+		"prefix": "img-bp",
+		"scope": "html,php",
+		"body": [
+		  "<div class=\"adaptive-box\">",
+		  "    <div class=\"adaptive-box__wrapper\">",
+		  "        <picture>",
+		  "            <source srcset=\"images/\" media=\"(min-width: px)\">",
+		  "            <img class=\"adaptive-box__item lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
+		  "        </picture>",
+		  "    </div>",
+		  "    <span class=\"loader loader--center loader--size-lg\"></span>",
+		  "</div>"
+		],
+		"description": "Image bp"
+ 	 },  
+	//*
+  	"Image webp bp": {
+  	  	"prefix": "img-webp-bp",
+  	  	"scope": "html,php",
+  	  	"body": [
+  	  	  "<div class=\"adaptive-box\">",
+  	  	  "    <div class=\"adaptive-box__wrapper\">",
+  	  	  "        <picture>",
+  	  	  "            <source srcset=\"images/\" type=\"image/webp\" media=\"(min-width: px)\">",
+  	  	  "            <source srcset=\"images/\" media=\"(min-width: px)\">",
+  	  	  "            <source srcset=\"images/\" type=\"image/webp\">",
+  	  	  "            <img class=\"adaptive-box__item lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
+  	  	  "        </picture>",
+  	  	  "    </div>",
+  	  	  "    <span class=\"loader loader--center loader--size-lg\"></span>",
+  	  	  "</div>"
+  	  	],
+  	  	"description": "Image webp bp"
+  	},
+  	"Image webp": {
+  	  	"prefix": "img-webp",
+  	  	"scope": "html,php",
+  	  	"body": [
+  	  	  "<div class=\"adaptive-box\">",
+  	  	  "    <div class=\"adaptive-box__wrapper\">",
+  	  	  "        <picture>",
+  	  	  "            <source srcset=\"images/.webp\" type=\"image/webp\">",
+  	  	  "            <img class=\"adaptive-box__item lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
+  	  	  "        </picture>",
+  	  	  "    </div>",
+  	  	  "    <span class=\"loader loader--center loader--size-lg\"></span>",
+  	  	  "</div>"
+  	  	],
+  	  	"description": "Image webp"
+  	},
+	//* 
+}
