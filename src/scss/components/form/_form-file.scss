@@ -2,6 +2,7 @@
     position: relative;
     display: inline-flex;
     flex-direction: column;
+    width: 100%;
     &__controller {
         display: flex;
         cursor: pointer;
@@ -10,10 +11,10 @@
         justify-content: center;
         background-color: #000;
         color: #fff;
+        width: 100%;
         font-size: size(24);
-        min-width: size(320);
         height: size(80);
-        padding: 0 size-x(45); 
+        padding: 0 size(40); 
         transition-duration: $td;
         &:hover {
             transition-duration: $td;

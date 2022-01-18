@@ -13,7 +13,7 @@
   --gap-x: 20px;
   --gap-y: 20px;
   --container-gap: 15px;
-  --body-font-size: 0.32rem;
+  --body-font-size: 0.16rem;
   --size-1-5: 1.5;
 }
 
@@ -774,15 +774,15 @@ br {
 }
 
 .title--size-sm {
-  font-size: 0.96rem;
+  font-size: 0.24rem;
 }
 
 .title--size-md {
-  font-size: 0.96rem;
+  font-size: 0.24rem;
 }
 
 .title--size-lg {
-  font-size: 0.96rem;
+  font-size: 0.24rem;
 }
 
 .btn {
@@ -847,8 +847,8 @@ br {
 }
 
 .btn--size-md {
-  font-size: calc(0.24rem * var(--size-1-5));
-  padding: calc(0.16rem * var(--size-1-5)) calc(0.32rem * var(--size-1-5));
+  font-size: 0.2rem;
+  padding: 0.16rem 0.32rem;
 }
 
 .social {
@@ -1180,6 +1180,7 @@ textarea::placeholder {
   position: relative;
   display: inline-flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .form-file__controller {
@@ -1190,10 +1191,10 @@ textarea::placeholder {
   justify-content: center;
   background-color: #000;
   color: #fff;
+  width: 100%;
   font-size: 0.24rem;
-  min-width: 3.2rem;
   height: 0.8rem;
-  padding: 0 calc(0.45rem * var(--size-1-5));
+  padding: 0 0.4rem;
   -webkit-transition-duration: 400ms;
        -o-transition-duration: 400ms;
           transition-duration: 400ms;
@@ -1729,7 +1730,7 @@ textarea::placeholder {
 
 .questions-item__header {
   background-color: #f1f1f1;
-  padding: 0.4rem;
+  padding: 0.2rem;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -1799,7 +1800,7 @@ textarea::placeholder {
 
 .questions-item__body {
   display: none;
-  padding: 0.4rem;
+  padding: 0.2rem;
 }
 
 .video {
@@ -4308,6 +4309,12 @@ textarea::placeholder {
 
   .m\:static\@lg {
     position: static;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --width-max-window: 1920px;
   }
 }
 

@@ -26,13 +26,13 @@
     //* end grid
 
     //* base font-size
-    --body-font-size: #{size(16, 50)};
+    --body-font-size: #{size(16)};
     //* end 
 
     //* размер макета
-    //@media (min-width: #{$layout-size + 'px'}) {
-    //    --width-max-window: #{$layout-size + 'px'};
-    //}
+    @media (min-width: #{$layout-size + 'px'}) {
+        --width-max-window: #{$layout-size + 'px'};
+    }
 
 
     //* Работа с шрифтами 
@@ -73,6 +73,9 @@
         --min-value-px:50px;  
         --max-value: 100;
 
+        //--min-value:81.5375;
+        //--min-value-px:81.5375px;  
+
         //* grid
         --gap-x:#{size(30)};
         --gap-y:#{size(30)};
@@ -81,5 +84,11 @@
         //* base font-size
         --body-font-size: #{size(16, 50)};
     }
-
+    //@include media(xl, min) {
+    //    --width-max-window: #{$layout-size + 'px'};
+    //    --max-value: 90;
+    //}
+    //@include media(hg, min) {
+    //    --max-value: 100;
+    //}
 }

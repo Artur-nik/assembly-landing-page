@@ -20,7 +20,7 @@
         &__header {
             //min-height: size(110);
             background-color: rgb(241, 241, 241);
-            padding: size(20,50);
+            padding: size(20);
             display: flex;
             align-items: center;
             cursor: pointer;
@@ -79,7 +79,7 @@
         //* text
         &__body {
             display: none;
-            padding: size(20,50);
+            padding: size(20);
             @include media(lg) {
                 padding: size(20) size(65);
             }
