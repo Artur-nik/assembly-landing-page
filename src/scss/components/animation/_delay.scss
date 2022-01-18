@@ -1,0 +1,29 @@
+@if variable-exists('animationDelay') {
+    @if (
+        length(map-get($animationDelay, 'bp')) == 1 and 
+        index(map-get($animationDelay, 'bp'), 'default') == 1) {
+        @each $value in map-get($animationDelay, 'value') {
+            .delay-#{$value} {
+                animation-delay: #{$value + 'ms'};
+            }
+        }
+    }
+    @else {
+        @each $bp in map-get($animationDelay, 'bp') {
+            @each $value in map-get($animationDelay, 'value') {
+                .delay-#{$value} {
+                    @if $bp == 'default' {
+                        animation-delay: #{$value + 'ms'};
+                    }
+                    @else {
+                        &\@#{$bp} {
+                            @include media($bp, min) {
+                                animation-delay: #{$value + 'ms'};
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

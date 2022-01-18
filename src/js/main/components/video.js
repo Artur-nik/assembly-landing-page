@@ -22,6 +22,7 @@ function initVideo(id, src) {
 }
 //*
 function videoOpen(selector) {
+    $(selector).off('click');
     $(selector).click(function(){
         $(this).parent('.video').addClass('_active');
         let srcVideo = $(this).data('video-src');

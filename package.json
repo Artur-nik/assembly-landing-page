@@ -1,12 +1,12 @@
 {
-  "name": "test",
+  "name": "assembly-landing-page ",
   "version": "1.0.0",
   "description": "",
   "main": "./gulpfile/main.js",
   "dependencies": {
     "gulp-avif": "^1.0.1"
   },
-  "author": "",
+  "author": "Artur Nikora",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.26.7",

@@ -1,0 +1,201 @@
+.animation {
+	animation-play-state: paused;	//* Анимации на паузе
+	animation-duration: 2s;      	//* время анимации
+	animation-fill-mode: both;	//*
+	&.start {
+		animation-play-state: running;
+	}
+}
+
+//* Анимации
+
+//? fadeIn
+@include animation('fadeIn') {
+    @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+    }
+};
+// ! =============================================================
+//? fadeInDown
+@include animation('fadeInDown') {
+    @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translate3d(0,var(--animation-top), 0);
+        }
+        to {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+        }
+    }
+}
+//? fadeInUp 
+@include animation('fadeInUp') {
+  	@keyframes fadeInUp {
+  	  	from {
+  	  	  	opacity: 0;
+  	  	  	transform: translate3d(0, var(--animation-bottom), 0);
+  	  	}
+  	  	to {
+  	  	  	opacity: 1;
+  	  	  	transform: translate3d(0, 0, 0);
+  	  	}
+  	}
+}
+// ! ===========================fadeInLeft==================================
+//? fadeInLeft
+@include animation('fadeInLeft') {
+	@keyframes fadeInLeft {
+		from {
+		  opacity: 0;
+		  transform: translate3d(var(--animation-left), 0, 0);
+		}
+	 //      
+		to {
+		  opacity: 1;
+		  transform: translate3d(0, 0, 0);
+		}
+	 }
+}
+//? fadeInLeftTop
+@include animation('fadeInLeftTop') {
+	@keyframes fadeInLeftTop {
+		from {
+		  opacity: 0;
+		  transform: translate3d(var(--animation-left), var(--animation-top), 0);
+		}  
+		to {
+		  opacity: 1;
+		  transform: translate3d(0, 0, 0);
+		}
+	 }
+}
+//? fadeInLeftBottom
+@include animation('fadeInLeftBottom') {
+	@keyframes fadeInLeftBottom {
+		from {
+		  opacity: 0;
+		  transform: translate3d(var(--animation-left), var(--animation-bottom), 0);
+		}   
+		to {
+		  opacity: 1;
+		  transform: translate3d(0, 0, 0);
+		}
+	 }
+}
+// ! ==========================fadeInRight===================================
+//? fadeInRight 
+@include animation('fadeInRight') {
+	@keyframes fadeInRight {
+		from {
+		  opacity: 0;
+		  transform: translate3d(var(--animation-right), 0, 0);
+		}
+	 //    
+		to {
+		  opacity: 1;
+		  transform: translate3d(0, 0, 0);
+		}
+	 }
+}
+//? fadeInRightTop
+@include animation('fadeInRightTop') {
+	@keyframes fadeInRightTop {
+		from {
+		  opacity: 0;
+		   transform: translate3d(var(--animation-right), var(--animation-top), 0);
+		}
+	 //      
+		to {
+		  opacity: 1;
+		  transform: translate3d(0, 0, 0);
+		}
+	 }
+}
+//? fadeInRightBottom
+@include animation('fadeInRightBottom') {
+	@keyframes fadeInRightBottom {
+		from {
+		  	opacity: 0;
+			transform: translate3d(var(--animation-right), var(--animation-bottom), 0);
+		}
+		to {
+		  	opacity: 1;
+		  	transform: translate3d(0, 0, 0);
+		}
+	}
+}
+
+//? buzz-out
+@include animation('buzz-out') {
+	@keyframes buzz-out {
+		10% {
+		    transform: translateX(3px) rotate(2deg);
+		}
+		20% {
+		    transform: translateX(-3px) rotate(-2deg);
+		}
+		30% {
+		    transform: translateX(3px) rotate(2deg);
+		}
+		40% {
+		    transform: translateX(-3px) rotate(-2deg);
+		}
+		50% {
+		    transform: translateX(2px) rotate(1deg);
+		}
+		60% {
+		    transform: translateX(-2px) rotate(-1deg);
+		}
+		70% {
+		    transform: translateX(2px) rotate(1deg);
+		}
+		80% {
+		    transform: translateX(-2px) rotate(-1deg);
+		}
+		90% {
+		    transform: translateX(1px) rotate(0);
+		}
+		100% {
+		    transform: translateX(-1px) rotate(0);
+		}
+	 }
+}
+
+//? orbit
+@include animation('orbit') {
+	@keyframes orbit {
+		0% { transform: rotate(0deg) translateX(10%); }
+		100%   {  transform: rotate(360deg) translateX(10%); }
+	 }
+}
+
+
+// ! =============================================================
+//? slideInDown
+@include animation('slideInDown') {
+    @keyframes slideInDown {
+        from {
+          transform: translate3d(0,var(--animation-top), 0);
+        }
+        to {
+          transform: translate3d(0, 0, 0);
+        }
+    }
+}
+//? slideInUp 
+@include animation('slideInUp') {
+  	@keyframes slideInUp {
+  	  	from {
+  	  	  	transform: translate3d(0, var(--animation-bottom), 0);
+  	  	}
+  	  	to {
+  	  	  	transform: translate3d(0, 0, 0);
+  	  	}
+  	}
+}

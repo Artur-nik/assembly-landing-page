@@ -1,0 +1,11 @@
+@keyframes loading {
+    100% {
+        transform: rotate(360deg);
+    }
+  }
+  //* В обратную сторону
+  @keyframes loading-n {
+    100% {
+        transform: rotate(-720deg);
+    }
+  }

@@ -131,6 +131,7 @@
 	//* 
 	"video": {
 		"prefix": "video",
+		"scope": "html,php",
 		"body": [
 		"<div class=\"video adaptive-box\">",
 		"    <div class=\"adaptive-box__wrapper\">",

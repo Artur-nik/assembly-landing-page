@@ -13,7 +13,6 @@ $social-primary: #000;
     position: relative;
     transition-duration: $td;
     
-
     //*
     .icon {   
         color: #fff;
@@ -23,7 +22,11 @@ $social-primary: #000;
         background-color: rgb(43, 43, 43);
     }
     &--size {
-        font-size: size(64);
+        font-size: size(42);
+        @include media(lg) {
+            font-size: size(64);
+            
+        }
     }
     &--circle {
         border-radius: 50%;

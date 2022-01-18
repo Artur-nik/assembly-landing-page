@@ -1,0 +1,31 @@
+@mixin animation($name) {
+
+    @if map-get(map-get($animation, $name), 'active') {
+        
+        @content;
+
+        @if (
+            length(map-get(map-get($animation, $name), 'bp')) == 1 and 
+            index(map-get(map-get($animation, $name), 'bp'), 'default') == 1) {
+            .#{unquote($name)}{
+               animation-name: #{unquote($name)};
+            }
+        }
+        @else {
+            @each $bp in map-get(map-get($animation, $name), 'bp'){
+                @if $bp == 'default' {
+                    .#{unquote($name)}{
+                        animation-name: #{unquote($name)};
+                     }
+                }
+                @else {
+                    .#{unquote($name)}\@#{unquote($bp)}{
+                        @include media($bp, min) {
+                            animation-name: #{unquote($name)};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

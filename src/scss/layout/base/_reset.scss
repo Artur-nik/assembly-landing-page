@@ -3,7 +3,9 @@
 *::after {
   box-sizing: border-box; 
 }
-
+html {
+    text-size-adjust: none;
+}
 img {
     display: block;
     max-width: 100%;

@@ -1,12 +1,14 @@
 :root {
 
     //* переменные для работы функций size и адаптивного макета _size.scss
-    --min-value:50;
-    --min-value-px:50px;
-
     --width-max-window: 100vw;
     --width-min-window: 320;
     --width-min-window-px: 320px;
+
+    --min-value:100;
+    --min-value-px:100px;
+    --max-value: 150;
+
 
     //* Анимации
     --animation-left:-100%;
@@ -69,6 +71,7 @@
         --width-min-window-px:  #{($layout-size / 2) + 'px'}; 
         --min-value:50;
         --min-value-px:50px;  
+        --max-value: 100;
 
         //* grid
         --gap-x:#{size(30)};

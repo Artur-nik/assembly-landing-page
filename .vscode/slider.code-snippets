@@ -69,5 +69,30 @@
           "</div>"
         ],
         "description": "slider lvl 3"
+    },
+    "form-radio-group": {
+      "prefix": "form-radio-group",
+      "scope": "html,php",
+      "body": [
+        "<div class=\"form-radio-group\">",
+        "    <label class=\"form-radio\">",
+        "        <input class=\"form-radio__input\" type=\"radio\" name=\"text\">",
+        "        <span class=\"form-radio__box\">text</span>",
+        "    </label>",
+        "    <label class=\"form-radio\">",
+        "        <input class=\"form-radio__input\" type=\"radio\" name=\"text\">",
+        "        <span class=\"form-radio__box\">text</span>",
+        "    </label>",
+        "    <label class=\"form-radio\">",
+        "        <input class=\"form-radio__input\" type=\"radio\" name=\"text\">",
+        "        <span class=\"form-radio__box\">text</span>",
+        "    </label>",
+        "    <label class=\"form-radio\">",
+        "        <input class=\"form-radio__input\" type=\"radio\" name=\"text\">",
+        "        <span class=\"form-radio__box\">text</span>",
+        "    </label>",
+        "</div>"
+      ],
+      "description": "form-radio-group"
     }
 }

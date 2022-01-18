@@ -203,4 +203,44 @@
   	  ],
   	  "description": "checkbox icon"
   	},
+	"form file": {
+		"prefix": "form-file",
+		"scope": "html,php",
+		"body": [
+		  "<label class=\"form-file\">",
+		  "    <span class=\"form-file__controller\">",
+		  "        <input class=\"form-file__input\"  type=\"file\" name=\"file\"",
+		  "        <span class=\"form-file__text\">",
+		  "            Загрузка файлов",
+		  "        </span>",
+		  "        <span class=\"form-file__quantity\">",
+		  "            <span class=\"form-file__loader loader\"></span>",
+		  "            <svg class=\"form-file__icon icon\"><use xlink:href=\"svg-sprite/sprite.svg#file\"></use></svg>",
+		  "            <span class=\"form-file__number\"></span> ",
+		  "        </span>",
+		  "    </span>",
+		  "</label>"
+		],
+		"description": "form file multiple"
+	},
+	"form file multiple": {
+		"prefix": "form-file-multiple",
+		"scope": "html,php",
+		"body": [
+		  "<label class=\"form-file\">",
+		  "    <span class=\"form-file__controller\">",
+		  "        <input class=\"form-file__input\" type=\"file\" name=\"files[]\" multiple>",
+		  "        <span class=\"form-file__text\">",
+		  "            Загрузка файлов",
+		  "        </span>",
+		  "        <span class=\"form-file__quantity\">",
+		  "            <span class=\"form-file__loader loader\"></span>",
+		  "            <svg class=\"form-file__icon icon\"><use xlink:href=\"svg-sprite/sprite.svg#file\"></use></svg>",
+		  "            <span class=\"form-file__number\"></span> ",
+		  "        </span>",
+		  "    </span>",
+		  "</label>"
+		],
+		"description": "form file multiple"
+	},  
 }
