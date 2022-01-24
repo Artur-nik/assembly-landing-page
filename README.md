@@ -1,4 +1,2 @@
-# assembly-landing-page
-assembly-landing-page
-v0.10.0
-https://github.com/Artur-nik/assembly-landing-page
+# Стартовый шаблон для адаптивной верстки сайтов
+v0.10.0  
