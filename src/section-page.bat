@@ -1,6 +1,6 @@
 set path=
 
-set scss= scss/page/%path%/
+set scss= scss/template/page/%path%/
 set template= template/page/%path%/
 set js= js/main/page/%path%/
 
@@ -30,7 +30,7 @@ cd. > %js%index.js
         (   
             echo ^<section id="%%i" class="%%i"^>
             echo     ^<div class="container"^>
-            echo        ^<h2 class="%%i__title title title--size-"^>^</h2^>
+            echo         ^<h2 class="%%i__title title title--size-"^>^</h2^>
             echo     ^</div^>
             echo ^</section^>
             

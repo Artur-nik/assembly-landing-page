@@ -1,7 +1,4 @@
 .grid {
-    --grid-gap-x: var(--gap-x);
-    --grid-gap-y: var(--gap-y);
-    --grid-columns: var(--columns);
     --dp-grid: grid;
     display: var(--dp-grid);
     grid-template-columns: repeat(var(--grid-columns), calc(((100% + var(--grid-gap-x)) / (var(--grid-columns) / 1)) - var(--grid-gap-x)));

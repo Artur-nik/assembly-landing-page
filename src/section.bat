@@ -1,6 +1,6 @@
 set path=section
 
-set scss= scss/%path%/
+set scss= scss/template/%path%/
 set template= template/%path%/
 set js= js/main/%path%/
 
@@ -38,7 +38,7 @@ if not exist %js%index.js (
         (   
             echo ^<section id="%%i" class="%%i"^>
             echo     ^<div class="container"^>
-            echo        ^<h2 class="%%i__title title title--size-"^>^</h2^>
+            echo         ^<h2 class="%%i__title title title--size-"^>^</h2^>
             echo     ^</div^>
             echo ^</section^>
             

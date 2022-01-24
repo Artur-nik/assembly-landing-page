@@ -1,10 +1,10 @@
-set scss= scss/page/
+set scss= scss/template/page/
 set template= template/page/
 set js= js/main/page/
 
 set images= images\
 
-md scss\page
+md scss\template\page
 md template\page
 md js\main\page
 

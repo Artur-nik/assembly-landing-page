@@ -145,4 +145,37 @@
 		],
 		"description": "--grid-gap-x"
 	},
+	"margin-bottom-bp-lg": {
+		"prefix": "mb-lg",
+		"scope": "scss,css",
+		"body": [
+		  	"margin-bottom: size();",
+		  	"@include media(lg) {",
+		  	"     margin-bottom: size();",
+		  	"}"
+		],
+		"description": "margin-bottom-bp-lg"
+	},
+	"padding-bp-lg": {
+		"prefix": "padding-lg",
+		"scope": "scss,css",
+		"body": [
+		  	"padding: size();",
+		  	"@include media(lg) {",
+		  	"     padding: size();",
+		  	"}"
+		],
+		"description": "padding-bp-lg"
+	},
+	"font-size-bp-lg": {
+		"prefix": "font-size-lg",
+		"scope": "scss,css",
+		"body": [
+		  	"font-size: size();",
+		  	"@include media(lg) {",
+		  	"     font-size: size();",
+		  	"}"
+		],
+		"description": "font-size-bp-lg"
+	}
 }
