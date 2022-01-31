@@ -1,0 +1,11 @@
+//* Функция которая возвращает конструкцию, для вывода от меньшего до большего значения в зависимости от ширины экрана пользователя.
+//* Зависит от css переменных: --width-max-window, --width-min-window, --width-min-window-px
+@function size-clamp($max, $min, $layout: $layout-size ) {
+    @if unitless($max) and unitless($min) and unitless($layout) {
+        @return calc(#{$min + 'px'} + (#{$max} - #{$min}) * ((var(--width-max-window) - var(--width-min-window-px)) / (#{$layout} - var(--width-min-window))));
+    }
+    @else {
+        @warn '$min, $max - number (500, 40, 1920), units of measurement should not be';
+        @return null;
+    }
+}

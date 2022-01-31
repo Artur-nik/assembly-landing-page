@@ -1,12 +1,14 @@
 body {
-    line-height: 1.35;
-    font-weight: 400;
+    line-height: map-get($global-settings, 'line-height');
+    font-weight: map-get($global-settings, 'font-weight');
     font-size: var(--body-font-size);  
-    font-family: "", sans-serif;
+    font-family: map-get($global-settings, 'font');
 
     margin: 0;
 
-    color: #000;
-    //background-color: #000;
+    color: map-get($global-settings, 'color');
     
+    @if (map-get($global-settings, 'bg')) {
+        background-color: map-get($global-settings, 'bg');
+    }
 }

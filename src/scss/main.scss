@@ -1,5 +1,8 @@
 //* https://github.com/Artur-nik/assembly-landing-page/tree/master/src/scss
 
+//*
+@import 'core/functions/size';
+
 //?     Конфигурация проекта (переменные)
 @import 'config/index';
 //?     системные файлы
@@ -14,14 +17,17 @@
 //*     Сетка
 @import 'layout/grid/index';
 
+//*     Модули
+@import 'modules/index';
+
+//* Плагины для js
+@import 'plugins/index';
+
 //*     component
 @import 'components/index';
 
 //*     
 @import 'layout/grid/grid-init';
-
-//* Плагины для js
-@import 'plugins/index';
 
 //* framework 4pt 
 //* https://github.com/Artur-nik/4pt

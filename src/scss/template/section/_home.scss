@@ -1,3 +1,9 @@
 .home {
-
+    position: relative;   
+    .adaptive-box {
+        overflow: visible;
+    }
+}
+.test {
+    --adaptive-box: #{height(500,300)};
 }

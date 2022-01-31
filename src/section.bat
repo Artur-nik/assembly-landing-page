@@ -26,6 +26,7 @@ if not exist %js%index.js (
         cd. > %scss%_%%i.scss
         (
         echo .%%i { 
+        echo     position: relative;   
         echo     border-top: 1px solid red;
         echo     min-height: 100vh;
         echo }

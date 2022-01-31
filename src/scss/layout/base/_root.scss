@@ -17,17 +17,9 @@
     --animation-bottom:100%;
 
     //* grid
-    --columns:12;  
-
-    --gap-x:20px;
-    --gap-y:20px;
-    --container-gap: 15px;
+    --columns: #{$columns};  
 
     //* end grid
-
-    //* base font-size
-    --body-font-size: #{size(16)};
-    //* end 
 
     //* размер макета
     @media (min-width: #{$layout-size + 'px'}) {
@@ -36,34 +28,29 @@
 
 
     //* Работа с шрифтами 
-    //@each $name, $value in $font-size {
-    //    @each $max,$min in $value {
-    //        --font-size-#{$max}: #{size-clamp($max, $min)};
-    //    }
-    //}
-
-    //* переменные для работы функции size-a()
-    @each $name, $name-value in $size-adaptive {
-        @each $bp, $value in $name-value {
-            @if $bp == 'default' {
-                --size-a-#{$name}: #{$value};
+    @each $bp, $value in $font-size {
+        @if ($bp == 'default') {
+            --body-font-size:#{$value};
+        }
+        @else {
+            @include media($bp) {
+                --body-font-size:#{$value};
+            }
+        }
+    }
+    @each $bp, $type in $grid-gap {
+        @each $name, $value in $type {
+            @if ($bp == 'default') {
+                --#{$name}:#{$value};
             }
             @else {
                 @include media($bp) {
-                    --size-a-#{$name}: #{$value};
+                    --#{$name}:#{$value};
                 }
             }
         }
     }
-
-    //* переменные для работы функции size-x()
-    @each $name, $value in $size {
-        --size-#{$name}: #{$value};
-        @include media(lg) {
-            --size-#{$name}: 1;
-        }
-    }
-
+    
     //* bp lg = min-width 1024
     @include media(lg) {
         //* layout
@@ -76,13 +63,6 @@
         //--min-value:81.5375;
         //--min-value-px:81.5375px;  
 
-        //* grid
-        --gap-x:#{size(30)};
-        --gap-y:#{size(30)};
-        --container-gap:#{size(15)};
-        
-        //* base font-size
-        --body-font-size: #{size(16, 50)};
     }
     //@include media(xl, min) {
     //    --width-max-window: #{$layout-size + 'px'};
@@ -91,4 +71,12 @@
     //@include media(hg, min) {
     //    --max-value: 100;
     //}
+
+
+
+
+
+    
+    //! Не трогать!
+    font-size: calc(var(--min-value-px) + (var(--max-value) - var(--min-value)) * ((var(--width-max-window) - var(--width-min-window-px)) / (#{$layout-size} - var(--width-min-window))));  
 }

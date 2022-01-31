@@ -1,3 +1,0 @@
-html {
-    font-size: calc(var(--min-value-px) + (var(--max-value) - var(--min-value)) * ((var(--width-max-window) - var(--width-min-window-px)) / (#{$layout-size} - var(--width-min-window))));  
-}

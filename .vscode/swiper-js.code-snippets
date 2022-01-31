@@ -1,7 +1,7 @@
 {
     "swiper pagination format": {
         "prefix": "swiper-pagination-format",
-        "scope": "js,ts",
+        "scope": "javascript,typescript",
         "body": [
           "pagination: {",
           "    el: '.swiper-pagination',",
@@ -14,7 +14,7 @@
     },
     "swiper pagination progressbar": {
         "prefix": "swiper-pagination-progressbar",
-        "scope": "js,ts",
+        "scope": "javascript,typescript",
         "body": [
           "pagination: {",
           "    el: '.swiper-pagination',",
@@ -25,7 +25,7 @@
     },
 	"swiper-pagination-custom": {
         "prefix": "swiper-pagination-custom",
-        "scope": "js,ts",
+        "scope": "javascript,typescript",
         "body": [
           "pagination: {",
           "    el: '.swiper-pagination',",
@@ -43,7 +43,7 @@
     },
     "swiper scrollbar": {
         "prefix": "swiper-scrollbar",
-        "scope": "js,ts",
+        "scope": "javascript,typescript",
         "body": [
           "scrollbar: {",
           "    el: '.swiper-scrollbar',",

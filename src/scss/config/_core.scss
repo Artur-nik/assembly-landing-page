@@ -1,0 +1,27 @@
+//*
+$font-primary: "", sans-serif;
+$font-secondary: "", sans-serif;
+//* Размеры шрифта
+$font-size:(
+    'default':  size(14),
+    'lg':       size(18),
+);
+//* Глобальные настройки (body)
+$global-settings:(
+    'font': $font-primary,
+    'line-height': 1.35,
+    'font-weight': 400,
+    'color': #000,
+    'bg': null
+);
+
+//* базавая настройка скорости анимаций 
+$td: 400ms; 
+
+//* Размеры макета (дизайн макета):
+$layout-size: 1920;
+//* Требуется для работы функции size-clamp, rem
+//* src\scss\core\functions\_size.scss
+//* src\scss\layout\_root.scss
+//?                                                                                               тут
+//* Учавствует в calc(50px + (100 - 50) * ((var(--size-window) - var(--width-window-px)) / (#{$layout-size} - var(--width-window))));

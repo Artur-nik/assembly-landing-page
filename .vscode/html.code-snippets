@@ -143,5 +143,15 @@
 		"</div>"
 		],
 		"description": "video box"
-	}
+	},
+	"adaptive box": {
+		"prefix": "adaptive-box",
+		"scope": "html,php",
+		"body": [
+		  "<div class=\"adaptive-box\">",
+		  "    <div class=\"adaptive-box__item\"></div>",
+		  "</div>"
+		],
+		"description": "adaptive box"
+  	},
 }

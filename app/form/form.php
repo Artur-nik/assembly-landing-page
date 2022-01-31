@@ -14,6 +14,7 @@ $mail->IsHTML(true);
 $mail->setFrom('artur@zanyatiyadoma.ru', 'Заявка с сайта');
 $mail->AddAddress('artur@zanyatiyadoma.ru');
 
+
 $mail->Subject = 'Заявка с сайта';
 
 $body = '<h1>Заявка с сайта </h1>';
@@ -31,6 +32,9 @@ if (trim(!empty($_POST['phone']))) {
 }
 if (trim(!empty($_POST['question']))) {
     $body .= '<p><b>Вопрос:</b> ' . $_POST['question'] . '</p>';
+}
+if (trim(!empty($_POST['email']))) {
+    $body .= '<p><b>Djghjc:</b> ' . $_POST['email'] . '</p>';
 }
 
 //* один файл
