@@ -17,24 +17,24 @@ if not exist %js%index.js (
 
 @FOR /F %%i in (page.txt) do (
 
-    md scss\page\%%i
+    md scss\template\page\%%i
     if not exist %scss%%%i/_index.scss (
         cd. > %scss%%%i/_index.scss
     )
-    if not exist %scss%%%i/_%%i-page.scss (
-        cd. > %scss%%%i/_%%i-page.scss
+    if not exist %scss%%%i/_%%i.scss (
+        cd. > %scss%%%i/_%%i.scss
                 (
-        echo .%%i-page { 
+        echo .%%i { 
         @echo.     
         echo }
-        ) > %scss%%%i/_%%i-page.scss
-        echo @import '%%i-page'; >> scss/page/%%i/_index.scss
-        echo @import '%%i/index'; >> scss/page/_index.scss
+        ) > %scss%%%i/_%%i.scss
+        echo @import '%%i'; >> scss/template/page/%%i/_index.scss
+        echo @import '%%i/index'; >> scss/template/page/_index.scss
     )
 
     md template\page\%%i
     if not exist %template%%%i.html (
-        cd. > %template%%%i/_index.html
+        cd. > %template%%%i/index.html
         cd. > %template%%%i.html
         (   
             echo ^<!DOCTYPE html^>
@@ -43,23 +43,23 @@ if not exist %js%index.js (
             echo     ^<meta charset="UTF-8"^>
             echo     ^<meta name="viewport" content="width=device-width, initial-scale=1.0"^>
             echo     ^<title^>%%i^</title^>
-            echo     ^@@include("../base/_favicon.html",{}^)
+            echo     ^@@include("../base/favicon.html",{}^)
             echo     ^<link rel="stylesheet" type="text/css" href="css/main.css"^>
             echo     ^<meta name="format-detection" content="telephone=no"^>
             echo ^</^head^>
             echo ^<body^>
             @echo.
-            echo     ^@@include("../menu/_menu-modal.html",{}^)
+            echo     ^@@include("../menu/menu-modal.html",{}^)
             @echo.
-            echo     ^@@include("../base/_header.html",{}^)
+            echo     ^@@include("../base/header.html",{}^)
             @echo.
-            echo     ^@@include("%%i/_index.html",{}^)
+            echo     ^@@include("%%i/index.html",{}^)
             @echo.
-            echo     ^@@include("../base/_footer.html",{}^)
+            echo     ^@@include("../base/footer.html",{}^)
             @echo.
-            echo     ^@@include("../modal/_modal-form.html",{}^)
-            echo     ^@@include("../modal/_modal-politics.html",{}^)
-            echo     ^@@include("../modal/_modal-video.html",{}^)
+            echo     ^@@include("../modal/modal-form.html",{}^)
+            echo     ^@@include("../modal/modal-politics.html",{}^)
+            echo     ^@@include("../modal/modal-video.html",{}^)
             @echo.
             echo     ^<script^ src="js/libraries/libraries.js"^>^</script^>
             echo     ^<script^ src="js/main/main.js"^>^</script^>

@@ -1,5 +1,10 @@
 //*
 .btn--circle {
+    --dp-flex: flex;
+    display: var(--dp-flex);
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
     --btn-circle:#{size(200)};
     border-radius: 50%;
     height: var(--btn-circle);

@@ -1,0 +1,74 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    display: none;
+    overflow: hidden;
+    //mod
+    &._index {
+        z-index: 1999;
+    }
+    &__wrapper {
+        height: 100%;
+        width: 100%;
+        display: flex;        
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    &__container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    //*
+    &__box {
+        margin: auto;
+        padding-bottom: size(100);
+    }
+    &__close {
+        
+        .icon {
+            color: #000;        
+        }
+        @media (pointer: fine) {
+            &:hover {
+                
+                .icon {
+                    color: #000;        
+                }
+            }
+            &:active {
+                
+                .icon {
+                    color: #000;        
+                }
+            }
+        }
+        &:active {
+            
+            .icon {
+                color: #000;        
+            }
+        }
+    }
+    //*
+    &__header {
+        height: size(100);
+        display: flex;
+        align-items: center;
+        width: 100%;
+        z-index: 20;
+        padding:0 size(15);
+        flex: 0 0 auto;
+        @include media(lg) {
+            padding: 0 size(30);
+        }
+        &-close {
+            margin-left: auto;
+        }
+    }
+}

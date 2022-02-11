@@ -5,19 +5,11 @@ $btn-color-hover: #fff;
 $btn-color-outline: currentColor;
 
 .btn {
-    --dp-flex: flex;
-    display: var(--dp-flex);
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    //*
+    position: relative;
     text-decoration: none;
-    //*
     transition-duration: $td;
-    //*
-    line-height: 1;
     cursor: pointer;
-    //!----------
+    -webkit-tap-highlight-color: transparent; 
 }
 @import "btn-primary";
 @import "btn-circle";

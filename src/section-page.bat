@@ -25,8 +25,8 @@ cd. > %js%index.js
         echo @import '%%i'; >> %scss%_index.scss
     )
 
-    if not exist %template%_%%i.html (
-        cd. > %template%_%%i.html
+    if not exist %template%%%i.html (
+        cd. > %template%%%i.html
         (   
             echo ^<section id="%%i" class="%%i"^>
             echo     ^<div class="container"^>
@@ -34,8 +34,8 @@ cd. > %js%index.js
             echo     ^</div^>
             echo ^</section^>
             
-        ) > %template%_%%i.html
-        echo ^@@include("_%%i.html",{}^) >> %template%_index.html
+        ) > %template%%%i.html
+        echo ^@@include("%%i.html",{}^) >> %template%index.html
     )
     
     if not exist %js%%%i.js (

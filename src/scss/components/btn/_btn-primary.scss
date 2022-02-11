@@ -1,4 +1,8 @@
 .btn--primary {
+    --dp-flex: flex;
+    display: var(--dp-flex);
+    align-items: center;
+    justify-content: center;
     font-weight: 500;
     border-radius: 500px;
     background:  $btn-bg;   

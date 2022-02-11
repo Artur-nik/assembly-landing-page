@@ -13,7 +13,7 @@
   	  	"prefix": "img-lazyload",
   	  	"scope": "html,php",
   	  	"body": [
-  	  	  	"<img class=\"lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>"
+  	  	  	"<img class=\"lazy\" data-src=\"images/${TM_FILENAME_BASE}/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>"
   	  	],
   	  	"description": "img lazyload"
   	},
@@ -22,7 +22,7 @@
   	  	"scope": "html,php",
   	  	"body": [
   	  	  "<div class=\"adaptive-box\">",
-  	  	  "    <img class=\"adaptive-box__image lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
+  	  	  "    <img class=\"adaptive-box__image lazy\" data-src=\"images/${TM_FILENAME_BASE}/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
   	  	  "    <span class=\"loader loader--center loader--size-lg\"></span>",
   	  	  "</div>"
   	  	],
@@ -34,8 +34,8 @@
 		"body": [
 		  "<div class=\"adaptive-box\">",
 		  "    <picture>",
-		  "        <source srcset=\"images/\" media=\"(min-width: px)\">",
-		  "        <img class=\"adaptive-box__image lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
+		  "        <source srcset=\"images//${TM_FILENAME_BASE}/\" media=\"(min-width: px)\">",
+		  "        <img class=\"adaptive-box__image lazy\" data-src=\"images//${TM_FILENAME_BASE}/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
 		  "    </picture>",
 		  "    <span class=\"loader loader--center loader--size-lg\"></span>",
 		  "</div>"
@@ -49,10 +49,10 @@
   	  	"body": [
   	  	  "<div class=\"adaptive-box\">",
   	  	  "    <picture>",
-  	  	  "        <source srcset=\"images/\" type=\"image/webp\" media=\"(min-width: px)\">",
-  	  	  "        <source srcset=\"images/\" media=\"(min-width: px)\">",
-  	  	  "        <source srcset=\"images/\" type=\"image/webp\">",
-  	  	  "        <img class=\"adaptive-box__image lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
+  	  	  "        <source srcset=\"images//${TM_FILENAME_BASE}/\" type=\"image/webp\" media=\"(min-width: px)\">",
+  	  	  "        <source srcset=\"images//${TM_FILENAME_BASE}/\" media=\"(min-width: px)\">",
+  	  	  "        <source srcset=\"images//${TM_FILENAME_BASE}/\" type=\"image/webp\">",
+  	  	  "        <img class=\"adaptive-box__image lazy\" data-src=\"images//${TM_FILENAME_BASE}/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
   	  	  "    </picture>",
   	  	  "    <span class=\"loader loader--center loader--size-lg\"></span>",
   	  	  "</div>"
@@ -65,8 +65,8 @@
   	  	"body": [
   	  	  "<div class=\"adaptive-box\">",
   	  	  "    <picture>",
-  	  	  "        <source srcset=\"images/.webp\" type=\"image/webp\">",
-  	  	  "        <img class=\"adaptive-box__image lazy\" data-src=\"images/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
+  	  	  "        <source srcset=\"images//${TM_FILENAME_BASE}/.webp\" type=\"image/webp\">",
+  	  	  "        <img class=\"adaptive-box__image lazy\" data-src=\"images//${TM_FILENAME_BASE}/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
   	  	  "    </picture>",
   	  	  "    <span class=\"loader loader--center loader--size-lg\"></span>",
   	  	  "</div>"

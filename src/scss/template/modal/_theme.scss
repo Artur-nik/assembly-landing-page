@@ -1,0 +1,9 @@
+.modal--theme {
+    &-primary {
+        background: #ffffff;
+    }
+    &-secondary {
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+    }
+}

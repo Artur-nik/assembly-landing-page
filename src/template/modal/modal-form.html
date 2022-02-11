@@ -1,0 +1,52 @@
+<div id="modal-form" class="modal modal--theme-secondary">
+    <div class="modal__wrapper">
+        <div class="modal__container modal-form">
+            <div class="modal__box modal-form__box modal-target">
+                <div class="modal-form__wrapper">
+                    <button class="modal-form__close modal__close">
+                        <svg class="icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+                    </button>
+                    <form id="form-modal" class="form js-form">
+                        <input class="form-input-title" type="hidden" name="form-title" value="">
+                        <h4 class="modal-form__title form__title" data-modal-title="Оставить заявку">
+                            Оставить заявку
+                        </h4>
+                        <label class="form-field">
+                            <input class="form-field__input" placeholder="text" type="text" name="name" required>
+                            <span class="form-field__text">type: text required <span>*</span></span>
+                            <span class="form-field__required">
+                                Укажите текст
+                                <svg class="icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+                            </span>
+                        </label>
+                        <label class="form-field">
+                            <input class="form-field__input form-phone" placeholder="phone" type="tel" name="phone" required>
+                            <span class="form-field__text">type: tel required <span>*</span></span>
+                            <span class="form-field__required">
+                                Укажите телефон
+                                <svg class="icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+                            </span>
+                        </label>
+                        <label class="form-field">
+                            <input class="form-field__input" placeholder="email" type="email" name="email" required>
+                            <span class="form-field__text">type: email required <span>*</span></span>
+                            <span class="form-field__email">Пожалуйста, введите адрес электронной почты.</span>
+                            <span class="form-field__required">
+                                Укажите E-mail
+                                <svg class="icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+                            </span>
+                        </label>
+                        <div class="form-send">
+                            <div class="form-send__message">
+                                <div class="form-send__loading"><span></span></div>
+                                <p class="form-send__success">Спасибо, ваша заявка принята. Менеджер свяжется с вами в ближайшее время</p>
+                                <p class="form-send__error">Что-то пошло не так. Заявка не отправлена.</p>
+                            </div>
+                            <button type="submit" class="form-send__btn btn btn--primary btn--size-md">Перезвоните мне</button>    
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

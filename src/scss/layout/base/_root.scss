@@ -1,82 +1,74 @@
 :root {
+	//* переменные для работы функций size и адаптивного макета _size.scss
+	--width-max-window: 100vw;
+	--width-min-window: 320;
+	--width-min-window-px: 320px;
 
-    //* переменные для работы функций size и адаптивного макета _size.scss
-    --width-max-window: 100vw;
-    --width-min-window: 320;
-    --width-min-window-px: 320px;
+	--min-value: 100;
+	--min-value-px: 100px;
+	--max-value: 150;
+	
+	//* Анимации
+	--animation-left: -100%;
+	--animation-right: 100%;
+	--animation-top: -100%;
+	--animation-bottom: 100%;
 
-    --min-value:100;
-    --min-value-px:100px;
-    --max-value: 150;
+	//* grid
+	--columns: #{$columns};
 
+	//* end grid
 
-    //* Анимации
-    --animation-left:-100%;
-    --animation-right:100%;
-    --animation-top:-100%;
-    --animation-bottom:100%;
+	//* размер макета
+	@media (min-width: #{$layout-size + 'px'}) {
+		--width-max-window: #{$layout-size + "px"};
+	}
 
-    //* grid
-    --columns: #{$columns};  
+	//* Работа с шрифтами
+	@each $bp, $value in $font-size {
+		@if ($bp == "default") {
+			--body-font-size: #{$value};
+		} @else {
+			@include media($bp) {
+				--body-font-size: #{$value};
+			}
+		}
+	}
+	@each $bp, $type in $grid-gap {
+		@each $name, $value in $type {
+			@if ($bp == "default") {
+				--#{$name}: #{$value};
+			} @else {
+				@include media($bp) {
+					--#{$name}: #{$value};
+				}
+			}
+		}
+	}
 
-    //* end grid
+	//* bp lg = min-width 1024
+	@include media(lg) {
+		//* layout
+		--width-min-window: #{$layout-size / 2};
+		--width-min-window-px: #{($layout-size / 2) + "px"};
+		--min-value: 50;
+		--min-value-px: 50px;
+		--max-value: 100;
 
-    //* размер макета
-    @media (min-width: #{$layout-size + 'px'}) {
-        --width-max-window: #{$layout-size + 'px'};
-    }
+		//--min-value:81.5375;
+		//--min-value-px:81.5375px;
+	}
+	//@include media(xl, min) {
+	//    --width-max-window: #{$layout-size + 'px'};
+	//    --max-value: 90;
+	//}
+	//@include media(hg, min) {
+	//    --max-value: 100;
+	//}
 
-
-    //* Работа с шрифтами 
-    @each $bp, $value in $font-size {
-        @if ($bp == 'default') {
-            --body-font-size:#{$value};
-        }
-        @else {
-            @include media($bp) {
-                --body-font-size:#{$value};
-            }
-        }
-    }
-    @each $bp, $type in $grid-gap {
-        @each $name, $value in $type {
-            @if ($bp == 'default') {
-                --#{$name}:#{$value};
-            }
-            @else {
-                @include media($bp) {
-                    --#{$name}:#{$value};
-                }
-            }
-        }
-    }
-    
-    //* bp lg = min-width 1024
-    @include media(lg) {
-        //* layout
-        --width-min-window:  #{$layout-size / 2};
-        --width-min-window-px:  #{($layout-size / 2) + 'px'}; 
-        --min-value:50;
-        --min-value-px:50px;  
-        --max-value: 100;
-
-        //--min-value:81.5375;
-        //--min-value-px:81.5375px;  
-
-    }
-    //@include media(xl, min) {
-    //    --width-max-window: #{$layout-size + 'px'};
-    //    --max-value: 90;
-    //}
-    //@include media(hg, min) {
-    //    --max-value: 100;
-    //}
-
-
-
-
-
-    
-    //! Не трогать!
-    font-size: calc(var(--min-value-px) + (var(--max-value) - var(--min-value)) * ((var(--width-max-window) - var(--width-min-window-px)) / (#{$layout-size} - var(--width-min-window))));  
+	//! Не трогать!
+	font-size: calc(
+		var(--min-value-px) + (var(--max-value) - var(--min-value)) *
+			((var(--width-max-window) - var(--width-min-window-px)) / (#{$layout-size} - var(--width-min-window)))
+	);
 }

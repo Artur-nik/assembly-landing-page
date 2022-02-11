@@ -40,7 +40,7 @@ let path = {
     src: {
         html:           [
                             "./src/template/*.html", 
-                            '!' + "./src/template/**/_*.html"
+                            "./src/template/page/*.html", 
                         ],
         php:            "./src/form/*.php",
         PHPMailer:      "./src/PHPMailer/**/*",
@@ -79,8 +79,7 @@ let path = {
     },
     watch: {
         html:           [
-                            "./src/template/*.html", 
-                            "./src/template/**/_*.html"
+                            "./src/template/**/*.html"
                         ],
         php:            "./src/form/*.php",
         css:            "./src/css/*css",
@@ -120,8 +119,8 @@ let path = {
 const _Browserslist = [
     '>0.5%',
     'last 4 versions',
-    'edge >= 79',
-    'not ie > 11', 
+    'edge <= 79',
+    'not ie <= 11', 
     'not ie_mob > 0',  
     'ff >= 52',
     'chrome >= 61',
