@@ -7,8 +7,9 @@
 //*     active: true,   // Вывод анимации
 //*     bp: ('default') // Перечесление контрольных точек (default, sm, md, lg, hg)
 //* ),
+
 $animation: (
-    'fadeIn':           (active: false, bp: ('default')),
+    'fadeIn':           (active: false, bp: ('default', 'lg')),
     'fadeInUp':         (active: false, bp: ('default')),
     'fadeInDown':       (active: false, bp: ('default')),
     'fadeInLeft':       (active: false, bp: ('default')),

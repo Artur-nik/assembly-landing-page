@@ -22,10 +22,9 @@ $social-primary: #000;
         background-color: rgb(43, 43, 43);
     }
     &--size {
-        font-size: size(42);
+        font-size: size(40);
         @include media(lg) {
             font-size: size(64);
-            
         }
     }
     &--circle {

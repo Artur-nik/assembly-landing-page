@@ -57,7 +57,7 @@ let path = {
                             "./src/js/libraries/lazyload.min.js",
                             "./src/js/libraries/swiper.min.js",
                             "./src/js/libraries/jquery.maskedinput.min.js",
-                            //"./src/js/libraries/anime.min.js",
+                            "./src/js/libraries/anime.min.js",
                             //"./src/js/libraries/fancybox.umd.js",
                             //"./src/js/libraries/gsap.min.js",
                             //"./src/js/libraries/ScrollTrigger.min.js",
