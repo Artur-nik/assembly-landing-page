@@ -1,0 +1,22 @@
+$margin-bottom: (
+    //0:   ('default', 'md','lg'),
+    //10:  ('default', 'lg'),
+    //40:  ('lg'),
+);
+
+@each $name, $bp-list in $margin-bottom { 
+    .mb-#{$name} {
+        @each $bp in $bp-list {
+            @if ($bp == 'default') {
+                margin-bottom: #{size($name)};
+            }
+            @else {
+                &\@#{$bp} {
+                    @include media($bp) {
+                        margin-bottom: #{size($name)};
+                    }
+                }
+            }
+        }
+    }
+}

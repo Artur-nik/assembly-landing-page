@@ -1,0 +1,22 @@
+// border-radius
+$border-radius: (
+    //20:  ('default', 'md', 'lg'),
+    //40:  ('lg'),
+);
+
+@each $name, $bp-list in $border-radius { 
+    .br-#{$name} {
+        @each $bp in $bp-list {
+            @if ($bp == 'default') {
+                border-radius: #{size($name)};
+            }
+            @else {
+                &\@#{$bp} {
+                    @include media($bp) {
+                        border-radius: #{size($name)};
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,8 +1,12 @@
-@import 'br';
-@import 'icon';
-@import 'loader';
-@import 'link';
-@import 'list';
+@import 'base/index';
+
+@import 'elements/index';
+
+//
+@import 'animation/index';
 //*
-@import 'adaptive-box';
-@import 'social'
+@import 'typography/index';
+//*
+@import 'btn/index';
+//*
+@import 'social/social';
