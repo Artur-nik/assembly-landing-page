@@ -1,9 +1,8 @@
-set path=slider
+set path=
 
-set scss= scss/components/%path%
+set scss= scss/modules/elements
 
 if not exist %scss%/_%path%.scss (
-    cd. > %scss%/_index.scss
     cd. > %scss%/_%path%.scss
     (
         echo .%path% { 
@@ -11,5 +10,5 @@ if not exist %scss%/_%path%.scss (
         echo }
     ) > %scss%/_%path%.scss
 
-    echo @import '%path%/index'; >> scss/components/_index.scss
+    echo @import '%path%'; >> %scss%/_index.scss
 )
