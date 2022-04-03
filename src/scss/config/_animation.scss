@@ -1,7 +1,7 @@
-//$animationDelay:(
-//    value:(100, 250),
-//    bp:('default', 'lg'),
-//);
+//* Класс delay-[number]@bp
+$animationDelay:(
+    100:  ('default', 'lg'),
+);
 //* Формат
 //* 'fadeIn': (         // Имя анимации
 //*     active: true,   // Вывод анимации

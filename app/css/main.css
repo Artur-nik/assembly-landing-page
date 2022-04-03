@@ -204,6 +204,7 @@ br {
 
 .adaptive-box__image,
 .adaptive-box__item {
+  position: absolute;
   z-index: 2;
   width: 100%;
   height: 100%;
@@ -222,6 +223,11 @@ br {
 
 .link:active {
   color: #000;
+}
+
+.delay-100 {
+  -webkit-animation-delay: 1rem;
+          animation-delay: 1rem;
 }
 
 .animation {
@@ -2031,6 +2037,10 @@ textarea::placeholder {
   font-weight: 800;
 }
 
+.t\:900 {
+  font-weight: 900;
+}
+
 .t\:left {
   text-align: left;
 }
@@ -2080,6 +2090,13 @@ textarea::placeholder {
   --dp-grid: none;
   --dp-block: none;
   --dp-inline: none;
+}
+
+.m\:show {
+  --dp-flex: flex;
+  --dp-grid: grid;
+  --dp-block: block;
+  --dp-inline: inline;
 }
 
 .m\:axis-x {
@@ -2284,6 +2301,34 @@ textarea::placeholder {
 .m\:rotate-315 {
   -webkit-transform: rotate(315deg);
           transform: rotate(315deg);
+}
+
+.m\:o-auto {
+  overflow: auto;
+}
+
+.m\:o-scroll {
+  overflow: scroll;
+}
+
+.m\:o-hidden {
+  overflow: hidden;
+}
+
+.m\:o-visible {
+  overflow: visible;
+}
+
+.m\:nowrap {
+  flex-wrap: nowrap;
+}
+
+.m\:wrap {
+  flex-wrap: wrap;
+}
+
+.m\:wrap-reverse {
+  flex-wrap: wrap-reverse;
 }
 
 .home {
@@ -3129,6 +3174,34 @@ textarea::placeholder {
   .m\:static\@md {
     position: static;
   }
+
+  .m\:o-auto\@md {
+    overflow: auto;
+  }
+
+  .m\:o-scroll\@md {
+    overflow: scroll;
+  }
+
+  .m\:o-hidden\@md {
+    overflow: hidden;
+  }
+
+  .m\:o-visible\@md {
+    overflow: visible;
+  }
+
+  .m\:nowrap\@md {
+    flex-wrap: nowrap;
+  }
+
+  .m\:wrap\@md {
+    flex-wrap: wrap;
+  }
+
+  .m\:wrap-reverse\@md {
+    flex-wrap: wrap-reverse;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -3161,6 +3234,11 @@ textarea::placeholder {
   .container,
   .container-lg {
     max-width: 12rem;
+  }
+
+  .delay-100\@lg {
+    -webkit-animation-delay: 1rem;
+            animation-delay: 1rem;
   }
 
   .title--size-sm {
@@ -3738,6 +3816,34 @@ textarea::placeholder {
 
   .m\:static\@lg {
     position: static;
+  }
+
+  .m\:o-auto\@lg {
+    overflow: auto;
+  }
+
+  .m\:o-scroll\@lg {
+    overflow: scroll;
+  }
+
+  .m\:o-hidden\@lg {
+    overflow: hidden;
+  }
+
+  .m\:o-visible\@lg {
+    overflow: visible;
+  }
+
+  .m\:nowrap\@lg {
+    flex-wrap: nowrap;
+  }
+
+  .m\:wrap\@lg {
+    flex-wrap: wrap;
+  }
+
+  .m\:wrap-reverse\@lg {
+    flex-wrap: wrap-reverse;
   }
 
   .modal__header {
