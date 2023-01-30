@@ -10,6 +10,8 @@
 
 	//* end grid
 
+	//*
+	--adaptive-box: 100%;
 
 	//* Работа с шрифтами
 	@each $bp, $value in $font-size {

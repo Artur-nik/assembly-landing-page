@@ -36,8 +36,7 @@
         }
     }
     //*
-    &__email,
-    &__number,
+    &__error,
     &__input,
     &__required,
     &__text {
@@ -46,8 +45,7 @@
         padding: size(25) size(40);
     }
     //*
-    &__email,
-    &__number,
+    &__error,
     &__required,
     &__text {
         position: absolute;
@@ -62,8 +60,7 @@
             color: red;
         }
     }
-    &__email,
-    &__number,
+    &__error,
     &__required {
         color: red;
         width: 100%;
@@ -74,7 +71,7 @@
     }
     //* Mod invalid (class js)
     // text/tel/password
-    &._required:not(._number) {
+    &._required{
         &>* {
             opacity: 0;
         }
@@ -82,19 +79,11 @@
             opacity: 1;
         }
     }
-    &._email {
+    &._error {
         &>* {
             opacity: 0;
         }
-        .form-field__email {
-            opacity: 1;
-        }
-    }
-    &._number {
-        &>* {
-            opacity: 0;
-        }
-        .form-field__number {
+        .form-field__error {
             opacity: 1;
         }
     }

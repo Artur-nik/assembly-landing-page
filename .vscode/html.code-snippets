@@ -67,7 +67,7 @@
   	  "prefix": "menu-toggle",
   	  "scope": "html,php",
   	  "body": [
-		"<button id=\"menu-modal-open\" class=\"menu-toggle\"><span class=\"menu-toggle__icon\"></span></button>"
+		"<button id=\"menu-modal-open\" class=\"menu-toggle\"><span class=\"menu-toggle__icon\"><span class=\"_left\"></span></span></button>"
   	  ],
   	  "description": "menu-toggle"
   	},
@@ -75,8 +75,8 @@
   	  "prefix": "menu-toggle-text",
   	  "scope": "html,php",
   	  "body": [
-  	    "<button class=\"menu-toggle\">",
-  	    "    <span class=\"menu-toggle__icon\"></span>",
+  	    "<button id=\"menu-modal-open\" class=\"menu-toggle\">",
+  	    "    <span class=\"menu-toggle__icon\"><span class=\"_left\"></span></span>",
   	    "    <span class=\"menu-toggle__text\"></span>",
   	    "</button>"
   	  ],
@@ -134,11 +134,9 @@
 		"scope": "html,php",
 		"body": [
 		"<div class=\"video adaptive-box\">",
-		"    <div class=\"adaptive-box__wrapper\">",
-		"        <img class=\"video__preview lazy\" data-src=\"\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
-		"        <div class=\"video__frame\"></div>",
-		"    </div>",
-		"    <button class=\"video__btn btn\" data-video-src=\"\"></button>",
+		"    <img class=\"video__preview lazy\" data-src=\"\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>",
+		"    <div class=\"video__frame\"></div>",
+		"    <button class=\"video__btn btn btn-play btn--theme-primary\" data-video-src=\"\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#play\"></use></svg></button>",
 		"    <span class=\"loader loader--center loader--size-lg\"></span>",
 		"</div>"
 		],

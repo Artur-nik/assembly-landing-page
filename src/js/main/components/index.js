@@ -1,8 +1,5 @@
-@@include("video.js",{})
-@@include("menu.js",{})
-@@include("modal/index.js",{})
-@@include("questions.js",{})
-
-@@include("quiz/index.js",{})
-
 @@include("slider/index.js",{})
+@@include("modal/index.js",{})
+@@include("questions/questions.js",{})
+@@include("quiz/index.js",{})
+@@include("video/video.js",{})

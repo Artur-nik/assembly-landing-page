@@ -5,6 +5,6 @@ function modalOpen(modalId, callback) {
     //*
     setTimeout(()=> scrollOffset(modalId), 500);
 
-    callback(modalId, modal);
+    if (callback) callback(modalId, modal);
 
 }

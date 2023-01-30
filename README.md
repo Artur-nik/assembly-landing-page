@@ -7,3 +7,7 @@
 - Mozilla Firefox 70+
 - Opera 68+
 - Safari 13+
+#### Консоль:
+gulp
+gulp font
+gulp build

@@ -4,7 +4,7 @@
   	  "prefix": "btn",
   	  "scope": "html,php",
   	  "body": [
-  	    "<button class=\"btn btn--${1|default, secondary|} ${2| ,btn--outline,btn--circle,btn--link|} btn--size-md\">",
+  	    "<button class=\"btn btn-${1|primary, secondary|} btn--theme-${2| primary , outline|} _md\">",
   	    "    ",
   	    "</button>"
   	  ],
@@ -14,7 +14,7 @@
   	  "prefix": "btn video",
   	  "scope": "html,php",
   	  "body": [
-  	    "<button class=\"btn btn--${1|primary, secondary|} ${2| ,btn--outline,btn--circle,btn--link|} btn--size-md\" data-modal-open=\"modal-video\" data-video-src=\"\">",
+  	    "<button class=\"btn btn-${1|primary, secondary|} btn--theme-${2| primary , outline|} _md\" data-modal-open=\"modal-video\" data-video-src=\"\">",
   	    "    ",
   	    "</button>"
   	  ],
@@ -24,10 +24,17 @@
   	  "prefix": "btn modal",
   	  "scope": "html,php",
   	  "body": [
-  	    "<button class=\"btn btn--${1|primary,secondary|} ${2| ,btn--outline,btn--circle,btn--link|} btn--size-md\" data-modal-open=\"${3|modal-form,modal-politic|}\">",
+  	    "<button class=\"btn btn-${1|primary, secondary|} btn--theme-${2| primary , outline|} _md\" data-modal-open=\"${3|modal-form,modal-politic|}\">",
   	    "    ",
   	    "</button>"
   	  ],
   	  "description": "button modal-open"
   	},
+	  "btn-play": {
+		"prefix": "btn-play",
+		"body": [
+		  "<button class=\"btn btn-play btn--theme-primary\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#play\"></use></svg></button>"
+		],
+		"description": "btn-play"
+	  }
 }

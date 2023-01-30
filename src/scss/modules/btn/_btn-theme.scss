@@ -1,0 +1,42 @@
+.btn--theme-primary {
+    background-color: $color-primary;
+    color: #fff;
+    .icon {
+        color: #fff;
+    }
+    @media (pointer: fine) {
+        &:hover {
+            background-color: $color-primary-hover;
+        }
+        &:active {
+            background-color: $color-primary-active;
+        }
+    }
+    &:active {
+        background-color: $color-primary-active;
+    }
+}
+
+.btn--theme-outline {
+    border: 1px solid $btn-bg;   
+    color: $btn-color-outline;
+    .icon {
+        color: $btn-color-outline;
+    }   
+    @media (pointer: fine) {
+        &:hover {
+            color: $btn-color;
+            background: $btn-bg; 
+            .icon {
+                color: $btn-color;
+            }   
+        }
+    }
+    &:active {
+        color: $btn-color;
+        background: $btn-bg;   
+        .icon {
+            color: $btn-color;
+        } 
+    }
+}

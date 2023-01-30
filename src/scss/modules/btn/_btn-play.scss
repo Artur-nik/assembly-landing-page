@@ -1,0 +1,13 @@
+.btn-play {
+    --dp-flex: flex;
+    display: var(--dp-flex);
+    align-items: center;
+    justify-content: center;
+    height: 1em;
+    width: 1em;
+    font-size: size(100);
+    border-radius: 50%;
+    .icon {
+        font-size: size(36,100,'em');
+    }
+}

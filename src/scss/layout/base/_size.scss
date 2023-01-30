@@ -3,15 +3,28 @@
 	--width-max-window: 100vw;
 	--width-min-window: 320;
 	--width-min-window-px: 320px;
-
+	//*
 	--min-value: 100;
 	--min-value-px: 100px;
 	--max-value: 150;
-	
+	//*
+	--layout-size: 480;
+	//*
+	@include media(sm) {
+		--width-max-window: 440px;
+	}
+	@include media(xs) {
+		--width-max-window: 520px;
+	}
+	@include media(md) {
+		--width-max-window: 768px;
+		--layout-size: #{$layout-size};
+	}
 
 	//* bp lg = min-width 1024
 	@include media(lg) {
 		//* layout
+		--width-max-window: 100vw;
 		--width-min-window: #{$layout-size / 2};
 		--width-min-window-px: #{($layout-size / 2) + "px"};
 		--min-value: 50;
@@ -21,13 +34,14 @@
 		//--min-value:81.5375;
 		//--min-value-px:81.5375px;
 	}
-	//@include media(xl, min) {
-	//    --width-max-window: #{$layout-size + 'px'};
-	//    --max-value: 90;
-	//}
-	//@include media(hg, min) {
-	//    --max-value: 100;
-	//}
+	@include media(xl, min) {
+		//--min-value: 66;
+		//--min-value-px: 66px;
+	}
+	@include media(hg, min) {
+		//--min-value: 80;
+		//--min-value-px: 80px;
+	}
     
 	//* размер макета
 	@media (min-width: #{$layout-size + 'px'}) {
@@ -37,6 +51,6 @@
 	//! Не трогать!
 	font-size: calc(
 		var(--min-value-px) + (var(--max-value) - var(--min-value)) *
-			((var(--width-max-window) - var(--width-min-window-px)) / (#{$layout-size} - var(--width-min-window)))
+			((var(--width-max-window) - var(--width-min-window-px)) / (var(--layout-size) - var(--width-min-window)))
 	);
 }

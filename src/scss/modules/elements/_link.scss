@@ -2,10 +2,36 @@
     color: currentColor;
     @media (pointer: fine) {
         &:hover {
-            color: #000;
+            color: #0091bd;
+        }
+        &:active {
+            color: red;
         }
     }
     &:active {
-        color: #000;
+        color: red;
+    }
+    &-decor {
+        color: currentColor;
+        position: relative;
+        &:before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            width: 100%;
+            border-bottom:1px solid currentColor;
+            transform: scaleX(0);
+            transition-duration: $td;
+        }
+        @media (pointer: fine) {
+            &:hover {
+                &:before {
+                    transform: scaleX(1);
+                }
+            }
+        }    
+    }
+    &--line {
+        text-decoration: underline;
     }
 }

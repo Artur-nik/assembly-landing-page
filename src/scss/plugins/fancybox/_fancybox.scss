@@ -1,3 +1,4 @@
+$fancybox-theme: #fff;
 .not-selectable {
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -165,7 +166,7 @@ body.compensate-for-scrollbar {
 }
 body:not(.is-using-mouse) .fancybox__container :focus {
   box-shadow: 0 0 0 1px #fff,
-    0 0 0 2px var(--fancybox-accent-color, rgba(1, 210, 232, 0.94));
+    0 0 0 2px var(--fancybox-accent-color, #{$fancybox-theme});
 }
 @media all and (min-width: 1024px) {
   .fancybox__container {
@@ -624,7 +625,7 @@ body:not(.is-using-mouse) .fancybox__container :focus {
   bottom: 0;
   border-width: 5px;
   border-style: solid;
-  border-color: var(--fancybox-accent-color, rgba(1, 210, 232, 0.94));
+  border-color: var(--fancybox-accent-color, #{$fancybox-theme});
   opacity: 0;
   transition: opacity 0.15s ease;
   border-radius: var(--fancybox-thumbs-border-radius, 4px);
@@ -723,7 +724,7 @@ body:not(.is-using-mouse) .fancybox__container :focus {
   -webkit-font-smoothing: subpixel-antialiased;
 }
 .fancybox__progress {
-  background: var(--fancybox-accent-color, rgba(1, 210, 232, 0.94));
+  background: var(--fancybox-accent-color, #{$fancybox-theme});
   height: 3px;
   left: 0;
   position: absolute;
@@ -757,65 +758,4 @@ body:not(.is-using-mouse) .fancybox__container :focus {
 .fancybox__container.has-slideshow .fancybox__button--slideshow g:nth-child(2) {
   display: block;
 }
-
-[data-fancybox] {
-  position: relative;
-  cursor: pointer;
-  &:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 3;
-    background: rgba(31, 31, 31, 0.7);
-    border: 2px solid #ffb74b;
-    pointer-events: none;
-    opacity: 0;
-    transition-duration: $td;
-  }
-  &:hover {
-    .fancybox-zoom,
-    &:before {
-      opacity: 1;
-      pointer-events: auto;
-    }
-  }
-  .fancybox-zoom {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0);
-    opacity: 0;
-    pointer-events: none;
-  }
-}
-.fancybox-zoom {
-  position: relative;
-  z-index: 4;
-  background-color: $color-primary;
-  height: 1em;
-  width: 1em;
-  font-size: size(32 * 2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition-duration: $td;
-  @include media(lg) {
-    font-size: size(32);
-  }
-  &:after,
-  &:before {
-    content: "";
-    height: 2px;
-    width: 1em;
-    font-size: 0.5em;
-    background-color: #fff;
-    position: absolute;
-  }
-  &:before {
-    transform: rotate(90deg);
-  }
-}
+@import 'zoom'

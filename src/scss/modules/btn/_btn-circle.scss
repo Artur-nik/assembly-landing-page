@@ -1,22 +1,15 @@
 //*
-.btn--circle {
+.btn-circle {
     --dp-flex: flex;
     display: var(--dp-flex);
     align-items: center;
     justify-content: center;
-    line-height: 1;
-    --btn-circle:#{size(200)};
     border-radius: 50%;
-    height: var(--btn-circle);
-    width: var(--btn-circle);
-    background: $btn-bg;   
-    color: $btn-color;
-    @media (pointer: fine) {
-        &:hover {
-            background: $btn-bg-hover;    
-        }
-    }
-    &:active {
-        background: $btn-bg-hover;    
+    height: 1em;
+    width: 1em;
+    font-size: size(200);
+    border-radius: 50%;
+    & > span {
+        font-size: initial;
     }
 }

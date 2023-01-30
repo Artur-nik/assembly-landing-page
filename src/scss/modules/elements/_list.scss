@@ -1,0 +1,20 @@
+.list {
+    li {
+        position: relative;
+        padding-left: size(15);
+        &:not(:last-child) {
+            margin-bottom: size(10);
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: size(8);
+            height: 1em;
+            width: 1em;
+            font-size: size(8);
+            border-radius: 50%;
+            background-color: #000;
+        }
+    }
+}

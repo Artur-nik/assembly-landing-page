@@ -5,7 +5,7 @@ $margin-bottom: (
 );
 
 @each $name, $bp-list in $margin-bottom { 
-    .mb-#{$name} {
+    ._mb-#{$name} {
         @each $bp in $bp-list {
             @if ($bp == 'default') {
                 margin-bottom: #{size($name)};

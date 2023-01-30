@@ -5,9 +5,9 @@ $columns: 12;
 //*
 $grid-gap: (
     'default': (
-        'gap-x': 20px,
-        'gap-y': 20px,
-        'container-gap': 15px,
+        'gap-x': size(20),
+        'gap-y': size(20),
+        'container-gap': size(10),
     ),
     'lg': (
         'gap-x': size(30),

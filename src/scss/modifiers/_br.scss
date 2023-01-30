@@ -5,7 +5,7 @@ $border-radius: (
 );
 
 @each $name, $bp-list in $border-radius { 
-    .br-#{$name} {
+    ._br-#{$name} {
         @each $bp in $bp-list {
             @if ($bp == 'default') {
                 border-radius: #{size($name)};

@@ -1,14 +1,14 @@
 @if variable-exists('animationDelay') {
     @each $name, $bp-list in $animationDelay { 
-        .delay-#{$name} {
+        ._delay-#{$name} {
             @each $bp in $bp-list {
                 @if ($bp == 'default') {
-                    animation-delay: #{size($name)};
+                    animation-delay: #{$name}ms;
                 }
                 @else {
                     &\@#{$bp} {
                         @include media($bp) {
-                            animation-delay: #{size($name)};
+                            animation-delay: #{$name}ms;
                         }
                     }
                 }

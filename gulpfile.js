@@ -65,6 +65,7 @@ let path = {
                             //"./src/js/libraries/jquery.nice-select.min.js",
                             //"./src/js/libraries/jquery.twentytwenty.js",
                             //"./src/js/libraries/simplebar.min.js",
+                            //"./src/js/libraries/simplebar.min.js",
                             "./src/js/libraries/wow.js"
                         ],
         js_dist:           "./src/js/dist/*js",

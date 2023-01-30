@@ -10,12 +10,12 @@ function _slider() {
             //autoHeight:true,
 
             //*
-            breakpoints: {
-                1024: {
-                    slidesPerView: 2,
-                    spaceBetween: 20
-                },
-            },
+            //breakpoints: {
+            //    1024: {
+            //        slidesPerView: 2,
+            //        spaceBetween: 20
+            //    },
+            //},
             //*
             navigation: {
                 nextEl: slider.querySelector('.slider-button-next'),
@@ -41,19 +41,30 @@ function _slider() {
                     callback();
                 }
             }
-            sliderData('grid', ()=> {
-				sliderConfig.slidesPerColumn = 2;
-				sliderConfig.slidesPerColumnFill = 'row';
+            sliderData('addClassGrid-lg', ()=> {
+                if (window.screen.width >= 1024) {
+                    sliderConfig = false;
+                    $(sliderInit.querySelector('[data-wrapper]')).addClass('grid')
+                    $(sliderInit.querySelector('[data-wrapper]')).removeClass('swiper-wrapper')
+                    $(sliderInit.querySelectorAll('[data-slide]')).removeClass('swiper-slide')
+                    $(sliderInit).removeClass('swiper-container') 
+                }
+                else {
+                    $(sliderInit.querySelector('[data-wrapper]')).removeClass('grid')
+                    $(sliderInit.querySelector('[data-wrapper]')).addClass('swiper-wrapper')
+                    $(sliderInit.querySelectorAll('[data-slide]')).addClass('swiper-slide')
+                    $(sliderInit).addClass('swiper-container')
+                }
             });
 		} 
 
         if (sliderInit.swiper) {
-            sliderInit.querySelector('.swiper-wrapper').removeAttribute('style');
-            sliderInit.querySelectorAll('.swiper-slide').forEach(element => element.removeAttribute('style'));
+            if (sliderInit.querySelector('[data-wrapper]')) sliderInit.querySelector('[data-wrapper]').removeAttribute('style');
+            if (sliderInit.querySelectorAll('[data-slide]')) sliderInit.querySelectorAll('[data-slide]').forEach(element => element.removeAttribute('style'));
             sliderInit.swiper.detachEvents();
-            sliderInit.swiper.destroy();    
+            sliderInit.swiper.destroy();      
         }
-        new Swiper(sliderInit, sliderConfig); 
+        if(sliderConfig) new Swiper(sliderInit, sliderConfig); 
     });
     window.addEventListener('resize', _slider);
 };

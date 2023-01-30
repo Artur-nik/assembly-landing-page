@@ -11,10 +11,29 @@ $mail->CharSet = 'UTF-8';
 $mail->setLanguage('ru', 'PHPMailer/language/');
 $mail->IsHTML(true);
 
-$mail->setFrom('artur@zanyatiyadoma.ru', 'Заявка с сайта');
+//  if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/wp-load.php')) {
+//      /** Loads the WordPress Environment and Template */
+//      require_once($_SERVER['DOCUMENT_ROOT'] . '/wp-load.php');
+//      $email_to = get_option( 'send_email', $default = false );
+//  }
+//    
+//  $email_from = 'no-reply@' . preg_replace('/\/+$/', '', $_SERVER['HTTP_HOST']); // E-mail отправителя
+//  $mail->setFrom($email_from, 'Заявка с сайта');
+//  
+//  $email_to = str_replace(' ', '', $email_to);
+//  $email_list = explode(",", $email_to);
+//  
+//  foreach($email_list as $item){
+//  	$mail->AddAddress($item);
+//  }
+
+//*
+$email_from = 'no-reply@' . preg_replace('/\/+$/', '', $_SERVER['HTTP_HOST']); // E-mail отправителя
+$mail->setFrom($email_from, 'Заявка с сайта');
+//*
 $mail->AddAddress('artur@zanyatiyadoma.ru');
 
-
+//*
 $mail->Subject = 'Заявка с сайта';
 
 $body = '<h1>Заявка с сайта </h1>';
@@ -34,7 +53,7 @@ if (trim(!empty($_POST['question']))) {
     $body .= '<p><b>Вопрос:</b> ' . $_POST['question'] . '</p>';
 }
 if (trim(!empty($_POST['email']))) {
-    $body .= '<p><b>Djghjc:</b> ' . $_POST['email'] . '</p>';
+    $body .= '<p><b>Email:</b> ' . $_POST['email'] . '</p>';
 }
 
 //* один файл

@@ -9,8 +9,8 @@ $form-message-bg:#000;
         padding: 1em;
         width: 100%;
         left: 0;
-        bottom: calc(100% + #{size(20)});
-        //border-radius: size(12);
+        bottom: calc(100% + 8px);
+        border-radius: size(12);
 
         text-align: center;
 

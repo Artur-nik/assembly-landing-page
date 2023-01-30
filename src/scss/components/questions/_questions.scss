@@ -17,17 +17,8 @@
     &-item {
         margin-bottom: size(25);
         //*
-        &__header {
-            //min-height: size(110);
-            background-color: rgb(241, 241, 241);
-            padding: size(20);
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            @include media(lg) {
-                padding: size(20) size(65);
-            }
-            &._active .questions-item__toggel{
+        &._active {
+            .questions-item__toggel{
                 //color: rgb(255, 117, 117);
                 &._plus {
                     &:after {
@@ -40,6 +31,18 @@
                 &._arrow .icon{
                     transform: rotate(-90deg);
                 }
+            }
+        }
+        //*
+        &__header {
+            //min-height: size(110);
+            background-color: rgb(241, 241, 241);
+            padding: size(20);
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            @include media(lg) {
+                padding: size(20) size(65);
             }
         }
         //*

@@ -1,0 +1,22 @@
+$font-size-mod: (
+    //0:   ('default', 'md','lg'),
+    //16:  ('default', 'lg'),
+    //40:  ('lg'),
+);
+//*
+@each $name, $bp-list in $font-size-mod { 
+    ._size-#{$name} {
+        @each $bp in $bp-list {
+            @if ($bp == 'default') {
+                font-size: #{size($name)};
+            }
+            @else {
+                &\@#{$bp} {
+                    @include media($bp) {
+                        font-size: #{size($name)};
+                    }
+                }
+            }
+        }
+    }
+}

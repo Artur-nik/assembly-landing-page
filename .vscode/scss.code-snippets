@@ -61,22 +61,6 @@
 		],
 		"description": " size(100, 100, 'number')"
 	},
-	"size-x": {
-		"prefix": "size-x",
-		"scope": "scss,css",
-		"body": [
-		   "size-x($0, '1-5')",
-		],
-		"description": " size(100, '1-5')"
-	},
-	"size-a": {
-		"prefix": "size-a",
-		"scope": "scss,css",
-		"body": [
-		    "size-a($0, '1-5')",
-		],
-		"description": " size(100, '1-5')"
-	},
 	//
 	"size-clamp": {
 		"prefix": "size-clamp",
@@ -102,14 +86,6 @@
 		  	"--adaptive-box: #{height($1,$2)};"
 		],
 		"description": "adaptive-box #{height(width, height)}"
-	},
-	"--btn-circle": {
-		"prefix": "btn-circle",
-		"scope": "scss,css",
-		"body": [
-		  	"--btn-circle:#{size()};"
-		],
-		"description": "--btn-circle"
 	},
 	"dp-block": {
 		"prefix": "dp-block",

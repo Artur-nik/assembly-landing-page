@@ -1,7 +1,7 @@
 .adaptive-box {
     position: relative;
     width: 100%;
-    overflow: hidden;
+    //overflow: hidden;
     --dp-block: block;
     display: var(--dp-block);
     &:after {

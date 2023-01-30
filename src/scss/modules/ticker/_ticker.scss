@@ -1,0 +1,90 @@
+//* бегущая строка
+/* 
+<div class="__ticker ticker">
+    <div class="ticker__wrapper">
+        <div class="ticker__body">
+            <div class="ticker__box">
+                <div class="ticker__item"></div>
+            </div>
+            <div class="ticker__box">
+                <div class="ticker__item"></div>
+            </div>
+        </div>
+    </div>
+</div>
+*/
+.ticker {
+    position: relative;
+    width: 100%;
+    z-index: 10;
+    overflow: hidden;
+    &__wrapper {
+        position: relative;
+        left: 10px;
+        z-index: 2;
+        width: 100vw;
+        display: flex;
+        @include media(lg) {
+            left:0;   
+        }
+    }
+    @at-root {
+        @keyframes ticker{
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        @keyframes ticker-n{
+            100% {
+                transform: translateX(100%);
+            }
+        }
+    }
+    &__body {
+        display: flex;
+        animation: 100s linear 0s infinite normal none ticker;
+        will-change: transform;
+        position: relative;
+    }
+    //*
+    &._n {
+        .ticker__body{
+            animation-name: ticker-n;
+        }
+        .ticker__box:nth-child(2) {
+            position: absolute;
+            transform: translateX(-100%);
+        }
+    }
+    //*
+    &__box {
+        display: flex;
+        align-items: center;
+        &:nth-child(2) {
+            position: absolute;
+            transform: translateX(100%);
+        }
+        //&:nth-child(3){
+        //    position: absolute;
+        //    transform: translateX(200%);
+        //}
+        //&:nth-child(4){
+        //    position: absolute;
+        //    transform: translateX(300%);
+        //}
+    }
+    &__item {
+        position: relative;
+        flex: 0 0 auto;
+        //*
+        margin-right: size(10);
+        white-space: nowrap;
+        @include media(md) {
+            margin-right: size(20);
+        }   
+        @include media(lg) {
+            margin-right: size(40);
+        }
+        //*
+    }
+}

@@ -9,6 +9,24 @@
   	  	"description": "img lazyload"
   	},
 	//*
+	"img-icon": {
+  	  	"prefix": "img-icon",
+  	  	"scope": "html,php",
+  	  	"body": [
+  	  	  	"<img class=\"icon\" src=\"images/${TM_FILENAME_BASE}/\" alt=\"\"/>"
+  	  	],
+  	  	"description": "img icon"
+  	},
+	//*
+	"img-icon-lazyload": {
+  	  	"prefix": "img-icon-lazyload",
+  	  	"scope": "html,php",
+  	  	"body": [
+  	  	  	"<img class=\"lazy icon\" data-src=\"images/${TM_FILENAME_BASE}/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>"
+  	  	],
+  	  	"description": "img icon lazyload"
+  	},
+	//*
 	"img-lazyload": {
   	  	"prefix": "img-lazyload",
   	  	"scope": "html,php",

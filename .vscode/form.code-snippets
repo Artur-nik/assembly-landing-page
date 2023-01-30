@@ -3,14 +3,14 @@
 		"prefix": "form",
 		"scope": "html,php",
 		"body": [
-		  "<form id=\"\" class=\"form js-form\">",
+		  "<form id=\"\" class=\"form js-form\" action=\"form/form.php\">",
 		  "    <input class=\"form-input-title\" type=\"hidden\" name=\"form-title\" value=\"\">",
 		  "",
 		  "    <div class=\"form-send\">",
 		  "        <div class=\"form-send__message\">",
 		  "            <div class=\"form-send__loading\"><span></span></div>",
-		  "            <p class=\"form-send__success\">Спасибо, ваша заявка принята. Менеджер свяжется с вами в ближайшее время</p>",
-		  "            <p class=\"form-send__error\">Что-то пошло не так. Заявка не отправлена.</p>",
+		  "            <p class=\"form-send__success\">Спасибо, ваша заявка принята.  <br> Менеджер свяжется с вами в ближайшее время</p>",
+		  "            <p class=\"form-send__error\">Что-то пошло не так.  <br> Заявка не отправлена.</p>",
 		  "        </div>",
 		  "        <button type=\"submit\" class=\"form-send__btn btn btn--primary btn--size-md\">Перезвоните мне</button>    ",
 		  "    </div>",
@@ -23,25 +23,29 @@
 		"prefix": "textarea required",
 		"scope": "html,php",
 		"body": [
-		  "<label class=\"form-textarea\">",
-		  "    <textarea class=\"form-textarea__input\" name=\"\" required></textarea>",
-		  "    <span class=\"form-textarea__text\" data-valid=\"\" data-default=\"\">",
-		  "        Text required <span>*</span>",
-		  "    </span>",
-		  "</label>"
+			"<label class=\"form-textarea\" data-input-box> ",
+			"    <textarea class=\"form-textarea__input\" placeholder=\"text\" data-input name=\"\"></textarea>",
+			"    <span class=\"form-textarea__text\">",
+			"        Text",
+			"    </span>",
+			"</label>"
 		],
 		"description": "textarea required"
 	},
+	
 	"textarea": {
 		"prefix": "textarea",
 		"scope": "html,php",
 		"body": [
-		  "<label class=\"form-textarea\">",
-		  "    <textarea class=\"form-textarea__input\" name=\"\"></textarea>",
-		  "    <span class=\"form-textarea__text\">",
-		  "        Text required",
-		  "    </span>",
-		  "</label>"
+			"<label class=\"form-textarea\" data-input-box=\"\">",
+			"    <textarea class=\"form-textarea__input\" placeholder=\"text\" name=\"\" required data-input=\"\"></textarea>",
+			"    <span class=\"form-textarea__text\">",
+			"        Text required <span>*</span>",
+			"    </span>",
+			"    <span class=\"form-textarea__required\">",
+			"        Укажите text",
+			"    </span>",
+			"</label>"
 		],
 		"description": "textarea"
 	},
@@ -50,8 +54,8 @@
   	  "prefix": "form-field-text",
   	  "scope": "html,php",
   	  "body": [
-  	    "<label class=\"form-field\">",
-  	    "    <input class=\"form-field__input\" placeholder=\"text\" type=\"text\" name=\"name\">",
+  	    "<label class=\"form-field\" data-input-box>",
+  	    "    <input class=\"form-field__input\" placeholder=\"text\" type=\"text\" name=\"name\" data-input>",
   	    "    <span class=\"form-field__text\">text</span>",
   	    "</label>"
   	  ],
@@ -61,8 +65,8 @@
   	  "prefix": "form-field-email",
   	  "scope": "html,php",
   	  "body": [
-  	    "<label class=\"form-field\">",
-  	    "    <input class=\"form-field__input\" placeholder=\"email\" type=\"email\" name=\"email\">",
+  	    "<label class=\"form-field\" data-input-box>",
+  	    "    <input class=\"form-field__input\" placeholder=\"email\" type=\"email\" name=\"email\" data-input>",
   	    "    <span class=\"form-field__text\">type: email</span>",
   	    "    <span class=\"form-field__email\">Пожалуйста, введите адрес электронной почты.</span>",
   	    "</label>"
@@ -73,9 +77,9 @@
   	  "prefix": "form-field-phone",
   	  "scope": "html,php",
   	  "body": [
-  	    "<label class=\"form-field\">",
-  	    "    <input class=\"form-field__input form-phone\" placeholder=\"phone\" type=\"tel\" name=\"phone\">",
-  	    "    <span class=\"form-field__text\">type: tel</span>",
+  	    "<label class=\"form-field\" data-input-box>",
+  	    "    <input class=\"form-field__input\" data-mask=\"+7 (999) 999-99-99\" data-input placeholder=\"phone\" type=\"tel\" name=\"phone\">",
+  	    "    <span class=\"form-field__text\">Ваш телефон</span>",
   	    "</label>"
   	  ],
   	  "description": "form-field-phone"
@@ -84,8 +88,8 @@
   	  "prefix": "form-field-number",
   	  "scope": "html,php",
   	  "body": [
-  	    "<label class=\"form-field\">",
-  	    "    <input class=\"form-field__input\" placeholder=\"number\" type=\"number\" name=\"name\">",
+  	    "<label class=\"form-field\" data-input-box>",
+  	    "    <input class=\"form-field__input\" placeholder=\"number\" type=\"number\" data-input name=\"name\">",
   	    "    <span class=\"form-field__text\">number</span>",
   	    "    <span class=\"form-field__number\">Пожалуйста, введите число.</span>",
   	    "</label>"
@@ -96,8 +100,8 @@
   	  "prefix": "form-field-password",
   	  "scope": "html,php",
   	  "body": [
-  	    "<label class=\"form-field\">",
-  	    "    <input class=\"form-field__input\" placeholder=\"password\" type=\"password\" name=\"name2\">",
+  	    "<label class=\"form-field\" data-input-box>",
+  	    "    <input class=\"form-field__input\" placeholder=\"password\" type=\"password\" data-input name=\"name2\">",
   	    "    <span class=\"form-field__text\">password</span>",
   	    "</label>"
   	  ],
@@ -107,8 +111,8 @@
   	  "prefix": "form-field-text-required",
   	  "scope": "html,php",
   	  "body": [
-  	    "<label class=\"form-field\">",
-  	    "    <input class=\"form-field__input\" placeholder=\"text\" type=\"text\" name=\"name\" required>",
+  	    "<label class=\"form-field\" data-input-box>",
+  	    "    <input class=\"form-field__input\" placeholder=\"text\" type=\"text\" name=\"name\" data-input required>",
   	    "    <span class=\"form-field__text\">type: text required <span>*</span></span>",
   	    "    <span class=\"form-field__required\">",
   	    "        Укажите текст",
@@ -122,10 +126,10 @@
   	  "prefix": "form-field-email-required",
   	  "scope": "html,php",
   	  "body": [
-  	    "<label class=\"form-field\">",
-  	    "    <input class=\"form-field__input\" placeholder=\"email\" type=\"email\" name=\"email\" required>",
+  	    "<label class=\"form-field\" data-input-box>",
+  	    "    <input class=\"form-field__input\" placeholder=\"email\" type=\"email\" name=\"email\" data-input required>",
   	    "    <span class=\"form-field__text\">type: email required <span>*</span></span>",
-  	    "    <span class=\"form-field__email\">Пожалуйста, введите адрес электронной почты.</span>",
+  	    "    <span class=\"form-field__error\">Пожалуйста, введите адрес электронной почты.</span>",
   	    "    <span class=\"form-field__required\">",
   	    "        Укажите E-mail",
   	    "        <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
@@ -138,8 +142,8 @@
   	  "prefix": "form-field-phone-required",
   	  "scope": "html,php",
   	  "body": [
-  	    "<label class=\"form-field\">",
-  	    "    <input class=\"form-field__input form-phone\" placeholder=\"phone\" type=\"tel\" name=\"phone\" required>",
+  	    "<label class=\"form-field\" data-input-box>",
+  	    "    <input class=\"form-field__input\" data-mask=\"+7 (999) 999-99-99\" data-input placeholder=\"phone\" type=\"tel\" name=\"phone\" required>",
   	    "    <span class=\"form-field__text\">type: tel required <span>*</span></span>",
   	    "    <span class=\"form-field__required\">",
   	    "        Укажите телефон",
@@ -153,10 +157,10 @@
   	  "prefix": "form-field-number-required",
   	  "scope": "html,php",
   	  "body": [
-  	    "<label class=\"form-field\">",
-  	    "    <input class=\"form-field__input\" placeholder=\"number\" type=\"number\" name=\"name2\" required>",
+  	    "<label class=\"form-field\" data-input-box>",
+  	    "    <input class=\"form-field__input\" placeholder=\"number\" type=\"number\" name=\"name2\" data-input required>",
   	    "    <span class=\"form-field__text\">number <span>*</span></span>",
-  	    "    <span class=\"form-field__number\">Пожалуйста, введите число.</span>",
+  	    "    <span class=\"form-field__error\">Пожалуйста, введите число.</span>",
   	    "    <span class=\"form-field__required\">",
   	    "        Укажите число",
   	    "        <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
@@ -169,8 +173,8 @@
   	  "prefix": "form-field-password-required",
   	  "scope": "html,php",
   	  "body": [
-  	    "<label class=\"form-field\">",
-  	    "    <input class=\"form-field__input\" placeholder=\"password\" type=\"password\" name=\"name2\" required>",
+  	    "<label class=\"form-field\" data-input-box>",
+  	    "    <input class=\"form-field__input\" placeholder=\"password\" type=\"password\" name=\"name2\" data-input required>",
   	    "    <span class=\"form-field__text\">password <span>*</span></span>",
   	    "    <span class=\"form-field__required\">",
   	    "        Укажите пароль",
@@ -185,8 +189,8 @@
   	  "prefix": "checkbox",
   	  "scope": "html,php",
   	  "body": [
-  	    "<span class=\"form-checkbox\">",
-  	    "    <input class=\"form-checkbox__input\" type=\"checkbox\">",
+  	    "<span class=\"form-checkbox\" data-input-box>",
+  	    "    <input class=\"form-checkbox__input\" type=\"checkbox\" data-input>",
   	    "    <span class=\"form-checkbox__decor\"></span>",
   	    "</span>"
   	  ],
@@ -196,9 +200,9 @@
   	  "prefix": "checkbox icon",
   	  "scope": "html,php",
   	  "body": [
-  	    "<span class=\"form-checkbox form-checkbox--icon\">",
-  	    "    <input class=\"form-checkbox__input\" type=\"checkbox\">",
-  	    "    <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
+  	    "<span class=\"form-checkbox form-checkbox--icon\" data-input-box>",
+  	    "    <input class=\"form-checkbox__input\" type=\"checkbox\" data-input>",
+  	    "    <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#check\"></use></svg>",
   	    "</span>"
   	  ],
   	  "description": "checkbox icon"
@@ -207,9 +211,9 @@
 		"prefix": "form-file",
 		"scope": "html,php",
 		"body": [
-		  "<label class=\"form-file\">",
+		  "<label class=\"form-file\" data-input-box>",
 		  "    <span class=\"form-file__controller\">",
-		  "        <input class=\"form-file__input\"  type=\"file\" name=\"file\"",
+		  "        <input class=\"form-file__input\"  type=\"file\" name=\"file\" data-input>",
 		  "        <span class=\"form-file__text\">",
 		  "            Загрузка файлов",
 		  "        </span>",
@@ -227,9 +231,9 @@
 		"prefix": "form-file-multiple",
 		"scope": "html,php",
 		"body": [
-		  "<label class=\"form-file\">",
+		  "<label class=\"form-file\" data-input-box>",
 		  "    <span class=\"form-file__controller\">",
-		  "        <input class=\"form-file__input\" type=\"file\" name=\"files[]\" multiple>",
+		  "        <input class=\"form-file__input\" type=\"file\" name=\"files[]\" data-input multiple>",
 		  "        <span class=\"form-file__text\">",
 		  "            Загрузка файлов",
 		  "        </span>",
@@ -242,5 +246,30 @@
 		  "</label>"
 		],
 		"description": "form file multiple"
-	},  
+	}, 
+	"form-radio-group": {
+		"prefix": "form-radio-group",
+		"scope": "html,php",
+		"body": [
+		  "<div class=\"form-radio-group\">",
+		  "    <label class=\"form-radio\">",
+		  "        <input class=\"form-radio__input\" type=\"radio\" name=\"text\" data-input>",
+		  "        <span class=\"form-radio__box\">text</span>",
+		  "    </label>",
+		  "    <label class=\"form-radio\">",
+		  "        <input class=\"form-radio__input\" type=\"radio\" name=\"text\" data-input>",
+		  "        <span class=\"form-radio__box\">text</span>",
+		  "    </label>",
+		  "    <label class=\"form-radio\">",
+		  "        <input class=\"form-radio__input\" type=\"radio\" name=\"text\" data-input>",
+		  "        <span class=\"form-radio__box\">text</span>",
+		  "    </label>",
+		  "    <label class=\"form-radio\">",
+		  "        <input class=\"form-radio__input\" type=\"radio\" name=\"text\" data-input>",
+		  "        <span class=\"form-radio__box\">text</span>",
+		  "    </label>",
+		  "</div>"
+		],
+		"description": "form-radio-group"
+	  } 
 }

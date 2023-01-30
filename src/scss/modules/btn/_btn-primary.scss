@@ -1,21 +1,35 @@
-.btn--primary {
+.btn-primary {
     --dp-flex: flex;
     display: var(--dp-flex);
     align-items: center;
     justify-content: center;
+    //*
     font-weight: 500;
+    //*
     border-radius: 500px;
-    background:  $btn-bg;   
-    color: $btn-color;
-    .icon {
-        color: $btn-color;
-    }
-    @media (pointer: fine) {
-        &:hover {
-            background: $btn-bg-hover;    
+
+    &._icon {
+        justify-content: space-between;
+        .icon {
+            
+            &._left {
+                margin-left: size(20);
+            }
+            &._right {
+                margin-right: size(20);
+            }
         }
     }
-    &:active {
-        background: $btn-bg-hover;    
+    &._sm {
+        min-height: size(50);
+        padding: size(10) size(20);
+    }
+    &._md {
+        min-height: size(60);
+        padding: size(10) size(25);
+    }
+    &._lg {
+        min-height: size(70);
+        padding: size(10) size(30);
     }
 }

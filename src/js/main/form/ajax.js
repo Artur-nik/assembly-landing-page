@@ -1,33 +1,40 @@
 
 $('.js-form').submit(function(){
     const formName = $(this);
+    const formNameThis = this;
 // 
+    
     formName.find('button').prop('disabled', true);
     formName.find('.form-send__message').fadeIn(350);
 // 
-    var data = new FormData();  
+    const data = new FormData();  
 // 
-    formName.find(':input[name]').each(function(i, element) { 
-        if (element.type == 'file' && element.multiple){
-            var files = element.files;
+    formName.find(':input[name]').each(function(i, $input) { 
+        if ($input.type == 'file' && $input.multiple){
+            let files = $input.files;
             for (var i = 0; i < files.length; i++) {
             	data.append('files[]', files[i]);
             }
         }
-        else if (element.type == 'file') {
-            data.append($(element).attr('name'), $(element).prop('files')[0]);
+        else if ($input.type == 'file') {
+            data.append($($input).attr('name'), $($input).prop('files')[0]);
+        }
+        else if ($input.type == 'radio' && $input.type == 'checkbox'){
+            let field = $(this);
+            if ($input.checked) {
+                data.append(field.attr('name'), field.val());
+            }
         }
         else {
-            var field = $(this);
+            let field = $(this);
             if (field.val()) {
                 data.append(field.attr('name'), field.val());
             }
         }
     });
 // 
-// 
     $.ajax({
-        url:  'form/form.php', 
+        url: formNameThis.attributes.action.value || 'form/form.php', 
         type:  "POST",
         data: data,
         contentType: false,
@@ -38,12 +45,6 @@ $('.js-form').submit(function(){
             formName.find(".form-send__success").show(),
             formName.trigger("reset"),
 // 
-            formName.find(':input[name]').each(function( index, element ) {
-                if (element.required) {
-                    $(this).parent('.form-field').removeClass('_required');
-                }
-            });
-            $('.form-textarea').removeClass('_required');
 
             setTimeout(function () {
               formName.find(".form-send__message").fadeOut();
