@@ -1,6 +1,6 @@
 Fancybox.bind("[data-fancybox]", {
-    Thumbs: {
-        autoStart: false,
+    Thumbs:  {
+      autoStart: false,
     },
     Image: {
       zoom: false

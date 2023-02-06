@@ -1,5 +1,5 @@
 /*
-    data-parallax="y: 1rem, x: 1rem, scrub, marker"
+    data-scroll-item="y: 1rem, x: 1rem, scrub, marker"
 */
 //*
 ScrollTrigger.matchMedia({

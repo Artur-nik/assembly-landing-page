@@ -6,9 +6,9 @@
   --columns: 12;
   --adaptive-box: 100%;
   --body-font-size: 0.14rem;
-  --gap-x: 20px;
-  --gap-y: 20px;
-  --container-gap: 15px;
+  --gap-x: 0.2rem;
+  --gap-y: 0.2rem;
+  --container-gap: 0.1rem;
 }
 
 body {
@@ -269,7 +269,7 @@ br {
   background-color: #000;
 }
 
-.delay-100 {
+._delay-100 {
   -webkit-animation-delay: 100ms;
           animation-delay: 100ms;
 }
@@ -442,6 +442,24 @@ br {
 
 .btn--theme-outline:active .icon {
   color: #fff;
+}
+
+.menu {
+  --dp-block: block;
+  display: var(--dp-block);
+}
+
+.menu__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menu__list-item {
+  margin-right: 0.4rem;
+}
+
+.menu__link {
+  color: currentColor;
 }
 
 .swiper-container {
@@ -1416,24 +1434,6 @@ textarea::placeholder {
 
 .form-send__error {
   display: none;
-}
-
-.menu {
-  --dp-block: block;
-  display: var(--dp-block);
-}
-
-.menu__list {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.menu__list-item {
-  margin-right: 0.4rem;
-}
-
-.menu__link {
-  color: currentColor;
 }
 
 /* 
@@ -2563,6 +2563,7 @@ textarea::placeholder {
 }
 
 .menu-toggle {
+  --menu-toggle-icon-active-size: 1em;
   --menu-toggle-icon-top-width: 1em;
   --menu-toggle-icon-center-width: 0.8em;
   --menu-toggle-icon-bottom-width: 0.6em;
@@ -2583,7 +2584,6 @@ textarea::placeholder {
 
 .menu-toggle._active .menu-toggle__icon span:after,
 .menu-toggle._active .menu-toggle__icon span:before {
-  width: 0.4rem;
   bottom: 0;
   -webkit-transition: bottom 0.3s 0.3s,  width 0.3s 0s,  -webkit-transform 0.3s 0.6s;
   transition: bottom 0.3s 0.3s,  width 0.3s 0s,  -webkit-transform 0.3s 0.6s;
@@ -2593,35 +2593,15 @@ textarea::placeholder {
 }
 
 .menu-toggle._active .menu-toggle__icon span:after {
+  --menu-toggle-icon-top-width: var(--menu-toggle-icon-active-size);
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 
 .menu-toggle._active .menu-toggle__icon span:before {
+  --menu-toggle-icon-bottom-width: var(--menu-toggle-icon-active-size);
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
-}
-
-.menu-toggle._active .menu-toggle__icon span._center:before {
-  width: 0.4rem;
-  bottom: 0;
-  -webkit-transition: bottom 0.3s 0.3s,  margin-left 0.3s 0s, width 0.3s 0s,  -webkit-transform 0.3s 0.6s;
-  transition: bottom 0.3s 0.3s,  margin-left 0.3s 0s, width 0.3s 0s,  -webkit-transform 0.3s 0.6s;
-  -o-transition: transform 0.3s 0.6s,  bottom 0.3s 0.3s,  margin-left 0.3s 0s, width 0.3s 0s;
-  transition: transform 0.3s 0.6s,  bottom 0.3s 0.3s,  margin-left 0.3s 0s, width 0.3s 0s;
-  transition: transform 0.3s 0.6s,  bottom 0.3s 0.3s,  margin-left 0.3s 0s, width 0.3s 0s,  -webkit-transform 0.3s 0.6s;
-}
-
-.menu-toggle._active .menu-toggle__icon span._center:after {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-  margin-left: -0.5em;
-}
-
-.menu-toggle._active .menu-toggle__icon span._center:before {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-  margin-left: -0.5em;
 }
 
 .menu-toggle__icon {
@@ -2699,22 +2679,12 @@ textarea::placeholder {
   margin-left: auto;
 }
 
-.menu-toggle__icon span._center:after,
-.menu-toggle__icon span._center:before {
-  left: 50%;
-  -webkit-transition: bottom 0.3s 0.3s,  margin-left 0.3s 0.6s,  width 0.3s 0.6s,  -webkit-transform 0.3s  0s;
-  transition: bottom 0.3s 0.3s,  margin-left 0.3s 0.6s,  width 0.3s 0.6s,  -webkit-transform 0.3s  0s;
-  -o-transition: transform 0.3s  0s,  bottom 0.3s 0.3s,  margin-left 0.3s 0.6s,  width 0.3s 0.6s;
-  transition: transform 0.3s  0s,  bottom 0.3s 0.3s,  margin-left 0.3s 0.6s,  width 0.3s 0.6s;
-  transition: transform 0.3s  0s,  bottom 0.3s 0.3s,  margin-left 0.3s 0.6s,  width 0.3s 0.6s,  -webkit-transform 0.3s  0s;
-}
-
 .menu-toggle__icon span._center:after {
-  margin-left: calc(var(--menu-toggle-icon-top-width) / -2);
+  left: calc(50% - (var(--menu-toggle-icon-top-width) / 2));
 }
 
 .menu-toggle__icon span._center:before {
-  margin-left: calc(var(--menu-toggle-icon-bottom-width) / -2);
+  left: calc(50% - (var(--menu-toggle-icon-bottom-width) / 2));
 }
 
 .menu-toggle__text {
@@ -3371,7 +3341,7 @@ textarea::placeholder {
     max-width: 12rem;
   }
 
-  .delay-100\@lg {
+  ._delay-100\@lg {
     -webkit-animation-delay: 100ms;
             animation-delay: 100ms;
   }
