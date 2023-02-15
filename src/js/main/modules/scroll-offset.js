@@ -21,13 +21,13 @@ function conditionScrollOffset(id, $condition) {
 //*
 function scrollOffset(id, $condition) {
     conditionScrollOffset(id, $condition || 'open')
-    if (conditionScrollOffset() === 1) {
+    if (scrollOffsetlist.length === 1) {
         document.body.style.overflow = 'hidden';
         document.querySelectorAll('[data-scroll-trigger]').forEach(element => {
             element.classList.add('scroll-offset');
         });
     }
-    if (conditionScrollOffset() === 0) {
+    if (scrollOffsetlist.length === 0) {
         document.body.style.overflow = '';
         document.querySelectorAll('[data-scroll-trigger]').forEach(element => {
             element.classList.remove('scroll-offset');
