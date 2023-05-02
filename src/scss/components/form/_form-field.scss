@@ -1,24 +1,16 @@
 .form-field {
-    --dp-block: block;
-    display: var(--dp-block);
+    --dp-flex: flex;
+    display: var(--dp-flex);
+    align-items: center;
+    //*
     position: relative;
     width: 100%;
     font-size: size(18);
     border: 1px solid $color-primary;
-    @media (pointer: fine) {
-        &:hover {
-            color: #000;
-        }
-        &:active {
-            color: #000;
-        }
-    }
-    &:active {
-        color: #000;
-    }
+    --field-input-color: #000;
     //*
     &__input {
-        color: currentColor;
+        color: var(--field-input-color);
         width: 100%;
         display: block;
         &::placeholder {
@@ -31,7 +23,7 @@
             }
         }
         &:-webkit-autofill {
-            -webkit-text-fill-color: currentColor;
+            -webkit-text-fill-color: var(--field-input-color);
             transition: background-color 500000s ease-in-out 0s;
         }
     }
@@ -53,20 +45,18 @@
         top: 50%;
         transform: translateY(-50%);
         pointer-events: none;
+        width: 100%;
     }
     &__text {
         color: currentColor;
         span {
-            color: red;
+            color: $color-primary;
         }
     }
     &__error,
     &__required {
-        color: red;
+        color: $color-primary;
         width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
         opacity: 0;
     }
     //* Mod invalid (class js)

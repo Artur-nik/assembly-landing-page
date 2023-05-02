@@ -1,142 +1,155 @@
-(function (a) {
-  a.fn.twentytwenty = function (b) {
-    var b = a.extend(
-      {
-        default_offset_pct: 0.5,
-        orientation: "horizontal",
-        before_label: "Before",
-        after_label: "After",
-        no_overlay: true,
-        move_slider_on_hover: false,
-        move_with_handle_only: true,
-        click_to_move: false,
-      },
-      b
-    );
-    return this.each(function () {
-      var x = b.default_offset_pct;
-      var h = a(this);
-      var c = b.orientation;
-      var m = c === "vertical" ? "down" : "left";
-      var e = c === "vertical" ? "up" : "right";
-      h.wrap("<div class='twentytwenty-wrapper twentytwenty-" + c + "'></div>");
-      if (!b.no_overlay) {
-        h.append("<div class='twentytwenty-overlay'></div>");
-        var t = h.find(".twentytwenty-overlay");
-        t.append(
-          "<div class='twentytwenty-before-label' data-content='" +
-            b.before_label +
-            "'></div>"
-        );
-        t.append(
-          "<div class='twentytwenty-after-label' data-content='" +
-            b.after_label +
-            "'></div>"
-        );
+
+(function($){
+
+  $.fn.twentytwenty = function(options) {
+    var options = $.extend({
+      default_offset_pct: 0.5,
+      orientation: 'horizontal',
+      before_label: 'Before',
+      after_label: 'After',
+      no_overlay: true,
+      move_slider_on_hover: false,
+      move_with_handle_only: true,
+      click_to_move: false
+    }, options);
+
+    return this.each(function() {
+
+      var sliderPct = options.default_offset_pct;
+      var container = $(this);
+      var sliderOrientation = options.orientation;
+      var beforeDirection = (sliderOrientation === 'vertical') ? 'down' : 'left';
+      var afterDirection = (sliderOrientation === 'vertical') ? 'up' : 'right';
+
+
+      container.wrap("<div class='twentytwenty-wrapper twentytwenty-" + sliderOrientation + "'></div>");
+      if(!options.no_overlay) {
+        container.append("<div class='twentytwenty-overlay'></div>");
+        var overlay = container.find(".twentytwenty-overlay");
+        overlay.append("<div class='twentytwenty-before-label' data-content='"+options.before_label+"'></div>");
+        overlay.append("<div class='twentytwenty-after-label' data-content='"+options.after_label+"'></div>");
       }
-      var n = h.find("img:first");
-      var l = h.find("img:last");
-      h.append("<div class='twentytwenty-handle'></div>");
-      var k = h.find(".twentytwenty-handle");
-      k.append('<svg class="icon"><use xlink:href="svg-sprite/sprite.svg#arrow"></use></svg>');
-      k.append('<svg class="icon rotate"><use xlink:href="svg-sprite/sprite.svg#arrow"></use></svg>');
-      h.addClass("twentytwenty-container");
-      n.addClass("twentytwenty-before");
-      l.addClass("twentytwenty-after");
-      var v = function (z) {
-        var y = n.width();
-        var A = n.height();
-        return { w: y + "px", h: A + "px", cw: z * y + "px", ch: z * A + "px" };
+      var beforeImg = container.find("img:first");
+      var afterImg = container.find("img:last");
+      container.append("<div class='twentytwenty-handle'></div>");
+      var slider = container.find(".twentytwenty-handle");
+      
+      slider.append('<div class="btn btn--theme-primary"><svg class="icon"><use xlink:href="svg-sprite/sprite.svg#arrow-duo"></use></svg></div>');
+      var sliderBtn = container.find(".btn");
+      container.addClass("twentytwenty-container");
+      beforeImg.addClass("twentytwenty-before");
+      afterImg.addClass("twentytwenty-after");
+
+      var calcOffset = function(dimensionPct) {
+        var w = beforeImg.width();
+        var h = beforeImg.height();
+        return {
+          w: w+"px",
+          h: h+"px",
+          cw: (dimensionPct*w)+"px",
+          ch: (dimensionPct*h)+"px"
+        };
       };
-      var o = function (y) {
-        if (c === "vertical") {
-          n.css("clip", "rect(0," + y.w + "," + y.ch + ",0)");
-          l.css("clip", "rect(" + y.ch + "," + y.w + "," + y.h + ",0)");
-        } else {
-          n.css("clip", "rect(0," + y.cw + "," + y.h + ",0)");
-          l.css("clip", "rect(0," + y.w + "," + y.h + "," + y.cw + ")");
-        }
-        //h.css("height", y.h);
+
+      var adjustContainer = function(offset) {
+      	if (sliderOrientation === 'vertical') {
+          beforeImg.css("clip", "rect(0,"+offset.w+","+offset.ch+",0)");
+          afterImg.css("clip", "rect("+offset.ch+","+offset.w+","+offset.h+",0)");
+      	}
+      	else {
+          beforeImg.css("clip", "rect(0,"+offset.cw+","+offset.h+",0)");
+          afterImg.css("clip", "rect(0,"+offset.w+","+offset.h+","+offset.cw+")");
+    	}
+        container.css("height", offset.h);
       };
-      var d = function (y) {
-        var z = v(y);
-        k.css(
-          c === "vertical" ? "top" : "left",
-          c === "vertical" ? z.ch : z.cw
-        );
-        o(z);
+
+      var adjustSlider = function(pct) {
+        var offset = calcOffset(pct);
+        slider.css(
+          (sliderOrientation==="vertical") ? "top" : "transform", 
+          (sliderOrientation==="vertical") ? offset.ch : `translateX(${offset.cw})`);
+        adjustContainer(offset);
       };
-      var i = function (z, A, y) {
-        return Math.max(A, Math.min(y, z));
+
+      // Return the number specified or the min/max number if it outside the range given.
+      var minMaxNumber = function(num, min, max) {
+        return Math.max(min, Math.min(max, num));
       };
-      var j = function (A, z) {
-        var y = c === "vertical" ? (z - s) / r : (A - u) / g;
-        return i(y, 0, 1);
+
+      // Calculate the slider percentage based on the position.
+      var getSliderPercentage = function(positionX, positionY) {
+        var sliderPercentage = (sliderOrientation === 'vertical') ?
+          (positionY-offsetY)/imgHeight :
+          (positionX-offsetX)/imgWidth;
+
+        return minMaxNumber(sliderPercentage, 0, 1);
       };
-      a(window).on("resize.twentytwenty", function (y) {
-        d(x);
+
+
+      $(window).on("resize.twentytwenty", function(e) {
+        adjustSlider(sliderPct);
       });
-      var u = 0;
-      var s = 0;
-      var g = 0;
-      var r = 0;
-      var w = function (y) {
-        if (
-          ((y.distX > y.distY && y.distX < -y.distY) ||
-            (y.distX < y.distY && y.distX > -y.distY)) &&
-          c !== "vertical"
-        ) {
-          y.preventDefault();
-        } else {
-          if (
-            ((y.distX < y.distY && y.distX < -y.distY) ||
-              (y.distX > y.distY && y.distX > -y.distY)) &&
-            c === "vertical"
-          ) {
-            y.preventDefault();
-          }
+
+      var offsetX = 0;
+      var offsetY = 0;
+      var imgWidth = 0;
+      var imgHeight = 0;
+      var onMoveStart = function(e) {
+        console.log(e);
+        if (((e.distX > e.distY && e.distX < -e.distY) || (e.distX < e.distY && e.distX > -e.distY)) && sliderOrientation !== 'vertical') {
+          e.preventDefault();
         }
-        h.addClass("active");
-        u = h.offset().left;
-        s = h.offset().top;
-        g = n.width();
-        r = n.height();
+        else if (((e.distX < e.distY && e.distX < -e.distY) || (e.distX > e.distY && e.distX > -e.distY)) && sliderOrientation === 'vertical') {
+          e.preventDefault();
+        }
+        container.addClass("active");
+        offsetX = container.offset().left;
+        offsetY = container.offset().top;
+        imgWidth = beforeImg.width(); 
+        imgHeight = beforeImg.height();          
       };
-      var f = function (y) {
-        if (h.hasClass("active")) {
-          x = j(y.pageX, y.pageY);
-          d(x);
+      var onMove = function(e) {
+        if (container.hasClass("active")) {
+          sliderPct = getSliderPercentage(e.pageX, e.pageY);
+          adjustSlider(sliderPct);
         }
       };
-      var q = function () {
-        h.removeClass("active");
+      var onMoveEnd = function() {
+          container.removeClass("active");
       };
-      var p = b.move_with_handle_only ? k : h;
-      p.on("movestart", w);
-      p.on("move", f);
-      p.on("moveend", q);
-      if (b.move_slider_on_hover) {
-        h.on("mouseenter", w);
-        h.on("mousemove", f);
-        h.on("mouseleave", q);
+
+      var moveTarget = options.move_with_handle_only ? sliderBtn : container;
+      moveTarget.on("movestart",onMoveStart);
+      moveTarget.on("move",onMove);
+      moveTarget.on("moveend",onMoveEnd);
+
+      if (options.move_slider_on_hover) {
+        container.on("mouseenter", onMoveStart);
+        container.on("mousemove", onMove);
+        container.on("mouseleave", onMoveEnd);
       }
-      k.on("touchmove", function (y) {
-        y.preventDefault();
+
+      sliderBtn.on("touchmove", function(e) {
+        e.preventDefault();
       });
-      h.find("img").on("mousedown", function (y) {
-        y.preventDefault();
+
+      container.find("img").on("mousedown", function(event) {
+        event.preventDefault();
       });
-      if (b.click_to_move) {
-        h.on("click", function (y) {
-          u = h.offset().left;
-          s = h.offset().top;
-          g = n.width();
-          r = n.height();
-          x = j(y.pageX, y.pageY);
-          d(x);
+
+      if (options.click_to_move) {
+        container.on('click', function(e) {
+          offsetX = container.offset().left;
+          offsetY = container.offset().top;
+          imgWidth = beforeImg.width();
+          imgHeight = beforeImg.height();
+
+          sliderPct = getSliderPercentage(e.pageX, e.pageY);
+          adjustSlider(sliderPct);
         });
       }
-      a(window).trigger("resize.twentytwenty");
+
+      $(window).trigger("resize.twentytwenty");
     });
   };
 })(jQuery);

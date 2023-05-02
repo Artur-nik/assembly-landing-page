@@ -1,10 +1,17 @@
 {
-  "name": "assembly-landing-page ",
+  "name": "assembly-landing-page",
   "version": "1.1.0",
   "description": "",
-  "main": "./gulpfile/main.js",
+  "main": "gulpfile.js",
+  "type": "module",
   "author": "Artur Nikora",
   "license": "ISC",
+  "scripts": {
+    "dev": "gulp",
+    "build": "gulp BUILD --build",
+    "demo": "gulp DEMO --demo",
+    "font": "gulp FONT"
+  },
   "engines": {
     "node": ">=14.0.0 <15.0.0"
   },
@@ -12,6 +19,8 @@
     "browser-sync": "^2.26.7",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
+    "json5": "^2.2.1",
+    "glob": "8.0.3",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-cheerio": "^1.0.0",
     "gulp-concat": "^2.6.1",
@@ -26,6 +35,7 @@
     "gulp-svgmin": "^3.0.0",
     "gulp-ttf2woff": "^1.1.1",
     "gulp-ttf2woff2": "^4.0.1",
-    "gulp-uglify-es": "^2.0.0"
+    "gulp-uglify-es": "^2.0.0",
+    "gulp-w3c-html-validator": "^5.1.3"
   }
 }

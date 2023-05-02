@@ -1,4 +1,4 @@
-set path=slider
+set path=tab
 
 set scss= scss/components/%path%
 set js= js/main/components/%path%

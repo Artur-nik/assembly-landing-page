@@ -34,7 +34,7 @@ $('.js-form').submit(function(){
     });
 // 
     $.ajax({
-        url: formNameThis.attributes.action.value || 'form/form.php', 
+        url: formNameThis.attributes.action ? formNameThis.attributes.action.value : 'form/form.php', 
         type:  "POST",
         data: data,
         contentType: false,
@@ -45,7 +45,6 @@ $('.js-form').submit(function(){
             formName.find(".form-send__success").show(),
             formName.trigger("reset"),
 // 
-
             setTimeout(function () {
               formName.find(".form-send__message").fadeOut();
             }, 3500);

@@ -10,25 +10,16 @@
 
     &._icon {
         justify-content: space-between;
-        .icon {
-            
-            &._left {
-                margin-left: size(20);
-            }
-            &._right {
-                margin-right: size(20);
-            }
-        }
     }
-    &._sm {
+    &--sm {
         min-height: size(50);
         padding: size(10) size(20);
     }
-    &._md {
+    &--md {
         min-height: size(60);
         padding: size(10) size(25);
     }
-    &._lg {
+    &--lg {
         min-height: size(70);
         padding: size(10) size(30);
     }

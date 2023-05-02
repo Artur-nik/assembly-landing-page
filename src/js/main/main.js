@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
     @@include("section/index.js",{})
     
     @@include("template/index.js",{})
+    @@include("pages/pages.g.js",{})
 
     @@include("preloader.js",{})
 });

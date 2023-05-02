@@ -19,3 +19,17 @@
     align-items: var(--align);
     justify-items: var(--justify);
 }
+//*
+//.grid-flex {
+//    --dp-flex: flex;
+//    display: var(--dp-flex);
+//    flex-wrap: wrap;
+//    margin: 0 calc(var(--grid-gap-x) / -2) calc(var(--grid-gap-y) / -1);
+//    &>* {
+//        flex: 0 0 auto;
+//        width: 100%;
+//        max-width: calc(100% / (var(--grid-columns) / var(--col)));
+//        padding: 0 calc(var(--grid-gap-x) / 2);
+//        margin: 0 0 calc(var(--grid-gap-y));
+//    }
+//}

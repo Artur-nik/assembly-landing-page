@@ -30,28 +30,38 @@
         padding-bottom: size(100);
     }
     &__close {
-        
+        //height: 1em;
+        //width: 1em;
+        //border-radius: 50%;
+        //display: flex;
+        //align-items: center;
+        //justify-content: center;
+        //background-color: $color-primary;
+        //font-size: size(40);
+        //@include media(lg) {
+        //     font-size: size(60);
+        //}
+        //.icon {
+        //    font-size: size(20,60,'em');
+        //}
         .icon {
-            color: #000;        
+            color: $color-primary;        
         }
         @media (pointer: fine) {
             &:hover {
-                
                 .icon {
-                    color: #000;        
+                    color: $color-primary-hover;        
                 }
             }
             &:active {
-                
                 .icon {
-                    color: #000;        
+                    color: $color-primary-active;        
                 }
             }
         }
         &:active {
-            
             .icon {
-                color: #000;        
+                color: $color-primary-active;           
             }
         }
     }

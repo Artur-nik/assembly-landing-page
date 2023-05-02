@@ -1,26 +1,40 @@
-﻿const { src, dest, parallel, series, watch } = require('gulp');
-const sass          = require('gulp-sass');
-const sourcemaps    = require('gulp-sourcemaps');
-const browserSync   = require('browser-sync').create();
-const del           = require('del');
-const gcmq          = require('gulp-group-css-media-queries');
-const autoprefixer  = require('gulp-autoprefixer');
-const fileinclude   = require('gulp-file-include');
-const uglify        = require('gulp-uglify-es').default;
-const cssnano       = require('gulp-cssnano');
-const concat        = require('gulp-concat');
-const svgmin        = require('gulp-svgmin');
-const svgSprite     = require('gulp-svg-sprite');
-const cheerio       = require('gulp-cheerio');
-const replace       = require('gulp-replace');
-const ttf2woff      = require('gulp-ttf2woff');
-const ttf2woff2     = require('gulp-ttf2woff2');
+﻿import gulp from "gulp"
+const { src, dest, parallel, series, watch } = gulp
+import sass from "gulp-sass";
+import sourcemaps from "gulp-sourcemaps";
+import browserSync from "browser-sync";
+import del from "del";
+import gcmq from "gulp-group-css-media-queries";
+import autoprefixer from "gulp-autoprefixer";
+import fileinclude from "gulp-file-include";
+import uglifyEs from "gulp-uglify-es";
+const uglify = uglifyEs.default;
+import cssnano from "gulp-cssnano";
+import concat from "gulp-concat";
+import svgmin from "gulp-svgmin";
+import svgSprite from "gulp-svg-sprite";
+import cheerio from "gulp-cheerio";
+import replace from "gulp-replace";
+import ttf2woff from "gulp-ttf2woff";
+import ttf2woff2 from "gulp-ttf2woff2";
+import parseHTMLClass from "./core/parseHTMLClass.js";
+import addFilePage from "./core/pages.js";
 
 //* src  -  файлы разработки
 
 //* src  -  файлы разработки
 
 let way = "app";
+
+global.app = {
+    page: []
+}
+
+let isDemo = false
+//? 
+if (process.argv.includes('--demo')) {
+    isDemo = true
+}
 
 let path = {
     build: {
@@ -38,14 +52,10 @@ let path = {
         files:          way + "/files/",
     },
     src: {
-        html:           [
-                            "./src/template/*.html", 
-                            "./src/template/page/*.html", 
-                        ],
         php:            "./src/form/*.php",
         PHPMailer:      "./src/PHPMailer/**/*",
         css:            "./src/css/*css",
-        scss:           "./src/scss/**/*scss",
+        scss:           "./src/scss/*scss",
         files:          "./src/files/**/*",
         
         //*       
@@ -59,12 +69,11 @@ let path = {
                             "./src/js/libraries/jquery.maskedinput.min.js",
                             "./src/js/libraries/anime.min.js",
                             //"./src/js/libraries/fancybox.umd.js",
-                            //"./src/js/libraries/gsap.min.js",
-                            //"./src/js/libraries/ScrollTrigger.min.js",
+                            "./src/js/libraries/gsap.min.js",
+                            "./src/js/libraries/ScrollTrigger.min.js",
                             //"./src/js/libraries/jquery.event.move.js",
                             //"./src/js/libraries/jquery.nice-select.min.js",
                             //"./src/js/libraries/jquery.twentytwenty.js",
-                            //"./src/js/libraries/simplebar.min.js",
                             //"./src/js/libraries/simplebar.min.js",
                             "./src/js/libraries/wow.js"
                         ],
@@ -72,7 +81,7 @@ let path = {
 
         images:         [
                             "./src/images/**/*",
-                            '!' + "./src/images/webp/**/*",
+                            "!" + "./src/images/webp/**/*",
                         ],
         imagesWebp:     "./src/images/webp/**/*",
         favicon:        "./src/favicon/*",
@@ -80,15 +89,16 @@ let path = {
     },
     watch: {
         html:           [
-                            "./src/template/**/*.html"
+                            "./src/template/**/*.html",
+                            "./src/pages/**/*.html"
                         ],
         php:            "./src/form/*.php",
         css:            "./src/css/*css",
-        scss:           "./src/scss/**/*.scss",
+        scss:           ["./src/scss/**/*.scss", "./src/pages/**/*.scss"],
 
         files:          "./src/files/**/*",
 
-        js_main:        "./src/js/main/**/*.js",
+        js_main:        ["./src/js/main/**/*.js", "./src/pages/**/*.js" ],
         js_libraries:   "./src/js/libraries/*js",
         js_dist:        "./src/js/dist/*js",
 
@@ -115,19 +125,22 @@ let path = {
                         way + "/files/",
     ],
     cleanimg:           way + "/images/**/*",
+    demo: {
+        src: "./src/template/demo/index.html",
+    } 
 }
 
 const _Browserslist = [
-    '>0.5%',
-    'last 4 versions',
-    'edge <= 79',
-    'not ie <= 11', 
-    'not ie_mob > 0',  
-    'ff >= 52',
-    'chrome >= 61',
-    'opera >= 60',
-    'safari >= 12.1',
-    'ios >= 12.2',
+    ">0.5%",
+    "last 4 versions",
+    "edge <= 79",
+    "not ie <= 11", 
+    "not ie_mob > 0",  
+    "ff >= 52",
+    "chrome >= 61",
+    "opera >= 60",
+    "safari >= 12.1",
+    "ios >= 12.2",
 ]
 
 // Определяем логику работы Browsersync
@@ -150,8 +163,17 @@ function favicon() {
 }
 //  
 function html() {
-    return src(path.src.html)
+    return src(app.page)
     .pipe(fileinclude()) // сборка html файлов
+    .pipe(parseHTMLClass())
+    .pipe(dest(path.build.html))
+    .pipe(browserSync.stream());
+}
+//  
+function demoHtml() {
+    return src(path.demo.src)
+    .pipe(fileinclude()) // сборка html файлов
+    .pipe(parseHTMLClass())
     .pipe(dest(path.build.html))
     .pipe(browserSync.stream());
 }
@@ -201,14 +223,14 @@ function css() {
 function js_main() {
     return src(path.src.js_main)
     .pipe(fileinclude())
-    .pipe(concat('main.js'))        // объединяем
+    .pipe(concat("main.js"))        // объединяем
     .pipe(uglify())                 // сжимаем
     .pipe(dest(path.build.js_main))      // отправляем
     .pipe(browserSync.stream())
 }
 function js_libraries() {
     return src(path.src.js_libraries)
-    .pipe(concat('libraries.js'))        // объединяем 
+    .pipe(concat("libraries.js"))        // объединяем 
     .pipe(dest(path.build.js_libraries)) 
     .pipe(browserSync.stream());
 }
@@ -225,16 +247,22 @@ function files() {
 }
 // watch
 function startwatch() {
-    watch(path.watch.scss,          styles);    
-    watch(path.watch.css,           css);       
-    watch(path.watch.js_main,       js_main);   
-    watch(path.watch.js_libraries,  js_libraries);   
-    watch(path.watch.js_dist,       js_dist);   
-    watch(path.watch.html,          html);      
-    watch(path.watch.php,           php);      
-    watch(path.watch.img,           images);   
-    watch(path.watch.svg,           svg);
-    watch(path.watch.files,         files);
+    if (isDemo) {
+        watch(path.watch.html,          {ignorePermissionErrors: true}, demoHtml);   
+    }
+    else {
+        watch('./src/pages/pages.json', {ignorePermissionErrors: true}, addFilePage);   
+        watch(path.watch.html,          {ignorePermissionErrors: true}, html);   
+    }
+    watch(path.watch.scss,          {ignorePermissionErrors: true}, styles);    
+    watch(path.watch.css,           {ignorePermissionErrors: true}, css);       
+    watch(path.watch.js_main,       {ignorePermissionErrors: true}, js_main);   
+    watch(path.watch.js_libraries,  {ignorePermissionErrors: true}, js_libraries);   
+    watch(path.watch.js_dist,       {ignorePermissionErrors: true}, js_dist);   
+    watch(path.watch.php,           {ignorePermissionErrors: true}, php);      
+    watch(path.watch.img,           {ignorePermissionErrors: true}, images);   
+    watch(path.watch.svg,           {ignorePermissionErrors: true}, svg);
+    watch(path.watch.files,         {ignorePermissionErrors: true}, files);
 }
 // fonts
 function fontsBuild(){
@@ -287,14 +315,14 @@ function svg() {
     }))
     .pipe(cheerio({
         run: function ($) {
-            //$('[fill]').removeAttr('fill');
-            //$('[stroke]').removeAttr('stroke');
-            //$('[style]').removeAttr('style');
-            $('[xmlns]').removeAttr('xmlns');
+            //$("[fill]").removeAttr("fill");
+            //$("[stroke]").removeAttr("stroke");
+            //$("[style]").removeAttr("style");
+            $("[xmlns]").removeAttr("xmlns");
         },
         parserOptions: {xmlMode: true}
     }))
-    .pipe(replace('&gt;', '>'))
+    .pipe(replace("&gt;", ">"))
     .pipe(svgSprite({
         mode: {
             symbol: {
@@ -304,6 +332,7 @@ function svg() {
         },
         svg: {
             xmlDeclaration: false,
+            namespaceClassnames: false
         }
     }))
     .pipe(dest(path.build.svg))
@@ -313,29 +342,18 @@ function svg() {
 function cleandest() {
     return del(path.clean);
 }
+
 //
-exports.stylesBuild = stylesBuild;
-exports.browser_sync = browser_sync;
-exports.html = html;
-exports.php = php;
-exports.PHPMailer = PHPMailer;
-exports.js_main = js_main;
-exports.js_libraries = js_libraries;
-exports.js_dist = js_dist;
-exports.files = files;
-exports.styles = styles;
-exports.startwatch = startwatch;
-exports.cleandest = cleandest;
-exports.images = images;
-exports.imagesWebp = imagesWebp;
-exports.imagesDel = imagesDel;
-exports.css = css;
-exports.fontsBuild = fontsBuild;
-exports.svg = svg;
-exports.favicon = favicon;
-exports.fontsWoff = fontsWoff;
-exports.fontsWoff2 = fontsWoff2;
-//
-exports.font = series(fontsWoff, fontsWoff2);
-exports.build = series(cleandest, favicon, fontsBuild, stylesBuild, css,files, js_main, js_libraries, js_dist, html, php, PHPMailer, series(imagesDel, images), svg);
-exports.default = series(cleandest, favicon, fontsBuild, parallel(styles, css, js_main, js_libraries, js_dist, browser_sync, html, php, PHPMailer, series(imagesDel, images), svg,files, startwatch));
+const FONT =   series(fontsWoff, fontsWoff2);
+const BUILD =  series( cleandest, favicon, fontsBuild, addFilePage, stylesBuild, css, files, js_main, js_libraries, js_dist, html, php, PHPMailer, series(imagesDel, images), svg);
+const DEMO =   series( cleandest, favicon, fontsBuild, addFilePage, parallel(styles, css, js_main, js_libraries, js_dist, browser_sync, demoHtml, php, PHPMailer, series(imagesDel, images), svg, files, startwatch));
+const DEV = series( cleandest, favicon, fontsBuild, addFilePage, parallel(styles, css, js_main, js_libraries, js_dist, browser_sync, html, php, PHPMailer, series(imagesDel, images), svg,files, startwatch));
+//const DEV = series(  addFilePage, parallel(browser_sync, startwatch));
+
+export { 
+    FONT,
+    BUILD,
+    DEMO
+}
+
+gulp.task("default", DEV)

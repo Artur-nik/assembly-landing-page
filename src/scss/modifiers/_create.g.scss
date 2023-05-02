@@ -1,0 +1,7 @@
+.mb-20 { margin-bottom: size(20); }
+.mb-10 { margin-bottom: size(10); }
+.mb-30\@lg { @include media(lg) { margin-bottom: size(30); } }
+.t\:size-16 { font-size: size(16); }
+.t\:size-20\@lg { @include media(lg) { font-size: size(20); } }
+.t\:size-20 { font-size: size(20); }
+.t\:size-24\@lg { @include media(lg) { font-size: size(24); } }

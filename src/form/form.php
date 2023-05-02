@@ -42,18 +42,20 @@ $body = '<h1>Заявка с сайта </h1>';
 if (trim(!empty($_POST['form-title']))) {
     $body .= '<p><b>Форма:</b> ' . $_POST['form-title'] . '</p>';
 }
-
 if (trim(!empty($_POST['name']))) {
     $body .= '<p><b>Имя:</b> ' . $_POST['name'] . '</p>';
 }
 if (trim(!empty($_POST['phone']))) {
     $body .= '<p><b>Номер телефона:</b> ' . $_POST['phone'] . '</p>';
 }
-if (trim(!empty($_POST['question']))) {
-    $body .= '<p><b>Вопрос:</b> ' . $_POST['question'] . '</p>';
-}
 if (trim(!empty($_POST['email']))) {
     $body .= '<p><b>Email:</b> ' . $_POST['email'] . '</p>';
+}
+if (trim(!empty($_POST['comment']))) {
+    $body .= '<p><b>Комментарий:</b> ' . $_POST['comment'] . '</p>';
+}
+if (trim(!empty($_POST['info']))) {
+    $body .= '<p><b>Дополнительная информация:</b> ' . $_POST['info'] . '</p>';
 }
 
 //* один файл

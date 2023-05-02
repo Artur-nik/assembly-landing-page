@@ -4,5 +4,10 @@
     "src/css/*.css",
     "src/scss/**/*.scss",
     "src/template/**/*.html"
+  ],
+  "cssPeek.peekToExclude": [
+    "**/node_modules/**",
+    "**/bower_components/**",
+    "**/app/css/**"
   ]
 }

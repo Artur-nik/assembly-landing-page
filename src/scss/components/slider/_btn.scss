@@ -19,14 +19,24 @@
     }
     &-next {}
     &--center {
-        position: absolute;
-        transform: translateY(-50%);
-        top: 50%;
-        &.slider-button-prev {
-            right: calc(100% + #{size(20)});
+        @include media(lg) {
+            position: absolute;
+            transform: translateY(-50%);
+            top: 50%;
+            margin: 0 !important;
+            &.slider-button-prev {
+                right: calc(100% + #{size(20)});
+            }
+            &.slider-button-next {
+                left: calc(100% + #{size(20)});
+            }
         }
-        &.slider-button-next {
-            left: calc(100% + #{size(20)});
-        }
+    }
+    &.swiper-button-disabled {
+        pointer-events: none;
+        opacity: 0.7;
+    }
+    &.swiper-button-lock {
+        display: none;
     }
 }

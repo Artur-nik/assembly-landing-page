@@ -14,12 +14,19 @@ $('[data-modal-open]').on('click', function(){
         }
         //*
         if (modalBtn.data('modal-title')) {
-            $('.modal-form__title').text(modalBtn.data('modal-title'));
+            $('.modal [data-modal-title]').text(modalBtn.data('modal-title'));
             $('.modal .form-input-title').val('Pop-Up: ' + modalBtn.data('modal-title'));
         }
         else {
-            $('.modal-form__title').text($('.modal-form__title').data('modal-title'));
-            $('.modal .form-input-title').val('Pop-Up: ' + $('.modal-form__title').data('modal-title'));
+            $('.modal [data-modal-title]').text($('.modal [data-modal-title]').data('modal-title'));
+            $('.modal .form-input-title').val('Pop-Up: ' + $('.modal [data-modal-title]').data('modal-title'));
+        }
+        
+        if (modalBtn.data('info')) {
+            $('#input-info').val(modalBtn.data('info'));
+        }
+        else {
+            $('#input-info').val('');
         }
     });
     return false;

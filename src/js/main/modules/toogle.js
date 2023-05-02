@@ -59,7 +59,9 @@ function toggle($toggle) {
     }
     //*
     function toggleBox(config) {
-        const box = $(`[data-toggle-box="${config[0].trim()}"]`)
+        const box = $($toggle).parents('[data-toggle-wrapper]').length ? 
+                        $($toggle).parents('[data-toggle-wrapper]').find(`[data-toggle-box="${config[0].trim()}"]`) : 
+                            $(`[data-toggle-box="${config[0].trim()}"]`)
         const effect = config[1] || 'toggle'
         const duration = config[2] || 400
         const toggleClass = config[3] || null

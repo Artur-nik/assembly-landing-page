@@ -12,7 +12,9 @@
 		  "            <p class=\"form-send__success\">Спасибо, ваша заявка принята.  <br> Менеджер свяжется с вами в ближайшее время</p>",
 		  "            <p class=\"form-send__error\">Что-то пошло не так.  <br> Заявка не отправлена.</p>",
 		  "        </div>",
-		  "        <button type=\"submit\" class=\"form-send__btn btn btn--primary btn--size-md\">Перезвоните мне</button>    ",
+		  "        <button type=\"submit\" class=\"form-send__btn btn btn-primary btn--theme-primary btn-primary--md\">",
+		  "            Перезвоните мне",
+		  "        </button>",
 		  "    </div>",
 		  "</form>"
 		],
@@ -38,12 +40,9 @@
 		"scope": "html,php",
 		"body": [
 			"<label class=\"form-textarea\" data-input-box=\"\">",
-			"    <textarea class=\"form-textarea__input\" placeholder=\"text\" name=\"\" required data-input=\"\"></textarea>",
+			"    <textarea class=\"form-textarea__input\" placeholder=\"text\" name=\"\"data-input=\"\"></textarea>",
 			"    <span class=\"form-textarea__text\">",
-			"        Text required <span>*</span>",
-			"    </span>",
-			"    <span class=\"form-textarea__required\">",
-			"        Укажите text",
+			"        Text required",
 			"    </span>",
 			"</label>"
 		],
@@ -116,7 +115,6 @@
   	    "    <span class=\"form-field__text\">type: text required <span>*</span></span>",
   	    "    <span class=\"form-field__required\">",
   	    "        Укажите текст",
-  	    "        <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
   	    "    </span>",
   	    "</label>"
   	  ],
@@ -132,7 +130,6 @@
   	    "    <span class=\"form-field__error\">Пожалуйста, введите адрес электронной почты.</span>",
   	    "    <span class=\"form-field__required\">",
   	    "        Укажите E-mail",
-  	    "        <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
   	    "    </span>",
   	    "</label>"
   	  ],
@@ -147,7 +144,6 @@
   	    "    <span class=\"form-field__text\">type: tel required <span>*</span></span>",
   	    "    <span class=\"form-field__required\">",
   	    "        Укажите телефон",
-  	    "        <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
   	    "    </span>",
   	    "</label>"
   	  ],
@@ -163,7 +159,6 @@
   	    "    <span class=\"form-field__error\">Пожалуйста, введите число.</span>",
   	    "    <span class=\"form-field__required\">",
   	    "        Укажите число",
-  	    "        <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
   	    "    </span>",
   	    "</label>"
   	  ],
@@ -178,7 +173,6 @@
   	    "    <span class=\"form-field__text\">password <span>*</span></span>",
   	    "    <span class=\"form-field__required\">",
   	    "        Укажите пароль",
-  	    "        <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#close\"></use></svg>",
   	    "    </span>",
   	    "</label>"
   	  ],

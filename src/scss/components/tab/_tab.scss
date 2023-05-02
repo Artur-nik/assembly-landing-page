@@ -1,0 +1,17 @@
+.tab { 
+    position: relative;
+    &__controller {
+       
+    }
+    //*
+    &__btn {
+    
+    }
+    //*
+    &__wrapper {}
+     //*
+    &__box {
+       --dp-block: block;
+       display: var(--dp-block);
+    }
+}

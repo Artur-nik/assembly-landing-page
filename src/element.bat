@@ -1,4 +1,4 @@
-set path=listt
+set path=
 
 set scss= scss/modules/elements
 

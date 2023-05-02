@@ -18,25 +18,82 @@
 }
 
 .btn--theme-outline {
-    border: 1px solid $btn-bg;   
-    color: $btn-color-outline;
+    border: 1px solid $color-primary;   
+    color: $color-primary;
     .icon {
-        color: $btn-color-outline;
+        color: $color-primary;
     }   
     @media (pointer: fine) {
         &:hover {
-            color: $btn-color;
-            background: $btn-bg; 
+            color: #fff;
+            background:$color-primary; 
             .icon {
-                color: $btn-color;
+                color: #fff;
+            }   
+        }
+        &:active {
+            color: #fff;
+            border-color: $color-primary-active;
+            background:$color-primary-active; 
+            .icon {
+                color: #fff;
             }   
         }
     }
     &:active {
-        color: $btn-color;
-        background: $btn-bg;   
+        color: #fff;
+        border-color: $color-primary-active;
+        background:$color-primary-active; 
         .icon {
-            color: $btn-color;
-        } 
+            color: #fff;
+        }   
     }
 }
+
+//.btn--theme-gradient {
+//    background: linear-gradient(77.13deg, #13C88D 31.01%, #10D979 72.42%);
+//    box-shadow: 0px 4px 23px #11D979;
+//    color: #fff;
+//    .icon {
+//        color: #fff;
+//    }
+//    &:after,
+//    &:before {
+//        content: '';
+//        position: absolute;
+//        left: 0;
+//        top: 0;
+//        width: 100%;
+//        height: 100%;
+//        transition-duration: $td;
+//        opacity: 0;
+//    }
+//    &:after {
+//        background: linear-gradient(77.13deg, #0EBD84 31.01%, #13B567 72.42%);
+//        z-index: 2;
+//    }
+//    &:before {
+//        background: linear-gradient(77.13deg, #179B70 31.01%, #119354 72.42%);
+//        z-index: 3;
+//    }
+//    @media (pointer: fine) {
+//        &:hover {
+//            box-shadow: 0px 4px 23px #0FAA5F;
+//            &:after {
+//                opacity: 1;
+//            }
+//        }
+//        &:active {
+//            box-shadow: 0px 4px 23px #11976B;
+//            &:before {
+//                opacity: 1;
+//            }
+//        }
+//    }
+//    &:active {
+//        box-shadow: 0px 4px 23px #11976B;
+//        &:before {
+//            opacity: 1;
+//        }
+//    }
+//}

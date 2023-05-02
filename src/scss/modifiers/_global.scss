@@ -1,3 +1,35 @@
-._lh-auto {
-    line-height: normal;
+.flex-0-0-a {
+    flex: 0 0 auto;
 }
+.flex-1-0-a {
+    flex: 1 0 auto;
+}
+.w-full {
+    width: 100%;
+}
+.h-full {
+    height: 100%;
+}
+.w-auto {
+    width: auto;
+}
+.h-auto {
+    height: auto;
+}
+.max-w-none {
+    max-width: none;
+    @include media(md) {
+        &\@md {
+            max-width: none;
+        }
+    }
+    @include media(lg) {
+        &\@lg {
+            max-width: none;
+        }
+    }
+}
+
+//.font-secondary {
+//    font-family: $font-secondary;
+//}

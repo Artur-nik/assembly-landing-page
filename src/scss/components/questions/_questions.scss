@@ -14,79 +14,88 @@
     display: flex;
     flex-direction: column;
     //*
-    &-item {
-        margin-bottom: size(25);
-        //*
-        &._active {
-            .questions-item__toggel{
-                //color: rgb(255, 117, 117);
-                &._plus {
-                    &:after {
-                        transform: rotate(-45deg);
-                    }
-                    &:before {
-                        transform: rotate(45deg);
-                    }
-                }
-                &._arrow .icon{
-                    transform: rotate(-90deg);
-                }
-            }
-        }
-        //*
-        &__header {
-            //min-height: size(110);
-            background-color: rgb(241, 241, 241);
-            padding: size(20);
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            @include media(lg) {
-                padding: size(20) size(65);
-            }
-        }
-        //*
-        &__title {
-            margin-right: size(25);
-        }
-        //*
-        &__toggel {
-            margin-left: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            &._plus {
-                height: 1em;
-                width: 1em;
-                font-size: size(25);
-                position: relative;
-                color: #A6A673;
-                flex: 0 0 auto;
-                &:before,
+}
+.questions-item {
+    margin-bottom: size(25);
+    //*
+    &._active {
+        .questions-item__toggel{
+            //color: rgb(255, 117, 117);
+            & ._plus {
                 &:after {
-                    content: '';
-                    position: absolute;
-                    height: 2px;
-                    width: 100%;
-                    background: currentColor;
-                    transition-duration: $td;
+                    transform: rotate(-45deg);
                 }
-                &:after {
-                    transform: rotate(90deg);
+                &:before {
+                    transform: rotate(45deg);
                 }
             }
             &._arrow .icon{
-                transform: rotate(90deg);
-            }
-        }
-        //* text
-        &__body {
-            display: none;
-            padding: size(20);
-            @include media(lg) {
-                padding: size(20) size(65);
+                transform: rotate(-90deg);
             }
         }
     }
-    
+    //*
+    &__header {
+        //min-height: size(110);
+        background-color: rgb(241, 241, 241);
+        padding: size(20);
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        @include media(lg) {
+            padding: size(20) size(65);
+        }
+    }
+    //*
+    &__title {
+        margin-right: size(25);
+    }
+    //*
+    &__toggel {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1em;
+        width: 1em;
+        font-size: size(24);
+        flex:  0 0 auto;
+        //background-color: #000;
+        //color: #fff;
+        //border-radius: 50%;
+        @include media(lg) {
+            font-size: size(24);
+        }
+        ._plus {
+            height: 3px;
+            width: 1em;
+            font-size: size(24, 24, 'em');
+            position: relative;
+            color: currentColor;
+            flex: 0 0 auto;
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background: currentColor;
+                transition-duration: $td;
+            }
+            &:after {
+                transform: rotate(90deg);
+            }
+        }
+        &._arrow .icon{
+            transform: rotate(90deg);
+        }
+    }
+    //* text
+    &__body {
+        display: none;
+        padding: size(20);
+        @include media(lg) {
+            padding: size(20) size(65);
+        }
+    }
 }
