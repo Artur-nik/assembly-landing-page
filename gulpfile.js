@@ -269,13 +269,13 @@ function files() {
 }
 // watch
 function startwatch() {
+    watch('./src/components/components.json',   {ignorePermissionErrors: true}, addFileComponents); 
+    watch('./src/template/template.json',       {ignorePermissionErrors: true}, addFileTemplate); 
     if (isDemo) {
-        watch(path.watch.html,          {ignorePermissionErrors: true}, demoHtml);   
+        watch('./core/demo/*.html',          {ignorePermissionErrors: true}, demoHtml);   
     }
     else {
         watch('./src/pages/pages.json',             {ignorePermissionErrors: true}, addFilePage);  
-        watch('./src/components/components.json',   {ignorePermissionErrors: true}, addFileComponents); 
-        watch('./src/template/template.json',       {ignorePermissionErrors: true}, addFileTemplate); 
         watch(path.watch.html,                      {ignorePermissionErrors: true}, html);   
     }
     watch(path.watch.scss,          {ignorePermissionErrors: true}, styles);    
