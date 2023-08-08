@@ -8,7 +8,8 @@
 - Opera 68+
 - Safari 13+
 #### Консоль:
-gulp
-gulp font
-gulp build
+- dev:   gulp
+- build: gulp BUILD --build
+- demo:  gulp DEMO --demo
+- font:  gulp FONT
 #### NodeJS - 14.15.0

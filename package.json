@@ -7,10 +7,10 @@
   "author": "Artur Nikora",
   "license": "ISC",
   "scripts": {
-    "dev": "gulp",
-    "build": "gulp BUILD --build",
-    "demo": "gulp DEMO --demo",
-    "font": "gulp FONT"
+    "dev":    "gulp",
+    "build":  "gulp BUILD --build",
+    "demo":   "gulp DEMO --demo",
+    "font":   "gulp FONT"
   },
   "devDependencies": {
     "browser-sync": "^2.29.1",
