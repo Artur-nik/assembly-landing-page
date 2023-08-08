@@ -7,11 +7,11 @@ export default async function addFilePage(){
     const listPages = parseConfig('./src/pages/pages.json')
     const streamList = {
         scripts: {
-            path: './src/js/main/pages/pages.g.js', 
+            path: './src/js/paths/pages.g.js', 
             list: []
         },
         styles: {
-            path: './src/scss/pages/pages.g.scss', 
+            path: './src/scss/paths/pages.g.scss', 
             list: []
         },
     }
@@ -48,7 +48,7 @@ export default async function addFilePage(){
                 createFile(`./src/pages/${pageName}/${sectionName}/${sectionName}.scss`, styleTemplate)
                 createFile(`./src/pages/${pageName}/${sectionName}/${sectionName}.html`, sectionTemplate)
                 //*
-                streamList.scripts.list.push(`@@include("../../../pages/${pageName}/${sectionName}/${sectionName}.js",{})`)
+                streamList.scripts.list.push(`import "../../pages/${pageName}/${sectionName}/${sectionName}.js";`)
                 streamList.styles.list.push(`@import "../../pages/${pageName}/${sectionName}/${sectionName}";`)
                 streamSectionList.list.push(`@@include("./${sectionName}/${sectionName}.html",{})`)
                 //*
@@ -62,7 +62,7 @@ export default async function addFilePage(){
             createFile(`./src/pages/${pageName}/${pageName}/${pageName}.scss`, styleTemplate)
             createFile(`./src/pages/${pageName}/${pageName}/${pageName}.html`, sectionTemplate)
             //*
-            streamList.scripts.list.push(`@@include("../../../pages/${pageName}/${pageName}/${pageName}.js",{})`)
+            streamList.scripts.list.push(`import "../../pages/${pageName}/${pageName}/${pageName}.js";`)
             streamList.styles.list.push(`@import "../../pages/${pageName}/${pageName}/${pageName}";`)
             streamSectionList.list.push(`@@include("./${pageName}/${pageName}.html",{})`)
         }

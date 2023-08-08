@@ -115,7 +115,7 @@ export function ProjectFileSystem(opts) {
                     setup(file, config, (params) => {
                         if (isObject(params)) {
                             const { filePath, includePath, customTemplate } = params
-                            if (filePath) createFile(filePath, customTemplate || template || '')
+                            if (filePath) createFile(file.srcPath + filePath, customTemplate || template || '')
                             if (includePath !== false) includeItemPush(filePath.replace(`.${ext}`, ''), includePath, includeList, includeConfig)
                         }
                         else if (isString(params)) {
@@ -253,8 +253,8 @@ export function parceFiles(rawData, rootPath, fileModConfig, folderModConfig) {
                 srcPath: rootPath,
                 fullPath: symbolEnd(rootPath + config.path, '/') ,
                 relativePath: symbolEnd(config.path, '/'),
-                prevPath: config.prevPath.length ? symbolEnd(config.prevPath, '/') : '',
-                fullPrevPath: symbolEnd(rootPath + config.prevPath, '/'),
+                prevPath: (config.prevPath && config.prevPath.length) ? symbolEnd(config.prevPath, '/') : '',
+                fullPrevPath: config.prevPath ? symbolEnd(rootPath + config.prevPath, '/') : '',
                 folder: config.folder,
                 firstFolder: config.firstFolder,    
                 checkFirstFolder: config.firstFolder ? (config.firstFolder === config.folder) : false,

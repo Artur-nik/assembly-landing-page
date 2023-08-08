@@ -5,13 +5,9 @@ const _config = {
     path: 'src/scss/modifiers/_create.g.scss',
     bp: ['sm', 'xs', 'md' ,'lg', 'xl', 'hg', 'hd'],
     mod: {
-        'w-': {
-            property: 'width',
-            value(_val) {return `size(${_val})`},
-        },
-        'mw-': {
-            property: 'max-width',
-            value(_val) {return `size(${_val})`},
+        'z-': {
+            property: 'z-index',
+            value(_val) {return `${_val}`},
         },
         'lh-': {
             property: 'line-height',
@@ -38,6 +34,10 @@ const _config = {
             property: 'width',
             value(_val) {return `size(${_val})`},
         },
+        'm-': {
+            property: 'margin',
+            value(_val) {return `size(${_val})`},
+        },
         'mb-': {
             property: 'margin-bottom',
             value(_val) {return `size(${_val})`},
@@ -52,6 +52,10 @@ const _config = {
         },
         'ml-': {
             property: 'margin-left',
+            value(_val) {return `size(${_val})`},
+        },
+        'p-': {
+            property: 'padding',
             value(_val) {return `size(${_val})`},
         },
         'pb-': {
@@ -102,13 +106,13 @@ export default function parseHTMLClass(params) {
 
         this.push(file);
         cb();
-    }, (cb) => {createMod(valClass, _config), cb() });
+    }, (cb) => {createMod(valClass, _config, params), cb() });
 }
 
 let checkList = []
 
 //*
-function createMod(classList, config) {
+function createMod(classList, config, path) {
     let _css = '';
     let localCheckList = []
 
@@ -144,7 +148,7 @@ function createMod(classList, config) {
 
     if (JSON.stringify(checkList) !== JSON.stringify(localCheckList)) {
         checkList = localCheckList
-        const includeStream = fs.createWriteStream(config.path)
+        const includeStream = fs.createWriteStream(path)
         includeStream.write(_css)
         includeStream.end()
     } 

@@ -25,7 +25,7 @@
         }
         @for $i from length(map-keys($container-max-width)) through index(map-keys($container-max-width), $bp){
             @if $bp != 'sm'{
-                &-#{$bp} {
+                &\@#{$bp} {
                     @extend %grid-container-customization;
                     @include media(nth(map-keys($container-max-width), $i)) {
                         @extend %grid-container-value-#{nth(map-keys($container-max-width), $i)};

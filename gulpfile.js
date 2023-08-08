@@ -7,8 +7,6 @@ import del from "del";
 import gcmq from "gulp-group-css-media-queries";
 import autoprefixer from "gulp-autoprefixer";
 import fileinclude from "gulp-file-include";
-import uglifyEs from "gulp-uglify-es";
-const uglify = uglifyEs.default;
 import cssnano from "gulp-cssnano";
 import concat from "gulp-concat";
 import svgmin from "gulp-svgmin";
@@ -17,15 +15,19 @@ import cheerio from "gulp-cheerio";
 import replace from "gulp-replace";
 import ttf2woff from "gulp-ttf2woff";
 import ttf2woff2 from "gulp-ttf2woff2";
+import * as esbuild from "esbuild";
 import parseHTMLClass from "./core/parseHTMLClass.js";
 import addFilePage from "./core/pages.js";
-
-//* src  -  файлы разработки
+import addFileComponents from "./core/components.js";
+import addFileTemplate from "./core/template.js";
 
 //* src  -  файлы разработки
 
 let way = "app";
-
+if (process.argv.includes('--build')) {
+    way = "dist";
+}
+//*
 global.app = {
     page: []
 }
@@ -35,7 +37,7 @@ let isDemo = false
 if (process.argv.includes('--demo')) {
     isDemo = true
 }
-
+//*
 let path = {
     build: {
         html:           way + "/",
@@ -53,38 +55,38 @@ let path = {
     },
     src: {
         php:            "./src/form/*.php",
-        PHPMailer:      "./src/PHPMailer/**/*",
-        css:            "./src/css/*css",
+        PHPMailer:      "./src/assets/PHPMailer/**/*",
+        css:            "./src/assets/css/*css",
         scss:           "./src/scss/*scss",
-        files:          "./src/files/**/*",
+        files:          "./src/assets/files/**/*",
         
         //*       
         js_main:        [
-                            "./src/js/main/main.js",
+                            "./src/js/main.js",
                         ],
         js_libraries:   [
-                            "./src/js/libraries/jquery.min.js",
-                            "./src/js/libraries/lazyload.min.js",
-                            "./src/js/libraries/swiper.min.js",
-                            "./src/js/libraries/jquery.maskedinput.min.js",
-                            "./src/js/libraries/anime.min.js",
-                            //"./src/js/libraries/fancybox.umd.js",
-                            "./src/js/libraries/gsap.min.js",
-                            "./src/js/libraries/ScrollTrigger.min.js",
-                            //"./src/js/libraries/jquery.event.move.js",
-                            //"./src/js/libraries/jquery.nice-select.min.js",
-                            //"./src/js/libraries/jquery.twentytwenty.js",
-                            //"./src/js/libraries/simplebar.min.js",
-                            "./src/js/libraries/wow.js"
+                            "./src/assets/libraries/jquery.min.js",
+                            "./src/assets/libraries/lazyload.min.js",
+                            "./src/assets/libraries/swiper.min.js",
+                            "./src/assets/libraries/jquery.maskedinput.min.js",
+                            //"./src/assets/libraries/anime.min.js",
+                            //"./src/assets/libraries/fancybox.umd.js",
+                            //"./src/assets/libraries/gsap.min.js",
+                            //"./src/assets/libraries/ScrollTrigger.min.js",
+                            //"./src/assets/libraries/jquery.event.move.js",
+                            //"./src/assets/libraries/jquery.nice-select.min.js",
+                            //"./src/assets/libraries/jquery.twentytwenty.js",
+                            //"./src/assets/libraries/simplebar.min.js",
+                            "./src/assets/libraries/wow.js"
                         ],
-        js_dist:           "./src/js/dist/*js",
+        js_dist:           "./src/assets/js/*js",
 
         images:         [
                             "./src/images/**/*",
                             "!" + "./src/images/webp/**/*",
                         ],
         imagesWebp:     "./src/images/webp/**/*",
-        favicon:        "./src/favicon/*",
+        favicon:        "./src/assets/favicon/*",
         svg:            "./src/icon/*.svg",
     },
     watch: {
@@ -93,23 +95,32 @@ let path = {
                             "./src/pages/**/*.html"
                         ],
         php:            "./src/form/*.php",
-        css:            "./src/css/*css",
-        scss:           ["./src/scss/**/*.scss", "./src/pages/**/*.scss"],
+        css:            "./src/assets/css/*css",
+        scss:           [
+                            "./src/scss/**/*.scss", 
+                            "./src/components/**/*.scss",
+                            "./src/template/**/*.scss",
+                            "./src/pages/**/*.scss",
+                        ],
 
-        files:          "./src/files/**/*",
+        files:          "./src/assets/files/**/*",
 
-        js_main:        ["./src/js/main/**/*.js", "./src/pages/**/*.js" ],
-        js_libraries:   "./src/js/libraries/*js",
-        js_dist:        "./src/js/dist/*js",
+        js_main:        [
+                            "./src/js/**/*.js", 
+                            "./src/components/**/*.js",
+                            "./src/template/**/*.js",
+                            "./src/pages/**/*.js",
+                        ],
+        js_libraries:   "./src/assets/libraries/*js",
+        js_dist:        "./src/assets/js/*js",
 
         img:            "./src/images/**/*.{jpg,jpeg,png,svg,gif,ico,webp,mp4,mov}",
-        fonts:          "./src/fonts/**/*",
         svg:            "./src/icon/*.svg",
     },
     fonts:{
-        src:            "./src/fonts/src/*.ttf",
-        dest:           "./src/fonts/dest/",
-        buildSrc:       "./src/fonts/dest/*.{woff,woff2}",
+        src:            "./src/assets/fonts/src/*.ttf",
+        dest:           "./src/assets/fonts/dest/",
+        buildSrc:       "./src/assets/fonts/dest/*.{woff,woff2}",
         build:          way + "/fonts/",
     },
     clean: [
@@ -118,7 +129,7 @@ let path = {
                         way + "/fonts/",
                         way + "/images/",
                         way + "/js/main/",
-                        way + "/js/libraries/",
+                        way + "/assets/libraries/",
                         way + "/js/dist/",
                         way + "/svg-sprite/",
                         way + "/favicon/",
@@ -126,7 +137,7 @@ let path = {
     ],
     cleanimg:           way + "/images/**/*",
     demo: {
-        src: "./src/template/demo/index.html",
+        src: "./core/demo/index.html",
     } 
 }
 
@@ -141,6 +152,14 @@ const _Browserslist = [
     "opera >= 60",
     "safari >= 12.1",
     "ios >= 12.2",
+]
+
+const browserslistrcJS = [
+    "es6",
+    "chrome61",
+    "edge79",
+    "firefox52",
+    "safari12",
 ]
 
 // Определяем логику работы Browsersync
@@ -165,7 +184,7 @@ function favicon() {
 function html() {
     return src(app.page)
     .pipe(fileinclude()) // сборка html файлов
-    .pipe(parseHTMLClass())
+    .pipe(parseHTMLClass('src/scss/modifiers/_create.g.scss'))
     .pipe(dest(path.build.html))
     .pipe(browserSync.stream());
 }
@@ -173,7 +192,7 @@ function html() {
 function demoHtml() {
     return src(path.demo.src)
     .pipe(fileinclude()) // сборка html файлов
-    .pipe(parseHTMLClass())
+    .pipe(parseHTMLClass('src/scss/modifiers/_create.g.scss'))
     .pipe(dest(path.build.html))
     .pipe(browserSync.stream());
 }
@@ -221,16 +240,19 @@ function css() {
 
 // js
 function js_main() {
-    return src(path.src.js_main)
-    .pipe(fileinclude())
-    .pipe(concat("main.js"))        // объединяем
-    .pipe(uglify())                 // сжимаем
-    .pipe(dest(path.build.js_main))      // отправляем
-    .pipe(browserSync.stream())
+    return esbuild.build({
+        entryPoints: path.src.js_main,
+        //entryNames: '[name]',
+        bundle: true,
+        minify: process.argv.includes('--build') ? true : false,
+        outdir: path.build.js_main,
+        target: browserslistrcJS
+    })
+    .then(browserSync.reload())
 }
 function js_libraries() {
     return src(path.src.js_libraries)
-    .pipe(concat("libraries.js"))        // объединяем 
+    .pipe(concat("libraries.js"))        
     .pipe(dest(path.build.js_libraries)) 
     .pipe(browserSync.stream());
 }
@@ -251,8 +273,10 @@ function startwatch() {
         watch(path.watch.html,          {ignorePermissionErrors: true}, demoHtml);   
     }
     else {
-        watch('./src/pages/pages.json', {ignorePermissionErrors: true}, addFilePage);   
-        watch(path.watch.html,          {ignorePermissionErrors: true}, html);   
+        watch('./src/pages/pages.json',             {ignorePermissionErrors: true}, addFilePage);  
+        watch('./src/components/components.json',   {ignorePermissionErrors: true}, addFileComponents); 
+        watch('./src/template/template.json',       {ignorePermissionErrors: true}, addFileTemplate); 
+        watch(path.watch.html,                      {ignorePermissionErrors: true}, html);   
     }
     watch(path.watch.scss,          {ignorePermissionErrors: true}, styles);    
     watch(path.watch.css,           {ignorePermissionErrors: true}, css);       
@@ -344,12 +368,10 @@ function cleandest() {
 }
 
 //
-const FONT =   series(fontsWoff, fontsWoff2);
-const BUILD =  series( cleandest, favicon, fontsBuild, addFilePage, stylesBuild, css, files, js_main, js_libraries, js_dist, html, php, PHPMailer, series(imagesDel, images), svg);
-const DEMO =   series( cleandest, favicon, fontsBuild, addFilePage, parallel(styles, css, js_main, js_libraries, js_dist, browser_sync, demoHtml, php, PHPMailer, series(imagesDel, images), svg, files, startwatch));
-const DEV = series( cleandest, favicon, fontsBuild, addFilePage, parallel(styles, css, js_main, js_libraries, js_dist, browser_sync, html, php, PHPMailer, series(imagesDel, images), svg,files, startwatch));
-//const DEV = series(  addFilePage, parallel(browser_sync, startwatch));
-
+const FONT =    series(fontsWoff, fontsWoff2);
+const BUILD =   series(cleandest, favicon, fontsBuild, addFileTemplate, addFileComponents, addFilePage, stylesBuild, css, files, js_main, js_libraries, js_dist, html, php, PHPMailer, imagesDel, images, svg);
+const DEMO =    series(cleandest, favicon, fontsBuild, addFileTemplate, addFileComponents, addFilePage, demoHtml, php, PHPMailer, imagesDel, images, svg, files, styles, css, js_main, js_libraries, js_dist, parallel(browser_sync, startwatch));
+const DEV =     series(cleandest, favicon, fontsBuild, addFileTemplate, addFileComponents, addFilePage, html, styles, css, js_main, js_libraries, js_dist, php, PHPMailer, imagesDel, images, svg, files, parallel(browser_sync, startwatch));
 export { 
     FONT,
     BUILD,

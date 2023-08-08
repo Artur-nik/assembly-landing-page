@@ -1,0 +1,33 @@
+<div id="modal-form" class="modal modal-form modal--theme-primary">
+    <div class="modal__wrapper">
+        <div class="modal__container">
+            <div class="container modal-form__box modal-target">
+                <div class="modal-form__wrapper">
+                    <button class="modal-form__close modal__close btn">
+                        <svg class="icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+                    </button>
+                    <h4 class="title title--size-md t:center mb-20" data-modal-title="Оставить заявку">
+                        Оставить заявку
+                    </h4>
+                    <p class="mb-10 mb-30@lg t:size-16 t:size-20@lg t:center">
+                        Оставьте ваши данные, <br class="m:show@lg"> чтобы мы смогли с вами связаться
+                    </p>
+                    <form id="form-modal" class="form js-form" action="form/form.php" data-next-page="/thanks.html">
+                        <input class="form-input-title" type="hidden" name="form-title" value="">
+                        <input id="input-info" type="hidden" name="info">
+
+                        <div class="form-send">
+                            <div class="form-send__message">
+                                <div class="form-send__loading"><span></span></div>
+                                <p class="form-send__error">Что-то пошло не так. <br> Заявка не отправлена.</p>
+                            </div>
+                            <button type="submit" class="form-send__btn btn btn-primary btn--theme-primary btn-primary--md">
+                                Перезвоните мне
+                            </button>    
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

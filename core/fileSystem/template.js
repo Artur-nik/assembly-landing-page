@@ -1,14 +1,16 @@
 //*
 export function styleTemplate(name) {
     return `.${name} { 
-    
+    position: relative;
+    border-top: 1px solid #000;
+    min-height: 100vh;
 }`;
 }
 //*
 export function sectionTemplate(name) {
     return `<section id="${name}" class="${name}">
     <div class="container">
-       <h2 class="${name}__title title title--size-"></h2>
+        <h2 class="${name}__title title title--size-"></h2>
     </div>
 </section>`;
 }
@@ -34,24 +36,26 @@ export function pageTemplate(name) {
     <link rel="stylesheet" type="text/css" href="css/main.css">
     
     <meta name="format-detection" content="telephone=no">
+    
+    @@include("../../template/base/head-bottom.html",{})
 </head>
 <body>
 
     <!-- @@include("../../template/base/preloader.html",{}) -->
-    @@include("../../template/menu/menu-modal.html",{})
+    @@include("../../template/menu-modal/menu-modal.html",{})
 
-    @@include("../../template/base/header.html",{})
+    @@include("../../template/header/header.html",{})
     
     @@include("_include.g.html",{})
 
-    @@include("../../template/base/footer.html",{})
+    @@include("../../template/footer/footer.html",{})
 
-    @@include("../../template/modal/modal-form-v1.html",{})
-    @@include("../../template/modal/modal-video.html",{})
+    @@include("../../template/modal/modal-form/modal-form.html",{})
+    @@include("../../template/modal/modal-video/modal-video.html",{})
 
     <script src="js/libraries/libraries.js"></script>
-    <script src="js/main/main.js"></script>
-
+    <script defer src="js/main/main.js"></script>
+    @@include("../../template/base/body-bottom.html",{})
 </body>
 </html>`;
 }

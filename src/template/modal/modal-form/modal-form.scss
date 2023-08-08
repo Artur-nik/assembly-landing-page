@@ -1,0 +1,26 @@
+.modal-form {
+    //background-color: #fff;
+    //color: #fff;
+    //background-color: rgba(0, 0, 0, 0.5);
+    //backdrop-filter: blur(4px);
+    &__box {
+        margin: auto;
+        position: relative;
+    }
+    &__wrapper {
+        background-color: #fff;
+        padding: size(50) 0;
+        @include media(lg) {
+            padding: size(50) 0;
+        }
+    }
+    &__close {
+        position: absolute;
+        right: size(15);
+        top: size(30);
+
+        @include media(lg) {
+            right: size(30);
+        }
+    }
+}

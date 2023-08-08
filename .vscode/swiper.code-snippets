@@ -3,7 +3,7 @@
 		"prefix": "swiper",
 		"scope": "html,php",
 		"body": [
-		  "<div class=\"-swiper swiper-container\">",
+		  "<div class=\"-swiper swiper\">",
 		  "",
 		  "    <div class=\"swiper-wrapper\">",
 		  "        <div class=\"swiper-slide\">Slide 1</div>",

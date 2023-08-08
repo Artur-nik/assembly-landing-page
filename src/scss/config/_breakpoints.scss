@@ -10,14 +10,3 @@ $media-breakpoints: (
     'hg': 1440,   //* Desktop
     'hd': 1920,   //* fullHD
 );
-
-// Контрольные точки для функции bp();
-$breakpoints: (
-    'sm', 
-    //'xs', 
-    'md', 
-    'lg',
-    'xl',
-    //'hg',
-    //'hd',
-);

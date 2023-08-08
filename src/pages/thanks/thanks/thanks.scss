@@ -1,3 +1,7 @@
 .thanks { 
-    
+    position: relative;
+    &__body {
+        min-height: 100vh;
+        padding: size(100) 0;
+    }
 }

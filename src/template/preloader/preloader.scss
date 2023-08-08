@@ -1,0 +1,76 @@
+.preloader {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background:#000000;
+    //display: none;
+    //display: block !important;
+    overflow: hidden;
+    z-index: 9999;
+
+    &__wrapper {
+        overflow: hidden;
+        overflow-y: auto;
+        width: 100%;
+        height: 100%;
+        display: flex;
+    }
+    &__content {
+        margin: auto;
+        padding: size(40) 15px;
+    }
+    &__close {
+        position: absolute;
+        right: size(50);
+        top: size(30);
+        font-size: size(32);
+        color: #fff;
+        display: none;
+    }
+}  
+
+.preloader-loading {
+    overflow: hidden;
+    height: 1em;
+    width: 1em;
+    font-size: size(120);       //* Размер
+    //margin-top: -#{size(20)};    
+    
+    @at-root {
+        %loading {
+            height: 1em;
+            width: 1em;
+            border-radius: 50%;
+            border: size(2) solid #fff;
+            animation: loading linear infinite;
+            border-right-color: transparent;
+            border-left-color: transparent;
+        }
+    }
+    span {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @extend %loading;
+        animation-duration: 2.5s;
+        &:after,
+        &:before{
+            content: '';
+            position: absolute;
+            display: block;
+            @extend %loading;
+        }
+        &:before {
+            animation: loading-n 3s linear infinite;
+            font-size: 0.7em;
+        }
+        &:after {
+            @extend %loading;
+            animation-duration: 3.5s;
+            font-size: 0.4em;
+        }
+    }
+}

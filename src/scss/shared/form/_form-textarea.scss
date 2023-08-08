@@ -1,0 +1,56 @@
+.form-textarea {
+    position: relative;
+    display: block;
+    //border-radius: size(30);
+    border: 1px solid rgb(185, 185, 185); 
+    transition-duration: $td;   
+
+    &__input {
+        resize:none;  
+        &::placeholder {
+            opacity: 0;
+        }
+        &:focus,
+        &:not(:placeholder-shown) {
+            & ~ .form-textarea__text {
+                opacity: 0;
+            }
+        }
+    }
+
+    &__input,
+    &__required,
+    &__text {
+        width: 100%;
+        font-size: 1em;
+        transition-duration: $td;
+        padding: size(25) size(40);
+    }
+
+    &__required,
+    &__text {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2;
+        pointer-events: none;
+    }
+    &__text {
+        span {
+            color: $color-primary;
+        }
+    }
+    &__required {
+        opacity: 0;
+    }
+    //*
+    &._required{
+        border-color:  $color-primary;
+        .form-textarea__text {
+            opacity: 0;
+        }
+        .form-textarea__required {
+            opacity: 1;
+        }
+    }
+}

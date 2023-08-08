@@ -17,14 +17,14 @@
 //*     Сетка
 @import 'layout/grid/index';
 
-//*     Модули
-@import 'modules/index';
+//*     Общие элементы
+@import 'shared/index';
 
 //* Плагины для js
 @import 'plugins/index';
 
 //*     component
-@import 'components/index';
+@import 'paths/components.g';
 
 //*     
 @import 'layout/grid/grid-init';
@@ -35,11 +35,11 @@
 //@import '4pt/4pt-md';     //* bp sm/md/lg
 @import '4pt/4pt-sm';       //* bp md/lg
 
-//*
-@import 'modifiers/index';
-
 //* Основные шаблоны
 
-@import 'template/index';
+//@import 'template/index';
+@import 'paths/template.g';
 
-@import 'pages/pages.g';
+@import 'paths/pages.g';
+//*
+@import 'modifiers/index';

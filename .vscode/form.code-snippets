@@ -3,14 +3,13 @@
 		"prefix": "form",
 		"scope": "html,php",
 		"body": [
-		  "<form id=\"\" class=\"form js-form\" action=\"form/form.php\">",
-		  "    <input class=\"form-input-title\" type=\"hidden\" name=\"form-title\" value=\"\">",
+		  "<form class=\"form js-form\" action=\"form/form.php\" data-next-page=\"/thanks.html\">",
+		  "    <input type=\"hidden\" name=\"form-title\" value=\"\">",
 		  "",
 		  "    <div class=\"form-send\">",
 		  "        <div class=\"form-send__message\">",
 		  "            <div class=\"form-send__loading\"><span></span></div>",
-		  "            <p class=\"form-send__success\">Спасибо, ваша заявка принята.  <br> Менеджер свяжется с вами в ближайшее время</p>",
-		  "            <p class=\"form-send__error\">Что-то пошло не так.  <br> Заявка не отправлена.</p>",
+		  "            <p class=\"form-send__error\">Что-то пошло не так. <br> Заявка не отправлена.</p>",
 		  "        </div>",
 		  "        <button type=\"submit\" class=\"form-send__btn btn btn-primary btn--theme-primary btn-primary--md\">",
 		  "            Перезвоните мне",
@@ -26,9 +25,12 @@
 		"scope": "html,php",
 		"body": [
 			"<label class=\"form-textarea\" data-input-box> ",
-			"    <textarea class=\"form-textarea__input\" placeholder=\"text\" data-input name=\"\"></textarea>",
+			"    <textarea class=\"form-textarea__input\" placeholder=\"text\" data-input name=\"comment\" required></textarea>",
 			"    <span class=\"form-textarea__text\">",
 			"        Text",
+			"    </span>",
+			"    <span class=\"form-textarea__required\">",
+			"        Укажите текст",
 			"    </span>",
 			"</label>"
 		],
@@ -40,7 +42,7 @@
 		"scope": "html,php",
 		"body": [
 			"<label class=\"form-textarea\" data-input-box=\"\">",
-			"    <textarea class=\"form-textarea__input\" placeholder=\"text\" name=\"\"data-input=\"\"></textarea>",
+			"    <textarea class=\"form-textarea__input\" placeholder=\"text\" name=\"comment\" data-input=\"\"></textarea>",
 			"    <span class=\"form-textarea__text\">",
 			"        Text required",
 			"    </span>",
@@ -67,7 +69,7 @@
   	    "<label class=\"form-field\" data-input-box>",
   	    "    <input class=\"form-field__input\" placeholder=\"email\" type=\"email\" name=\"email\" data-input>",
   	    "    <span class=\"form-field__text\">type: email</span>",
-  	    "    <span class=\"form-field__email\">Пожалуйста, введите адрес электронной почты.</span>",
+  	    "    <span class=\"form-field__error\">Пожалуйста, введите адрес электронной почты.</span>",
   	    "</label>"
   	  ],
   	  "description": "form-field-email"

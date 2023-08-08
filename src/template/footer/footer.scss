@@ -1,0 +1,23 @@
+.footer {
+    &__ea {
+        padding: size(25) 0 0;
+        @include media(lg) {
+            padding: size(50) 0 0;
+        }
+        &-link {
+            //filter: grayscale(1) brightness(10);
+            &:hover {
+                .footer__ea-icon-1 {stroke: #0292AD;}
+                .footer__ea-icon-2 {stroke: #F01801;}
+                .footer__ea-icon-3 {stroke: #FF5B00;}
+            }
+            
+        }
+        &-logo {
+            --adaptive-box: #{height(1232,344)};
+        }
+        &-icon-1 {transition-duration: $td; stroke: #d2d2d2;}
+        &-icon-2 {transition-duration: $td; stroke: #d2d2d2;}
+        &-icon-3 {transition-duration: $td; stroke: #d2d2d2;}
+    }
+}

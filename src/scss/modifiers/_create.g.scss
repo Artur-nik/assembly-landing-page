@@ -1,7 +1,15 @@
+.w-170 { width: size(170); }
 .mb-20 { margin-bottom: size(20); }
 .mb-10 { margin-bottom: size(10); }
 .mb-30\@lg { @include media(lg) { margin-bottom: size(30); } }
 .t\:size-16 { font-size: size(16); }
 .t\:size-20\@lg { @include media(lg) { font-size: size(20); } }
-.t\:size-20 { font-size: size(20); }
-.t\:size-24\@lg { @include media(lg) { font-size: size(24); } }
+.t\:size-82 { font-size: size(82); }
+.t\:size-104\@lg { @include media(lg) { font-size: size(104); } }
+.t\:size-64\@lg { @include media(lg) { font-size: size(64); } }
+.delay-100 { animation-delay: 100ms; }
+.t\:size-32\@lg { @include media(lg) { font-size: size(32); } }
+.mb-40\@lg { @include media(lg) { margin-bottom: size(40); } }
+.delay-200 { animation-delay: 200ms; }
+.mw-332 { max-width: size(332); }
+.delay-400 { animation-delay: 400ms; }

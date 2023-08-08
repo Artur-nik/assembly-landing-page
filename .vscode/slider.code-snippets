@@ -5,7 +5,7 @@
         "body": [
           "<div class=\"slider\" data-config=\"\">",
           "    <div class=\"slider__wrapper\">",
-          "        <div class=\"slider-init swiper-container\">",
+          "        <div class=\"slider-init swiper\">",
           "            <div class=\"swiper-wrapper\" data-wrapper>",
           "                <div class=\"swiper-slide\" data-slide>Slide 1 <br><br><br><br></div>",
           "                <div class=\"swiper-slide\" data-slide>Slide 2 <br><br><br><br></div>",
@@ -35,7 +35,7 @@
           "                </div>",
           "            </div>",
           "        </div>",
-          "        <div class=\"slider-init swiper-container\">",
+          "        <div class=\"slider-init swiper\">",
           "            <div class=\"swiper-wrapper\" data-wrapper>",
           "                <div class=\"swiper-slide\" data-slide>Slide 11</div>",
           "                <div class=\"swiper-slide\" data-slide>Slide 21</div>",
@@ -53,7 +53,7 @@
         "body": [
           "<div class=\"slider\" data-config=\"\"> ",
           "    <div class=\"slider__wrapper\">",
-          "        <div class=\"slider-init swiper-container\">",
+          "        <div class=\"slider-init swiper\">",
           "            <div class=\"swiper-wrapper\" data-wrapper>",
           "                <div class=\"swiper-slide\" data-slide>Slide 11</div>",
           "                <div class=\"swiper-slide\" data-slide>Slide 21</div>",

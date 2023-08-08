@@ -5,10 +5,14 @@ $columns: 12;
 //*
 $grid-gap: (
     'default': (
-        'gap-x': size(20),
-        'gap-y': size(20),
+        'gap-x': size(10),
+        'gap-y': size(15),
         'container-gap': size(10),
     ),
+    //'md': (
+    //    'gap-x': size(20),
+    //    'gap-y': size(20),
+    //)
     'lg': (
         'gap-x': size(30),
         'gap-y': size(30),

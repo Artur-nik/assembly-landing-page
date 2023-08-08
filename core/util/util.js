@@ -54,3 +54,22 @@ export function symbolStart(_val, _symbol) {
     }
 }
 
+export function checkIncludes(ext, folderMod, fileMod) {
+    let isInclude = true;
+    if (folderMod) {
+        if (folderMod.includes(`no-import`)   ) isInclude = false
+        else if (folderMod.includes(`import`) ) isInclude = true
+
+        if (folderMod.includes(`no-import-${ext}`)   ) isInclude = false
+        else if (folderMod.includes(`import-${ext}`) ) isInclude = true
+    }
+    if (fileMod) {
+        if (fileMod.includes(`no-import`)   ) isInclude = false
+        else if (fileMod.includes(`import`) ) isInclude = true
+
+        if (fileMod.includes(`no-import-${ext}`)   ) isInclude = false
+        else if (fileMod.includes(`import-${ext}`) ) isInclude = true
+    }
+    //*
+    return isInclude
+}

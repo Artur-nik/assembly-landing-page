@@ -11,4 +11,7 @@ body {
     @if (map-get($global-settings, 'bg')) {
         background-color: map-get($global-settings, 'bg');
     }
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }

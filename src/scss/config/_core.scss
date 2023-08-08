@@ -19,7 +19,11 @@ $global-settings:(
 $td: 400ms; 
 
 //* Размеры макета (дизайн макета):
-$layout-size: 1920;
+$layout-size-min: 320;
+$layout-size-max: 1920;
+
+
+
 //* Требуется для работы функции size-clamp, rem
 //* src\scss\core\functions\_size.scss
 //* src\scss\layout\_root.scss

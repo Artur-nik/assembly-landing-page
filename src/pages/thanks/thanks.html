@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>thanks</title>
+    <title>Спасибо за заявку!</title>
     <meta name="description" content="">
 
     @@include("../../template/base/favicon.html",{})
@@ -17,23 +17,15 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     
     <meta name="format-detection" content="telephone=no">
+    @@include("../../template/base/head-bottom.html",{})
 </head>
 <body>
 
-    <!-- @@include("../../template/base/preloader.html",{}) -->
-    @@include("../../template/menu/menu-modal.html",{})
-
-    @@include("../../template/base/header.html",{})
-    
     @@include("_include.g.html",{})
 
-    @@include("../../template/base/footer.html",{})
 
-    @@include("../../template/modal/modal-form-v1.html",{})
-    @@include("../../template/modal/modal-video.html",{})
-
-    <script src="js/libraries/libraries.js"></script>
-    <script src="js/main/main.js"></script>
-
+    <script defer src="js/libraries/libraries.js"></script>
+    <script defer defer src="js/main/main.js"></script>
+    @@include("../../template/base/body-bottom.html",{})
 </body>
 </html>

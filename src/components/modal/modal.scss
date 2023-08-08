@@ -1,0 +1,95 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    display: none;
+    overflow: hidden;
+    //mod
+    &._index {
+        z-index: 1999;
+    }
+    &__wrapper {
+        height: 100%;
+        width: 100%;
+        display: flex;        
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    &__container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    //*
+    &__box {
+        margin: auto;
+        padding-bottom: size(100);
+    }
+    &__close {
+        //height: 1em;
+        //width: 1em;
+        //border-radius: 50%;
+        //display: flex;
+        //align-items: center;
+        //justify-content: center;
+        //background-color: $color-primary;
+        //font-size: size(40);
+        //@include media(lg) {
+        //     font-size: size(60);
+        //}
+        //.icon {
+        //    font-size: size(20,60,'em');
+        //}
+        .icon {
+            color: $color-primary;        
+        }
+        @media (pointer: fine) {
+            &:hover {
+                .icon {
+                    color: $color-primary-hover;        
+                }
+            }
+            &:active {
+                .icon {
+                    color: $color-primary-active;        
+                }
+            }
+        }
+        &:active {
+            .icon {
+                color: $color-primary-active;           
+            }
+        }
+    }
+    //*
+    &__header {
+        height: size(100);
+        display: flex;
+        align-items: center;
+        width: 100%;
+        z-index: 20;
+        padding:0 size(15);
+        flex: 0 0 auto;
+        @include media(lg) {
+            padding: 0 size(30);
+        }
+        &-close {
+            margin-left: auto;
+        }
+    }
+}
+
+//*
+.modal--theme {
+    &-primary {
+        background: #ffffff;
+    }
+    &-secondary {
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+    }
+}
