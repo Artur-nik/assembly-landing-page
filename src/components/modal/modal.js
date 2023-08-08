@@ -1,3 +1,5 @@
+import { conditionScrollOffset, scrollOffset, scrollOffsetlist} from "../../js/modules/scroll-offset";
+
 $('[data-modal-open]').on('click', function(){
     let modalBtn = $(this);
     modalOpen(this.dataset.modalOpen, function(modalId, modal){

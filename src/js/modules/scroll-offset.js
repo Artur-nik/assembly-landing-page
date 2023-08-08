@@ -4,7 +4,7 @@ window.addEventListener('resize', function(){
     bodyWidth = document.documentElement.getBoundingClientRect().width;
 });
 //*
-let scrollOffsetlist = [];
+export let scrollOffsetlist = [];
 //*
 let addStyleOffset = document.createElement('style');
 addStyleOffset.innerHTML = '.scroll-offset { padding-right:' + (window.innerWidth - bodyWidth) + 'px;}';
@@ -14,7 +14,7 @@ document.querySelectorAll('[data-scroll-trigger]').forEach(element => {
     element.classList.remove('scroll-offset');
 });
 
-function conditionScrollOffset(id, $condition) {
+export function conditionScrollOffset(id, $condition) {
     if ($condition == 'open') {
         scrollOffsetlist.push(id);
     }
@@ -24,7 +24,7 @@ function conditionScrollOffset(id, $condition) {
     return scrollOffsetlist.length;
 }
 //*
-function scrollOffset(id, $condition) {
+export function scrollOffset(id, $condition) {
     conditionScrollOffset(id, $condition || 'open')
     if (scrollOffsetlist.length === 1) {
         document.body.style.overflow = 'hidden';
