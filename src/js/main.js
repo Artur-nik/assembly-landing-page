@@ -8,7 +8,7 @@ import './form/file';
 import './form/ajax';
 
 import './plugins/lazy';
-import './plugins/gsap';
+//import './plugins/gsap';
 //import './plugins/fancybox';
 
 import './paths/template.g';
