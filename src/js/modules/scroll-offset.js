@@ -10,7 +10,7 @@ let addStyleOffset = document.createElement('style');
 addStyleOffset.innerHTML = '.scroll-offset { padding-right:' + (window.innerWidth - bodyWidth) + 'px;}';
 document.getElementsByTagName('head')[0].appendChild(addStyleOffset);
 //*
-document.querySelectorAll('[data-scroll-trigger]').forEach(element => {
+document.querySelectorAll('[data-scroll-offset]').forEach(element => {
     element.classList.remove('scroll-offset');
 });
 
@@ -28,13 +28,13 @@ export function scrollOffset(id, $condition) {
     conditionScrollOffset(id, $condition || 'open')
     if (scrollOffsetlist.length === 1) {
         document.body.style.overflow = 'hidden';
-        document.querySelectorAll('[data-scroll-trigger]').forEach(element => {
+        document.querySelectorAll('[data-scroll-offset]').forEach(element => {
             element.classList.add('scroll-offset');
         });
     }
     if (scrollOffsetlist.length === 0) {
         document.body.style.overflow = '';
-        document.querySelectorAll('[data-scroll-trigger]').forEach(element => {
+        document.querySelectorAll('[data-scroll-offset]').forEach(element => {
             element.classList.remove('scroll-offset');
         });
     }
