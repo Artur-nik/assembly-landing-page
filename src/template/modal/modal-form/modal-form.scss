@@ -6,12 +6,13 @@
     &__box {
         margin: auto;
         position: relative;
+        z-index: 2;
     }
     &__wrapper {
         background-color: #fff;
         padding: size(50) 0;
         @include media(lg) {
-            padding: size(50) 0;
+            padding: size(50) size(75);
         }
     }
     &__close {

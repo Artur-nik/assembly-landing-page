@@ -1,5 +1,8 @@
+//* "./src/assets/libraries/gsap.min.js",
+//* "./src/assets/libraries/ScrollTrigger.min.js",
+
 /*
-    data-scroll-trigger="y: 1rem, x: 1rem, scrub, marker"
+    data-scroll-animation="y: 1rem, x: 1rem, scrub, marker"
 */
 
 import { parseData } from "../utility/parseData";
@@ -8,7 +11,7 @@ import { parseData } from "../utility/parseData";
 ScrollTrigger.matchMedia({
     // desktop
     "(min-width: 1024px)": function() {
-        document.querySelectorAll('[data-scroll-trigger]').forEach($trigger => {
+        document.querySelectorAll('[data-scroll-animation]').forEach($trigger => {
             //*
             const animationConfig =  parseData($trigger.dataset.scrollTrigger);
             //*

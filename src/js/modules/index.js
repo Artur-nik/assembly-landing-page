@@ -1,7 +1,6 @@
 import './toogle';
 import './scroll';
-import './scroll-offset';
-//import './scroll-trigger';
+//import './scroll-animation';
 //import './scroll-image';
 import './mask';
 //import './round';

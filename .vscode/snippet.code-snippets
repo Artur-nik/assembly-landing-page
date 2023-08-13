@@ -1,0 +1,452 @@
+{
+    "btn-play-html-0": {
+        "prefix": "btn-play",
+        "scope": "html, php",
+        "body": "<button class=\"btn btn-play btn--theme-primary\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#play\"></use></svg></button>"
+    },
+    "btn-html-1": {
+        "prefix": "btn",
+        "scope": "html, php",
+        "body": "<button class=\"btn btn-${1|primary, secondary|} btn--theme-${2|primary,outline|} btn-primary--md\">\r\n    <span class=\"\"></span>\r\n</button>"
+    },
+    "x-card-v1-html-2": {
+        "prefix": "x-card-v1",
+        "scope": "html, php",
+        "body": "<div class=\"${TM_FILENAME_BASE}__card wow fadeIn\">\r\n    <strong class=\"title \"></strong>\r\n    <p class=\"\"></p>\r\n</div>"
+    },
+    "x-card-v2-html-3": {
+        "prefix": "x-card-v2",
+        "scope": "html, php",
+        "body": "<div class=\"${TM_FILENAME_BASE}__card wow fadeIn\">\r\n    <p class=\"${TM_FILENAME_BASE}__card-number\"><span>0</span></p>\r\n    <p class=\"\"></p>   \r\n</div>"
+    },
+    "x-card-v2-scss-4": {
+        "prefix": "x-card-v2",
+        "scope": "scss",
+        "body": "&__card {\r\n    border: 1px solid #000;\r\n    border-radius: size(8);\r\n    padding: size(20) size(15);\r\n    @include media(lg) {\r\n        padding: size(20) size(15) size(35);\r\n    }\r\n    &-number {\r\n        height: 1em;\r\n        width: 1em;\r\n        background-color: #000;\r\n        color: #fff;\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: center;\r\n\r\n        font-size: size(64);\r\n        margin-bottom: size(10);\r\n        @include media(lg) {\r\n            margin-bottom: size(60);\r\n        }\r\n        span {\r\n            font-size: size(20, 64, 'em');\r\n        }\r\n    }\r\n}"
+    },
+    "trigger-form-html-5": {
+        "prefix": "trigger-form",
+        "scope": "html, php",
+        "body": "data-trigger=\"#modal-form, modalOpen\""
+    },
+    "trigger-video-html-6": {
+        "prefix": "trigger-video",
+        "scope": "html, php",
+        "body": "data-trigger=\"#modal-video, modalOpen\" data-video-src=\"\""
+    },
+    "trigger-html-7": {
+        "prefix": "trigger",
+        "scope": "html, php",
+        "body": "data-trigger=\"\""
+    },
+    "form-checkbox-html-8-0": {
+        "prefix": "form-checkbox",
+        "scope": "html, php",
+        "body": "<span class=\"form-checkbox\" data-input-box>\r\n    <input class=\"form-checkbox__input\" type=\"checkbox\" data-input>\r\n    <span class=\"form-checkbox__decor\"></span>\r\n</span>"
+    },
+    "form-checkbox-icon-html-8-1": {
+        "prefix": "form-checkbox-icon",
+        "scope": "html, php",
+        "body": "<span class=\"form-checkbox form-checkbox--icon\" data-input-box>\r\n    <input class=\"form-checkbox__input\" type=\"checkbox\" data-input>\r\n    <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#check\"></use></svg>\r\n</span>"
+    },
+    "form-field-email-html-9-0": {
+        "prefix": "form-field-email",
+        "scope": "html, php",
+        "body": "<label class=\"form-field\" data-input-box>\r\n    <input class=\"form-field__input\" placeholder=\"email\" type=\"email\" name=\"email\" data-input>\r\n    <span class=\"form-field__text\">type: email</span>\r\n    <span class=\"form-field__error\">Пожалуйста, введите адрес электронной почты.</span>\r\n</label>"
+    },
+    "form-field-email-required-html-9-1": {
+        "prefix": "form-field-email-required",
+        "scope": "html, php",
+        "body": "<label class=\"form-field\" data-input-box>\r\n    <input class=\"form-field__input\" placeholder=\"email\" type=\"email\" name=\"email\" data-input required>\r\n    <span class=\"form-field__text\">type: email required <span>*</span></span>\r\n    <span class=\"form-field__error\">Пожалуйста, введите адрес электронной почты.</span>\r\n    <span class=\"form-field__required\">\r\n        Укажите E-mail\r\n    </span>\r\n</label>"
+    },
+    "form-field-number-html-10-0": {
+        "prefix": "form-field-number",
+        "scope": "html, php",
+        "body": "<label class=\"form-field\" data-input-box>\r\n    <input class=\"form-field__input\" placeholder=\"number\" type=\"number\" data-input name=\"name\">\r\n    <span class=\"form-field__text\">number</span>\r\n    <span class=\"form-field__number\">Пожалуйста, введите число.</span>\r\n</label>"
+    },
+    "form-field-number-required-html-10-1": {
+        "prefix": "form-field-number-required",
+        "scope": "html, php",
+        "body": "<label class=\"form-field\" data-input-box>\r\n    <input class=\"form-field__input\" placeholder=\"number\" type=\"number\" name=\"name2\" data-input required>\r\n    <span class=\"form-field__text\">number <span>*</span></span>\r\n    <span class=\"form-field__error\">Пожалуйста, введите число.</span>\r\n    <span class=\"form-field__required\">\r\n        Укажите число\r\n    </span>\r\n</label>"
+    },
+    "form-field-password-html-11-0": {
+        "prefix": "form-field-password",
+        "scope": "html, php",
+        "body": "<label class=\"form-field\" data-input-box>\r\n    <input class=\"form-field__input\" placeholder=\"password\" type=\"password\" data-input name=\"name2\">\r\n    <span class=\"form-field__text\">password</span>\r\n</label>"
+    },
+    "form-field-password-required-html-11-1": {
+        "prefix": "form-field-password-required",
+        "scope": "html, php",
+        "body": "<label class=\"form-field\" data-input-box>\r\n    <input class=\"form-field__input\" placeholder=\"password\" type=\"password\" name=\"name2\" data-input required>\r\n    <span class=\"form-field__text\">password <span>*</span></span>\r\n    <span class=\"form-field__required\">\r\n        Укажите пароль\r\n    </span>\r\n</label>"
+    },
+    "form-field-phone-html-12-0": {
+        "prefix": "form-field-phone",
+        "scope": "html, php",
+        "body": "<label class=\"form-field\" data-input-box>\r\n    <input class=\"form-field__input\" data-mask=\"+7 (999) 999-99-99\" data-input placeholder=\"phone\" type=\"tel\" name=\"phone\">\r\n    <span class=\"form-field__text\">Ваш телефон</span>\r\n</label>"
+    },
+    "form-field-phone-required-html-12-1": {
+        "prefix": "form-field-phone-required",
+        "scope": "html, php",
+        "body": "<label class=\"form-field\" data-input-box>\r\n    <input class=\"form-field__input\" data-mask=\"+7 (999) 999-99-99\" data-input placeholder=\"phone\" type=\"tel\" name=\"phone\" required>\r\n    <span class=\"form-field__text\">type: tel required <span>*</span></span>\r\n    <span class=\"form-field__required\">\r\n        Укажите телефон\r\n    </span>\r\n</label>"
+    },
+    "form-field-text-html-13-0": {
+        "prefix": "form-field-text",
+        "scope": "html, php",
+        "body": "<label class=\"form-field\" data-input-box>\r\n    <input class=\"form-field__input\" placeholder=\"text\" type=\"text\" name=\"name\" data-input>\r\n    <span class=\"form-field__text\">text</span>\r\n</label>"
+    },
+    "form-field-text-required-html-13-1": {
+        "prefix": "form-field-text-required",
+        "scope": "html, php",
+        "body": "<label class=\"form-field\" data-input-box>\r\n    <input class=\"form-field__input\" placeholder=\"text\" type=\"text\" name=\"name\" data-input required>\r\n    <span class=\"form-field__text\">type: text required <span>*</span></span>\r\n    <span class=\"form-field__required\">\r\n        Укажите текст\r\n    </span>\r\n</label>"
+    },
+    "form-file-html-14-0": {
+        "prefix": "form-file",
+        "scope": "html, php",
+        "body": "<label class=\"form-file\" data-input-box>\r\n    <span class=\"form-file__controller\">\r\n        <input class=\"form-file__input\"  type=\"file\" name=\"file\" data-input>\r\n        <span class=\"form-file__text\">\r\n            Загрузка файлов\r\n        </span>\r\n        <span class=\"form-file__quantity\">\r\n            <span class=\"form-file__loader loader\"></span>\r\n            <svg class=\"form-file__icon icon\"><use xlink:href=\"svg-sprite/sprite.svg#file\"></use></svg>\r\n            <span class=\"form-file__number\"></span> \r\n        </span>\r\n    </span>\r\n</label>"
+    },
+    "form-file-multiple-html-14-1": {
+        "prefix": "form-file-multiple",
+        "scope": "html, php",
+        "body": "<label class=\"form-file\" data-input-box>\r\n    <span class=\"form-file__controller\">\r\n        <input class=\"form-file__input\" type=\"file\" name=\"files[]\" data-input multiple>\r\n        <span class=\"form-file__text\">\r\n            Загрузка файлов\r\n        </span>\r\n        <span class=\"form-file__quantity\">\r\n            <span class=\"form-file__loader loader\"></span>\r\n            <svg class=\"form-file__icon icon\"><use xlink:href=\"svg-sprite/sprite.svg#file\"></use></svg>\r\n            <span class=\"form-file__number\"></span> \r\n        </span>\r\n    </span>\r\n</label>"
+    },
+    "form-radio-group-html-15": {
+        "prefix": "form-radio-group",
+        "scope": "html, php",
+        "body": "<div class=\"form-radio-group\">\r\n    <label class=\"form-radio\">\r\n        <input class=\"form-radio__input\" type=\"radio\" name=\"text\" data-input>\r\n        <span class=\"form-radio__box\">text</span>\r\n    </label>\r\n    <label class=\"form-radio\">\r\n        <input class=\"form-radio__input\" type=\"radio\" name=\"text\" data-input>\r\n        <span class=\"form-radio__box\">text</span>\r\n    </label>\r\n    <label class=\"form-radio\">\r\n        <input class=\"form-radio__input\" type=\"radio\" name=\"text\" data-input>\r\n        <span class=\"form-radio__box\">text</span>\r\n    </label>\r\n    <label class=\"form-radio\">\r\n        <input class=\"form-radio__input\" type=\"radio\" name=\"text\" data-input>\r\n        <span class=\"form-radio__box\">text</span>\r\n    </label>\r\n</div>"
+    },
+    "form-textarea-html-16-0": {
+        "prefix": "form-textarea",
+        "scope": "html, php",
+        "body": "<label class=\"form-textarea\" data-input-box=\"\">\r\n    <textarea class=\"form-textarea__input\" placeholder=\"text\" name=\"comment\" data-input=\"\"></textarea>\r\n    <span class=\"form-textarea__text\">\r\n        Text\r\n    </span>\r\n</label>"
+    },
+    "form-textarea-required-html-16-1": {
+        "prefix": "form-textarea-required",
+        "scope": "html, php",
+        "body": "<label class=\"form-textarea\" data-input-box> \r\n    <textarea class=\"form-textarea__input\" placeholder=\"text\" data-input name=\"comment\" required></textarea>\r\n    <span class=\"form-textarea__text\">\r\n        Text\r\n    </span>\r\n    <span class=\"form-textarea__required\">\r\n        Укажите текст\r\n    </span>\r\n</label>"
+    },
+    "form-html-17": {
+        "prefix": "form",
+        "scope": "html, php",
+        "body": "<form class=\"form js-form\" action=\"form/form.php\" data-next-page=\"/thanks.html\">\r\n    <input type=\"hidden\" name=\"form-title\">\r\n    <input type=\"hidden\" name=\"info\">\r\n\r\n    <div class=\"form-send\">\r\n        <div class=\"form-send__message\">\r\n            <div class=\"form-send__loading\"><span></span></div>\r\n            <p class=\"form-send__error\">Что-то пошло не так. <br> Заявка не отправлена.</p>\r\n        </div>\r\n        <button type=\"submit\" class=\"form-send__btn btn btn-primary btn--theme-primary btn-primary--md\">\r\n            <span class=\"\">Перезвоните мне</span>\r\n        </button>\r\n    </div>\r\n</form>"
+    },
+    "grid-6@lg-x2-html-18-0": {
+        "prefix": "grid-6@lg-x2",
+        "scope": "html, php",
+        "body": "<div class=\"grid\">\r\n    <div class=\"col-6@lg\"></div>\r\n    <div class=\"col-6@lg\"></div>\r\n</div>"
+    },
+    "grid-6@md-4@lg-html-18-1": {
+        "prefix": "grid-6@md-4@lg",
+        "scope": "html, php",
+        "body": "<div class=\"grid\">\r\n    <div class=\"col-6@md col-4@lg\"></div>\r\n</div>"
+    },
+    "grid-6@md-4@lg-x3-html-18-2": {
+        "prefix": "grid-6@md-4@lg-x3",
+        "scope": "html, php",
+        "body": "<div class=\"grid\">\r\n    <div class=\"col-6@md col-4@lg\"></div>\r\n    <div class=\"col-6@md col-4@lg\"></div>\r\n    <div class=\"col-6@md col-4@lg\"></div>\r\n</div>"
+    },
+    "grid-6@md-3@lg-html-18-3": {
+        "prefix": "grid-6@md-3@lg",
+        "scope": "html, php",
+        "body": "<div class=\"grid\">\r\n    <div class=\"col-6@md col-3@lg\"></div>\r\n</div>"
+    },
+    "grid-6@md-3@lg-x4-html-18-4": {
+        "prefix": "grid-6@md-3@lg-x4",
+        "scope": "html, php",
+        "body": "<div class=\"grid\">\r\n    <div class=\"col-6@md col-3@lg\"></div>\r\n    <div class=\"col-6@md col-3@lg\"></div>\r\n    <div class=\"col-6@md col-3@lg\"></div>\r\n    <div class=\"col-6@md col-3@lg\"></div>\r\n</div>"
+    },
+    "img-html-19-0": {
+        "prefix": "img",
+        "scope": "html, php",
+        "body": "<img src=\"images/${TM_FILENAME_BASE}/\" alt=\"\"/>"
+    },
+    "bg-filename-scss-20-0": {
+        "prefix": "bg-filename",
+        "scope": "scss",
+        "body": "background: url('../images/${TM_FILENAME_BASE}/') no-repeat center top / cover;"
+    },
+    "bg-size-scss-20-1": {
+        "prefix": "bg-size",
+        "scope": "scss",
+        "body": "background: url('../images/${TM_FILENAME_BASE}/') no-repeat center top / size();"
+    },
+    "img-adaptive-lazy-html-21": {
+        "prefix": "img-adaptive-lazy",
+        "scope": "html, php",
+        "body": "<div class=\"adaptive-box\">\r\n    <img class=\"adaptive-box__image lazy\" data-src=\"images/${TM_FILENAME_BASE}/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>\r\n</div>"
+    },
+    "img-adaptive-html-22": {
+        "prefix": "img-adaptive",
+        "scope": "html, php",
+        "body": "<div class=\"adaptive-box\">\r\n    <img class=\"adaptive-box__image\" src=\"images/${TM_FILENAME_BASE}/\" alt=\"\"/>\r\n</div>"
+    },
+    "img-bp-html-23": {
+        "prefix": "img-bp",
+        "scope": "html, php",
+        "body": "<div class=\"adaptive-box\">\r\n    <picture>\r\n        <source srcset=\"images/${TM_FILENAME_BASE}/\" media=\"(min-width: px)\">\r\n        <img class=\"adaptive-box__image lazy\" data-src=\"images/${TM_FILENAME_BASE}/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>\r\n    </picture>\r\n</div>"
+    },
+    "img-icon-lazyload-html-24": {
+        "prefix": "img-icon-lazyload",
+        "scope": "html, php",
+        "body": "<img class=\"lazy icon\" data-src=\"images/${TM_FILENAME_BASE}/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>"
+    },
+    "img-icon-html-25": {
+        "prefix": "img-icon",
+        "scope": "html, php",
+        "body": "<img class=\"icon\" src=\"images/${TM_FILENAME_BASE}/\" alt=\"\"/>"
+    },
+    "img-lazyload-html-26": {
+        "prefix": "img-lazyload",
+        "scope": "html, php",
+        "body": "<img class=\"lazy\" data-src=\"images/${TM_FILENAME_BASE}/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>"
+    },
+    "img-webp-bp-html-27": {
+        "prefix": "img-webp-bp",
+        "scope": "html, php",
+        "body": "<div class=\"adaptive-box\">\r\n    <picture>\r\n        <source srcset=\"images/${TM_FILENAME_BASE}/\" type=\"image/webp\" media=\"(min-width: px)\">\r\n        <source srcset=\"images/${TM_FILENAME_BASE}/\" media=\"(min-width: px)\">\r\n        <source srcset=\"images/${TM_FILENAME_BASE}/\" type=\"image/webp\">\r\n        <img class=\"adaptive-box__image lazy\" data-src=\"images/${TM_FILENAME_BASE}/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>\r\n    </picture>\r\n</div>"
+    },
+    "img-webp-html-28": {
+        "prefix": "img-webp",
+        "scope": "html, php",
+        "body": "<div class=\"adaptive-box\">\r\n    <picture>\r\n        <source srcset=\"images/${TM_FILENAME_BASE}/.webp\" type=\"image/webp\">\r\n        <img class=\"adaptive-box__image lazy\" data-src=\"images/${TM_FILENAME_BASE}/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>\r\n    </picture>\r\n</div>"
+    },
+    "questions-plus-html-29": {
+        "prefix": "questions-plus",
+        "scope": "html, php",
+        "body": "<div class=\"questions\"  ${1| ,data-questions=\"accordion\"|}>\r\n    <div class=\"questions-item\">\r\n        <div class=\"questions-item__header\">\r\n            <h4 class=\"questions-item__title\"></h4>\r\n            <div class=\"questions-item__toggel\"><div class=\"_plus\"></div></div>\r\n        </div>\r\n        <div class=\"questions-item__body\"></div>\r\n    </div>\r\n</div>"
+    },
+    "questions-html-30": {
+        "prefix": "questions",
+        "scope": "html, php",
+        "body": "<div class=\"questions\" ${1| ,data-questions=\"accordion\"|}>\r\n    <div class=\"questions-item\">\r\n        <div class=\"questions-item__header\">\r\n            <h4 class=\"questions-item__title\"></h4>\r\n            <div class=\"questions-item__toggel _arrow\">\r\n                <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg>\r\n            </div>\r\n        </div>\r\n        <div class=\"questions-item__body\"></div>\r\n    </div>\r\n</div>"
+    },
+    "c-slider-v1-html-31": {
+        "prefix": "c-slider-v1",
+        "scope": "html, php",
+        "body": "<div class=\"slider\" data-config=\"\">\r\n    <div class=\"slider__wrapper mb-20 mb-0@lg\">\r\n        <div class=\"slider-init swiper\">\r\n            <div class=\"swiper-wrapper\" data-wrapper>\r\n                <div class=\"swiper-slide\" data-slide>Slide 1 <br><br><br><br></div>\r\n                <div class=\"swiper-slide\" data-slide>Slide 2 <br><br><br><br></div>\r\n                <div class=\"swiper-slide\" data-slide>Slide 3 <br><br><br><br></div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"box-center\">\r\n        <button class=\"slider-button slider-button--center slider-button-prev btn\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>\r\n        <button class=\"slider-button slider-button--center slider-button-next btn\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>    \r\n    </div>\r\n</div>"
+    },
+    "c-slider-v2-html-32": {
+        "prefix": "c-slider-v2",
+        "scope": "html, php",
+        "body": "<div class=\"slider\" data-config=\"\"> \r\n    <div class=\"slider__wrapper\">\r\n        <div class=\"box\">\r\n            <div class=\"slider-controller m:right@lg\">\r\n                <div class=\"slider-pagination\"></div>\r\n                <div class=\"slider-button-group\">\r\n                    <button class=\"slider-button slider-button-prev btn\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>\r\n                    <button class=\"slider-button slider-button-next btn\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"slider-init swiper\">\r\n            <div class=\"swiper-wrapper\" data-wrapper>\r\n                <div class=\"swiper-slide\" data-slide>Slide 11</div>\r\n                <div class=\"swiper-slide\" data-slide>Slide 21</div>\r\n                <div class=\"swiper-slide\" data-slide>Slide 31</div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+    },
+    "c-slider-v3-html-33": {
+        "prefix": "c-slider-v3",
+        "scope": "html, php",
+        "body": "<div class=\"slider\" data-config=\"\"> \r\n    <div class=\"slider__wrapper\">\r\n        <div class=\"slider-init swiper\">\r\n            <div class=\"swiper-wrapper\" data-wrapper>\r\n                <div class=\"swiper-slide\" data-slide>Slide 11</div>\r\n                <div class=\"swiper-slide\" data-slide>Slide 21</div>\r\n                <div class=\"swiper-slide\" data-slide>Slide 31</div>\r\n            </div>\r\n        </div>\r\n        <div class=\"slider-controller m:right@lg\">\r\n            <button class=\"slider-button slider-button-prev btn\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>\r\n            <div class=\"slider-pagination\"></div>\r\n            <button class=\"slider-button slider-button-next btn\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>\r\n        </div>\r\n    </div>\r\n</div>"
+    },
+    "adaptive-box-scss-34": {
+        "prefix": "adaptive-box",
+        "scope": "scss",
+        "body": "--adaptive-box: #{size($1, $2, '%')};",
+        "description": "adaptive-box #{size(height,width)}"
+    },
+    "dp-none-scss-35-0": {
+        "prefix": "dp-none",
+        "scope": "scss",
+        "body": "display: none;"
+    },
+    "dp-block-scss-35-1": {
+        "prefix": "dp-block",
+        "scope": "scss",
+        "body": "--dp-block: block;\r\ndisplay: var(--dp-block);"
+    },
+    "dp-flex-scss-35-2": {
+        "prefix": "dp-flex",
+        "scope": "scss",
+        "body": "--dp-flex: flex;\r\ndisplay: var(--dp-flex);"
+    },
+    "font-size-size-scss-36-0": {
+        "prefix": "font-size-size",
+        "scope": "scss",
+        "body": "font-size: size($0);"
+    },
+    "font-size-size-lg-scss-36-1": {
+        "prefix": "font-size-size-lg",
+        "scope": "scss",
+        "body": "font-size: size();\r\n@include media(lg) {\r\n     font-size: size();\r\n}"
+    },
+    "gap-y-scss-37-0": {
+        "prefix": "gap-y",
+        "scope": "scss",
+        "body": "--grid-gap-y: #{size()};"
+    },
+    "gap-x-scss-37-1": {
+        "prefix": "gap-x",
+        "scope": "scss",
+        "body": "--grid-gap-x: #{size()};"
+    },
+    "mb-scss-38-0": {
+        "prefix": "mb",
+        "scope": "scss",
+        "body": "margin-bottom: size($0);"
+    },
+    "mb-lg-scss-38-1": {
+        "prefix": "mb-lg",
+        "scope": "scss",
+        "body": "margin-bottom: size();\r\n@include media(lg) {\r\n     margin-bottom: size();\r\n}"
+    },
+    "media-scss-39-0": {
+        "prefix": "media",
+        "scope": "scss",
+        "body": "@include media(${1|sm,xs,md,lg,xl,hg,hd|}, ${3|min,max,only|}) {\r\n    $2\r\n}"
+    },
+    "media-md-scss-39-1": {
+        "prefix": "media-md",
+        "scope": "scss",
+        "body": "@include media(md) {\r\n    $0\r\n}"
+    },
+    "media-lg-scss-39-2": {
+        "prefix": "media-lg",
+        "scope": "scss",
+        "body": "@include media(lg) {\r\n    $0\r\n}"
+    },
+    "padding-y-scss-40-0": {
+        "prefix": "padding-y",
+        "scope": "scss",
+        "body": "padding-top: size();\r\npadding-bottom: size();"
+    },
+    "padding-x-scss-40-1": {
+        "prefix": "padding-x",
+        "scope": "scss",
+        "body": "padding-left: size();\r\npadding-right: size();"
+    },
+    "padding-s-lg-scss-40-2": {
+        "prefix": "padding-s-lg",
+        "scope": "scss",
+        "body": "padding: size();\r\n@include media(lg) {\r\n     padding: size();\r\n}"
+    },
+    "padding-s-0-lg-scss-40-3": {
+        "prefix": "padding-s-0-lg",
+        "scope": "scss",
+        "body": "padding: size() 0;\r\n@include media(lg) {\r\n     padding: size() 0;\r\n}"
+    },
+    "size-scss-41-0": {
+        "prefix": "size",
+        "scope": "scss",
+        "body": "size($0)",
+        "description": " size(100, 100, 'rem')"
+    },
+    "size-em-scss-41-1": {
+        "prefix": "size-em",
+        "scope": "scss",
+        "body": "size($0, $1, 'em')",
+        "description": " size(100, 100, 'em')"
+    },
+    "size-%-scss-41-2": {
+        "prefix": "size-%",
+        "scope": "scss",
+        "body": "size($0, $1, '%')",
+        "description": " size(100, 100, '%')"
+    },
+    "size-number-scss-41-3": {
+        "prefix": "size-number",
+        "scope": "scss",
+        "body": "size($0, $1, 'number')",
+        "description": " size(100, 100, 'number')"
+    },
+    "swiper-pagination-custom-js-42": {
+        "prefix": "swiper-pagination-custom",
+        "scope": "javascript",
+        "body": "pagination: {\r\n    el: '.swiper-pagination',\r\n    type: 'fraction',\r\n    formatFractionCurrent: addZero,\r\n    formatFractionTotal: addZero,\r\n    renderFraction: function(currentClass, totalClass) {\r\n        return '<span class=\"swiper-pagination-current\">' + currentClass + '</span>' +\r\n            '<span class=\"swiper-pagination-line\"></span>' +\r\n            '<span class=\"swiper-pagination-total\">' + totalClass + '</span>'\r\n    }\r\n},"
+    },
+    "swiper-pagination-format-js-43": {
+        "prefix": "swiper-pagination-format",
+        "scope": "javascript",
+        "body": "pagination: {\r\n    el: '.swiper-pagination',\r\n    type: 'fraction',\r\n    formatFractionCurrent: addZero,\r\n    formatFractionTotal: addZero,\r\n},"
+    },
+    "swiper-pagination-progressbar-js-44": {
+        "prefix": "swiper-pagination-progressbar",
+        "scope": "javascript",
+        "body": "pagination: {\r\n    el: '.swiper-pagination',\r\n    type: 'progressbar',\r\n},"
+    },
+    "swiper-scrollbar-js-45": {
+        "prefix": "swiper-scrollbar",
+        "scope": "javascript",
+        "body": "scrollbar: {\r\n    el: '.swiper-scrollbar',\r\n    draggable: true,\r\n}"
+    },
+    "swiper-btn-group-html-46": {
+        "prefix": "swiper-btn-group",
+        "scope": "html, php",
+        "body": "<div class=\"swiper-button-group\">\r\n    <button class=\"swiper-button-prev\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>\r\n    <button class=\"swiper-button-next\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>\r\n</div>"
+    },
+    "swiper-controller-lvl-1-html-47": {
+        "prefix": "swiper-controller-lvl-1",
+        "scope": "html, php",
+        "body": "<div class=\"swiper-controller\">\r\n    <div class=\"swiper-pagination\"></div>\r\n    <button class=\"swiper-button-prev\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>\r\n    <button class=\"swiper-button-next\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>\r\n</div>"
+    },
+    "swiper-controller-lvl-2-html-48": {
+        "prefix": "swiper-controller-lvl-2",
+        "scope": "html, php",
+        "body": "<div class=\"swiper-controller\">\r\n    <button class=\"swiper-button-prev\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>\r\n    <div class=\"swiper-pagination\"></div>\r\n    <button class=\"swiper-button-next\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>\r\n</div>"
+    },
+    "swiper-pagination-html-49": {
+        "prefix": "swiper-pagination",
+        "scope": "html, php",
+        "body": "<div class=\"swiper-pagination\"></div>"
+    },
+    "swiper-scrollbar-html-50": {
+        "prefix": "swiper-scrollbar",
+        "scope": "html, php",
+        "body": "<div class=\"swiper-scrollbar\"></div>"
+    },
+    "swiper-html-51": {
+        "prefix": "swiper",
+        "scope": "html, php",
+        "body": "<div class=\"-swiper swiper\">\r\n    <div class=\"swiper-wrapper\">\r\n        <div class=\"swiper-slide\">Slide 1</div>\r\n        <div class=\"swiper-slide\">Slide 2</div>\r\n        <div class=\"swiper-slide\">Slide 3</div>\r\n    </div>\r\n\r\n    <div class=\"swiper-pagination\"></div>\r\n\r\n    <button class=\"swiper-button-prev\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>\r\n    <button class=\"swiper-button-next\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>\r\n    \r\n    <div class=\"swiper-scrollbar\"></div>\r\n</div>"
+    },
+    "tab-html-52": {
+        "prefix": "tab",
+        "scope": "html, php",
+        "body": "<div class=\"tab\">\r\n    <div class=\"tab__controller\">\r\n        <button class=\"tab__btn btn\"></button>\r\n        <button class=\"tab__btn btn\"></button>\r\n    </div>\r\n    <div class=\"tab__wrapper\">\r\n        <div class=\"tab__box m:hide\"></div>\r\n        <div class=\"tab__box m:hide\"></div>\r\n    </div>\r\n</div>"
+    },
+    "adaptive-box-html-53": {
+        "prefix": "adaptive-box",
+        "scope": "html, php",
+        "body": "<div class=\"adaptive-box\">\r\n    <div class=\"adaptive-box__item\"></div>\r\n</div>"
+    },
+    "container-html-54": {
+        "prefix": "container",
+        "scope": "html, php",
+        "body": "<div class=\"container\">\r\n  \r\n</div>"
+    },
+    "icon-html-55": {
+        "prefix": "icon",
+        "scope": "html, php",
+        "body": "<svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#\"></use></svg>"
+    },
+    "include-html-56": {
+        "prefix": "include",
+        "scope": "html, php",
+        "body": "@@include(\"_.html\",{})"
+    },
+    "menu-toggle-text-html-57": {
+        "prefix": "menu-toggle-text",
+        "scope": "html, php",
+        "body": "<button id=\"menu-modal-open\" class=\"menu-toggle\">\r\n    <span class=\"menu-toggle__icon\"><span class=\"_left\"></span></span>\r\n    <span class=\"menu-toggle__text\"></span>\r\n</button>"
+    },
+    "menu-toggle-html-58": {
+        "prefix": "menu-toggle",
+        "scope": "html, php",
+        "body": "<button id=\"menu-modal-open\" class=\"menu-toggle\"><span class=\"menu-toggle__icon\"><span class=\"_left\"></span></span></button>"
+    },
+    "social-group-html-59": {
+        "prefix": "social-group",
+        "scope": "html, php",
+        "body": "<div class=\"social-group\">\r\n    <a href=\"#\" class=\"social social--size\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#\"></use></svg></a>\r\n</div>"
+    },
+    "social-html-60": {
+        "prefix": "social",
+        "scope": "html, php",
+        "body": "<a href=\"#\" class=\"social social--size\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#\"></use></svg></a>"
+    },
+    "title-html-61": {
+        "prefix": "title",
+        "scope": "html, php",
+        "body": "<h2 class=\"__title title title--size-lg\"></h2>"
+    },
+    "video-youtube-html-62": {
+        "prefix": "video-youtube",
+        "scope": "html, php",
+        "body": "<div class=\"video adaptive-box\">\r\n    <img class=\"video__preview lazy\" data-src=\"//img.youtube.com/vi/    /maxresdefault.jpg\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>\r\n    <div class=\"video__frame\"></div>\r\n    <button class=\"video__btn btn btn-play btn--theme-primary\" data-video-src=\"\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#play\"></use></svg></button>\r\n    <span class=\"loader loader--center loader--size-lg\"></span>\r\n</div>"
+    }
+}

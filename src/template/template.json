@@ -3,10 +3,7 @@
     "header": "header",
     "footer": "footer",
     "modal": [
-        //"modal-politic:folder",
         "modal-form:folder",
-        //"modal-form-v1:folder",
-        //"modal-form-v2:folder",
         "modal-video:folder"
     ]
     //"preloader": "preloader"

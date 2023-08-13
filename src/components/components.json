@@ -1,5 +1,6 @@
 {
     //"cursor": "cursor",
+    "scroll-offset": "scroll-offset",
     "modal": "modal",
     "questions": "questions",
     //"quiz": "quiz",

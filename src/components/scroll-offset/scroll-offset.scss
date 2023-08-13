@@ -1,0 +1,8 @@
+.scroll-offset {
+    overflow: hidden !important;   
+    --scroll-offset: var(--scroll-offset-init);
+    &[data-scroll-offset],
+    & [data-scroll-offset] {
+        padding-right: var(--scroll-offset);
+    }
+}

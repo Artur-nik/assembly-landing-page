@@ -1,26 +1,28 @@
 .modal-video {
-    position: relative;
+    &__wrapper {
+        min-height: 100%;
+        padding-bottom: size(100);
+        display: flex;
+        flex-direction: column;
+    }
+    &__header {
+        @include media(lg) {
+            height: size(100);
+        }
+    }
     &__box { 
-        margin: auto;
-        max-width: size(1200);
+        margin: 0 auto;
+        max-width: size(1000);
         width: 100%;
         position: relative;
-        --adaptive-box: height(560,315);
+        flex: 1 0 auto;
+        display: flex;
     }
-    &__frame {
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 100%;
-        z-index: 2;
+    &__video {
+        --adaptive-box: #{size(315, 560,'%')};
+        margin: auto;
     }
-    &__loader {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate3d(-50%,-50%, 0);
-        font-size: 4em;
-        z-index: 1;
+    &__close {
+        margin:auto 0 auto auto;
     }
 }

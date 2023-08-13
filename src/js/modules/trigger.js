@@ -1,5 +1,5 @@
 import { parseDataList } from "../utility/parseDataList"
-import { isNumber, isString } from "../utility/util"
+import { isNumber } from "../utility/util"
 
 //*  data-trigger - вызывает событие у элемента
 //*  Все дата атрибуты отправляется вместе с triggerData (кроме самого trigger)
@@ -61,7 +61,8 @@ export function trigger($root, config, configName, eventName) {
         let triggerData = {}
         Object.keys($root.dataset).forEach(data => {
             if (data != configName) {
-                triggerData[data] = $root.dataset[data]
+                const dataValue = $root.dataset[data].trim()
+                triggerData[data] = Number(dataValue) ? Number(dataValue) : dataValue === 'true' ? true : dataValue === 'false' ? false : dataValue
             }
         });
         return triggerData

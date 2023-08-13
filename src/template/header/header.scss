@@ -4,4 +4,13 @@
     top: 0;
     width: 100%;
     z-index: 950;
+    &._menu-active {
+        .header-hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+    &-hide {
+        transition-duration: $td;
+    }
 }

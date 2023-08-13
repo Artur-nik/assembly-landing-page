@@ -1,5 +1,5 @@
 .video { 
-    --adaptive-box: #{height(560,315)};
+    --adaptive-box: #{size(315, 560, '%')};
     &._active {
         .video__frame {
             z-index: 4;

@@ -1,15 +1,19 @@
-<div id="modal-video" class="modal modal--theme-primary" data-modal-target="false">
+<div id="modal-video" class="modal modal-video modal--theme-primary" data-modal="youtube-video">
     <div class="modal__wrapper">
-        <div class="modal__container modal-video">
-            <div class="modal-video__header modal__header">
-                <button class="modal__header-close modal__close">
-                    <svg class="icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
-                </button>
-            </div>
-            <div class="modal-video__box modal__box">
-                <div class="video adaptive-box">
-                    <div id="init-modal-video" class="video__frame" data-video-src="Lo3rrP8u7Mw"></div>
-                    <span class="video__loader loader loader--center loader--size-lg"></span>
+        <div class="modal__container">
+            <div class="modal-video__wrapper">
+                <div class="modal-video__header">
+                    <div class="container box h-full">
+                        <button class="modal__close modal-video__close btn btn--theme-outline" data-modal-close="">
+                            <svg class="icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-video__box">
+                    <div class="modal-video__video video adaptive-box">
+                        <div id="init-modal-video" class="video__frame" data-video-src="Lo3rrP8u7Mw"></div>
+                        <span class="video__loader loader loader--center loader--size-lg"></span>
+                    </div>
                 </div>
             </div>
         </div>

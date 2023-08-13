@@ -1,3 +1,6 @@
+//* "./src/assets/libraries/gsap.min.js",
+//* "./src/assets/libraries/ScrollTrigger.min.js",
+
 ScrollTrigger.matchMedia({
     // desktop
     "(min-width: 1024px)": function() {

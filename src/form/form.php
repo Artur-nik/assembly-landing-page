@@ -5,6 +5,10 @@ use PHPMailer\PHPMailer\Exception;
 
 require '../PHPMailer/src/Exception.php';
 require '../PHPMailer/src/PHPMailer.php';
+//**************AmoCrm********************************* */
+require 'config.php';
+require 'amocrm.php';
+//**************AmoCrm End***************************** */
 
 $mail = new PHPMailer(true);
 $mail->CharSet = 'UTF-8';
@@ -31,8 +35,7 @@ $mail->IsHTML(true);
 $email_from = 'no-reply@' . preg_replace('/\/+$/', '', $_SERVER['HTTP_HOST']); // E-mail отправителя
 $mail->setFrom($email_from, 'Заявка с сайта');
 //*
-$mail->AddAddress('artur@zanyatiyadoma.ru');
-
+$mail->AddAddress('');
 //*
 $mail->Subject = 'Заявка с сайта';
 
@@ -167,6 +170,131 @@ if (!empty($_POST)) {
     }
 }
 $response = ['message' => $message];
+
+
+//**************AmoCrm********************************* */
+if ($AmoIntegration==1){
+    $AmoFilds= 
+        // поля для контакта 
+    [
+    'first_name' => $_POST['name'],
+    'last_name' => '',
+    
+    //метка
+    'tags' => 'Из сайта',
+    
+    //доп поля
+    'custom_fields'	=> [
+    //-----------------------------------------------------
+    // ТЕЛЕФОН
+    [
+        'id'	=> 1142085,
+        "values" => [
+            [
+                "value" => $_POST['phone'],
+            ]
+                ]
+    ],
+    //-----------------------------------------------------
+    // EMAIL 
+    [
+        'id'	=> 1142087,
+        "values" => [
+            [
+                "value" => $_POST['email'],
+            ]
+        ]
+    ],
+    //-----------------------------------------------------
+    
+    
+    
+    
+    
+    
+    
+    
+    
+                   ]
+    ];
+    
+    
+    if (!file_exists('token.txt')) {
+        $tokens=amo_auth($arrAmoParams);
+        $access_token=$tokens->access_token;
+        $refresh_token=$tokens->refresh_token;
+     }else{
+         $file = file_get_contents('token.txt');
+         $tokens=json_decode($file);
+         $endTokenTime=date('Y-m-d H:m:s',$tokens->endTokenTime);
+         $curent_date=date('Y-m-d H:m:s',time());
+         if ($curent_date>=$endTokenTime){
+             $refresh_token=$tokens->refresh_token;
+             $tokens=returnNewToken($arrAmoParams,$refresh_token);
+         }         
+         $access_token=$tokens->access_token;
+         $refresh_token=$tokens->refresh_token;
+     }  
+     
+     
+     amoAddTask(amoAddContact($arrAmoParams,$AmoFilds,$access_token),$arrAmoParams,$AmoFilds,$access_token);
+}
+//**************AmoCrm End***************************** */
+
+
+//**************Битрикс24***************************** */
+if ($BitrixIntegration==1){
+
+$urlAPI='https://b24-cu8zsh.bitrix24.ru/rest/1/677npplfdlv4fioo/'; // Вебхук для вызова rest api
+
+$urlAPI.='crm.lead.add.json';
+
+$queryData = http_build_query(array(
+    "fields" => array(
+        "TITLE" => "Лид с нашего сайта",	// название лида
+        "NAME" => $_POST['name'],				// имя ;)
+
+
+        "PHONE" => array(	// телефон в Битрикс24
+            "n0" => array(
+                "VALUE" =>  $_POST['phone'],	
+                "VALUE_TYPE" => "MOBILE",			// тип номера = мобильный
+            ),
+        ),
+        "EMAIL" => array(	// Email в Битрикс24
+            "n0" => array(
+                "VALUE" =>  $_POST['email'],	
+                "VALUE_TYPE" => "WORK",			// тип Email = Рабочий
+            ),
+        ),
+
+
+    ),
+    'params' => array("REGISTER_SONET_EVENT" => "Y")	// Y = произвести регистрацию события добавления лида в живой ленте. Дополнительно будет отправлено уведомление ответственному за лид.	
+));
+
+// отправляем запрос в Б24 и обрабатываем ответ
+$curl = curl_init();
+curl_setopt_array($curl, array(
+    CURLOPT_SSL_VERIFYPEER => 0,
+    CURLOPT_POST => 1,
+    CURLOPT_HEADER => 0,
+    CURLOPT_RETURNTRANSFER => 1,
+    CURLOPT_URL => $urlAPI,
+    CURLOPT_POSTFIELDS => $queryData,
+));
+$result = curl_exec($curl);
+curl_close($curl);
+$result = json_decode($result,1); 
+
+// если произошла какая-то ошибка - выведем её
+if(array_key_exists('error', $result))
+{      
+    die("Ошибка при сохранении лида: ".$result['error_description']);
+}
+}
+//**************Битрикс24 End***************************** */
+    
 
 header('Content-type: application/json');
 
