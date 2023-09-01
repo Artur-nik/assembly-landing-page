@@ -1,6 +1,6 @@
 {
   "name": "assembly-landing-page",
-  "version": "1.32.0",
+  "version": "1.34.0",
   "description": "",
   "main": "gulpfile.js",
   "type": "module",

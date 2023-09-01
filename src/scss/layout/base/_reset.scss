@@ -14,6 +14,7 @@ img {
 a {
     text-decoration: none;
     transition-duration: $td;
+    color: currentColor;
     &:hover {
         //color: $color-primary;
     }

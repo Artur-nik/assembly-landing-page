@@ -26,14 +26,17 @@ export class Modal {
         //* 
         $($root).on('modalOpen', (e, data, $trigger)=> {
             this.open($root, data, $trigger)
+            return false
         })
         //*
         $($root).on('scrollOffsetClose', (e, data, $trigger)=> {
             this.close($root, data)
+            return false
         })
         //*
         $($root).on('modalClose', (e, data, $trigger)=> { 
             this.close($root, data, $trigger)
+            return false
         })
         //*
         $(window).on('modalCloseAll', (e, data, $trigger)=> {

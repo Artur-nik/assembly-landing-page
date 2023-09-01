@@ -26,6 +26,7 @@ $("#menu-modal-open").each((index, $menuToggle)=> {
         $(window).trigger('scrollOffsetClose', {target: $menuToggle})  
         //*
         menuToggle = false
+        return false
     }
     //*
     $($menuToggle).on('scrollOffsetClose', menuClose)

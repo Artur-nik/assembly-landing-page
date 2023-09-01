@@ -42,6 +42,12 @@
 	&__current {
 		color: #b7b7b7;
 		transition-duration: $td;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		flex: 1 1 auto;
+		width: 100%;
+		padding-right: size(10);
 		&._active {
 			color: currentColor;
 		}

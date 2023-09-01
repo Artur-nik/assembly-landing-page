@@ -30,16 +30,17 @@ $mail->IsHTML(true);
 //  foreach($email_list as $item){
 //  	$mail->AddAddress($item);
 //  }
-
+//*
+$title_body = 'Заявка с сайта #SITE-';
 //*
 $email_from = 'no-reply@' . preg_replace('/\/+$/', '', $_SERVER['HTTP_HOST']); // E-mail отправителя
-$mail->setFrom($email_from, 'Заявка с сайта');
+$mail->setFrom($email_from, $title_body);
 //*
 $mail->AddAddress('');
 //*
-$mail->Subject = 'Заявка с сайта';
+$mail->Subject = $title_body;
 
-$body = '<h1>Заявка с сайта </h1>';
+$body = '<h1>Заявка с сайта</h1>';
 
 
 if (trim(!empty($_POST['form-title']))) {
@@ -92,7 +93,14 @@ function get_ip()
   
 	return $value;
 }
+
+//************ Новая правка
 $uip=get_ip();
+if (strpos($uip,', ')!==false){
+    $uip=explode(', ',$uip);
+  $uip=$uip[0];
+}
+//************ Новая правка конец
 
 //Запрашиваем данные по IP
 $ip_params=file_get_contents('http://ip-api.com/json/'.$uip.'?lang=ru');
