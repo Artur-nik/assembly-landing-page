@@ -8,7 +8,7 @@
 	--min-value-px: 100px;
 	--max-value: 150;
 	//*
-	--layout-size: 480;
+	--layout-size: #{($layout-size-min / 2) + $layout-size-min};
 	//*
 	@include media(sm) {
 		--width-max-window: 440px;

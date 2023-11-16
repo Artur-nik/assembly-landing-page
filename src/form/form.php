@@ -37,6 +37,7 @@ $email_from = 'no-reply@' . preg_replace('/\/+$/', '', $_SERVER['HTTP_HOST']); /
 $mail->setFrom($email_from, $title_body);
 //*
 $mail->AddAddress('');
+//$mail->AddAddress('telebot@editme.agency');
 //*
 $mail->Subject = $title_body;
 

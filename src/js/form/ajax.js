@@ -68,7 +68,7 @@ $('.js-form').submit(function(){
         else if ($input.type == 'file') {
             data.append($($input).attr('name'), $($input).prop('files')[0]);
         }
-        else if ($input.type == 'radio' && $input.type == 'checkbox'){
+        else if ($input.type == 'radio' || $input.type == 'checkbox'){
             let field = $(this);
             if ($input.checked) {
                 data.append(field.attr('name'), field.val());

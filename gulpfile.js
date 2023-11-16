@@ -169,7 +169,7 @@ function browser_sync() {
             baseDir: way,
             index:'index.html'
         },
-        //proxy: 'job-app-8',
+        //proxy: 'job-app-1',
         notify: false, // Отключаем уведомления
         online: true, // Режим работы
         open: false

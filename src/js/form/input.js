@@ -45,7 +45,7 @@ function inputSetup($input, $box) {
             }
         }
         else if (!validInput($input, $box)) {
-            if (!($input.__mask !== undefined && !$input.__mask) && $input.value.length !== 0) {
+            if (!($input.__mask !== undefined && !$input.__mask) && ($input.value.length !== 0 || ($input.type === 'number' && !$input.validity.valid))) {
                 $validBox.addClass('_error' + ' _' + $input.type)
             }
         }

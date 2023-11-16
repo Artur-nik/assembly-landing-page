@@ -337,8 +337,8 @@
     "adaptive-box-scss-53": {
         "prefix": "adaptive-box",
         "scope": "scss",
-        "body": "--adaptive-box: #{size($1, $2, '%')};",
-        "description": "adaptive-box #{size(height,width)}"
+        "body": "--adaptive-box: #{height($1, $2)};",
+        "description": "adaptive-box #{height(height,width)}"
     },
     "dp-none-scss-54-0": {
         "prefix": "dp-none",

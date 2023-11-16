@@ -1,4 +1,10 @@
-function _slider() {
+let sliderWidth = window.innerWidth
+function _slider(e) {
+    
+    if (e) {
+        if (sliderWidth === e.target.innerWidth) return
+        else sliderWidth = e.target.innerWidth
+    }
     document.querySelectorAll('.slider').forEach(slider => {
         const sliderInit = slider.querySelector('.slider-init');
         let sliderConfig = {
