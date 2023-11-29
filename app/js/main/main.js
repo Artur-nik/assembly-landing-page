@@ -1,62 +1,139 @@
 (() => {
-  // src/components/modal/modal.js
-  $("[data-modal-open]").on("click", function() {
-    let modalBtn = $(this);
-    modalOpen(this.dataset.modalOpen, function(modalId, modal) {
-      if (modalId == "modal-video") {
-        let modalVideoSrc = modalBtn.data("video-src") || $(modal).find(".video__frame").data("video-src");
-        if (!$(modal).find("iframe.video__frame").length) {
-          initVideo($(modal).find(".video__frame").attr("id"), modalVideoSrc);
-        } else {
-          player[$(modal).find(".video__frame").attr("id")].loadVideoById({ videoId: modalVideoSrc });
+  // src/js/utility/util.js
+  var isObject = (val) => toString.call(val).slice(8, -1) === "Object";
+  var isString = (val) => typeof val === "string";
+  var isFunction = (val) => typeof val === "function";
+  var isHTMLElement = (val) => val instanceof HTMLElement;
+  var isNumber = (val) => !!Number(val);
+
+  // src/components/scroll-offset/scroll-offset.js
+  var SOList = [];
+  function scrollOffsetEscape(e) {
+    if (e.key === "Escape") {
+      const $root = SOList[SOList.length - 1];
+      $($root).trigger("scrollOffsetClose", { target: $root });
+    }
+  }
+  $(window).on("scrollOffsetOpen", (e, data) => {
+    if (data && data.target) {
+      if (isHTMLElement(data.target)) {
+        SOList.push(data.target);
+        if (SOList.length === 1) {
+          document.body.classList.add("scroll-offset");
+          window.addEventListener("keyup", scrollOffsetEscape);
         }
       }
-      if (modalBtn.data("modal-title")) {
-        $(".modal [data-modal-title]").text(modalBtn.data("modal-title"));
-        $(".modal .form-input-title").val("Pop-Up: " + modalBtn.data("modal-title"));
-      } else {
-        $(".modal [data-modal-title]").text($(".modal [data-modal-title]").data("modal-title"));
-        $(".modal .form-input-title").val("Pop-Up: " + $(".modal [data-modal-title]").data("modal-title"));
+    }
+  });
+  $(window).on("scrollOffsetClose", (e, data) => {
+    if (data && data.target) {
+      if (isHTMLElement(data.target)) {
+        if (SOList.includes(data.target))
+          SOList.splice(SOList.indexOf(data.target), 1);
+        if (SOList.length === 0) {
+          document.body.classList.remove("scroll-offset");
+          window.removeEventListener("keyup", scrollOffsetEscape);
+        }
       }
-      if (modalBtn.data("info")) {
-        $("#input-info").val(modalBtn.data("info"));
-      } else {
-        $("#input-info").val("");
-      }
+    }
+  });
+  $(window).on("scrollOffsetAllClose", (e) => {
+    const SOItems = [];
+    SOList.forEach(($item) => {
+      SOItems.unshift($item);
     });
-    return false;
+    SOItems.forEach(($item) => {
+      $($item).trigger("scrollOffsetClose", { target: $item });
+    });
   });
-  function modalOpen(modalId, callback) {
-    const modal = document.getElementById(modalId);
-    $("#" + modalId).fadeIn(500);
-    setTimeout(() => scrollOffset(modalId), 500);
-    if (callback)
-      callback(modalId, modal);
-  }
-  function modalClose(modal) {
-    setTimeout(function() {
-      $(modal).fadeOut(500);
-    }, 150);
-    scrollOffset(modal.id, "close");
-    if ($(modal).find("iframe").length) {
-      player[$(modal).find(".video__frame")[0].id].pauseVideo();
-    }
-  }
-  $(".modal__close").click(function() {
-    modalClose($(this).parents(".modal")[0]);
+  var addStyleOffset = document.createElement("style");
+  var bodyWidth = window.innerWidth - document.documentElement.getBoundingClientRect().width;
+  $(window).one("scrollOffsetOpen", null, () => {
+    addStyleOffset.innerHTML = ":root{--scroll-offset-init: " + bodyWidth + "px;}";
+    document.getElementsByTagName("head")[0].appendChild(addStyleOffset);
   });
-  $(".modal").mouseup(function(e) {
-    const modalBox = $(this).find(".modal-target");
-    if ($(this).data("modal-target") != false && !modalBox.is(e.target) && modalBox.has(e.target).length === 0) {
-      modalClose(this);
-    }
+  window.addEventListener("resize", function() {
+    addStyleOffset.innerHTML = ":root{ --scroll-offset-init:" + (window.innerWidth - document.documentElement.getBoundingClientRect().width) + "px;}";
   });
-  window.addEventListener("keyup", (e) => {
-    if (e.key === "Escape" && conditionScrollOffset()) {
-      const modalCloseId = document.getElementById(scrollOffsetlist[scrollOffsetlist.length - 1]);
-      if ($(modalCloseId).hasClass("modal")) {
-        modalClose(modalCloseId);
+
+  // src/components/modal/modal.js
+  var Modal = class {
+    constructor(config) {
+      this.config = isObject(config) ? config : {};
+      if (isHTMLElement(config.root)) {
+        this.init(config.root);
+      } else if (config.name) {
+        config.name = config.name.trim();
+        if (modalList[config.name]) {
+          modalList[config.name].forEach(($modal) => {
+            this.init($modal);
+          });
+        }
+      } else {
+        console.log('Error: {name: "modal" || root: HTMLElement}');
       }
+    }
+    init($root) {
+      const config = this.config;
+      $($root).on("modalOpen", (e, data, $trigger) => {
+        this.open($root, data, $trigger);
+        return false;
+      });
+      $($root).on("scrollOffsetClose", (e, data, $trigger) => {
+        this.close($root, data);
+        return false;
+      });
+      $($root).on("modalClose", (e, data, $trigger) => {
+        this.close($root, data, $trigger);
+        return false;
+      });
+      $(window).on("modalCloseAll", (e, data, $trigger) => {
+        this.close($root, data, $trigger);
+      });
+      $($root).find("[data-modal-close]").on("click", (e) => {
+        this.close($root, config);
+      });
+      if (config.setup && isFunction(config.setup))
+        config.setup($root);
+    }
+    open($root, data, $trigger) {
+      const config = this.config;
+      if (config.onOpen && isFunction(config.onOpen))
+        config.onOpen($root, data, $trigger);
+      if (config.onOpenReplace && isFunction(config.onOpenReplace))
+        config.onOpenReplace($root, data, $trigger);
+      else {
+        $($root).fadeIn(400);
+      }
+      $(window).trigger("scrollOffsetOpen", { target: $root });
+      if (config.onOpenAfter && isFunction(config.onOpenAfter))
+        config.onOpenAfter($root, data, $trigger);
+    }
+    close($root, data, $trigger) {
+      const config = this.config;
+      if (config.onClose && isFunction(config.onClose))
+        config.onClose($root, data, $trigger);
+      if (config.onCloseReplace && isFunction(config.onCloseReplace))
+        config.onCloseReplace($root, data, $trigger);
+      else {
+        $($root).fadeOut(400);
+      }
+      $(window).trigger("scrollOffsetClose", { target: $root });
+      if (config.onCloseAfter && isFunction(config.onCloseAfter))
+        config.onCloseAfter($root, data, $trigger);
+    }
+  };
+  var modalList = {};
+  $("[data-modal]").each((indexModal, $modal) => {
+    const modalName = $modal.dataset.modal.trim();
+    if (modalName.length) {
+      if (!modalList[modalName])
+        modalList[modalName] = [];
+      modalList[modalName].push($modal);
+    } else {
+      new Modal({
+        root: $modal
+      });
     }
   });
 
@@ -80,7 +157,14 @@
   });
 
   // src/components/slider/scripts/core.js
-  function _slider() {
+  var sliderWidth = window.innerWidth;
+  function _slider(e) {
+    if (e) {
+      if (sliderWidth === e.target.innerWidth)
+        return;
+      else
+        sliderWidth = e.target.innerWidth;
+    }
     document.querySelectorAll(".slider").forEach((slider) => {
       const sliderInit = slider.querySelector(".slider-init");
       let sliderConfig = {
@@ -151,13 +235,13 @@
   _slider();
 
   // src/components/video/video.js
-  var player2 = [];
+  var player = [];
   var tag = document.createElement("script");
   tag.src = "https://www.youtube.com/iframe_api";
   var firstScriptTag = document.getElementsByTagName("script")[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  function initVideo2(id, src) {
-    player2[id] = new YT.Player(id, {
+  function initVideo(id, src) {
+    player[id] = new YT.Player(id, {
       height: "100%",
       width: "100%",
       videoId: src,
@@ -176,7 +260,7 @@
       let srcVideo = $(this).data("video-src");
       let idVideo = $(this).data("video-src") + "-" + Math.floor(Math.random() * (1e6 - 1e4 + 1) + 1e4);
       $(this).parent(".video").find(".video__frame").attr("id", idVideo);
-      initVideo2(idVideo, srcVideo);
+      initVideo(idVideo, srcVideo);
     });
   }
   videoOpen(".video__btn");
@@ -238,65 +322,6 @@
       });
     }
     return false;
-  });
-
-  // src/js/modules/scroll-offset.js
-  var bodyWidth = document.documentElement.getBoundingClientRect().width;
-  window.addEventListener("resize", function() {
-    bodyWidth = document.documentElement.getBoundingClientRect().width;
-  });
-  var addStyleOffset = document.createElement("style");
-  addStyleOffset.innerHTML = ".scroll-offset { padding-right:" + (window.innerWidth - bodyWidth) + "px;}";
-  document.getElementsByTagName("head")[0].appendChild(addStyleOffset);
-  document.querySelectorAll("[data-scroll-trigger]").forEach((element) => {
-    element.classList.remove("scroll-offset");
-  });
-
-  // src/js/utility/util.js
-  var isString = (val) => typeof val === "string";
-  var isNumber = (val) => !!Number(val);
-
-  // src/js/utility/parseData.js
-  function parseData(data) {
-    if (isString(data)) {
-      data = data.trim();
-      data = data.includes(",") ? data.split(",") : [data];
-      const dataList = {};
-      data.forEach((dataValue) => {
-        if (dataValue.includes(":")) {
-          dataValue = dataValue.split(":");
-          const _key = dataValue[0].trim();
-          const _value = dataValue[1].trim();
-          dataList[_key.trim()] = Number(_value) ? Number(_value) : _value;
-        } else {
-          dataList[dataValue.trim()] = true;
-        }
-      });
-      return dataList;
-    }
-    return {};
-  }
-
-  // src/js/modules/scroll-trigger.js
-  ScrollTrigger.matchMedia({
-    // desktop
-    "(min-width: 1024px)": function() {
-      document.querySelectorAll("[data-scroll-trigger]").forEach(($trigger) => {
-        const animationConfig = parseData($trigger.dataset.scrollTrigger);
-        console.log(animationConfig);
-        gsap.to($trigger, {
-          scrollTrigger: {
-            trigger: document.querySelector(animationConfig.trigger) || $trigger,
-            start: animationConfig.start || "top 100%",
-            end: animationConfig.end || "bottom",
-            scrub: animationConfig.scrub || 1,
-            markers: animationConfig.marker || false
-          },
-          y: animationConfig.y || 0,
-          x: animationConfig.x || 0
-        });
-      });
-    }
   });
 
   // src/js/modules/mask.js
@@ -364,7 +389,8 @@
       let triggerData = {};
       Object.keys($root.dataset).forEach((data) => {
         if (data != configName) {
-          triggerData[data] = $root.dataset[data];
+          const dataValue = $root.dataset[data].trim();
+          triggerData[data] = Number(dataValue) ? Number(dataValue) : dataValue === "true" ? true : dataValue === "false" ? false : dataValue;
         }
       });
       return triggerData;
@@ -474,7 +500,7 @@
           $validBox.addClass("_error _" + $input.type);
         }
       } else if (!validInput($input, $box)) {
-        if (!($input.__mask !== void 0 && !$input.__mask) && $input.value.length !== 0) {
+        if (!($input.__mask !== void 0 && !$input.__mask) && ($input.value.length !== 0 || $input.type === "number" && !$input.validity.valid)) {
           $validBox.addClass("_error _" + $input.type);
         }
       }
@@ -544,7 +570,7 @@
         }
       } else if ($input.type == "file") {
         data.append($($input).attr("name"), $($input).prop("files")[0]);
-      } else if ($input.type == "radio" && $input.type == "checkbox") {
+      } else if ($input.type == "radio" || $input.type == "checkbox") {
         let field = $(this);
         if ($input.checked) {
           data.append(field.attr("name"), field.val());
@@ -593,30 +619,76 @@
     myLazyLoad.update();
   }
 
-  // src/js/plugins/gsap.js
-  gsap.registerPlugin(ScrollTrigger);
-
   // src/template/menu-modal/menu-modal.js
   var menuToggle = false;
-  $("#menu-modal-open").on("click", function() {
-    $("#menu-modal").fadeToggle();
-    $(this).toggleClass("_active");
-    $("#header").toggleClass("_menu-active");
-    $("html, body").animate({ scrollTop: 0 }, 0);
-    if (!menuToggle) {
-      menuToggle = true;
-      scrollOffset("menu-modal-open");
-    } else {
+  $("#menu-modal-open").each((index, $menuToggle) => {
+    $($menuToggle).on("click", function() {
+      $("#menu-modal").fadeToggle();
+      $($menuToggle).toggleClass("_active");
+      $("#header").toggleClass("_menu-active");
+      $("html, body").animate({ scrollTop: 0 }, 0);
+      if (!menuToggle) {
+        menuToggle = true;
+        $(window).trigger("scrollOffsetOpen", { target: $menuToggle });
+      } else {
+        menuToggle = false;
+        $(window).trigger("scrollOffsetClose", { target: $menuToggle });
+      }
+    });
+    function menuClose() {
+      $("#menu-modal").fadeOut();
+      $("#header").removeClass("_menu-active");
+      $("#menu-modal-open").removeClass("_active");
+      $(window).trigger("scrollOffsetClose", { target: $menuToggle });
       menuToggle = false;
-      scrollOffset("menu-modal-open", "close");
+      return false;
+    }
+    $($menuToggle).on("scrollOffsetClose", menuClose);
+    $(".menu-modal__link.scroll").click(menuClose);
+  });
+
+  // src/template/modal/modal-form/modal-form.js
+  new Modal({
+    name: "form",
+    setup($modal) {
+    },
+    onOpen($root, data, $trigger) {
+      if (Object.keys(data).length) {
+        if (data.modalTitle) {
+          $($root).find('[name="form-title"]').val("PopUp: " + data.modalTitle);
+          $($root).find("[data-modal-title]").text(data.modalTitle);
+        } else {
+          const textTitle = $($root).find("[data-modal-title]").data("modal-title");
+          $($root).find('[name="form-title"]').val("PopUp: " + textTitle);
+          $($root).find("[data-modal-title]").text(textTitle);
+        }
+        if (data.info) {
+          $($root).find('[name="info"]').val(data.info);
+        }
+      }
+    },
+    onClose($root) {
+      $($root).find('[name="info"]').val("");
     }
   });
-  $(".menu-modal__link.scroll").click(function() {
-    $("#menu-modal").fadeOut();
-    $("#header").removeClass("_menu-active");
-    $("#menu-modal-open").removeClass("_active");
-    scrollOffset("menu-modal-open", "close");
-    menuToggle = false;
+
+  // src/template/modal/modal-video/modal-video.js
+  new Modal({
+    name: "youtube-video",
+    onOpen($modal, data, $trigger) {
+      if (data.videoSrc) {
+        if (!$($modal).find("iframe.video__frame").length) {
+          initVideo($($modal).find(".video__frame").attr("id"), data.videoSrc);
+        } else {
+          player[$($modal).find(".video__frame").attr("id")].loadVideoById({ videoId: data.videoSrc });
+        }
+      }
+    },
+    onClose($modal) {
+      if ($($modal).find("iframe").length) {
+        player[$($modal).find(".video__frame")[0].id].pauseVideo();
+      }
+    }
   });
 
   // src/js/preloader.js
