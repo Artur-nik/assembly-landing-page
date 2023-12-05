@@ -58,7 +58,6 @@ if (trim(!empty($_POST['phone']))) {
 }
 if (trim(!empty($_POST['email']))) {
     $body .= '<p style="font-size: 16px; line-height: 128%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Email:</b> ' . $_POST['email'] . '</p>';
-    $body .= '<p><b>Email:</b> ' . $_POST['email'] . '</p>';
 }
 if (trim(!empty($_POST['comment']))) {
     $body .= '<p style="font-size: 16px; line-height: 128%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Комментарий:</b> ' . $_POST['comment'] . '</p>';
