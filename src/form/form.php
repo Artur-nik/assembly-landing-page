@@ -41,30 +41,30 @@ $mail->AddAddress('');
 //*
 $mail->Subject = $title_body;
 
-$body = '<!DOCTYPE html    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"    xmlns:o="urn:schemas-microsoft-com:office:office" lang="ru"><head>    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />    <meta http-equiv="X-UA-Compatible" content="IE=edge" />    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    <!-- <meta name="color-scheme" content="light dark" />    <meta name="supported-color-schemes" content="light dark" /> -->    <title>Свяжитесь с клиентом</title>    <style type="text/css">        table {            border-spacing: 0;            mso-cellspacing: 0;            mso-padding-alt: 0;        }        td {            padding: 0;        }        #outlook a {            padding: 0;        }        a {            text-decoration: none;            color: #e8fbfa;            font-size: 16px;        }        @media screen and (max-width: 599.98px) {            h1 {                font-size: 24px !important;                padding-bottom: 20px !important;            }            p {                font-size: 14px !important;            }            td {            }        }        @media screen and (max-width: 399.98px) {        }        /* Custom Dark Mode Colors */        /* :root {      color-scheme: light dark;      supported-color-schemes: light dark;    }    @media (prefers-color-scheme: dark) {      table,      td {        background-color: #06080B !important;      }      h1,      h2,      h3,      p {        color: #ffffff !important;      }    } */    </style>    <!--[if (gte mso 9)|(IE)]>    <style type="text/css">      table {border-collapse: collapse !important;}    </style>  <![endif]-->    <!--[if (gte mso 9)|(IE)]>  <xml>    <o:OfficeDocumentSettings>      <o:AllowPNG/>      <o:PixelsPerInch>96</o:PixelsPerInch>  </o:OfficeDocumentSettings>  </xml>  <![endif]--></head><body style="Margin:0;padding:0;min-width:100%;background-color:#C7ECF2;">    <!--[if (gte mso 9)|(IE)]>      <style type="text/css">         body {background-color: #C7ECF2!important;}         body, table, td, p, a {font-family: Verdana, sans-serif, Arial, Helvetica!important;}      </style>   <![endif]-->    <center style="width: 100%;table-layout:fixed;background-color: #ffffff;padding-top: 40px;padding-bottom: 40px;">        <div style="max-width: 600px; padding: 0 10px 0 10px;">            <!-- Preheader (remove comment) -->            <div                style="font-size: 0px;color: #fafdfe;line-height: 1px;mso-line-height-rule:exactly;display: none;max-width: 0px;max-height: 0px;opacity: 0;overflow: hidden;mso-hide:all;">                Стартовое описание            </div>            <!-- End Preheader (remove comment) -->         <!--[if (gte mso 9)|(IE)]>            <table width="600" align="center" border="0" cellspacing="0" cellpadding="0" role="presentation"              style="color:#000000;">            <tr>            <td>        <![endif]-->            <table align="center" border="0" cellspacing="0" cellpadding="0" role="presentation" style="color:#000000;font-family: Verdana,sans-serif, Arial, Helvetica;Margin:0;padding:0;width: 100%;max-width: 600px; line-height: 127.9%;">';
+$body = '<!DOCTYPE html    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"    xmlns:o="urn:schemas-microsoft-com:office:office" lang="ru"><head>    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />    <meta http-equiv="X-UA-Compatible" content="IE=edge" />    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    <!-- <meta name="color-scheme" content="light dark" />    <meta name="supported-color-schemes" content="light dark" /> -->    <title>Свяжитесь с клиентом</title>    <style type="text/css">        table {            border-spacing: 0;            mso-cellspacing: 0;            mso-padding-alt: 0;        }        td {            padding: 0;        }        #outlook a {            padding: 0;        }        a {            text-decoration: none;            color: #e8fbfa;            font-size: 16px;        }        @media screen and (max-width: 599.98px) {            h1 {                font-size: 24px !important;                padding-bottom: 20px !important;            }            p {                font-size: 14px !important;            }            td {            }        }           </style>    <!--[if (gte mso 9)|(IE)]>    <style type="text/css">      table {border-collapse: collapse !important;}    </style>  <![endif]-->    <!--[if (gte mso 9)|(IE)]>  <xml>    <o:OfficeDocumentSettings>      <o:AllowPNG/>      <o:PixelsPerInch>96</o:PixelsPerInch>  </o:OfficeDocumentSettings>  </xml>  <![endif]--></head><body style="Margin:0;padding:0;min-width:100%;background-color:#C7ECF2;">    <!--[if (gte mso 9)|(IE)]>      <style type="text/css">         body {background-color: #C7ECF2!important;}         body, table, td, p, a {font-family: Verdana, sans-serif, Arial, Helvetica!important;}      </style>   <![endif]-->    <center style="width: 100%;table-layout:fixed;background-color: #ffffff;padding-top: 40px;padding-bottom: 40px;">        <div style="max-width: 600px; padding: 0 10px 0 10px;">            <!-- Preheader (remove comment) -->            <div                style="font-size: 0px;color: #fafdfe;line-height: 1px;mso-line-height-rule:exactly;display: none;max-width: 0px;max-height: 0px;opacity: 0;overflow: hidden;mso-hide:all;">                          </div>            <!-- End Preheader (remove comment) -->         <!--[if (gte mso 9)|(IE)]>            <table width="600" align="center" border="0" cellspacing="0" cellpadding="0" role="presentation"              style="color:#000000;">            <tr>            <td>        <![endif]-->            <table align="center" border="0" cellspacing="0" cellpadding="0" role="presentation" style="color:#000000;font-family: Verdana,sans-serif, Arial, Helvetica;Margin:0;padding:0;width: 100%;max-width: 600px; line-height: 128%;">';
 
-$body .= '<tr><td><h1 style="font-size: 32px;font-weight: 700;line-height: 127.9%; padding-bottom: 40px; margin: 0;">Свяжитесь с клиентом</h1></td></tr>';
+$body .= '<tr><td><h1 style="font-size: 32px;font-weight: 700;line-height: 128%; padding-bottom: 40px; margin: 0;">Свяжитесь с клиентом</h1></td></tr>';
 
 $body .= '<tr><td>';
 
 if (trim(!empty($_POST['form-title']))) {
-    $body .= '<p style="font-size: 16px; line-height: 127.9%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Форма:</b> ' . $_POST['form-title'] . '</p>';
+    $body .= '<p style="font-size: 16px; line-height: 128%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Форма:</b> ' . $_POST['form-title'] . '</p>';
 }
 if (trim(!empty($_POST['name']))) {
-    $body .= '<p style="font-size: 16px; line-height: 127.9%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Имя:</b> ' . $_POST['name'] . '</p>';
+    $body .= '<p style="font-size: 16px; line-height: 128%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Имя:</b> ' . $_POST['name'] . '</p>';
 }
 if (trim(!empty($_POST['phone']))) {
-    $body .= '<p style="font-size: 16px; line-height: 127.9%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Номер телефона:</b> ' . $_POST['phone'] . '</p>';
+    $body .= '<p style="font-size: 16px; line-height: 128%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Номер телефона:</b> ' . $_POST['phone'] . '</p>';
 }
 if (trim(!empty($_POST['email']))) {
-    $body .= '<p style="font-size: 16px; line-height: 127.9%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Email:</b> ' . $_POST['email'] . '</p>';
+    $body .= '<p style="font-size: 16px; line-height: 128%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Email:</b> ' . $_POST['email'] . '</p>';
     $body .= '<p><b>Email:</b> ' . $_POST['email'] . '</p>';
 }
 if (trim(!empty($_POST['comment']))) {
-    $body .= '<p style="font-size: 16px; line-height: 127.9%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Комментарий:</b> ' . $_POST['comment'] . '</p>';
+    $body .= '<p style="font-size: 16px; line-height: 128%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Комментарий:</b> ' . $_POST['comment'] . '</p>';
 }
 if (trim(!empty($_POST['info']))) {
-    $body .= '<p style="font-size: 16px; line-height: 127.9%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Дополнительная информация:</b> ' . $_POST['info'] . '</p>';
+    $body .= '<p style="font-size: 16px; line-height: 128%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Дополнительная информация:</b> ' . $_POST['info'] . '</p>';
 }
 
 $body .= '</td></tr>';
@@ -76,7 +76,7 @@ $body .= '<tr><td>';
 // URL страницы
 
 if (trim(!empty($_POST['url-page']))) {
-    $body .= '<p style="font-size: 16px; line-height: 127.9%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Url:</b> ' . $_POST['url-page'] . '</p>';
+    $body .= '<p style="font-size: 16px; line-height: 128%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Url:</b> ' . $_POST['url-page'] . '</p>';
 }
 
 // --------------------Начала кода распознавания Мобик/ПК---------------------
@@ -84,7 +84,7 @@ if (trim(!empty($_POST['url-page']))) {
 if ($_POST['device']=='mobile') $dtype='Мобильный';
 if ($_POST['device']=='pk') $dtype='ПК';
 
-$body .= '<p style="font-size: 16px; line-height: 127.9%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Дополнительная информация:</b> ' . $dtype . '</p>';
+$body .= '<p style="font-size: 16px; line-height: 128%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Дополнительная информация:</b> ' . $dtype . '</p>';
 // --------------------Конец кода распознавания Мобик/ПК---------------------
 $body .= '</td></tr>';
 //
@@ -121,10 +121,10 @@ $ip_params=json_decode($ip_params);
 //Добавляем в письмо
 $body .= '<tr><td style="padding-bottom: 10px;"><div style="height: 1px; width: 100%; background-color: #00A9C2;"></div></td></tr>';
 $body .= '<tr><td>';
-$body .= '<p style="font-size: 16px; line-height: 127.9%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Регион пользователя (по IP):</b></p>';
-$body .= '<p style="font-size: 16px; line-height: 127.9%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Страна: </b> ' . $ip_params->country . '</p>';
-$body .= '<p style="font-size: 16px; line-height: 127.9%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Регион: </b> ' . $ip_params->regionName . '</p>';
-$body .= '<p style="font-size: 16px; line-height: 127.9%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Город: </b> ' . $ip_params->city . '</p>';
+$body .= '<p style="font-size: 16px; line-height: 128%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Регион пользователя (по IP):</b></p>';
+$body .= '<p style="font-size: 16px; line-height: 128%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Страна: </b> ' . $ip_params->country . '</p>';
+$body .= '<p style="font-size: 16px; line-height: 128%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Регион: </b> ' . $ip_params->regionName . '</p>';
+$body .= '<p style="font-size: 16px; line-height: 128%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Город: </b> ' . $ip_params->city . '</p>';
 $body .= '</td></tr>';
 // --------------------Конец кода распознавания региона по IP---------------------
 
@@ -135,10 +135,10 @@ $body .= '</td></tr>';
 $body .= '<tr><td style="padding-bottom: 10px;"><div style="height: 1px; width: 100%; background-color: #00A9C2;"></div></td></tr>';
 $body .= '<tr><td>';
 
-$body .= '<p style="font-size: 16px; line-height: 127.9%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">UTM метки:</b></p>';
+$body .= '<p style="font-size: 16px; line-height: 128%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">UTM метки:</b></p>';
 
 if (trim(!empty($_POST['utm_source']))) {
-    $body .= '<p style="font-size: 16px; line-height: 127.9%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Название рекламной площадки: </b> ' . $_POST['utm_source'] . '</p>';
+    $body .= '<p style="font-size: 16px; line-height: 128%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Название рекламной площадки: </b> ' . $_POST['utm_source'] . '</p>';
 }
 if (trim(!empty($_POST['utm_medium']))) {
 
@@ -151,10 +151,10 @@ if ($_POST['utm_medium']=='cpc' || $_POST['utm_medium']=='ppc' || $_POST['utm_me
 if ($_POST['utm_medium']=='social' || $_POST['utm_medium']=='social-network' || $_POST['utm_medium']=='social-media' || $_POST['utm_medium']=='sm') $utm_medium='Социальные сети';
 if ($_POST['utm_medium']=='display' || $_POST['utm_medium']=='cpm' || $_POST['utm_medium']=='banner') $utm_medium='Медийная реклама';
 
-    $body .= '<p style="font-size: 16px; line-height: 127.9%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Тип рекламы: </b> ' . $utm_medium . '</p>';
+    $body .= '<p style="font-size: 16px; line-height: 128%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Тип рекламы: </b> ' . $utm_medium . '</p>';
 }
 if (trim(!empty($_POST['utm_campaign']))) {
-    $body .= '<p style="font-size: 16px; line-height: 127.9%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Название кампании: </b> ' . $_POST['utm_campaign'] . '</p>';
+    $body .= '<p style="font-size: 16px; line-height: 128%; margin: 0; padding-bottom: 10px;"><b style="font-weight: 700;">Название кампании: </b> ' . $_POST['utm_campaign'] . '</p>';
 }
 $body .= '</td></tr>';
 // --------------------Конец кода распознавания UTM---------------------

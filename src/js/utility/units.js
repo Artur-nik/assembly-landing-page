@@ -1,4 +1,7 @@
 //* data-unit
+
+import { isString } from "./util";
+
 //* data-unit:stop
 export class Units {
     unitList = {} 
@@ -94,10 +97,14 @@ export class Units {
             console.log('Missing value unit');
             return
         }
+        if (!isString(unitValue)) {
+            console.log('value only String');
+            return
+        }
         //*
         unitValue = unitValue.trim()
         //*
-        if (!unitValue.length) return []
+        if (!unitValue.length) return undefined
         //*
         if (unitValue.includes(' ')) {
             //*
