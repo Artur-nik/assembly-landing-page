@@ -1,4 +1,11 @@
 (() => {
+  var __defProp = Object.defineProperty;
+  var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+  var __publicField = (obj, key, value) => {
+    __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+    return value;
+  };
+
   // src/js/utility/util.js
   var isObject = (val) => toString.call(val).slice(8, -1) === "Object";
   var isString = (val) => typeof val === "string";
@@ -156,6 +163,119 @@
     }
   });
 
+  // src/js/utility/units.js
+  var Units = class {
+    constructor($root, stop) {
+      __publicField(this, "unitList", {});
+      __publicField(this, "unitNameList", /* @__PURE__ */ new Map());
+      if (!($root instanceof HTMLElement)) {
+        console.error($root, "only HTMLElement");
+        return;
+      }
+      if (stop && !(typeof stop === "function")) {
+        console.group("Error stop");
+        console.error('Argument "', stop, '" only function');
+        console.error("root: ", $root);
+        console.groupEnd();
+        stop = () => {
+          return true;
+        };
+      }
+      this.stop = stop ? stop : () => {
+        return true;
+      };
+      this.$root = $root;
+    }
+    //*
+    init() {
+      this.parseUnits(this.$root);
+      const unit = this.unit.bind(this);
+      return unit;
+    }
+    update() {
+      this.unitList = {};
+      this.unitNameList = /* @__PURE__ */ new Map();
+      this.parseUnits(this.$root);
+    }
+    destroy() {
+      this.unitNameList = {};
+      this.unitList = {};
+    }
+    parseUnits($units) {
+      if ($units.children.length) {
+        for (let index = 0; index < $units.children.length; index++) {
+          const $unit = $units.children[index];
+          let unitValue = $unit.dataset["unit:stop"] || $unit.dataset.unit;
+          if (unitValue && unitValue.trim().length) {
+            if (unitValue.includes(" ")) {
+              let unitList = unitValue.split(" ");
+              unitList.forEach((unitName) => {
+                this.createUnit($unit, unitName);
+              });
+              this.unitNameList.set($unit, unitList.filter((unit) => unit.trim()));
+            } else {
+              this.createUnit($unit, unitValue);
+              this.unitNameList.set($unit, [unitValue]);
+            }
+          }
+          if (!$unit.dataset["unit:stop"] && this.stop($unit) && $unit.children.length)
+            this.parseUnits($unit);
+        }
+      }
+    }
+    createUnit($unit, unitName) {
+      unitName = unitName.trim();
+      if (unitName.startsWith("#") && unitName.length >= 2) {
+        if (!this.unitList[unitName]) {
+          this.unitList[unitName] = [];
+          this.unitList[unitName].push($unit);
+        }
+      } else if (unitName.length) {
+        if (!this.unitList[unitName])
+          this.unitList[unitName] = [];
+        this.unitList[unitName].push($unit);
+      }
+    }
+    unit(unitValue, unitHandler) {
+      let unitList = [];
+      if (!unitValue) {
+        console.log("Missing value unit");
+        return;
+      }
+      if (!isString(unitValue)) {
+        console.log("value only String");
+        return;
+      }
+      unitValue = unitValue.trim();
+      if (!unitValue.length)
+        return void 0;
+      if (unitValue.includes(" ")) {
+        let unitValueList = unitValue.split(" ").filter((unit) => unit.trim()).sort();
+        const unitValueListStr = unitValueList.join(" ");
+        if (this.unitList[unitValueListStr])
+          unitList = this.unitList[unitValueListStr];
+        else {
+          unitValueList.forEach((unitName) => {
+            if (this.unitList[unitName]) {
+              unitList = unitList.concat(unitList, this.unitList[unitName]);
+            }
+          });
+          unitList = Array.from(new Set(unitList));
+          this.unitList[unitValueListStr] = unitList;
+        }
+      } else {
+        if (this.unitList[unitValue])
+          unitList = this.unitList[unitValue];
+      }
+      if (unitHandler && typeof unitHandler === "function") {
+        unitList.forEach(($unit, indexUnit) => {
+          unitHandler($unit, indexUnit, this.unitNameList.get($unit));
+        });
+      }
+      return unitList;
+    }
+  };
+
   // src/components/slider/scripts/core.js
   var sliderWidth = window.innerWidth;
   function _slider(e) {
@@ -165,11 +285,17 @@
       else
         sliderWidth = e.target.innerWidth;
     }
-    document.querySelectorAll(".slider").forEach((slider) => {
-      const sliderInit = slider.querySelector(".slider-init");
+    document.querySelectorAll("[data-slider]").forEach((slider) => {
+      const units = new Units(slider, (item) => item.dataset.slider === void 0);
+      const $unit = units.init();
+      const $sliderInit = $unit("#init")[0];
+      if (!$sliderInit)
+        return;
+      const $wrapper = $unit("#wrapper")[0];
+      const $slides = $unit("slide");
       let sliderConfig = {
         slidesPerView: 1,
-        spaceBetween: 25,
+        spaceBetween: 10,
         watchOverflow: true,
         simulateTouch: false,
         //*
@@ -183,11 +309,11 @@
         //},
         //*
         navigation: {
-          nextEl: slider.querySelector(".slider-button-next"),
-          prevEl: slider.querySelector(".slider-button-prev")
+          nextEl: $unit("#next"),
+          prevEl: $unit("#prev")
         },
         pagination: {
-          el: slider.querySelector(".slider-pagination"),
+          el: $unit("#pagination"),
           type: "bullets",
           clickable: true
         },
@@ -197,38 +323,22 @@
           loadPrevNextAmount: 2
         }
       };
-      if (slider.dataset.config) {
-        let sliderData = function(element, callback) {
-          if (sliderDataConfig.find((el) => el.trim() == element)) {
-            callback();
-          }
-        };
-        let sliderDataConfig = slider.dataset.config.split(",");
-        sliderData("addClassGrid-lg", () => {
-          if (window.screen.width >= 1024) {
-            sliderConfig = false;
-            $(sliderInit.querySelector("[data-wrapper]")).addClass("grid");
-            $(sliderInit.querySelector("[data-wrapper]")).removeClass("swiper-wrapper");
-            $(sliderInit.querySelectorAll("[data-slide]")).removeClass("swiper-slide");
-            $(sliderInit).removeClass("swiper");
-          } else {
-            $(sliderInit.querySelector("[data-wrapper]")).removeClass("grid");
-            $(sliderInit.querySelector("[data-wrapper]")).addClass("swiper-wrapper");
-            $(sliderInit.querySelectorAll("[data-slide]")).addClass("swiper-slide");
-            $(sliderInit).addClass("swiper");
-          }
-        });
+      let sliderDataConfig = slider.dataset.config.split(",") || void 0;
+      function sliderData(element, callback) {
+        if (sliderDataConfig && sliderDataConfig.find((el) => el.trim() == element)) {
+          callback();
+        }
       }
-      if (sliderInit.swiper) {
-        if (sliderInit.querySelector("[data-wrapper]"))
-          sliderInit.querySelector("[data-wrapper]").removeAttribute("style");
-        if (sliderInit.querySelectorAll("[data-slide]"))
-          sliderInit.querySelectorAll("[data-slide]").forEach((element) => element.removeAttribute("style"));
-        sliderInit.swiper.detachEvents();
-        sliderInit.swiper.destroy();
+      if ($sliderInit.swiper) {
+        if ($wrapper)
+          $wrapper.removeAttribute("style");
+        if ($slides)
+          $slides.forEach((element) => element.removeAttribute("style"));
+        $sliderInit.swiper.detachEvents();
+        $sliderInit.swiper.destroy();
       }
       if (sliderConfig)
-        new Swiper(sliderInit, sliderConfig);
+        new Swiper($sliderInit, sliderConfig);
     });
     window.addEventListener("resize", _slider);
   }

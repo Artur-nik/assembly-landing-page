@@ -2007,7 +2007,6 @@ br {
   width: 1em;
   font-size: 0.6rem;
   border-radius: 50%;
-  border: 1px solid #000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3866,7 +3865,7 @@ br {
     padding: 0.2rem 0 0;
   }
 
-  .slider-button--center {
+  .slider-button--center-lg {
     position: absolute;
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
@@ -3874,11 +3873,11 @@ br {
     margin: 0 !important;
   }
 
-  .slider-button--center.slider-button-prev {
+  .slider-button--center-lg.slider-button-prev {
     right: calc(100% + 0.2rem);
   }
 
-  .slider-button--center.slider-button-next {
+  .slider-button--center-lg.slider-button-next {
     left: calc(100% + 0.2rem);
   }
 
