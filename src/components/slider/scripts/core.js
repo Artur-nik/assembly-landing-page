@@ -1,15 +1,26 @@
+import { addZero } from "../../../js/utility/addZero";
+import { Units } from "../../../js/utility/units";
+
 let sliderWidth = window.innerWidth
 function _slider(e) {
-    
     if (e) {
         if (sliderWidth === e.target.innerWidth) return
         else sliderWidth = e.target.innerWidth
     }
-    document.querySelectorAll('.slider').forEach(slider => {
-        const sliderInit = slider.querySelector('.slider-init');
+    document.querySelectorAll('[data-slider]').forEach(slider => {
+        //
+        const units = new Units(slider, (item)=> item.dataset.slider === undefined)
+        const $unit = units.init()
+
+        const $sliderInit = $unit('#init')[0];
+        if (!$sliderInit) return
+        //*
+        const $wrapper = $unit('#wrapper')[0];
+        const $slides = $unit('slide');
+
         let sliderConfig = {
             slidesPerView: 1,
-            spaceBetween: 25,
+            spaceBetween: 10,
             watchOverflow: true,
             simulateTouch: false,
             //*
@@ -24,11 +35,11 @@ function _slider(e) {
             //},
             //*
             navigation: {
-                nextEl: slider.querySelector('.slider-button-next'),
-                prevEl: slider.querySelector('.slider-button-prev'),
+                nextEl: $unit('#next'),
+                prevEl: $unit('#prev'),
             },
             pagination: {
-                el: slider.querySelector('.slider-pagination'),
+                el: $unit('#pagination'),
                 type: 'bullets',
                 clickable: true,
             },
@@ -39,39 +50,105 @@ function _slider(e) {
                 loadPrevNextAmount: 2
             },
         };
+  
 
-        if (slider.dataset.config) {
-			let sliderDataConfig = slider.dataset.config.split(',');
-            function sliderData(element, callback) {
-                if (sliderDataConfig.find(el => el.trim() == element)) {
-                    callback();
-                }
+		let sliderDataConfig = slider.dataset.config.split(',') || undefined;
+        
+        function sliderData(element, callback) {
+            if (sliderDataConfig && sliderDataConfig.find(el => el.trim() == element)) {
+                callback();
             }
-            sliderData('addClassGrid-lg', ()=> {
-                if (window.screen.width >= 1024) {
-                    sliderConfig = false;
-                    $(sliderInit.querySelector('[data-wrapper]')).addClass('grid')
-                    $(sliderInit.querySelector('[data-wrapper]')).removeClass('swiper-wrapper')
-                    $(sliderInit.querySelectorAll('[data-slide]')).removeClass('swiper-slide')
-                    $(sliderInit).removeClass('swiper') 
-                }
-                else {
-                    $(sliderInit.querySelector('[data-wrapper]')).removeClass('grid')
-                    $(sliderInit.querySelector('[data-wrapper]')).addClass('swiper-wrapper')
-                    $(sliderInit.querySelectorAll('[data-slide]')).addClass('swiper-slide')
-                    $(sliderInit).addClass('swiper')
-                }
-            });
-		} 
+        }
+            
+        //*
+        //*  sliderData('addClassGrid-lg', ()=> { 
+        //*      if (window.screen.width >= 1024) {
+        //*          sliderConfig = false;
+        //*          $($wrapper).addClass('grid')
+        //*          $($wrapper).removeClass('swiper-wrapper')
+        //*          $($slides).removeClass('swiper-slide')
+        //*          $($sliderInit).removeClass('swiper') 
+        //*      }
+        //*      else {
+        //*          $($wrapper).removeClass('grid')
+        //*          $($wrapper).addClass('swiper-wrapper')
+        //*          $($slides).addClass('swiper-slide')
+        //*          $($sliderInit).addClass('swiper')
+        //*      }
+        //*  });
 
-        if (sliderInit.swiper) {
-            if (sliderInit.querySelector('[data-wrapper]')) sliderInit.querySelector('[data-wrapper]').removeAttribute('style');
-            if (sliderInit.querySelectorAll('[data-slide]')) sliderInit.querySelectorAll('[data-slide]').forEach(element => element.removeAttribute('style'));
-            sliderInit.swiper.detachEvents();
-            sliderInit.swiper.destroy();      
+        //* sliderData('1-2', ()=> {  
+        //*     sliderConfig.breakpoints = {
+        //*         768: {
+        //*             slidesPerView: 2,
+        //*             spaceBetween: 20
+        //*         },
+        //*     }
+        //* });
+
+        //* sliderData('1-2-3', ()=> {  
+        //*     sliderConfig.breakpoints = {
+        //*         1024: {
+        //*             slidesPerView: 3,
+        //*             spaceBetween: 30
+        //*         },
+        //*         768: {
+        //*             slidesPerView: 2,
+        //*             spaceBetween: 20
+        //*         },
+        //*     }
+        //* });
+
+        //* sliderData('loop', ()=> {  
+        //*     sliderConfig.loop = true
+        //* });
+
+        //* sliderData('observe', ()=> {
+        //*     sliderConfig.observeParents = true
+        //*     sliderConfig.observer = true
+        //* })
+
+        //* sliderData('autoHeight-lg-max', ()=> {
+        //*     if (window.screen.width < 1024) {
+        //*         sliderConfig.autoHeight =  true;
+        //*     }
+        //*     window.addEventListener("load", ()=> {
+        //*         if ($sliderInit.swiper) {
+        //*             $sliderInit.swiper.updateAutoHeight()
+        //*         }
+        //*     })
+        //* });
+
+
+        //* sliderData('fade', ()=> {
+        //*     sliderConfig.effect = 'fade'
+        //*     sliderConfig.fadeEffect = {
+        //*         crossFade: true
+        //*     }
+        //* })
+
+        //* sliderData('pagination-fraction', ()=> {  
+        //*     sliderConfig.pagination = {
+        //*         el: $unit('#pagination'),
+        //*         type: 'fraction',
+        //*         formatFractionCurrent: addZero,
+        //*         formatFractionTotal: addZero,
+        //*     }
+        //* });
+
+        //* sliderData('nested', ()=> {
+        //*     sliderConfig.nested = true
+        //* })
+        
+
+        if ($sliderInit.swiper) {
+            if ($wrapper) $wrapper.removeAttribute('style');
+            if ($slides) $slides.forEach(element => element.removeAttribute('style'));
+            $sliderInit.swiper.detachEvents();
+            $sliderInit.swiper.destroy();      
         }
         
-        if(sliderConfig) new Swiper(sliderInit, sliderConfig); 
+        if(sliderConfig) new Swiper($sliderInit, sliderConfig); 
     });
     window.addEventListener('resize', _slider);
 };

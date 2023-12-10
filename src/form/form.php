@@ -15,6 +15,26 @@ $mail->CharSet = 'UTF-8';
 $mail->setLanguage('ru', 'PHPMailer/language/');
 $mail->IsHTML(true);
 
+//**************recaptcha********************************* */
+
+// Проверяем была ли отправлена форма
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])) {
+ 
+    // Создаем POST запрос
+    $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
+    $recaptcha_secret = '6LfwaCUpAAAAAPeLEj3lcqHakKBOw_AZYxkxqkkW';
+    $recaptcha_response = $_POST['recaptcha_response'];
+ 
+    // Отправляем POST запрос и декодируем результаты ответа
+    $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
+    $recaptcha = json_decode($recaptcha);
+ 
+    // Принимаем меры в зависимости от полученного результата
+    if ($recaptcha->score >= 0.5) {
+        // Проверка пройдена - отправляем сообщение.
+
+//**************/recaptcha********************************* */
+
 //  if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/wp-load.php')) {
 //      /** Loads the WordPress Environment and Template */
 //      require_once($_SERVER['DOCUMENT_ROOT'] . '/wp-load.php');
@@ -329,3 +349,13 @@ if(array_key_exists('error', $result))
 header('Content-type: application/json');
 
 echo json_encode($response);
+
+
+
+//**************recaptcha********************************* */
+} else {
+    // Проверка не пройдена. Показываем ошибку.
+}
+
+}
+//**************/recaptcha********************************* */

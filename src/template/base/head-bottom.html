@@ -1,0 +1,12 @@
+  <!-- recaptcha -->  
+  <script src="https://www.google.com/recaptcha/api.js?render=6LfwaCUpAAAAAK9DzcUXwmmw1dh8In_7CWhDTmn6"></script>
+  <script>
+      grecaptcha.ready(function () {
+          grecaptcha.execute('6LfwaCUpAAAAAK9DzcUXwmmw1dh8In_7CWhDTmn6', { action: 'contact' }).then(function (token) {
+              //var recaptchaResponse = document.getElementsByClassName('recaptchaResponse');
+              //recaptchaResponse.value = token;
+              $('.recaptchaResponse').val(token);
+          });
+      });
+  </script>
+<!-- /recaptcha -->
