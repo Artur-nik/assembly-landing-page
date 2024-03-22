@@ -5,3 +5,4 @@ import './scroll';
 import './mask';
 //import './round';
 import './trigger';
+//import './static';

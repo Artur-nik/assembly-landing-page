@@ -344,36 +344,125 @@
   }
   _slider();
 
-  // src/components/video/video.js
-  var player = [];
-  var tag = document.createElement("script");
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName("script")[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  function initVideo(id, src) {
-    player[id] = new YT.Player(id, {
-      height: "100%",
-      width: "100%",
-      videoId: src,
-      events: {
-        "onReady": onPlayerReady
+  // src/components/video/videoYoutube.js
+  var initYoutubeScript = true;
+  function createYoutubeScript(start) {
+    let tag = document.createElement("script");
+    tag.src = "https://www.youtube.com/iframe_api";
+    let firstScriptTag = document.getElementsByTagName("script")[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    let checkYTPlayer = setInterval(changeYTPlayer, 250);
+    function changeYTPlayer() {
+      if (window.yt && YT && YT.Player && YT.Player) {
+        start();
+        if (initYoutubeScript)
+          initYoutubeScript = false;
+        clearInterval(checkYTPlayer);
       }
-    });
-    function onPlayerReady(event) {
-      event.target.playVideo();
     }
   }
-  function videoOpen(selector) {
-    $(selector).off("click");
-    $(selector).click(function() {
-      $(this).parent(".video").addClass("_active");
-      let srcVideo = $(this).data("video-src");
-      let idVideo = $(this).data("video-src") + "-" + Math.floor(Math.random() * (1e6 - 1e4 + 1) + 1e4);
-      $(this).parent(".video").find(".video__frame").attr("id", idVideo);
-      initVideo(idVideo, srcVideo);
+  function videoYoutube($root, data, index) {
+    const frameBox = $($root).find("[data-frame-box]");
+    const btn = $($root).find("[data-video-btn]");
+    const videoId = $($root).find("[data-video-id]").data("video-id");
+    const iframeId = "YT-" + index + (/* @__PURE__ */ new Date()).getTime();
+    const defaultConfig = {
+      init: true,
+      id: videoId,
+      play: false
+    };
+    const config = Object.assign(defaultConfig, data);
+    $(frameBox).attr("id", iframeId);
+    let player;
+    function init(_id) {
+      if (player)
+        return;
+      $($root).addClass("_active");
+      if (initYoutubeScript) {
+        createYoutubeScript(() => {
+          player = new YT.Player(iframeId, {
+            height: "100%",
+            width: "100%",
+            videoId: _id,
+            events: {
+              "onReady": (event) => {
+                event.target.playVideo();
+              }
+            }
+          });
+        });
+      } else {
+        player = new YT.Player(iframeId, {
+          height: "100%",
+          width: "100%",
+          videoId: _id,
+          events: {
+            "onReady": (event) => {
+              event.target.playVideo();
+            }
+          }
+        });
+      }
+    }
+    if (config.play) {
+      init(config.id);
+    } else if (config.init) {
+      $(btn).click(() => {
+        init(config.id);
+      });
+    } else {
+      $($root).on("init", (e, data2) => {
+        $(btn).click(() => {
+          init(data2 || config.id);
+        });
+        $($root).off("init");
+      });
+      $($root).on("initPlay", (e, data2) => {
+        init(data2 || config.id);
+        $($root).off("initPlay");
+      });
+    }
+    $($root).on("stopVideo", (e, data2) => {
+      if (player)
+        player.pauseVideo();
+    });
+    $($root).on("playVideo", (e, data2) => {
+      if (player)
+        player.playVideo();
+    });
+    $($root).on("loadVideoById", (e, data2) => {
+      if (data2 && player)
+        player.loadVideoById({ videoId: data2 });
     });
   }
-  videoOpen(".video__btn");
+
+  // src/js/utility/parseData.js
+  function parseData(data) {
+    if (isString(data)) {
+      data = data.trim();
+      data = data.includes(",") ? data.split(",") : [data];
+      const dataList = {};
+      data.forEach((dataValue) => {
+        if (dataValue.includes(":")) {
+          dataValue = dataValue.split(":");
+          const _key = dataValue[0].trim();
+          const _value = dataValue[1].trim();
+          dataList[_key.trim()] = Number(_value) ? Number(_value) : Boolean(_value) && _value === "false" ? false : Boolean(_value) && _value === "true" ? true : _value;
+        } else {
+          dataList[dataValue.trim()] = true;
+        }
+      });
+      return dataList;
+    }
+    return {};
+  }
+
+  // src/components/video/video.js
+  $("[data-video]").each((index, $root) => {
+    const config = parseData($($root).data("config"));
+    if ($($root).data("video").trim() === "youtube")
+      videoYoutube($root, config, index);
+  });
 
   // src/js/modules/toogle.js
   $("[data-toggle]").each((index, $toggle) => {
@@ -701,10 +790,12 @@
       processData: false,
       success: function(e) {
         formName.trigger("reset"), formName.find(":input").trigger("form-reset"), formName.find("button").prop("disabled", false);
+        formName.trigger("formSuccess");
         window.location.href = formName.data("next-page") || "/thanks.html";
       },
       error: function(e, i, t) {
         formName.find(".form-send__message").fadeIn(350);
+        formName.trigger("formError");
         setTimeout(function() {
           formName.find(".form-send__loading").hide();
           formName.find(".form-send__error").show();
@@ -788,16 +879,20 @@
     onOpen($modal, data, $trigger) {
       if (data.videoSrc) {
         if (!$($modal).find("iframe.video__frame").length) {
-          initVideo($($modal).find(".video__frame").attr("id"), data.videoSrc);
+          $($modal).find("[data-video]").trigger("initPlay", data.videoSrc);
+          $modal.__videoSrc = data.videoSrc;
         } else {
-          player[$($modal).find(".video__frame").attr("id")].loadVideoById({ videoId: data.videoSrc });
+          if ($modal.__videoSrc === data.videoSrc) {
+            $($modal).find("[data-video]").trigger("playVideo");
+          } else {
+            $($modal).find("[data-video]").trigger("loadVideoById", data.videoSrc);
+            $modal.__videoSrc = data.videoSrc;
+          }
         }
       }
     },
     onClose($modal) {
-      if ($($modal).find("iframe").length) {
-        player[$($modal).find(".video__frame")[0].id].pauseVideo();
-      }
+      $($modal).find("[data-video]").trigger("stopVideo");
     }
   });
 

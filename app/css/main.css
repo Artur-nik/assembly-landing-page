@@ -336,6 +336,10 @@ br {
   background-color: #000;
 }
 
+.grecaptcha-badge {
+  z-index: 100;
+}
+
 .animation {
   -webkit-animation-play-state: paused;
           animation-play-state: paused;
@@ -3124,6 +3128,10 @@ br {
 
 .flex-1-0-a {
   flex: 1 0 auto;
+}
+
+.flex-1-1-a {
+  flex: 1 1 auto;
 }
 
 .w-full {

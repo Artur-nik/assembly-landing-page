@@ -87,7 +87,7 @@
     "x-card-v3-html-17": {
         "prefix": "x-card-v3",
         "scope": "html, php",
-        "body": "<div class=\"${TM_FILENAME_BASE}__card\">\r\n    <div class=\"${TM_FILENAME_BASE}__card-image adaptive-box mb-15 mb-20@lg\">\r\n        <img class=\"adaptive-box__image lazy\" data-src=\"images/${TM_FILENAME_BASE}/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>\r\n    </div>\r\n    <p class=\"\"></p>\r\n</div>"
+        "body": "<div class=\"${TM_FILENAME_BASE}__card\">\r\n    <div class=\"${TM_FILENAME_BASE}__card-image adaptive-box mb-15 mb-20@lg\">\r\n        <img class=\"adaptive-box__image lazy\" data-src=\"images/${TM_FILENAME_BASE}/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>\r\n    </div>\r\n    <strong class=\"item\"></strong>\r\n    <p class=\"\"></p>\r\n</div>"
     },
     "x-card-v3-scss-18": {
         "prefix": "x-card-v3",
@@ -114,439 +114,484 @@
         "scope": "html, php",
         "body": "data-scroll-offset=\"\""
     },
-    "data-toggle-html-23-0": {
+    "data-static-html-23-0": {
+        "prefix": "data-static",
+        "scope": "html, php",
+        "body": "data-static=\"id: \""
+    },
+    "data-static-menu-html-23-1": {
+        "prefix": "data-static-menu",
+        "scope": "html, php",
+        "body": "data-static=\"id: menu\""
+    },
+    "data-static-soc-html-23-2": {
+        "prefix": "data-static-soc",
+        "scope": "html, php",
+        "body": "data-static=\"id: soc\""
+    },
+    "data-static-form-full-html-23-3": {
+        "prefix": "data-static-form-full",
+        "scope": "html, php",
+        "body": "data-static=\"id: form-error, event: formError; id: form-success, event: formSuccess\""
+    },
+    "data-static-form-success-html-23-4": {
+        "prefix": "data-static-form-success",
+        "scope": "html, php",
+        "body": "data-static=\"id: form-success\""
+    },
+    "data-static-form-error-html-23-5": {
+        "prefix": "data-static-form-error",
+        "scope": "html, php",
+        "body": "data-static=\"id: form-error\""
+    },
+    "data-toggle-html-24-0": {
         "prefix": "data-toggle",
         "scope": "html, php",
         "body": "data-toggle=\", ${1|toggle,show,hide,fadeIn,fadeOut,fadeToggle,slideDown,slideUp,slideToggle,addClass,removeClass,toggleClass|}\""
     },
-    "data-toggle-box-html-23-1": {
+    "data-toggle-box-html-24-1": {
         "prefix": "data-toggle-box",
         "scope": "html, php",
         "body": "data-toggle-box=\"\""
     },
-    "data-trigger-form-html-24": {
+    "data-trigger-form-html-25": {
         "prefix": "data-trigger-form",
         "scope": "html, php",
         "body": "data-trigger=\"#modal-form, modalOpen\""
     },
-    "data-trigger-video-html-25": {
+    "data-trigger-video-html-26": {
         "prefix": "data-trigger-video",
         "scope": "html, php",
         "body": "data-trigger=\"#modal-video, modalOpen\" data-video-src=\"\""
     },
-    "data-trigger-html-26": {
+    "data-trigger-html-27": {
         "prefix": "data-trigger",
         "scope": "html, php",
         "body": "data-trigger=\"\""
     },
-    "form-checkbox-html-27-0": {
+    "form-checkbox-html-28-0": {
         "prefix": "form-checkbox",
         "scope": "html, php",
         "body": "<span class=\"form-checkbox\" data-input-box>\r\n    <input class=\"form-checkbox__input\" type=\"checkbox\" data-input>\r\n    <span class=\"form-checkbox__decor\"></span>\r\n</span>"
     },
-    "form-checkbox-icon-html-27-1": {
+    "form-checkbox-icon-html-28-1": {
         "prefix": "form-checkbox-icon",
         "scope": "html, php",
         "body": "<span class=\"form-checkbox form-checkbox--icon\" data-input-box>\r\n    <input class=\"form-checkbox__input\" type=\"checkbox\" data-input>\r\n    <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#check\"></use></svg>\r\n</span>"
     },
-    "form-field-email-html-28-0": {
+    "form-field-email-html-29-0": {
         "prefix": "form-field-email",
         "scope": "html, php",
         "body": "<label class=\"form-field\" data-input-box>\r\n    <input class=\"form-field__input\" placeholder=\"email\" type=\"email\" name=\"email\" data-input>\r\n    <span class=\"form-field__text\">type: email</span>\r\n    <span class=\"form-field__error\">Пожалуйста, введите адрес электронной почты.</span>\r\n</label>"
     },
-    "form-field-email-required-html-28-1": {
+    "form-field-email-required-html-29-1": {
         "prefix": "form-field-email-required",
         "scope": "html, php",
         "body": "<label class=\"form-field\" data-input-box>\r\n    <input class=\"form-field__input\" placeholder=\"email\" type=\"email\" name=\"email\" data-input required>\r\n    <span class=\"form-field__text\">type: email required <span>*</span></span>\r\n    <span class=\"form-field__error\">Пожалуйста, введите адрес электронной почты.</span>\r\n    <span class=\"form-field__required\">\r\n        Укажите E-mail\r\n    </span>\r\n</label>"
     },
-    "form-field-number-html-29-0": {
+    "form-field-number-html-30-0": {
         "prefix": "form-field-number",
         "scope": "html, php",
         "body": "<label class=\"form-field\" data-input-box>\r\n    <input class=\"form-field__input\" placeholder=\"number\" type=\"number\" data-input name=\"name\">\r\n    <span class=\"form-field__text\">number</span>\r\n    <span class=\"form-field__number\">Пожалуйста, введите число.</span>\r\n</label>"
     },
-    "form-field-number-required-html-29-1": {
+    "form-field-number-required-html-30-1": {
         "prefix": "form-field-number-required",
         "scope": "html, php",
         "body": "<label class=\"form-field\" data-input-box>\r\n    <input class=\"form-field__input\" placeholder=\"number\" type=\"number\" name=\"name2\" data-input required>\r\n    <span class=\"form-field__text\">number <span>*</span></span>\r\n    <span class=\"form-field__error\">Пожалуйста, введите число.</span>\r\n    <span class=\"form-field__required\">\r\n        Укажите число\r\n    </span>\r\n</label>"
     },
-    "form-field-password-html-30-0": {
+    "form-field-password-html-31-0": {
         "prefix": "form-field-password",
         "scope": "html, php",
         "body": "<label class=\"form-field\" data-input-box>\r\n    <input class=\"form-field__input\" placeholder=\"password\" type=\"password\" data-input name=\"name2\">\r\n    <span class=\"form-field__text\">password</span>\r\n</label>"
     },
-    "form-field-password-required-html-30-1": {
+    "form-field-password-required-html-31-1": {
         "prefix": "form-field-password-required",
         "scope": "html, php",
         "body": "<label class=\"form-field\" data-input-box>\r\n    <input class=\"form-field__input\" placeholder=\"password\" type=\"password\" name=\"name2\" data-input required>\r\n    <span class=\"form-field__text\">password <span>*</span></span>\r\n    <span class=\"form-field__required\">\r\n        Укажите пароль\r\n    </span>\r\n</label>"
     },
-    "form-field-phone-html-31-0": {
+    "form-field-phone-html-32-0": {
         "prefix": "form-field-phone",
         "scope": "html, php",
         "body": "<label class=\"form-field\" data-input-box>\r\n    <input class=\"form-field__input\" data-mask=\"+7 (999) 999-99-99\" data-input placeholder=\"phone\" type=\"tel\" name=\"phone\">\r\n    <span class=\"form-field__text\">Ваш телефон</span>\r\n</label>"
     },
-    "form-field-phone-required-html-31-1": {
+    "form-field-phone-required-html-32-1": {
         "prefix": "form-field-phone-required",
         "scope": "html, php",
         "body": "<label class=\"form-field\" data-input-box>\r\n    <input class=\"form-field__input\" data-mask=\"+7 (999) 999-99-99\" data-input placeholder=\"phone\" type=\"tel\" name=\"phone\" required>\r\n    <span class=\"form-field__text\">type: tel required <span>*</span></span>\r\n    <span class=\"form-field__required\">\r\n        Укажите телефон\r\n    </span>\r\n</label>"
     },
-    "form-field-text-html-32-0": {
+    "form-field-text-html-33-0": {
         "prefix": "form-field-text",
         "scope": "html, php",
         "body": "<label class=\"form-field\" data-input-box>\r\n    <input class=\"form-field__input\" placeholder=\"text\" type=\"text\" name=\"name\" data-input>\r\n    <span class=\"form-field__text\">text</span>\r\n</label>"
     },
-    "form-field-text-required-html-32-1": {
+    "form-field-text-required-html-33-1": {
         "prefix": "form-field-text-required",
         "scope": "html, php",
         "body": "<label class=\"form-field\" data-input-box>\r\n    <input class=\"form-field__input\" placeholder=\"text\" type=\"text\" name=\"name\" data-input required>\r\n    <span class=\"form-field__text\">type: text required <span>*</span></span>\r\n    <span class=\"form-field__required\">\r\n        Укажите текст\r\n    </span>\r\n</label>"
     },
-    "form-file-html-33-0": {
+    "form-file-html-34-0": {
         "prefix": "form-file",
         "scope": "html, php",
         "body": "<label class=\"form-file\" data-input-box>\r\n    <span class=\"form-file__controller\">\r\n        <input class=\"form-file__input\"  type=\"file\" name=\"file\" data-input>\r\n        <span class=\"form-file__text\">\r\n            Загрузка файлов\r\n        </span>\r\n        <span class=\"form-file__quantity\">\r\n            <span class=\"form-file__loader loader\"></span>\r\n            <svg class=\"form-file__icon icon\"><use xlink:href=\"svg-sprite/sprite.svg#file\"></use></svg>\r\n            <span class=\"form-file__number\"></span> \r\n        </span>\r\n    </span>\r\n</label>"
     },
-    "form-file-multiple-html-33-1": {
+    "form-file-multiple-html-34-1": {
         "prefix": "form-file-multiple",
         "scope": "html, php",
         "body": "<label class=\"form-file\" data-input-box>\r\n    <span class=\"form-file__controller\">\r\n        <input class=\"form-file__input\" type=\"file\" name=\"files[]\" data-input multiple>\r\n        <span class=\"form-file__text\">\r\n            Загрузка файлов\r\n        </span>\r\n        <span class=\"form-file__quantity\">\r\n            <span class=\"form-file__loader loader\"></span>\r\n            <svg class=\"form-file__icon icon\"><use xlink:href=\"svg-sprite/sprite.svg#file\"></use></svg>\r\n            <span class=\"form-file__number\"></span> \r\n        </span>\r\n    </span>\r\n</label>"
     },
-    "form-radio-group-html-34": {
+    "form-radio-group-html-35": {
         "prefix": "form-radio-group",
         "scope": "html, php",
         "body": "<div class=\"form-radio-group\">\r\n    <label class=\"form-radio\">\r\n        <input class=\"form-radio__input\" type=\"radio\" name=\"text\" data-input>\r\n        <span class=\"form-radio__box\">text</span>\r\n    </label>\r\n    <label class=\"form-radio\">\r\n        <input class=\"form-radio__input\" type=\"radio\" name=\"text\" data-input>\r\n        <span class=\"form-radio__box\">text</span>\r\n    </label>\r\n    <label class=\"form-radio\">\r\n        <input class=\"form-radio__input\" type=\"radio\" name=\"text\" data-input>\r\n        <span class=\"form-radio__box\">text</span>\r\n    </label>\r\n    <label class=\"form-radio\">\r\n        <input class=\"form-radio__input\" type=\"radio\" name=\"text\" data-input>\r\n        <span class=\"form-radio__box\">text</span>\r\n    </label>\r\n</div>"
     },
-    "form-textarea-html-35-0": {
+    "form-textarea-html-36-0": {
         "prefix": "form-textarea",
         "scope": "html, php",
         "body": "<label class=\"form-textarea\" data-input-box=\"\">\r\n    <textarea class=\"form-textarea__input\" placeholder=\"text\" name=\"comment\" data-input=\"\"></textarea>\r\n    <span class=\"form-textarea__text\">\r\n        Text\r\n    </span>\r\n</label>"
     },
-    "form-textarea-required-html-35-1": {
+    "form-textarea-required-html-36-1": {
         "prefix": "form-textarea-required",
         "scope": "html, php",
         "body": "<label class=\"form-textarea\" data-input-box> \r\n    <textarea class=\"form-textarea__input\" placeholder=\"text\" data-input name=\"comment\" required></textarea>\r\n    <span class=\"form-textarea__text\">\r\n        Text\r\n    </span>\r\n    <span class=\"form-textarea__required\">\r\n        Укажите текст\r\n    </span>\r\n</label>"
     },
-    "form-html-36": {
+    "form-html-37": {
         "prefix": "form",
         "scope": "html, php",
         "body": "<form class=\"form js-form\" action=\"form/form.php\" data-next-page=\"/thanks.html\">\r\n    <input type=\"hidden\" name=\"form-title\">\r\n    <input type=\"hidden\" name=\"info\">\r\n    <!-- recaptcha -->\r\n    <input type=\"hidden\" name=\"recaptcha_response\" class=\"recaptchaResponse\">\r\n    <!-- /recaptcha -->\r\n    \r\n    <div class=\"form-send\">\r\n        <div class=\"form-send__message\">\r\n            <div class=\"form-send__loading\"><span></span></div>\r\n            <p class=\"form-send__error\">Что-то пошло не так. <br> Заявка не отправлена.</p>\r\n        </div>\r\n        <button type=\"submit\" class=\"form-send__btn btn btn-primary btn--theme-primary btn-primary--md\">\r\n            <span class=\"\">Перезвоните мне</span>\r\n        </button>\r\n    </div>\r\n</form>"
     },
-    "grid-6@lg-x2-html-37-0": {
+    "grid-6@lg-x2-html-38-0": {
         "prefix": "grid-6@lg-x2",
         "scope": "html, php",
         "body": "<div class=\"grid\">\r\n    <div class=\"col-6@lg\"></div>\r\n    <div class=\"col-6@lg\"></div>\r\n</div>"
     },
-    "grid-6@md-4@lg-html-37-1": {
+    "grid-6@md-4@lg-html-38-1": {
         "prefix": "grid-6@md-4@lg",
         "scope": "html, php",
         "body": "<div class=\"grid\">\r\n    <div class=\"col-6@md col-4@lg\"></div>\r\n</div>"
     },
-    "grid-6@md-4@lg-x3-html-37-2": {
+    "grid-6@md-4@lg-x3-html-38-2": {
         "prefix": "grid-6@md-4@lg-x3",
         "scope": "html, php",
         "body": "<div class=\"grid\">\r\n    <div class=\"col-6@md col-4@lg\"></div>\r\n    <div class=\"col-6@md col-4@lg\"></div>\r\n    <div class=\"col-6@md col-4@lg\"></div>\r\n</div>"
     },
-    "grid-6@md-3@lg-html-37-3": {
+    "grid-6@md-3@lg-html-38-3": {
         "prefix": "grid-6@md-3@lg",
         "scope": "html, php",
         "body": "<div class=\"grid\">\r\n    <div class=\"col-6@md col-3@lg\"></div>\r\n</div>"
     },
-    "grid-6@md-3@lg-x4-html-37-4": {
+    "grid-6@md-3@lg-x4-html-38-4": {
         "prefix": "grid-6@md-3@lg-x4",
         "scope": "html, php",
         "body": "<div class=\"grid\">\r\n    <div class=\"col-6@md col-3@lg\"></div>\r\n    <div class=\"col-6@md col-3@lg\"></div>\r\n    <div class=\"col-6@md col-3@lg\"></div>\r\n    <div class=\"col-6@md col-3@lg\"></div>\r\n</div>"
     },
-    "img-html-38-0": {
+    "img-html-39-0": {
         "prefix": "img",
         "scope": "html, php",
         "body": "<img src=\"images/${TM_FILENAME_BASE}/\" alt=\"\"/>"
     },
-    "bg-filename-scss-39-0": {
+    "bg-filename-scss-40-0": {
         "prefix": "bg-filename",
         "scope": "scss",
         "body": "background: url('../images/${TM_FILENAME_BASE}/') no-repeat center top / cover;"
     },
-    "bg-size-scss-39-1": {
+    "bg-size-scss-40-1": {
         "prefix": "bg-size",
         "scope": "scss",
         "body": "background: url('../images/${TM_FILENAME_BASE}/') no-repeat center top / size();"
     },
-    "img-adaptive-lazy-html-40": {
+    "img-adaptive-lazy-html-41": {
         "prefix": "img-adaptive-lazy",
         "scope": "html, php",
         "body": "<div class=\"adaptive-box\">\r\n    <img class=\"adaptive-box__image lazy\" data-src=\"images/${TM_FILENAME_BASE}/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>\r\n</div>"
     },
-    "img-adaptive-html-41": {
+    "img-adaptive-html-42": {
         "prefix": "img-adaptive",
         "scope": "html, php",
         "body": "<div class=\"adaptive-box\">\r\n    <img class=\"adaptive-box__image\" src=\"images/${TM_FILENAME_BASE}/\" alt=\"\"/>\r\n</div>"
     },
-    "img-bp-html-42": {
+    "img-bp-html-43": {
         "prefix": "img-bp",
         "scope": "html, php",
         "body": "<div class=\"adaptive-box\">\r\n    <picture>\r\n        <source srcset=\"images/${TM_FILENAME_BASE}/\" media=\"(min-width: px)\">\r\n        <img class=\"adaptive-box__image lazy\" data-src=\"images/${TM_FILENAME_BASE}/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>\r\n    </picture>\r\n</div>"
     },
-    "img-icon-lazyload-html-43": {
+    "img-icon-lazyload-html-44": {
         "prefix": "img-icon-lazyload",
         "scope": "html, php",
         "body": "<img class=\"lazy icon\" data-src=\"images/${TM_FILENAME_BASE}/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>"
     },
-    "img-icon-html-44": {
+    "img-icon-html-45": {
         "prefix": "img-icon",
         "scope": "html, php",
         "body": "<img class=\"icon\" src=\"images/${TM_FILENAME_BASE}/\" alt=\"\"/>"
     },
-    "img-lazyload-html-45": {
+    "img-lazyload-html-46": {
         "prefix": "img-lazyload",
         "scope": "html, php",
         "body": "<img class=\"lazy\" data-src=\"images/${TM_FILENAME_BASE}/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>"
     },
-    "img-webp-bp-html-46": {
+    "img-webp-bp-html-47": {
         "prefix": "img-webp-bp",
         "scope": "html, php",
         "body": "<div class=\"adaptive-box\">\r\n    <picture>\r\n        <source srcset=\"images/${TM_FILENAME_BASE}/\" type=\"image/webp\" media=\"(min-width: px)\">\r\n        <source srcset=\"images/${TM_FILENAME_BASE}/\" media=\"(min-width: px)\">\r\n        <source srcset=\"images/${TM_FILENAME_BASE}/\" type=\"image/webp\">\r\n        <img class=\"adaptive-box__image lazy\" data-src=\"images/${TM_FILENAME_BASE}/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>\r\n    </picture>\r\n</div>"
     },
-    "img-webp-html-47": {
+    "img-webp-html-48": {
         "prefix": "img-webp",
         "scope": "html, php",
         "body": "<div class=\"adaptive-box\">\r\n    <picture>\r\n        <source srcset=\"images/${TM_FILENAME_BASE}/.webp\" type=\"image/webp\">\r\n        <img class=\"adaptive-box__image lazy\" data-src=\"images/${TM_FILENAME_BASE}/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>\r\n    </picture>\r\n</div>"
     },
-    "questions-plus-html-48": {
+    "questions-plus-html-49": {
         "prefix": "questions-plus",
         "scope": "html, php",
         "body": "<div class=\"questions\"  ${1| ,data-questions=\"accordion\"|}>\r\n    <div class=\"questions-item\">\r\n        <div class=\"questions-item__header\">\r\n            <h4 class=\"questions-item__title\"></h4>\r\n            <div class=\"questions-item__toggel\"><div class=\"_plus\"></div></div>\r\n        </div>\r\n        <div class=\"questions-item__body\"></div>\r\n    </div>\r\n</div>"
     },
-    "questions-html-49": {
+    "questions-html-50": {
         "prefix": "questions",
         "scope": "html, php",
         "body": "<div class=\"questions\" ${1| ,data-questions=\"accordion\"|}>\r\n    <div class=\"questions-item\">\r\n        <div class=\"questions-item__header\">\r\n            <h4 class=\"questions-item__title\"></h4>\r\n            <div class=\"questions-item__toggel _arrow\">\r\n                <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg>\r\n            </div>\r\n        </div>\r\n        <div class=\"questions-item__body\"></div>\r\n    </div>\r\n</div>"
     },
-    "c-slider-v1-html-50": {
+    "c-slider-v1-html-51": {
         "prefix": "c-slider-v1",
         "scope": "html, php",
         "body": "<div class=\"slider\" data-slider=\"\" data-config=\"\">\r\n    <div class=\"slider__wrapper mb-20 mb-0@lg\">\r\n        <div class=\"swiper\" data-unit=\"#init\">\r\n            <div class=\"swiper-wrapper\" data-unit=\"#wrapper\">\r\n                <div class=\"swiper-slide\" data-unit=\"slide\">Slide 1</div>\r\n                <div class=\"swiper-slide\" data-unit=\"slide\">Slide 2</div>\r\n                <div class=\"swiper-slide\" data-unit=\"slide\">Slide 3</div>\r\n                <div class=\"swiper-slide\" data-unit=\"slide\">Slide 4</div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"box-center\">\r\n        <button class=\"slider-button slider-button--center-lg slider-button-prev btn btn--theme-outline\" data-unit=\"#prev\">\r\n            <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg>\r\n        </button>\r\n        <button class=\"slider-button slider-button--center-lg slider-button-next btn btn--theme-outline\" data-unit=\"#next\">\r\n            <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg>\r\n        </button>    \r\n    </div>\r\n</div>"
     },
-    "c-slider-v2-html-51": {
+    "c-slider-v2-html-52": {
         "prefix": "c-slider-v2",
         "scope": "html, php",
         "body": "<div class=\"slider grid\" data-slider=\"\" data-config=\"\">\r\n    <div class=\"col-10@lg\">\r\n        <h2 class=\"title title--size-\"></h2>\r\n    </div>\r\n    <div class=\"slider__wrapper order-1@lg\">\r\n        <div class=\"swiper\" data-unit=\"#init\">\r\n            <div class=\"swiper-wrapper\" data-unit=\"#wrapper\">\r\n                <div class=\"swiper-slide\" data-unit=\"slide\">Slide 1</div>\r\n                <div class=\"swiper-slide\" data-unit=\"slide\">Slide 2</div>\r\n                <div class=\"swiper-slide\" data-unit=\"slide\">Slide 3</div>\r\n                <div class=\"swiper-slide\" data-unit=\"slide\">Slide 4</div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"box-center m:align-right@lg col-2@lg\">\r\n        <button class=\"slider-button slider-button-prev btn btn--theme-outline mr-10\" data-unit=\"#prev\">\r\n            <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg>\r\n        </button>\r\n        <button class=\"slider-button slider-button-next btn btn--theme-outline\" data-unit=\"#next\">\r\n            <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg>\r\n        </button>    \r\n    </div>\r\n</div>"
     },
-    "c-slider-v3-html-52": {
+    "c-slider-v3-html-53": {
         "prefix": "c-slider-v3",
         "scope": "html, php",
         "body": "<div class=\"slider\" data-slider=\"\" data-config=\"\"> \r\n    <div class=\"slider__wrapper\">\r\n        <div class=\"swiper\" data-unit=\"#init\">\r\n            <div class=\"swiper-wrapper\" data-unit=\"#wrapper\">\r\n                <div class=\"swiper-slide\" data-unit=\"slide\">Slide 1</div>\r\n                <div class=\"swiper-slide\" data-unit=\"slide\">Slide 2</div>\r\n                <div class=\"swiper-slide\" data-unit=\"slide\">Slide 3</div>\r\n                <div class=\"swiper-slide\" data-unit=\"slide\">Slide 4</div>\r\n            </div>\r\n        </div>\r\n        <div class=\"slider-controller\">\r\n            <button class=\"slider-button slider-button-prev btn btn--theme-outline\" data-unit=\"#prev\">\r\n                <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg>\r\n            </button>\r\n            <div class=\"slider-pagination\" data-unit=\"#pagination\"></div>\r\n            <button class=\"slider-button slider-button-next btn btn--theme-outline\" data-unit=\"#next\">\r\n                <svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg>\r\n            </button>\r\n        </div>\r\n    </div>\r\n</div>"
     },
-    "adaptive-box-scss-54": {
+    "adaptive-box-scss-55": {
         "prefix": "adaptive-box",
         "scope": "scss",
         "body": "--adaptive-box: #{height($1, $2)};",
         "description": "adaptive-box #{height(height,width)}"
     },
-    "dp-none-scss-55-0": {
+    "dp-none-scss-56-0": {
         "prefix": "dp-none",
         "scope": "scss",
         "body": "display: none;"
     },
-    "dp-block-scss-55-1": {
+    "dp-block-scss-56-1": {
         "prefix": "dp-block",
         "scope": "scss",
         "body": "--dp-block: block;\r\ndisplay: var(--dp-block);"
     },
-    "dp-flex-scss-55-2": {
+    "dp-flex-scss-56-2": {
         "prefix": "dp-flex",
         "scope": "scss",
         "body": "--dp-flex: flex;\r\ndisplay: var(--dp-flex);"
     },
-    "font-size-size-scss-56-0": {
+    "font-size-size-scss-57-0": {
         "prefix": "font-size-size",
         "scope": "scss",
         "body": "font-size: size($0);"
     },
-    "font-size-size-lg-scss-56-1": {
+    "font-size-size-lg-scss-57-1": {
         "prefix": "font-size-size-lg",
         "scope": "scss",
         "body": "font-size: size();\r\n@include media(lg) {\r\n     font-size: size();\r\n}"
     },
-    "gap-y-scss-57-0": {
+    "gap-y-scss-58-0": {
         "prefix": "gap-y",
         "scope": "scss",
         "body": "--grid-gap-y: #{size()};"
     },
-    "gap-x-scss-57-1": {
+    "gap-x-scss-58-1": {
         "prefix": "gap-x",
         "scope": "scss",
         "body": "--grid-gap-x: #{size()};"
     },
-    "mb-scss-58-0": {
+    "mb-scss-59-0": {
         "prefix": "mb",
         "scope": "scss",
         "body": "margin-bottom: size($0);"
     },
-    "mb-lg-scss-58-1": {
+    "mb-lg-scss-59-1": {
         "prefix": "mb-lg",
         "scope": "scss",
         "body": "margin-bottom: size();\r\n@include media(lg) {\r\n     margin-bottom: size();\r\n}"
     },
-    "media-scss-59-0": {
+    "media-scss-60-0": {
         "prefix": "media",
         "scope": "scss",
         "body": "@include media(${1|sm,xs,md,lg,xl,hg,hd|}, ${3|min,max,only|}) {\r\n    $2\r\n}"
     },
-    "media-md-scss-59-1": {
+    "media-md-scss-60-1": {
         "prefix": "media-md",
         "scope": "scss",
         "body": "@include media(md) {\r\n    $0\r\n}"
     },
-    "media-lg-scss-59-2": {
+    "media-lg-scss-60-2": {
         "prefix": "media-lg",
         "scope": "scss",
         "body": "@include media(lg) {\r\n    $0\r\n}"
     },
-    "padding-y-scss-60-0": {
+    "padding-y-scss-61-0": {
         "prefix": "padding-y",
         "scope": "scss",
         "body": "padding-top: size();\r\npadding-bottom: size();"
     },
-    "padding-x-scss-60-1": {
+    "padding-x-scss-61-1": {
         "prefix": "padding-x",
         "scope": "scss",
         "body": "padding-left: size();\r\npadding-right: size();"
     },
-    "padding-s-lg-scss-60-2": {
+    "padding-s-lg-scss-61-2": {
         "prefix": "padding-s-lg",
         "scope": "scss",
         "body": "padding: size();\r\n@include media(lg) {\r\n     padding: size();\r\n}"
     },
-    "padding-s-0-lg-scss-60-3": {
+    "padding-s-0-lg-scss-61-3": {
         "prefix": "padding-s-0-lg",
         "scope": "scss",
         "body": "padding: size() 0;\r\n@include media(lg) {\r\n     padding: size() 0;\r\n}"
     },
-    "size-scss-61-0": {
+    "size-scss-62-0": {
         "prefix": "size",
         "scope": "scss",
         "body": "size($0)",
         "description": " size(100, 100, 'rem')"
     },
-    "size-em-scss-61-1": {
+    "size-em-scss-62-1": {
         "prefix": "size-em",
         "scope": "scss",
         "body": "size($0, $1, 'em')",
         "description": " size(100, 100, 'em')"
     },
-    "size-%-scss-61-2": {
+    "size-%-scss-62-2": {
         "prefix": "size-%",
         "scope": "scss",
         "body": "size($0, $1, '%')",
         "description": " size(100, 100, '%')"
     },
-    "size-number-scss-61-3": {
+    "size-number-scss-62-3": {
         "prefix": "size-number",
         "scope": "scss",
         "body": "size($0, $1, 'number')",
         "description": " size(100, 100, 'number')"
     },
-    "swiper-pagination-custom-js-62": {
+    "swiper-pagination-custom-js-63": {
         "prefix": "swiper-pagination-custom",
         "scope": "javascript",
         "body": "pagination: {\r\n    el: '.swiper-pagination',\r\n    type: 'fraction',\r\n    formatFractionCurrent: addZero,\r\n    formatFractionTotal: addZero,\r\n    renderFraction: function(currentClass, totalClass) {\r\n        return '<span class=\"swiper-pagination-current\">' + currentClass + '</span>' +\r\n            '<span class=\"swiper-pagination-line\"></span>' +\r\n            '<span class=\"swiper-pagination-total\">' + totalClass + '</span>'\r\n    }\r\n},"
     },
-    "swiper-pagination-format-js-63": {
+    "swiper-pagination-format-js-64": {
         "prefix": "swiper-pagination-format",
         "scope": "javascript",
         "body": "pagination: {\r\n    el: '.swiper-pagination',\r\n    type: 'fraction',\r\n    formatFractionCurrent: addZero,\r\n    formatFractionTotal: addZero,\r\n},"
     },
-    "swiper-pagination-progressbar-js-64": {
+    "swiper-pagination-progressbar-js-65": {
         "prefix": "swiper-pagination-progressbar",
         "scope": "javascript",
         "body": "pagination: {\r\n    el: '.swiper-pagination',\r\n    type: 'progressbar',\r\n},"
     },
-    "swiper-scrollbar-js-65": {
+    "swiper-scrollbar-js-66": {
         "prefix": "swiper-scrollbar",
         "scope": "javascript",
         "body": "scrollbar: {\r\n    el: '.swiper-scrollbar',\r\n    draggable: true,\r\n}"
     },
-    "swiper-btn-group-html-66": {
+    "swiper-btn-group-html-67": {
         "prefix": "swiper-btn-group",
         "scope": "html, php",
         "body": "<div class=\"swiper-button-group\">\r\n    <button class=\"swiper-button-prev\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>\r\n    <button class=\"swiper-button-next\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>\r\n</div>"
     },
-    "swiper-controller-lvl-1-html-67": {
+    "swiper-controller-lvl-1-html-68": {
         "prefix": "swiper-controller-lvl-1",
         "scope": "html, php",
         "body": "<div class=\"swiper-controller\">\r\n    <div class=\"swiper-pagination\"></div>\r\n    <button class=\"swiper-button-prev\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>\r\n    <button class=\"swiper-button-next\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>\r\n</div>"
     },
-    "swiper-controller-lvl-2-html-68": {
+    "swiper-controller-lvl-2-html-69": {
         "prefix": "swiper-controller-lvl-2",
         "scope": "html, php",
         "body": "<div class=\"swiper-controller\">\r\n    <button class=\"swiper-button-prev\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>\r\n    <div class=\"swiper-pagination\"></div>\r\n    <button class=\"swiper-button-next\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>\r\n</div>"
     },
-    "swiper-pagination-html-69": {
+    "swiper-pagination-html-70": {
         "prefix": "swiper-pagination",
         "scope": "html, php",
         "body": "<div class=\"swiper-pagination\"></div>"
     },
-    "swiper-scrollbar-html-70": {
+    "swiper-scrollbar-html-71": {
         "prefix": "swiper-scrollbar",
         "scope": "html, php",
         "body": "<div class=\"swiper-scrollbar\"></div>"
     },
-    "swiper-html-71": {
+    "swiper-html-72": {
         "prefix": "swiper",
         "scope": "html, php",
         "body": "<div class=\"-swiper swiper\">\r\n    <div class=\"swiper-wrapper\">\r\n        <div class=\"swiper-slide\">Slide 1</div>\r\n        <div class=\"swiper-slide\">Slide 2</div>\r\n        <div class=\"swiper-slide\">Slide 3</div>\r\n    </div>\r\n\r\n    <div class=\"swiper-pagination\"></div>\r\n\r\n    <button class=\"swiper-button-prev\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>\r\n    <button class=\"swiper-button-next\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#arrow\"></use></svg></button>\r\n    \r\n    <div class=\"swiper-scrollbar\"></div>\r\n</div>"
     },
-    "tab-html-72": {
+    "tab-html-73": {
         "prefix": "tab",
         "scope": "html, php",
         "body": "<div class=\"tab\">\r\n    <div class=\"tab__controller\">\r\n        <button class=\"tab__btn btn\"></button>\r\n        <button class=\"tab__btn btn\"></button>\r\n    </div>\r\n    <div class=\"tab__wrapper\">\r\n        <div class=\"tab__box m:hide\"></div>\r\n        <div class=\"tab__box m:hide\"></div>\r\n    </div>\r\n</div>"
     },
-    "x-avatar-html-73": {
+    "x-avatar-html-74": {
         "prefix": "x-avatar",
         "scope": "html, php",
         "body": "<div class=\"box\">\r\n    <img class=\"lazy icon t:size-40 br-full mr-10\" data-src=\"images/${TM_FILENAME_BASE}/\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>\r\n    <div class=\"m:center-y\">\r\n        <strong class=\"item mb-5\"></strong>\r\n        <p class=\"\"></p>\r\n    </div>\r\n</div>"
     },
-    "x-contacts-address-html-74-0": {
+    "x-contacts-address-html-75-0": {
         "prefix": "x-contacts-address",
         "scope": "html, php",
         "body": "<div class=\"wow fadeIn\">\r\n    <p class=\"\"></p>\r\n    <address class=\"t:no-italic\"></address>\r\n</div>"
     },
-    "x-contacts-tel-html-74-1": {
+    "x-contacts-tel-html-75-1": {
         "prefix": "x-contacts-tel",
         "scope": "html, php",
         "body": "<div class=\"wow fadeIn\">\r\n    <p class=\"\"></p>\r\n    <a href=\"tel:+\" class=\"link\"></a>\r\n</div>"
     },
-    "x-contacts-mailto-html-74-2": {
+    "x-contacts-mailto-html-75-2": {
         "prefix": "x-contacts-mailto",
         "scope": "html, php",
         "body": "<div class=\"wow fadeIn\">\r\n    <p class=\"\"></p>\r\n    <a href=\"mailto:\" class=\"link\"></a>\r\n</div>"
     },
-    "x-contacts-info-html-74-3": {
+    "x-contacts-info-html-75-3": {
         "prefix": "x-contacts-info",
         "scope": "html, php",
         "body": "<div class=\"wow fadeIn\">\r\n    <p class=\"\"></p>\r\n    <p class=\"\"></p>\r\n</div>"
     },
-    "x-contacts-tel-btn-right-html-74-4": {
+    "x-contacts-tel-btn-right-html-75-4": {
         "prefix": "x-contacts-tel-btn-right",
         "scope": "html, php",
         "body": "<div class=\"box-y m:align-right wow fadeIn\">\r\n    <a href=\"tel:+\" class=\"link\"></a>\r\n    <button class=\"btn link\" data-trigger=\"#modal-form, modalOpen\"></button>\r\n</div>"
     },
-    "x-contacts-tel-mail-right-html-74-5": {
+    "x-contacts-tel-mail-right-html-75-5": {
         "prefix": "x-contacts-tel-mail-right",
         "scope": "html, php",
         "body": "<div class=\"box-y m:align-right wow fadeIn\">\r\n    <a href=\"tel:+\" class=\"link\"></a>\r\n    <a href=\"mailto:\" class=\"link\"></a>\r\n</div>"
     },
-    "x-menu-y-x@lg-html-75": {
+    "x-logo-html-76": {
+        "prefix": "x-logo",
+        "scope": "html, php",
+        "body": "<img class=\"w-60 w-110@lg ml-60@lg wow fadeIn\" src=\"images/global/log.svg\" alt=\"\"/>"
+    },
+    "x-menu-x-html-77": {
+        "prefix": "x-menu-x",
+        "scope": "html, php",
+        "body": "<nav class=\"item\">\r\n    <ul class=\"${TM_FILENAME_BASE}__menu\">\r\n        <li><a href=\"#\" class=\"link scroll\"></a></li>\r\n        <li><a href=\"#\" class=\"link scroll\"></a></li>\r\n        <li><a href=\"#\" class=\"link scroll\"></a></li>\r\n        <li><a href=\"#\" class=\"link scroll\"></a></li>\r\n    </ul>\r\n</nav>"
+    },
+    "x-menu-x-scss-78": {
+        "prefix": "x-menu-x",
+        "scope": "scss",
+        "body": "&__menu {\r\n    display: flex;\r\n    li {\r\n        &:not(:last-child) {\r\n            margin-right: size(20);\r\n        }\r\n    }\r\n    a {\r\n        font-size: size(18);\r\n    }\r\n}"
+    },
+    "x-menu-y-x@lg-html-79": {
         "prefix": "x-menu-y-x@lg",
         "scope": "html, php",
         "body": "<ul class=\"${TM_FILENAME_BASE}__menu\">\r\n    <li class=\"box-center\"><a href=\"#\"  class=\"link-decor scroll wow fadeIn\"></a></li>\r\n    <li class=\"box-center\"><a href=\"#\"  class=\"link-decor scroll wow fadeIn\"></a></li>\r\n    <li class=\"box-center\"><a href=\"#\"  class=\"link-decor scroll wow fadeIn\"></a></li>\r\n    <li class=\"box-center\"><a href=\"#\"  class=\"link-decor scroll wow fadeIn\"></a></li>\r\n</ul>"
     },
-    "x-menu-y-x@lg-scss-76": {
+    "x-menu-y-x@lg-scss-80": {
         "prefix": "x-menu-y-x@lg",
         "scope": "scss",
         "body": "&__menu {\r\n    @include media(lg) {\r\n        display: flex;\r\n    }\r\n    li {\r\n        &:not(:last-child) {\r\n            margin-bottom: size(15);\r\n            @include media(lg) {\r\n                margin-bottom: 0;\r\n                margin-right: size(20);\r\n            }\r\n        }\r\n    }\r\n    a {\r\n        font-size: size(18);\r\n    }\r\n}"
     },
-    "video-youtube-html-77": {
+    "video-youtube-html-82": {
         "prefix": "video-youtube",
         "scope": "html, php",
-        "body": "<div class=\"video adaptive-box\">\r\n    <img class=\"video__preview lazy\" data-src=\"//img.youtube.com/vi/    /maxresdefault.jpg\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>\r\n    <div class=\"video__frame\"></div>\r\n    <button class=\"video__btn btn btn-play btn--theme-primary\" data-video-src=\"\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#play\"></use></svg></button>\r\n    <span class=\"loader loader--center loader--size-lg\"></span>\r\n</div>"
+        "body": "<div class=\"video adaptive-box\" data-video=\"youtube\">\r\n    <img class=\"video__preview lazy\" data-src=\"//img.youtube.com/vi/    /maxresdefault.jpg\" src=\"images/global/lazyload.png\" alt=\"\" loading=\"lazy\"/>\r\n    <div class=\"video__frame\" data-frame-box></div>\r\n    <button class=\"video__btn btn btn-play btn--theme-primary\" data-video-id=\"BHxotcL102Q\" data-video-btn=\"\"><svg class=\"icon\"><use xlink:href=\"svg-sprite/sprite.svg#play\"></use></svg></button>\r\n    <span class=\"loader loader--center loader--size-lg\"></span>\r\n</div>"
     }
 }

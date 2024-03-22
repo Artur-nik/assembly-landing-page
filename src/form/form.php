@@ -182,7 +182,7 @@ $url = 'data:image/svg+xml;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAg
 
 
 
-$body .= '</table>        <!--[if (gte mso 9)|(IE)]>    </td>    </tr>    </table>  <![endif]-->    </div></center><center style="width: 100%;table-layout:fixed;background-color: #C7ECF2;">         <!--[if (gte mso 9)|(IE)]>            <table width="600" align="center" border="0" cellspacing="0" cellpadding="0" role="presentation"              style="color:#000000;">            <tr>            <td>        <![endif]--><table align="center" border="0" cellspacing="0" cellpadding="0" role="presentation" style="Margin:0;padding:0;width: 100%;max-width: 600px;"><tr >    <td>        <a href="" style="width: 100%;">            <img src="' . $url . '" alt="Подвал" style="width: 100%;"/>        </a>    </td></tr></table><!--[if (gte mso 9)|(IE)]>        </td>        </tr>        </table>      <![endif]--></center></body></html>';
+$body .= '</table>        <!--[if (gte mso 9)|(IE)]>    </td>    </tr>    </table>  <![endif]-->    </div></center><center style="width: 100%;table-layout:fixed;background-color: #C7ECF2;">         <!--[if (gte mso 9)|(IE)]>            <table width="600" align="center" border="0" cellspacing="0" cellpadding="0" role="presentation"              style="color:#000000;">            <tr>            <td>        <![endif]--><table align="center" border="0" cellspacing="0" cellpadding="0" role="presentation" style="Margin:0;padding:0;width: 100%;max-width: 600px;"><tr >    <td>        <a href="https://editme.agency/" style="width: 100%;">            <img src="' . $url . '" alt="Подвал" style="width: 100%;"/>        </a>    </td></tr></table><!--[if (gte mso 9)|(IE)]>        </td>        </tr>        </table>      <![endif]--></center></body></html>';
 
 //* один файл
 if (
@@ -355,6 +355,9 @@ echo json_encode($response);
 //**************recaptcha********************************* */
 } else {
     // Проверка не пройдена. Показываем ошибку.
+    header('Content-type: application/json');
+    $response = ['message' => 'false'];
+    echo json_encode($response);
 }
 
 }

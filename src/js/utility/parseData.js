@@ -11,7 +11,7 @@ export function parseData(data) {
                 dataValue = dataValue.split(':')
                 const _key = dataValue[0].trim()
                 const _value = dataValue[1].trim()
-                dataList[_key.trim()] = Number(_value) ? Number(_value) : _value
+                dataList[_key.trim()] = Number(_value) ? Number(_value) : Boolean(_value) && _value === 'false' ? false :  Boolean(_value) && _value === 'true' ? true :  _value
             }
             else {
                 dataList[dataValue.trim()] = true

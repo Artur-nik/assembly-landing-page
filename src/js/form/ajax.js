@@ -94,10 +94,12 @@ $('.js-form').submit(function(){
             formName.trigger("reset"),
             formName.find(':input').trigger("form-reset"),
             formName.find("button").prop("disabled", !1);
+            formName.trigger('formSuccess')
             window.location.href = formName.data('next-page') || '/thanks.html';
         },
         error: function (e, i, t) {
             formName.find('.form-send__message').fadeIn(350);
+            formName.trigger('formError')
             //*
             setTimeout(function () {
                 formName.find(".form-send__loading").hide();
